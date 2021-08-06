@@ -30,18 +30,33 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        let loginText = loginTextField.text
+        let passwordText = passwordTextField.text
+        if loginText == "1" && passwordText == "1" {
+            print("Success login")
+        } else {
+            print("Login or password is incorrect")
+        }
     }
     
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
+        print("Login with Facebook button pressed")
     }
-    
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
+        print("Login with Apple button pressed")
     }
     @objc func dismissKeyBoard() {
         self.view.endEditing(true)
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
+        let loginText = loginTextField.text
+        let passwordText = passwordTextField.text
+        if loginText == "1" && passwordText == "1" {
+            print("Success Register")
+        } else {
+            print("Register fail")
+        }
     }
     // Replace "TouchesBegan" - not work here.
     //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
