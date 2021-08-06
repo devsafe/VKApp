@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
-		11CCD81D26BC6403009A5865 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81C26BC6403009A5865 /* ViewController.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
 		11CCD82226BC6405009A5865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82126BC6405009A5865 /* Assets.xcassets */; };
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
@@ -20,7 +19,6 @@
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		11CCD81C26BC6403009A5865 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		11CCD81F26BC6403009A5865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11CCD82126BC6405009A5865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11CCD82426BC6405009A5865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,16 +56,47 @@
 		11CCD81726BC6403009A5865 /* VKApp */ = {
 			isa = PBXGroup;
 			children = (
+				11CCD83026BDA08D009A5865 /* Delegate */,
+				11CCD81E26BC6403009A5865 /* Main.storyboard */,
+				11CCD83326BDA194009A5865 /* Controllers */,
+				11CCD83126BDA0C2009A5865 /* Resources */,
+				11CCD83226BDA0FD009A5865 /* Configuration */,
+			);
+			path = VKApp;
+			sourceTree = "<group>";
+		};
+		11CCD83026BDA08D009A5865 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
 				11CCD81826BC6403009A5865 /* AppDelegate.swift */,
 				11CCD81A26BC6403009A5865 /* SceneDelegate.swift */,
-				11CCD81C26BC6403009A5865 /* ViewController.swift */,
-				11CCD81E26BC6403009A5865 /* Main.storyboard */,
-				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		11CCD83126BDA0C2009A5865 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				11CCD82126BC6405009A5865 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		11CCD83226BDA0FD009A5865 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
 				11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */,
 				11CCD82626BC6405009A5865 /* Info.plist */,
 			);
-			path = VKApp;
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		11CCD83326BDA194009A5865 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +169,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11CCD81D26BC6403009A5865 /* ViewController.swift in Sources */,
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
@@ -292,7 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LA3HM9Z55Z;
-				INFOPLIST_FILE = VKApp/Info.plist;
+				INFOPLIST_FILE = VKApp/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -312,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LA3HM9Z55Z;
-				INFOPLIST_FILE = VKApp/Info.plist;
+				INFOPLIST_FILE = VKApp/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
