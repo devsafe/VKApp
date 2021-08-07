@@ -18,10 +18,10 @@ final class LoginFormController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //         Adding code for hidding keyboard after tap on some area around keyboard
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
+        
         
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
@@ -115,7 +115,7 @@ final class LoginFormController: UIViewController {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return false }
         
-        if login == "admin" && password == "123456" {
+        if login == "1" && password == "1" {
             return true
         } else {
             return false
