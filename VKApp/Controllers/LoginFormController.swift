@@ -25,7 +25,7 @@ final class LoginFormController: UIViewController {
         
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
-        loginWithFacebookButton.setImage(UIImage(systemName: "message.circle.fill"), for: .normal)
+        loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
         loginWithFacebookButton.tintColor = .white
         loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
         loginWithAppleButton.tintColor = .white
