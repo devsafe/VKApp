@@ -50,22 +50,15 @@ final class LoginFormController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let checkResult = checkUserData()
+        if !checkResult {
+            showLoginError()
+        }
+        return checkResult
+    }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        let loginText = loginTextField.text
-        let passwordText = passwordTextField.text
-        if loginText == "1" && passwordText == "1" {
-            print("Success login")
-        } else {
-            print("Login or password is incorrect")
-            passwordTextField.text = nil
-                        let errorLoginAlert = UIAlertController(
-                            title: "Error",
-                            message: "Invalid username or password.", preferredStyle: .actionSheet)
-                        errorLoginAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-                        self.present(errorLoginAlert, animated: true, completion: nil)
-        }
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -77,11 +70,11 @@ final class LoginFormController: UIViewController {
         } else {
             print("Register fail")
             passwordTextField.text = nil
-                        let errorRegisterAlert = UIAlertController(
-                            title: "Error",
-                            message: "Register func is not available now", preferredStyle: .actionSheet)
-                        errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-                        self.present(errorRegisterAlert, animated: true, completion: nil)
+            let errorRegisterAlert = UIAlertController(
+                title: "Error",
+                message: "Register func is not available now", preferredStyle: .actionSheet)
+            errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+            self.present(errorRegisterAlert, animated: true, completion: nil)
         }
     }
     
@@ -117,6 +110,29 @@ final class LoginFormController: UIViewController {
         let contentInsets = UIEdgeInsets.zero
         scrollView?.contentInset = contentInsets
     }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return false }
+        
+        if login == "admin" && password == "123456" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func showLoginError() {
+        let alter = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alter.addAction(action)
+        present(alter, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
     
     
     //     Replace "TouchesBegan" - not work here.
