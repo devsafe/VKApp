@@ -26,7 +26,9 @@ final class LoginFormController: UIViewController {
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
         loginWithFacebookButton.setImage(UIImage(systemName: "message.circle.fill"), for: .normal)
+        loginWithFacebookButton.tintColor = .white
         loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
+        loginWithAppleButton.tintColor = .white
         loginWithAppleButton.layer.cornerRadius = 8
         loginWithFacebookButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
@@ -57,6 +59,12 @@ final class LoginFormController: UIViewController {
             print("Success login")
         } else {
             print("Login or password is incorrect")
+            passwordTextField.text = nil
+                        let errorLoginAlert = UIAlertController(
+                            title: "Error",
+                            message: "Invalid username or password.", preferredStyle: .actionSheet)
+                        errorLoginAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+                        self.present(errorLoginAlert, animated: true, completion: nil)
         }
     }
     
@@ -68,6 +76,12 @@ final class LoginFormController: UIViewController {
             print("Success Register")
         } else {
             print("Register fail")
+            passwordTextField.text = nil
+                        let errorRegisterAlert = UIAlertController(
+                            title: "Error",
+                            message: "Register func is not available now", preferredStyle: .actionSheet)
+                        errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+                        self.present(errorRegisterAlert, animated: true, completion: nil)
         }
     }
     
