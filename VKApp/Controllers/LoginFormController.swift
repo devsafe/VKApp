@@ -7,20 +7,21 @@
 
 import UIKit
 
-class LoginFormController: UIViewController {
-    @IBOutlet var loginTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var loginWithFacebookButton: UIButton!
-    @IBOutlet weak var loginWithAppleButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
+final class LoginFormController: UIViewController {
+    @IBOutlet private var loginTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet private var loginWithFacebookButton: UIButton!
+    @IBOutlet private var loginWithAppleButton: UIButton!
+    @IBOutlet private var registerButton: UIButton!
+    @IBOutlet private var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Adding code for hidding keyboard after tap on some area around keyboard
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
-        self.view.addGestureRecognizer(tap)
+        //         Adding code for hidding keyboard after tap on some area around keyboard
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
+        self.scrollView?.addGestureRecognizer(tapGesture)
         
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
@@ -28,6 +29,24 @@ class LoginFormController: UIViewController {
         loginWithFacebookButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Observe to keyboard appear
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
+        // Observe to keyboard disappear
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text
@@ -39,29 +58,55 @@ class LoginFormController: UIViewController {
         }
     }
     
-    @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
-        print("Login with Facebook button pressed")
-    }
-    @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
-        print("Login with Apple button pressed")
-    }
-    @objc func dismissKeyBoard() {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text
         let passwordText = passwordTextField.text
+        
         if loginText == "1" && passwordText == "1" {
             print("Success Register")
         } else {
             print("Register fail")
         }
     }
-    // Replace "TouchesBegan" - not work here.
-    //    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    //        self.view.endEditing(true)
-    //    }
+    
+    @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
+        print("Login with Facebook button pressed")
+    }
+    
+    @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
+        print("Login with Apple button pressed")
+    }
+    
+    @objc func dismissKeyBoard() {
+        self.view.endEditing(true)
+    }
+    
+    
+    // Когда клавиатура появляется
+    @objc func keyboardWasShown(notification: Notification) {
+        
+        // Получаем размер клавиатуры
+        let info = notification.userInfo! as NSDictionary
+        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        
+        // Добавляем отступ внизу UIScrollView, равный размеру клавиатуры
+        self.scrollView?.contentInset = contentInsets
+        scrollView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    //Когда клавиатура исчезает
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        // Устанавливаем отступ внизу UIScrollView, равный 0
+        let contentInsets = UIEdgeInsets.zero
+        scrollView?.contentInset = contentInsets
+    }
+    
+    
+    //     Replace "TouchesBegan" - not work here.
+    //        override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    //            self.view.endEditing(true)
+    //        }
     
     
 }
