@@ -13,6 +13,7 @@
 		11CCD82226BC6405009A5865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82126BC6405009A5865 /* Assets.xcassets */; };
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
+		11CCD83726BEA6DE009A5865 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD83626BEA6DE009A5865 /* TabbarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		11CCD82426BC6405009A5865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		11CCD83626BEA6DE009A5865 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
+				11CCD83626BEA6DE009A5865 /* TabbarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CCD83726BEA6DE009A5865 /* TabbarViewController.swift in Sources */,
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
