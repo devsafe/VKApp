@@ -9,9 +9,6 @@ import UIKit
 
 class CommunitiesController: UITableViewController {
     
-//    let communitiesArray = [["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","3334","1"]]
-//    var tempArray = [[["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","3334","1"]]]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,7 +28,7 @@ class CommunitiesController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Variables.communitiesList.communitiesArray.count
+        return Variables.favCommunitiesList.favCommunitiesArray.count
     }
 
     
@@ -43,8 +40,19 @@ class CommunitiesController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "rectangle.stack.person.crop.fill")
         content.prefersSideBySideTextAndSecondaryText = false
-        content.text = Variables.communitiesList.communitiesArray[indexPath.row][0]
-        content.secondaryText = Variables.communitiesList.communitiesArray[indexPath.row][1] + " peoples"
+        Variables.favCommunitiesList.favCommunitiesArray.popLast()
+        for index in Variables.communitiesList.communitiesArray {
+            
+            if index[2] == "1" {
+               // Variables.favCommunitiesList.favCommunitiesArray.popLast()
+                Variables.favCommunitiesList.favCommunitiesArray.append(index)
+            }
+
+        }
+        
+        print(Variables.favCommunitiesList.favCommunitiesArray)
+        content.text = Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][0]
+        content.secondaryText = Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][1] + " peoples"
         cell.contentConfiguration = content
         return cell
     }
