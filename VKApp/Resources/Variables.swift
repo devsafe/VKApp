@@ -21,7 +21,7 @@ struct Variables {
         static var favCommunitiesArray: [[String]] = [[]]
         }
     struct profileList {
-        static var profileArray = [["Name","Boris Sobolev"],["Location","Moscow"],["Age","33"]]
+        static var profileArray = [["Name","Boris Sobolev"],["Location","Moscow"],["Age","18"]]
     }
 }
 

@@ -46,8 +46,12 @@ class ProfileController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "bookmark")
         content.prefersSideBySideTextAndSecondaryText = false
-        content.text = profileArray[indexPath.row][0]
-        content.secondaryText = profileArray[indexPath.row][1]
+        content.secondaryText = profileArray[indexPath.row][0]
+        content.text = profileArray[indexPath.row][1]
+        content.secondaryTextProperties.alignment = .center
+        content.textProperties.alignment = .center
+        content.textProperties.transform = .uppercase
+        content.textProperties.font = UIFont.systemFont(ofSize: 20)
         cell.contentConfiguration = content
         return cell
     }

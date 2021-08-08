@@ -16,9 +16,10 @@
 		11CCD83F26BEF92C009A5865 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD83E26BEF92C009A5865 /* ProfileController.swift */; };
 		11CCD84126BF0F32009A5865 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
-		11CCD84726BF1A1F009A5865 /* CommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84626BF1A1F009A5865 /* CommunitiesController.swift */; };
+		11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */; };
 		11CCD84926BF32B0009A5865 /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84826BF32B0009A5865 /* NavigationControllers.swift */; };
 		11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC0F26BFF1A7006FFF39 /* Variables.swift */; };
+		11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +34,10 @@
 		11CCD83E26BEF92C009A5865 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		11CCD84626BF1A1F009A5865 /* CommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesController.swift; sourceTree = "<group>"; };
+		11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCommunitiesController.swift; sourceTree = "<group>"; };
 		11CCD84826BF32B0009A5865 /* NavigationControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
 		11F8BC0F26BFF1A7006FFF39 /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
+		11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +112,8 @@
 				11CCD84826BF32B0009A5865 /* NavigationControllers.swift */,
 				11CCD83E26BEF92C009A5865 /* ProfileController.swift */,
 				11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */,
-				11CCD84626BF1A1F009A5865 /* CommunitiesController.swift */,
+				11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */,
+				11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */,
 				11CCD84226BF13F3009A5865 /* TabBarController.swift */,
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
 			);
@@ -189,9 +192,10 @@
 			files = (
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				11CCD84926BF32B0009A5865 /* NavigationControllers.swift in Sources */,
+				11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
-				11CCD84726BF1A1F009A5865 /* CommunitiesController.swift in Sources */,
+				11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */,
 				11CCD83F26BEF92C009A5865 /* ProfileController.swift in Sources */,
