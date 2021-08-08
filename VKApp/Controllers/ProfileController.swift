@@ -35,7 +35,7 @@ class ProfileController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return profileArray.count
+        return Variables.profileList.profileArray.count
     }
 
     
@@ -46,8 +46,8 @@ class ProfileController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "bookmark")
         content.prefersSideBySideTextAndSecondaryText = false
-        content.secondaryText = profileArray[indexPath.row][0]
-        content.text = profileArray[indexPath.row][1]
+        content.secondaryText = Variables.profileList.profileArray[indexPath.row][0]
+        content.text = Variables.profileList.profileArray[indexPath.row][1]
         content.secondaryTextProperties.alignment = .center
         content.textProperties.alignment = .center
         content.textProperties.transform = .uppercase
