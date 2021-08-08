@@ -11,6 +11,15 @@ class FavCommunitiesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Variables.favCommunitiesList.favCommunitiesArray.popLast()
+        for index in Variables.communitiesList.communitiesArray {
+            
+            if index[2] == "1" {
+                // Variables.favCommunitiesList.favCommunitiesArray.popLast()
+                Variables.favCommunitiesList.favCommunitiesArray.append(index)
+            }
+            print(Variables.favCommunitiesList.favCommunitiesArray)
+        }
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,6 +37,7 @@ class FavCommunitiesController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
         return Variables.favCommunitiesList.favCommunitiesArray.count
     }
     
@@ -40,15 +50,7 @@ class FavCommunitiesController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "rectangle.stack.person.crop.fill")
         content.prefersSideBySideTextAndSecondaryText = false
-        Variables.favCommunitiesList.favCommunitiesArray.popLast()
-        for index in Variables.communitiesList.communitiesArray {
-            
-            if index[2] == "1" {
-                // Variables.favCommunitiesList.favCommunitiesArray.popLast()
-                Variables.favCommunitiesList.favCommunitiesArray.append(index)
-            }
-            
-        }
+        
         
         content.text = Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][0]
         content.secondaryText = Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][1] + " peoples"

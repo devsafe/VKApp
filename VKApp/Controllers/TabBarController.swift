@@ -16,7 +16,7 @@ class TabBarController: UITabBarController {
         UITabBarItem.appearance().setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 10, weight: .medium)], for: .normal)
         // Do any additional setup after loading the view.
         tabBar.items![0].badgeValue = String(Variables.friendsList.friendsListArray.count)
-        tabBar.items![1].badgeValue = String(Variables.communitiesList.communitiesArray.count)
+        tabBar.items![1].badgeValue = String(Variables.favCommunitiesList.favCommunitiesArray.count)
         //tabBar.items![2].badgeValue = String(Variables.profileList.profileArray.count)
         tabBar.items![0].title = Variables.tabbarList.tabbarArray[0][0]
         //tabBar.items![0].titlePositionAdjustment.horizontal = 344
