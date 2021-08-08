@@ -11,6 +11,7 @@ class AllCommunitiesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,6 +44,14 @@ class AllCommunitiesController: UITableViewController {
         content.text = Variables.communitiesList.communitiesArray[indexPath.row][0]
         content.secondaryText = Variables.communitiesList.communitiesArray[indexPath.row][1] + " peoples"
         cell.contentConfiguration = content
+        var hasCheckMark = true
+        if Variables.communitiesList.communitiesArray[indexPath.row][2] == "1" {
+            hasCheckMark = true
+        } else {
+        hasCheckMark = false
+        }
+        print(Variables.communitiesList.communitiesArray[3])
+        cell.accessoryType = hasCheckMark ? .checkmark : .none
         return cell
     }
     

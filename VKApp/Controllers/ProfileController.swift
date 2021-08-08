@@ -8,15 +8,14 @@
 import UIKit
 
 class ProfileController: UITableViewController {
-    
-    let profileArray = [["Name","Boris Sobolev"],["Location","Moscow"],["Age","33"]]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorColor = .clear
         //tableView.backgroundColor = .darkGray
         tableView.rowHeight = 65
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,15 +43,16 @@ class ProfileController: UITableViewController {
         // Configure the cell...
         
         var content = cell.defaultContentConfiguration()
-        content.image = UIImage(systemName: "bookmark")
+        //content.image = UIImage(systemName: "bookmark")
         content.prefersSideBySideTextAndSecondaryText = false
         content.secondaryText = Variables.profileList.profileArray[indexPath.row][0]
         content.text = Variables.profileList.profileArray[indexPath.row][1]
-        content.secondaryTextProperties.alignment = .center
-        content.textProperties.alignment = .center
+        //content.secondaryTextProperties.alignment = .center
+       // content.textProperties.alignment = .center
         content.textProperties.transform = .uppercase
-        content.textProperties.font = UIFont.systemFont(ofSize: 20)
+        content.textProperties.font = UIFont.systemFont(ofSize: 15)
         cell.contentConfiguration = content
+        
         return cell
     }
     

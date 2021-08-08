@@ -22,6 +22,15 @@ final class LoginFormController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
         
+        Variables.favCommunitiesList.favCommunitiesArray.popLast()
+        for index in Variables.communitiesList.communitiesArray {
+            
+            if index[2] == "1" {
+                // Variables.favCommunitiesList.favCommunitiesArray.popLast()
+                Variables.favCommunitiesList.favCommunitiesArray.append(index)
+            }
+            print(Variables.favCommunitiesList.favCommunitiesArray)
+        }
         
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8

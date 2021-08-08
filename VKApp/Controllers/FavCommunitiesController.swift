@@ -11,15 +11,7 @@ class FavCommunitiesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Variables.favCommunitiesList.favCommunitiesArray.popLast()
-        for index in Variables.communitiesList.communitiesArray {
-            
-            if index[2] == "1" {
-                // Variables.favCommunitiesList.favCommunitiesArray.popLast()
-                Variables.favCommunitiesList.favCommunitiesArray.append(index)
-            }
-            print(Variables.favCommunitiesList.favCommunitiesArray)
-        }
+        tableView.separatorColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

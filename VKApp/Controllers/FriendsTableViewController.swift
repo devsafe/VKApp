@@ -11,11 +11,12 @@ class FriendsTableViewController: UITableViewController {
 
     @IBOutlet var friendsTableViewOutlet: UITableView!
     
-//    let friendsListArray = [["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"]]
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 65
+        tableView.separatorColor = .white
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,6 +48,7 @@ class FriendsTableViewController: UITableViewController {
         content.text = Variables.friendsList.friendsListArray[indexPath.row][0]
         content.secondaryText = Variables.friendsList.friendsListArray[indexPath.row][1]
         cell.contentConfiguration = content
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
