@@ -11,8 +11,7 @@ class FriendsTableViewController: UITableViewController {
 
     @IBOutlet var friendsTableViewOutlet: UITableView!
     
-    let friendsListArray = [["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"]]
-    
+//    let friendsListArray = [["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"]]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +19,7 @@ class FriendsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -34,7 +33,7 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friendsListArray.count
+        return Variables.friendsList.friendsListArray.count
     }
 
     
@@ -45,8 +44,8 @@ class FriendsTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "person.crop.circle")
         content.prefersSideBySideTextAndSecondaryText = false
-        content.text = friendsListArray[indexPath.row][0]
-        content.secondaryText = friendsListArray[indexPath.row][1]
+        content.text = Variables.friendsList.friendsListArray[indexPath.row][0]
+        content.secondaryText = Variables.friendsList.friendsListArray[indexPath.row][1]
         cell.contentConfiguration = content
         return cell
     }

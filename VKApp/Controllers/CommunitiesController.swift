@@ -9,9 +9,8 @@ import UIKit
 
 class CommunitiesController: UITableViewController {
     
-    let communitiesArray = [["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","3334","1"]]
-    var tempArray = [["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","3334","1"]]
-
+//    let communitiesArray = [["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","3334","1"]]
+//    var tempArray = [[["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","3334","1"]]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class CommunitiesController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return communitiesArray.count
+        return Variables.communitiesList.communitiesArray.count
     }
 
     
@@ -44,8 +43,8 @@ class CommunitiesController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.image = UIImage(systemName: "rectangle.stack.person.crop.fill")
         content.prefersSideBySideTextAndSecondaryText = false
-        content.text = communitiesArray[indexPath.row][0]
-        content.secondaryText = communitiesArray[indexPath.row][1] + " peoples"
+        content.text = Variables.communitiesList.communitiesArray[indexPath.row][0]
+        content.secondaryText = Variables.communitiesList.communitiesArray[indexPath.row][1] + " peoples"
         cell.contentConfiguration = content
         return cell
     }

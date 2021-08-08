@@ -232,8 +232,8 @@
         <!--Communities-->
         <scene sceneID="vBQ-Ao-1eK">
             <objects>
-                <navigationController id="9So-ck-QLI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Communities" image="command.circle.fill" catalog="system" badgeValue="7" id="RxU-3u-fys"/>
+                <navigationController id="9So-ck-QLI" customClass="CommunitiesNavigationController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Communities" image="command.circle.fill" catalog="system" id="RxU-3u-fys"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cX6-GS-HI9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -334,8 +334,8 @@
         <!--Friends-->
         <scene sceneID="rEo-pp-mbk">
             <objects>
-                <navigationController id="XR4-Ui-fPY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="person.2.circle.fill" catalog="system" badgeValue="5" id="38A-0v-dAs"/>
+                <navigationController id="XR4-Ui-fPY" customClass="FriendsNavigationController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.2.circle.fill" catalog="system" id="38A-0v-dAs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PqF-0c-rjI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -359,6 +359,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="tabBarOutlet" destination="UFz-ir-knA" id="O1B-Ee-yVF"/>
                         <segue destination="XR4-Ui-fPY" kind="relationship" relationship="viewControllers" id="5Z1-gT-elz"/>
                         <segue destination="9So-ck-QLI" kind="relationship" relationship="viewControllers" id="UGc-v0-BRI"/>
                         <segue destination="cjp-aI-1gN" kind="relationship" relationship="viewControllers" id="Ubf-Q9-dR3"/>
@@ -371,7 +372,7 @@
         <!--Profile-->
         <scene sceneID="g0v-Gm-ZGh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cjp-aI-1gN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cjp-aI-1gN" customClass="ProfileNavigationController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle.fill" catalog="system" id="AaT-Dx-Vn2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HMU-TX-fNj">
