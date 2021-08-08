@@ -9,8 +9,12 @@ import UIKit
 
 class FavCommunitiesController: UITableViewController {
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.separatorColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
@@ -50,7 +54,25 @@ class FavCommunitiesController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //print("can delete")
+            Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][2] = "0"
+            //print(Variables.favCommunitiesList.favCommunitiesArray)
+            //objects.remove(at: indexPath.row)
+            Variables.favCommunitiesList.favCommunitiesArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
+    
+    @objc func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
 
         
         tabBar.items![0].badgeValue = String(Variables.friendsList.friendsListArray.count)
-        tabBar.items![1].badgeValue = String(Variables.favCommunitiesList.favCommunitiesArray.count)
+        //tabBar.items![1].badgeValue = String(Variables.favCommunitiesList.favCommunitiesArray.count)
         //tabBar.items![2].badgeValue = String(Variables.profileList.profileArray.count)
         tabBar.items![0].title = Variables.tabbarList.tabbarArray[0][0]
         //tabBar.items![0].titlePositionAdjustment.horizontal = 344

@@ -44,15 +44,27 @@ class AllCommunitiesController: UITableViewController {
         content.text = Variables.communitiesList.communitiesArray[indexPath.row][0]
         content.secondaryText = Variables.communitiesList.communitiesArray[indexPath.row][1] + " peoples"
         cell.contentConfiguration = content
-        var hasCheckMark = true
-        if Variables.communitiesList.communitiesArray[indexPath.row][2] == "1" {
-            hasCheckMark = true
-        } else {
-        hasCheckMark = false
-        }
-        print(Variables.communitiesList.communitiesArray[3])
-        cell.accessoryType = hasCheckMark ? .checkmark : .none
+        //cell.accessoryType = Variables.communitiesList.communitiesArray[indexPath.row][2] == "1" ? .checkmark : .none
+//        let difference = Variables.communitiesList.communitiesArray[indexPath.row].difference(from: Variables.favCommunitiesList.favCommunitiesArray[0])
+//        print(difference)
+        cell.accessoryType = Variables.communitiesList.communitiesArray[indexPath.row].contains("Swift") ? .checkmark : .none
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        var tempCell2 = ["\(Variables.communitiesList.communitiesArray[indexPath.row][0])", "\(Variables.communitiesList.communitiesArray[indexPath.row][1])", "1"]
+        Variables.favCommunitiesList.favCommunitiesArray.append(tempCell2)
+        showJoinAlert(group: tempCell2[0])
+        
+    }
+    
+    
+    func showJoinAlert(group: String) {
+        let joinAlert = UIAlertController(title: "Information", message: "You are joined to \(group) group!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        joinAlert.addAction(action)
+        present(joinAlert, animated: true, completion: nil)
     }
     
     
@@ -102,3 +114,15 @@ class AllCommunitiesController: UITableViewController {
      */
     
 }
+extension Array where Element: Hashable {
+    
+    
+    
+    func difference(from other: [Element]) -> [Element] {
+        let thisSet = Set(self)
+        let otherSet = Set(other)
+        //return Array(thisSet.contains(otherSet))
+        return Array(thisSet.intersection(otherSet))
+    }
+}
+
