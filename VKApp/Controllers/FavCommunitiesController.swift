@@ -13,7 +13,7 @@ class FavCommunitiesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.separatorColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -60,6 +60,8 @@ class FavCommunitiesController: UITableViewController {
             Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][2] = "0"
             //print(Variables.favCommunitiesList.favCommunitiesArray)
             //objects.remove(at: indexPath.row)
+            let tempGroup = Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][0]
+            showDeleteFavCommunityAlert(group: tempGroup)
             Variables.favCommunitiesList.favCommunitiesArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -72,6 +74,11 @@ class FavCommunitiesController: UITableViewController {
 
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
+    }
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        self.tableView.reloadData()
     }
     /*
      // Override to support conditional editing of the table view.
@@ -117,5 +124,10 @@ class FavCommunitiesController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+    func showDeleteFavCommunityAlert(group: String) {
+        let joinAlert = UIAlertController(title: "Information", message: "You are exit from \(group) group!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        joinAlert.addAction(action)
+        present(joinAlert, animated: true, completion: nil)
+    }
 }

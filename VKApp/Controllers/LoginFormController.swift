@@ -76,13 +76,7 @@ final class LoginFormController: UIViewController {
         if loginText == "1" && passwordText == "1" {
             print("Success Register")
         } else {
-            print("Register fail")
-            passwordTextField.text = nil
-            let errorRegisterAlert = UIAlertController(
-                title: "Error",
-                message: "Register func is not available now", preferredStyle: .actionSheet)
-            errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-            self.present(errorRegisterAlert, animated: true, completion: nil)
+            showRegisterError()
         }
     }
     
@@ -134,7 +128,18 @@ final class LoginFormController: UIViewController {
         let alter = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alter.addAction(action)
+        passwordTextField.text = nil
         present(alter, animated: true, completion: nil)
+    }
+    
+    func showRegisterError() {
+        print("Register fail")
+        passwordTextField.text = nil
+        let errorRegisterAlert = UIAlertController(
+            title: "Error",
+            message: "Register func is not available now", preferredStyle: .actionSheet)
+        errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        self.present(errorRegisterAlert, animated: true, completion: nil)
     }
     
     

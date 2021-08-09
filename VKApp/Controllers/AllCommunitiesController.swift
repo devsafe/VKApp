@@ -53,9 +53,10 @@ class AllCommunitiesController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        var tempCell2 = ["\(Variables.communitiesList.communitiesArray[indexPath.row][0])", "\(Variables.communitiesList.communitiesArray[indexPath.row][1])", "1"]
+        let tempCell2 = ["\(Variables.communitiesList.communitiesArray[indexPath.row][0])", "\(Variables.communitiesList.communitiesArray[indexPath.row][1])", "1"]
         Variables.favCommunitiesList.favCommunitiesArray.append(tempCell2)
         showJoinAlert(group: tempCell2[0])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         
     }
     
