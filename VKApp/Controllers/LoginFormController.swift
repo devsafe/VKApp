@@ -21,9 +21,6 @@ final class LoginFormController: UIViewController {
         //         Adding code for hidding keyboard after tap on some area around keyboard
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
-        
-       
-        
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
         loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
@@ -37,11 +34,10 @@ final class LoginFormController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Variables.favCommunitiesList.favCommunitiesArray.popLast()
+        Variables.favCommunitiesList.favCommunitiesArray.removeAll()
         for index in Variables.communitiesList.communitiesArray {
             
             if index[2] == "1" {
-                // Variables.favCommunitiesList.favCommunitiesArray.popLast()
                 Variables.favCommunitiesList.favCommunitiesArray.append(index)
             }
         }
@@ -53,7 +49,6 @@ final class LoginFormController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -68,7 +63,6 @@ final class LoginFormController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
     }
-    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text
         let passwordText = passwordTextField.text
@@ -79,11 +73,9 @@ final class LoginFormController: UIViewController {
             showRegisterError()
         }
     }
-    
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
     }
-    
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
         print("Login with Apple button pressed")
     }
@@ -91,11 +83,8 @@ final class LoginFormController: UIViewController {
     @objc func dismissKeyBoard() {
         self.view.endEditing(true)
     }
-    
-    
     // When keyboard appear
     @objc func keyboardWasShown(notification: Notification) {
-        
         // let size of keyboard
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -141,17 +130,4 @@ final class LoginFormController: UIViewController {
         errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
-    
-    //     Replace "TouchesBegan" - not work here.
-    //        override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    //            self.view.endEditing(true)
-    //        }
-    
-    
 }

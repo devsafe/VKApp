@@ -284,7 +284,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1xN-lX-GXy" kind="show" trigger="accessoryAction" id="m5g-am-CBn"/>
+                                    <segue destination="1xN-lX-GXy" kind="show" id="8HY-pJ-lYr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
