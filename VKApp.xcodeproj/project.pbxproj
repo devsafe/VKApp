@@ -13,6 +13,12 @@
 		11CCD82226BC6405009A5865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82126BC6405009A5865 /* Assets.xcassets */; };
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
+		11CCD83F26BEF92C009A5865 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD83E26BEF92C009A5865 /* ProfileController.swift */; };
+		11CCD84126BF0F32009A5865 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */; };
+		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
+		11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */; };
+		11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC0F26BFF1A7006FFF39 /* Variables.swift */; };
+		11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		11CCD82426BC6405009A5865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
+		11CCD83E26BEF92C009A5865 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCommunitiesController.swift; sourceTree = "<group>"; };
+		11F8BC0F26BFF1A7006FFF39 /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
+		11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +89,7 @@
 		11CCD83126BDA0C2009A5865 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				11F8BC0F26BFF1A7006FFF39 /* Variables.swift */,
 				11CCD82126BC6405009A5865 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -94,6 +107,11 @@
 		11CCD83326BDA194009A5865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				11CCD83E26BEF92C009A5865 /* ProfileController.swift */,
+				11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */,
+				11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */,
+				11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */,
+				11CCD84226BF13F3009A5865 /* TabBarController.swift */,
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
 			);
 			path = Controllers;
@@ -170,8 +188,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
+				11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
+				11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */,
+				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
+				11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */,
+				11CCD83F26BEF92C009A5865 /* ProfileController.swift in Sources */,
+				11CCD84126BF0F32009A5865 /* FriendsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

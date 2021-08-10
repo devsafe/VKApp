@@ -18,11 +18,9 @@ final class LoginFormController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //         Adding code for hidding keyboard after tap on some area around keyboard
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
-        
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
         loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
@@ -36,7 +34,13 @@ final class LoginFormController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        Variables.favCommunitiesList.favCommunitiesArray.removeAll()
+        for index in Variables.communitiesList.communitiesArray {
+            
+            if index[2] == "1" {
+                Variables.favCommunitiesList.favCommunitiesArray.append(index)
+            }
+        }
         // Observe to keyboard appear
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Observe to keyboard disappear
@@ -45,29 +49,20 @@ final class LoginFormController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    
-    
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
-        let loginText = loginTextField.text
-        let passwordText = passwordTextField.text
-        if loginText == "1" && passwordText == "1" {
-            print("Success login")
-        } else {
-            print("Login or password is incorrect")
-            passwordTextField.text = nil
-                        let errorLoginAlert = UIAlertController(
-                            title: "Error",
-                            message: "Invalid username or password.", preferredStyle: .actionSheet)
-                        errorLoginAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-                        self.present(errorLoginAlert, animated: true, completion: nil)
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let checkResult = checkUserData()
+        if !checkResult {
+            showLoginError()
         }
+        return checkResult
     }
     
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+    }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text
         let passwordText = passwordTextField.text
@@ -75,20 +70,12 @@ final class LoginFormController: UIViewController {
         if loginText == "1" && passwordText == "1" {
             print("Success Register")
         } else {
-            print("Register fail")
-            passwordTextField.text = nil
-                        let errorRegisterAlert = UIAlertController(
-                            title: "Error",
-                            message: "Register func is not available now", preferredStyle: .actionSheet)
-                        errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-                        self.present(errorRegisterAlert, animated: true, completion: nil)
+            showRegisterError()
         }
     }
-    
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
     }
-    
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
         print("Login with Apple button pressed")
     }
@@ -96,11 +83,8 @@ final class LoginFormController: UIViewController {
     @objc func dismissKeyBoard() {
         self.view.endEditing(true)
     }
-    
-    
     // When keyboard appear
     @objc func keyboardWasShown(notification: Notification) {
-        
         // let size of keyboard
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -118,11 +102,32 @@ final class LoginFormController: UIViewController {
         scrollView?.contentInset = contentInsets
     }
     
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return false }
+        
+        if login == "1" && password == "1" {
+            return true
+        } else {
+            return false
+        }
+    }
     
-    //     Replace "TouchesBegan" - not work here.
-    //        override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    //            self.view.endEditing(true)
-    //        }
+    func showLoginError() {
+        let alter = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alter.addAction(action)
+        passwordTextField.text = nil
+        present(alter, animated: true, completion: nil)
+    }
     
-    
+    func showRegisterError() {
+        print("Register fail")
+        passwordTextField.text = nil
+        let errorRegisterAlert = UIAlertController(
+            title: "Error",
+            message: "Register func is not available now", preferredStyle: .actionSheet)
+        errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        self.present(errorRegisterAlert, animated: true, completion: nil)
+    }
 }
