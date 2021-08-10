@@ -53,6 +53,10 @@ final class LoginFormController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    @IBAction func logout(_ segue: UIStoryboardSegue) {
+        print("Logout")
+    }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let checkResult = checkUserData()
         if !checkResult {

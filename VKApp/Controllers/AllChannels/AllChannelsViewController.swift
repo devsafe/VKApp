@@ -25,7 +25,7 @@ extension AllChannelsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AllChannelsTableViewCell.identifier, for: indexPath) as! AllChannelsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FavChannelsTableViewCell.identifier, for: indexPath) as! FavChannelsTableViewCell
         cell.configure(imageName: "defaultChannel", title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1])
         return cell
     }

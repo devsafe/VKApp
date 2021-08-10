@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* MyFriendsViewController.swift */; };
+		114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* MyFriendsTableViewCell.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		114E233526C2FEFE003456EF /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
+		114E233826C30171003456EF /* MyFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114E233726C2FF04003456EF /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				114E233526C2FEFE003456EF /* MyFriendsViewController.swift */,
+				114E233826C30171003456EF /* MyFriendsTableViewCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
 		11CCD80C26BC6403009A5865 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,7 @@
 				11F8BC1726C2DCAB006FFF39 /* FavChannels */,
 				11CCD83E26BEF92C009A5865 /* ProfileController.swift */,
 				11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */,
+				114E233726C2FF04003456EF /* Friends */,
 				11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */,
 				11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */,
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
@@ -218,9 +232,11 @@
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */,
+				114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
 				11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */,
+				114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 class AllChannelsTableViewCell: UITableViewCell {
     
-    static let identifier = "AllChannelsTableViewCell"
+    static let identifier = "FavChannelsTableViewCell"
     
     @IBOutlet private var imageChannelsCell: UIImageView!
     
