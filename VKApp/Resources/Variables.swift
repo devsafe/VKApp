@@ -12,16 +12,16 @@ struct Variables {
         static var tabbarArray = [["Friends","---"],["Communities","---"],["Profile","---"]]
     }
     struct friendsList {
-        static var friendsListArray = [["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"],["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"],["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"],["Pashkevich Drew","Moscow"],["Lamzov Artem","Moscow"],["Ermolov Ilya","Lichtenshtein"],["Stoyan Nikita","Saint Petersburg"],["Sinoshin Sergey","Sosensky"],["Polyakov Valentin","Spain"],["Kuchuk Yuriy","Kaluga"],["Amiroslanov Amir","Tula"]]
+        static var friendsListArray = [["Pashkevich Drew","Moscow","1"],["Lamzov Artem","Moscow","2"],["Ermolov Ilya","Lichtenshtein","3"],["Stoyan Nikita","Saint Petersburg","4"],["Sinoshin Sergey","Sosensky","5"],["Polyakov Valentin","Spain","6"],["Kuchuk Yuriy","Kaluga","7"],["Petuhova Anna","Sochi","9"]]
     }
     struct communitiesList {
-        static var communitiesArray = [["Rock Music Fans","9345","0"],["Yoga","34554","0"],["Swift","345346","1"],["Hip-Hop Music Fans","9345","0"],["Weather in Moscow","34554","0"],["Developers","339","1"],["Classical Music Fans","9345","0"],["Bicycle","453","0"],["XCode","29","1"],["Metal Music Fans","9345","0"],["World of Tanks","20","0"],["React","722","1"]]
+        static var communitiesArray = [["Pepsi Lovers","9345","pepsi","fav"],["HTML5","34554","html-5","fav"],["Swift","345346","swift","fav"],["Hip-Hop Music Fans","9345","adidas","fav"],["AMD","34554","amd","no"],["Android","339","android","fav"],["Apple","9345","apple","fav"],["ATI","453","ati","fav"],["GMail","29","gmail","fav"],["Firefox","9345","firefox","fav"],["Google Play","20","google-play","no"],["Microsoft","722","microsoft","fav"]]
     }
     struct favCommunitiesList {
-        static var favCommunitiesArray: [[String]] = [[]]
+        static var favCommunitiesArray: [[String]] = []
     }
     struct profileList {
-        static var profileArray = [["Name","Boris Sobolev"],["Location","Moscow"],["Age","18"]]
+        static var profileArray = [["Name","Boris Sobolev"],["Location","Moscow"],["Age","18"],["avatar","1"]]
     }
 }
 
