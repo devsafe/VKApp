@@ -9,27 +9,24 @@
 /* Begin PBXBuildFile section */
 		114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* MyFriendsViewController.swift */; };
 		114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* MyFriendsTableViewCell.swift */; };
+		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
 		11CCD82226BC6405009A5865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82126BC6405009A5865 /* Assets.xcassets */; };
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
-		11CCD83F26BEF92C009A5865 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD83E26BEF92C009A5865 /* ProfileController.swift */; };
-		11CCD84126BF0F32009A5865 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
-		11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */; };
 		11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC0F26BFF1A7006FFF39 /* Variables.swift */; };
-		11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */; };
-		11F8BC1626C1D9D6006FFF39 /* FavChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* FavChannelsTableViewCell.swift */; };
+		11F8BC1626C1D9D6006FFF39 /* ChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */; };
 		11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */; };
-		11F8BC1C26C2EF36006FFF39 /* AllChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1B26C2EF36006FFF39 /* AllChannelsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		114E233526C2FEFE003456EF /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* MyFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,16 +35,11 @@
 		11CCD82426BC6405009A5865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
-		11CCD83E26BEF92C009A5865 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
-		11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCommunitiesController.swift; sourceTree = "<group>"; };
 		11F8BC0F26BFF1A7006FFF39 /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
-		11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesController.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavChannelsViewController.swift; sourceTree = "<group>"; };
-		11F8BC1526C1D9D6006FFF39 /* FavChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavChannelsTableViewCell.swift; sourceTree = "<group>"; };
+		11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewCell.swift; sourceTree = "<group>"; };
 		11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChannelsViewController.swift; sourceTree = "<group>"; };
-		11F8BC1B26C2EF36006FFF39 /* AllChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChannelsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +56,68 @@
 		114E233726C2FF04003456EF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				114E233526C2FEFE003456EF /* MyFriendsViewController.swift */,
-				114E233826C30171003456EF /* MyFriendsTableViewCell.swift */,
+				114E233F26C3B5CF003456EF /* Controller */,
+				114E233E26C3B5C6003456EF /* Cell */,
 			);
 			path = Friends;
+			sourceTree = "<group>";
+		};
+		114E233A26C3B535003456EF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		114E233C26C3B598003456EF /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				114E233D26C3B5A6003456EF /* Cell */,
+				11F8BC1726C2DCAB006FFF39 /* FavChannels */,
+				11F8BC1A26C2ECE9006FFF39 /* AllChannels */,
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		114E233D26C3B5A6003456EF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		114E233E26C3B5C6003456EF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				114E233826C30171003456EF /* MyFriendsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		114E233F26C3B5CF003456EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				114E233526C2FEFE003456EF /* MyFriendsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		114E234026C3B5ED003456EF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				11CCD84226BF13F3009A5865 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		114E234326C41994003456EF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				114E234126C41982003456EF /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		11CCD80C26BC6403009A5865 = {
@@ -128,15 +178,11 @@
 		11CCD83326BDA194009A5865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				11F8BC1726C2DCAB006FFF39 /* FavChannels */,
-				11CCD83E26BEF92C009A5865 /* ProfileController.swift */,
-				11CCD84026BF0F32009A5865 /* FriendsTableViewController.swift */,
+				114E234326C41994003456EF /* Profile */,
+				114E233C26C3B598003456EF /* Channels */,
 				114E233726C2FF04003456EF /* Friends */,
-				11CCD84626BF1A1F009A5865 /* FavCommunitiesController.swift */,
-				11F8BC1126C012C0006FFF39 /* AllCommunitiesController.swift */,
-				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
-				11CCD84226BF13F3009A5865 /* TabBarController.swift */,
-				11F8BC1A26C2ECE9006FFF39 /* AllChannels */,
+				114E233A26C3B535003456EF /* Login */,
+				114E234026C3B5ED003456EF /* TabBar */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */,
-				11F8BC1526C1D9D6006FFF39 /* FavChannelsTableViewCell.swift */,
 			);
 			path = FavChannels;
 			sourceTree = "<group>";
@@ -153,7 +198,6 @@
 		11F8BC1A26C2ECE9006FFF39 /* AllChannels */ = {
 			isa = PBXGroup;
 			children = (
-				11F8BC1B26C2EF36006FFF39 /* AllChannelsTableViewCell.swift */,
 				11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */,
 			);
 			path = AllChannels;
@@ -230,20 +274,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
-				11F8BC1226C012C0006FFF39 /* AllCommunitiesController.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */,
 				114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
-				11CCD84726BF1A1F009A5865 /* FavCommunitiesController.swift in Sources */,
 				114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */,
+				114E234226C41983003456EF /* ProfileViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */,
-				11F8BC1C26C2EF36006FFF39 /* AllChannelsTableViewCell.swift in Sources */,
-				11CCD83F26BEF92C009A5865 /* ProfileController.swift in Sources */,
-				11F8BC1626C1D9D6006FFF39 /* FavChannelsTableViewCell.swift in Sources */,
-				11CCD84126BF0F32009A5865 /* FriendsTableViewController.swift in Sources */,
+				11F8BC1626C1D9D6006FFF39 /* ChannelsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
