@@ -13,7 +13,6 @@ class MyFriendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.delegate = self
         tableView.dataSource = self
     }

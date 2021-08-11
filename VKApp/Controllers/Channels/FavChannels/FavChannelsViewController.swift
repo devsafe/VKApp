@@ -27,6 +27,8 @@ class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableV
        // tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
+        self.extendedLayoutIncludesOpaqueBars = true
         //tableView.refreshControl = refresh
         //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "NewCell")
     }
@@ -55,15 +57,24 @@ extension FavChannelsViewController {
         }
     }
     
-    @objc private func refresh(sender: UIRefreshControl) {
+    @objc private func refresh(sender: AnyObject) {
         tableView.reloadData()
         sender.endRefreshing()
+        myRefreshControl.endRefreshing()
+        print("pppppp")
+    }
+    
+    @objc private func refresh2(sender: AnyObject) {
+        tableView.reloadData()
+        sender.endRefreshing()
+        myRefreshControl.endRefreshing()
+        print("pppppp")
     }
     
     @objc private func loadList2(notification: NSNotification)
     {
-//        tableView.reloadData()
-//        self.view.setNeedsDisplay()
+       tableView.reloadData()
+        self.view.setNeedsDisplay()
     }
     
     func showDeleteFavCommunityAlert(group: String) {
