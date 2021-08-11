@@ -17,8 +17,7 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
         return refreshControl
     }()
     
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +25,8 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = myRefreshControl
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
+        
         
     }
 }
@@ -69,21 +70,9 @@ extension AllChannelsViewController {
         if editingStyle == .delete {
             Variables.communitiesList.communitiesArray[indexPath.row][2] = "0"
             Variables.communitiesList.communitiesArray.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .left)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat {
-
-        var rowHeight:CGFloat = 0.0
-
-        if(indexPath.row == 1){
-            rowHeight = 10.0
-        } else {
-            rowHeight = 55.0    //or whatever you like
-        }
-        return rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -105,5 +94,12 @@ extension AllChannelsViewController {
         tableView.reloadData()
         print(Variables.communitiesList.communitiesArray[0][3])
         sender.endRefreshing()
+    }
+    
+    @objc private func refresh2(sender: AnyObject) {
+        tableView.reloadData()
+        sender.endRefreshing()
+        myRefreshControl.endRefreshing()
+        print("pppppp")
     }
 }
