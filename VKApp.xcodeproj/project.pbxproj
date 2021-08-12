@@ -59,6 +59,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114C358726C5B43A00D9C17B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		114E233726C2FF04003456EF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +162,7 @@
 		11CCD81726BC6403009A5865 /* VKApp */ = {
 			isa = PBXGroup;
 			children = (
+				114C358726C5B43A00D9C17B /* Model */,
 				11CCD83026BDA08D009A5865 /* Delegate */,
 				11CCD81E26BC6403009A5865 /* Main.storyboard */,
 				11CCD83326BDA194009A5865 /* Controllers */,
