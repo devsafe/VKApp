@@ -558,11 +558,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-LE-QWQ">
-                                <rect key="frame" x="172" y="699" width="70" height="40"/>
+                                <rect key="frame" x="157" y="679" width="100" height="40"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AeY-yG-yA7"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="Fld-04-EEz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Fld-04-EEz"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Logout"/>
@@ -572,16 +572,16 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="224" verticalHuggingPriority="251" image="035-man" translatesAutoresizingMaskIntoConstraints="NO" id="kIT-rB-T4G">
-                                <rect key="frame" x="10" y="128" width="394" height="499"/>
+                                <rect key="frame" x="10" y="113" width="394" height="494"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Boris Sobolev" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="234-zY-MaI">
-                                <rect key="frame" x="155" y="637" width="104.5" height="21"/>
+                                <rect key="frame" x="155" y="617" width="104.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Moscow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoS-7g-0jt">
-                                <rect key="frame" x="175" y="668" width="64" height="21"/>
+                                <rect key="frame" x="175" y="648" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -590,10 +590,10 @@
                         <viewLayoutGuide key="safeArea" id="aEL-a9-8Q4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aEL-a9-8Q4" firstAttribute="bottom" secondItem="F8W-LE-QWQ" secondAttribute="bottom" constant="20" id="2f2-Dc-TsK"/>
+                            <constraint firstItem="aEL-a9-8Q4" firstAttribute="bottom" secondItem="F8W-LE-QWQ" secondAttribute="bottom" constant="40" id="2f2-Dc-TsK"/>
                             <constraint firstItem="EoS-7g-0jt" firstAttribute="centerX" secondItem="aEL-a9-8Q4" secondAttribute="centerX" id="43d-DD-u9p"/>
                             <constraint firstItem="234-zY-MaI" firstAttribute="top" secondItem="kIT-rB-T4G" secondAttribute="bottom" constant="10" id="7Nw-zV-FYI"/>
-                            <constraint firstItem="kIT-rB-T4G" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aEL-a9-8Q4" secondAttribute="top" constant="20" id="CUT-lR-XlV"/>
+                            <constraint firstItem="kIT-rB-T4G" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aEL-a9-8Q4" secondAttribute="top" constant="5" id="CUT-lR-XlV"/>
                             <constraint firstItem="234-zY-MaI" firstAttribute="centerX" secondItem="aEL-a9-8Q4" secondAttribute="centerX" id="M8Q-Zy-m7d"/>
                             <constraint firstItem="kIT-rB-T4G" firstAttribute="leading" secondItem="PtN-fb-JKc" secondAttribute="leading" constant="10" id="OC2-GG-zgp"/>
                             <constraint firstItem="F8W-LE-QWQ" firstAttribute="centerX" secondItem="aEL-a9-8Q4" secondAttribute="centerX" id="Yne-fD-oHK"/>
@@ -750,7 +750,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJP-Uz-O2n">
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="QJP-Uz-O2n">
                                                                 <rect key="frame" x="335" y="0.0" width="51" height="31"/>
                                                             </switch>
                                                         </subviews>
@@ -766,7 +766,9 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teQ-pa-MyQ">
                                                                 <rect key="frame" x="179" y="0.0" width="205" height="30"/>
-                                                                <state key="normal" title="Button"/>
+                                                                <color key="backgroundColor" systemColor="linkColor"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="Roll"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -889,6 +891,9 @@
         <image name="star.circle" catalog="system" width="128" height="121"/>
         <image name="star.circle.fill" catalog="system" width="128" height="121"/>
         <image name="vk" width="511.96200561523438" height="511.96200561523438"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
