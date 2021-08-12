@@ -547,7 +547,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-yb-Edu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="609"/>
+            <point key="canvasLocation" x="1441" y="609"/>
         </scene>
         <!--Profile-->
         <scene sceneID="C0D-hZ-Xeb">
@@ -617,7 +617,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8YU-R4-rlw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="OQR-jE-yUc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2260.8695652173915" y="612.72321428571422"/>
+            <point key="canvasLocation" x="2329" y="609"/>
         </scene>
         <!--Settings-->
         <scene sceneID="qs9-Q4-86A">
@@ -846,7 +846,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJy-aJ-HUW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Channels" image="star.circle" catalog="system" selectedImage="star.circle.fill" id="tSv-BO-2A2"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="nPC-Y2-1yG"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="nPC-Y2-1yG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QPQ-Fk-LgY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
