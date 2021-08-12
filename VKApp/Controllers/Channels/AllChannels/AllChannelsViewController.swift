@@ -17,7 +17,7 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
         return refreshControl
     }()
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +37,16 @@ extension AllChannelsViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // let cellNib = UINib(nibName: "CellNibName", bundle: nil)
-       // tableView.register(cellNib, forCellReuseIdentifier: ChannelsTableViewCell.identifier)
+        // let cellNib = UINib(nibName: "CellNibName", bundle: nil)
+        // tableView.register(cellNib, forCellReuseIdentifier: ChannelsTableViewCell.identifier)
         
-        if Variables.communitiesList.communitiesArray[indexPath.row][3] == "fav" {
+        let word = "\(Variables.communitiesList.communitiesArray[indexPath.row][0])"
+        let array = Variables.favCommunitiesList.favCommunitiesArray
+        
+        
+        
+        
+        if array.contains(where: { $0.contains(word) }) {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
             cell.configure(imageName: "logo-" + Variables.communitiesList.communitiesArray[indexPath.row][2], title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1], extraLabel: "Joined")
             
@@ -61,7 +67,7 @@ extension AllChannelsViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
             cell.configure(imageName: "logo-" + Variables.communitiesList.communitiesArray[indexPath.row][2], title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1], extraLabel: nil)
-           // cell.tag = 2
+            // cell.tag = 2
             return cell
         }
     }
@@ -79,9 +85,19 @@ extension AllChannelsViewController {
         //        guard let cell = tableView.cellForRow(at: indexPath) else { return }
         let tempCell2 = ["\(Variables.communitiesList.communitiesArray[indexPath.row][0])", "\(Variables.communitiesList.communitiesArray[indexPath.row][1])", "\(Variables.communitiesList.communitiesArray[indexPath.row][2])"]
         //let tempCell3 = ["\(Variables.communitiesList.communitiesArray[indexPath.row])"]
-        Variables.favCommunitiesList.favCommunitiesArray.append(tempCell2)
-        showJoinAlert(group: tempCell2[0])
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        
+        let word = "\(Variables.communitiesList.communitiesArray[indexPath.row][0])"
+        let array = Variables.favCommunitiesList.favCommunitiesArray
+        if array.contains(where: { $0.contains(word) }) {
+            print("есть такая группа")
+            showJoinError(group: tempCell2[0])
+           // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        } else {
+            print("нет такой группы")
+            Variables.favCommunitiesList.favCommunitiesArray.append(tempCell2)
+            showJoinAlert(group: tempCell2[0])
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
     }
     
     func showJoinAlert(group: String) {
@@ -89,7 +105,16 @@ extension AllChannelsViewController {
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         joinAlert.addAction(action)
         present(joinAlert, animated: true, completion: nil)
+        tableView.reloadData()
     }
+    
+    func showJoinError(group: String) {
+        let joinAlert = UIAlertController(title: "Error", message: "You are already joined to \(group) group!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        joinAlert.addAction(action)
+        present(joinAlert, animated: true, completion: nil)
+    }
+    
     @objc private func refresh(sender: UIRefreshControl) {
         tableView.reloadData()
         print(Variables.communitiesList.communitiesArray[0][3])
@@ -100,6 +125,23 @@ extension AllChannelsViewController {
         tableView.reloadData()
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
-        print("pppppp")
+        
+        addChannel()
+    }
+    
+    func addChannel() {
+        var channelTemp = [String]()
+        
+        if true {
+            
+            Variables.communitiesList.communitiesArray[0].append(contentsOf: Variables.communitiesList.communitiesArray[0])
+            print(Variables.communitiesList.communitiesArray[0])
+            
+            print("added")
+            tableView.reloadData()
+            
+        }
     }
 }
+
+
