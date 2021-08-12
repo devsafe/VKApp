@@ -11,16 +11,12 @@ class MyFriendsTableViewCell: UITableViewCell {
     
     static let identifier = "MyFriendsTableViewCell"
     @IBOutlet var labelFriendsCell: UILabel!
-    
     @IBOutlet var detailLabelFriendsCell: UILabel!
     @IBOutlet var imageFriendsCell: UIImageView!
-    
     
     func configure(imageName: String?, title: String, detail: String) {
         imageFriendsCell.image = UIImage(named: imageName ?? "defaultAvatar")
         labelFriendsCell.text = title
         detailLabelFriendsCell.text = detail
     }
-    
-    
 }

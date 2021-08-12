@@ -19,8 +19,7 @@ class MyFriendsViewController: UIViewController {
     }
     
     let showPhotosIdentifier = "ShowPhotos"
-
-    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == showPhotosIdentifier,
             let destination = segue.destination as? PhotosViewController,
@@ -31,22 +30,17 @@ class MyFriendsViewController: UIViewController {
     }
 }
 
-
-
-
-    extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
-     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Variables.friendsList.friendsListArray.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsTableViewCell.identifier, for: indexPath) as! MyFriendsTableViewCell
         cell.configure(imageName: "avatar" + Variables.friendsList.friendsListArray[indexPath.row][2], title: Variables.friendsList.friendsListArray[indexPath.row][0], detail: Variables.friendsList.friendsListArray[indexPath.row][1])
         return cell

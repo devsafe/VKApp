@@ -34,13 +34,6 @@ final class LoginFormController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Variables.favCommunitiesList.favCommunitiesArray.removeAll()
-//        for index in Variables.communitiesList.communitiesArray {
-//            
-//            if index[2] == "1" {
-//                Variables.favCommunitiesList.favCommunitiesArray.append(index)
-//            }
-//        }
         // Observe to keyboard appear
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Observe to keyboard disappear
@@ -109,7 +102,6 @@ final class LoginFormController: UIViewController {
     func checkUserData() -> Bool {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return false }
-        
         if login == "" && password == "" {
             return true
         } else {

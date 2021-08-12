@@ -26,22 +26,19 @@ class TabBarController: UITabBarController {
         super.viewDidAppear(animated)
     }
     
-    
-    
     @objc func loadList(notification: NSNotification){
         //load data here
         tabBar.items![1].badgeValue = String(Variables.favCommunitiesList.favCommunitiesArray.count)
     }
-    
 }
 
 extension TabBarController: UITabBarControllerDelegate  {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-
+        
         guard let fromView = selectedViewController?.view, let toView = viewController.view else {
-          return false
+            return false
         }
-
+        
         if fromView != toView {
             if Variables.Settings.settingsArray[0][1] == "1" {
                 UIView.transition(from: fromView, to: toView, duration: 0.8, options: [.transitionCrossDissolve], completion: nil) }
@@ -49,7 +46,6 @@ extension TabBarController: UITabBarControllerDelegate  {
                 
             }
         }
-
         return true
     }
 }

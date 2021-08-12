@@ -22,5 +22,4 @@ class ChannelsTableViewCell: UITableViewCell {
         detailLabelChannelsCell.text = detail + " peoples"
         extraLabelChannelsCell?.text = extraLabel ?? ""
     }
-
 }

@@ -10,10 +10,8 @@ import UIKit
 class ProfileViewController: UIViewController {
     @IBOutlet var logoutButton: UIButton!
     
-
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         logoutButton.layer.cornerRadius = 8
-}
+    }
 }

@@ -10,55 +10,40 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
-    //let cellHeight: CGFloat = 375
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       collectionView.delegate = self
-       collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     var userName = String()
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         let destinationUserName = userName
         print(destinationUserName)
         print(userName)
-            determineMyDeviceOrientation()
-        }
+        determineMyDeviceOrientation()
+    }
     
     func determineMyDeviceOrientation()
-       {
-           if UIDevice.current.orientation.isLandscape {
-               print("Device is in landscape mode")
-            //self.collectionView.backgroundColor = .blue
-            //self.collectionView.layout.invalidateLayout()
-            //collectionView.collectionViewLayout.invalidateLayout()
-            
-            
-            
-            
+    {
+        if UIDevice.current.orientation.isLandscape {
+            print("Device is in landscape mode")
             collectionView.reloadData()
-           } else {
-               print("Device is in portrait mode")
-            //self.collectionView.backgroundColor = .red
-            //layout.invalidateLayout()
-           // collectionView.reloadData()
-           }
-       }
+        } else {
+            print("Device is in portrait mode")
+        }
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-            
-            determineMyDeviceOrientation()
-        }
-    
-    
-    
+        determineMyDeviceOrientation()
+    }
 }
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let userIndex = Int(userName)!
@@ -69,10 +54,6 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
         cell.configure(imageName: Variables.friendsList.photosListArray[Int(userName)!][indexPath.row])
-            
-                return cell
-
+        return cell
     }
-    
-
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var tableView: UITableView!
     
     let myRefreshControl: UIRefreshControl = {
@@ -22,16 +22,11 @@ class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.allowsSelection = false
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
-        //navigationController?.navigationBar.prefersLargeTitles = true
         NotificationCenter.default.addObserver(self, selector: #selector(loadList2), name: NSNotification.Name(rawValue: "load"), object: nil)
-       // tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .allEvents)
-       // tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
         self.extendedLayoutIncludesOpaqueBars = true
-        //tableView.refreshControl = refresh
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "NewCell")
     }
 }
 
@@ -47,10 +42,8 @@ extension FavChannelsViewController {
         return cell
     }
     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][2] = "0"
-           // let tempGroup = Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][0]
             showDeleteFavCommunityAlert(group: Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][0])
             Variables.favCommunitiesList.favCommunitiesArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -74,7 +67,7 @@ extension FavChannelsViewController {
     
     @objc private func loadList2(notification: NSNotification)
     {
-       tableView.reloadData()
+        tableView.reloadData()
         self.view.setNeedsDisplay()
     }
     
@@ -84,5 +77,4 @@ extension FavChannelsViewController {
         joinAlert.addAction(action)
         present(joinAlert, animated: true, completion: nil)
     }
-    
 }

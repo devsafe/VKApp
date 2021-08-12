@@ -17,18 +17,13 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
         return refreshControl
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
-        
-        
     }
 }
 
@@ -38,19 +33,11 @@ extension AllChannelsViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // let cellNib = UINib(nibName: "CellNibName", bundle: nil)
-        // tableView.register(cellNib, forCellReuseIdentifier: ChannelsTableViewCell.identifier)
-        
         let word = "\(Variables.communitiesList.communitiesArray[indexPath.row][0])"
         let array = Variables.favCommunitiesList.favCommunitiesArray
-        
-        
-        
-        
         if array.contains(where: { $0.contains(word) }) {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
             cell.configure(imageName: "logo-" + Variables.communitiesList.communitiesArray[indexPath.row][2], title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1], extraLabel: "Joined")
-            
             let customView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
             customView.backgroundColor = UIColor.clear
             let titleLabel = UILabel(frame: CGRect(x:10,y: 5 ,width:customView.frame.width,height:50))
@@ -63,12 +50,10 @@ extension AllChannelsViewController {
             titleLabel.alpha = 0.6
             customView.addSubview(titleLabel)
             tableView.tableFooterView = customView
-            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
             cell.configure(imageName: "logo-" + Variables.communitiesList.communitiesArray[indexPath.row][2], title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1], extraLabel: nil)
-            // cell.tag = 2
             return cell
         }
     }
@@ -83,16 +68,12 @@ extension AllChannelsViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        guard let cell = tableView.cellForRow(at: indexPath) else { return }
         let tempCell2 = ["\(Variables.communitiesList.communitiesArray[indexPath.row][0])", "\(Variables.communitiesList.communitiesArray[indexPath.row][1])", "\(Variables.communitiesList.communitiesArray[indexPath.row][2])"]
-        //let tempCell3 = ["\(Variables.communitiesList.communitiesArray[indexPath.row])"]
-        
         let word = "\(Variables.communitiesList.communitiesArray[indexPath.row][0])"
         let array = Variables.favCommunitiesList.favCommunitiesArray
         if array.contains(where: { $0.contains(word) }) {
             print("есть такая группа")
             showJoinError(group: tempCell2[0])
-           // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         } else {
             print("нет такой группы")
             Variables.favCommunitiesList.favCommunitiesArray.append(tempCell2)
@@ -131,16 +112,11 @@ extension AllChannelsViewController {
     }
     
     func addChannel() {
-       // var channelTemp = [String]()
-        
         if true {
-            
             Variables.communitiesList.communitiesArray[0].append(contentsOf: Variables.communitiesList.communitiesArray[0])
             print(Variables.communitiesList.communitiesArray[0])
-            
             print("added")
             tableView.reloadData()
-            
         }
     }
 }
