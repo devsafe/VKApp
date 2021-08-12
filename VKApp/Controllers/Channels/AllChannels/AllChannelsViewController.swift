@@ -24,6 +24,7 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
         //self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
         
@@ -130,7 +131,7 @@ extension AllChannelsViewController {
     }
     
     func addChannel() {
-        var channelTemp = [String]()
+       // var channelTemp = [String]()
         
         if true {
             

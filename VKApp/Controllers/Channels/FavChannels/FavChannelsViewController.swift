@@ -20,6 +20,7 @@ class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsSelection = false
+        tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         //navigationController?.navigationBar.prefersLargeTitles = true
         NotificationCenter.default.addObserver(self, selector: #selector(loadList2), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -53,7 +54,7 @@ extension FavChannelsViewController {
             showDeleteFavCommunityAlert(group: Variables.favCommunitiesList.favCommunitiesArray[indexPath.row][0])
             Variables.favCommunitiesList.favCommunitiesArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-           // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
     

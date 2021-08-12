@@ -15,8 +15,25 @@ class MyFriendsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = .clear
+    }
+    
+    let showPhotosIdentifier = "ShowPhotos"
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == showPhotosIdentifier,
+            let destination = segue.destination as? PhotosViewController,
+            let userIndex = tableView.indexPathForSelectedRow?.row
+        {
+            destination.userName = String(userIndex)
+        }
     }
 }
+
+
+
+
     extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
      func numberOfSections(in tableView: UITableView) -> Int {

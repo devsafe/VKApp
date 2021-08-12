@@ -10,6 +10,8 @@
 		114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* MyFriendsViewController.swift */; };
 		114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* MyFriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
+		114E234626C4F2A7003456EF /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234526C4F2A7003456EF /* PhotosCollectionViewCell.swift */; };
+		114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234726C4F3B4003456EF /* PhotosViewController.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -17,6 +19,7 @@
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
+		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
 		11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC0F26BFF1A7006FFF39 /* Variables.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */; };
 		11F8BC1626C1D9D6006FFF39 /* ChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */; };
@@ -27,6 +30,8 @@
 		114E233526C2FEFE003456EF /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* MyFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		114E234526C4F2A7003456EF /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewCell.swift; path = VKApp/Controllers/Photos/PhotosCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		114E234726C4F3B4003456EF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		11F8BC0F26BFF1A7006FFF39 /* Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavChannelsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,8 +122,18 @@
 			isa = PBXGroup;
 			children = (
 				114E234126C41982003456EF /* ProfileViewController.swift */,
+				11F4A0FB26C5768300990634 /* SettingsViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		114E234426C4F24D003456EF /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				114E234526C4F2A7003456EF /* PhotosCollectionViewCell.swift */,
+				114E234726C4F3B4003456EF /* PhotosViewController.swift */,
+			);
+			path = Photos;
 			sourceTree = "<group>";
 		};
 		11CCD80C26BC6403009A5865 = {
@@ -178,6 +194,7 @@
 		11CCD83326BDA194009A5865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				114E234426C4F24D003456EF /* Photos */,
 				114E234326C41994003456EF /* Profile */,
 				114E233C26C3B598003456EF /* Channels */,
 				114E233726C2FF04003456EF /* Friends */,
@@ -274,12 +291,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
+				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */,
 				114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
+				114E234626C4F2A7003456EF /* PhotosCollectionViewCell.swift in Sources */,
 				114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */,
 				114E234226C41983003456EF /* ProfileViewController.swift in Sources */,
+				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				11F8BC1026BFF1A7006FFF39 /* Variables.swift in Sources */,
