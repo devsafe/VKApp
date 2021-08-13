@@ -29,55 +29,37 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension AllChannelsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Variables.communitiesList.communitiesArray.count
+        Storage.allGroups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let word = "\(Variables.communitiesList.communitiesArray[indexPath.row][0])"
-        let array = Variables.favCommunitiesList.favCommunitiesArray
-        if array.contains(where: { $0.contains(word) }) {
+        if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
             let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
-            cell.configure(imageName: "logo-" + Variables.communitiesList.communitiesArray[indexPath.row][2], title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1], extraLabel: "Joined")
-            let customView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-            customView.backgroundColor = UIColor.clear
-            let titleLabel = UILabel(frame: CGRect(x:10,y: 5 ,width:customView.frame.width,height:50))
-            titleLabel.numberOfLines = 1;
-            titleLabel.lineBreakMode = .byTruncatingMiddle
-            titleLabel.backgroundColor = UIColor.clear
-            titleLabel.textColor = .black
-            titleLabel.font = UIFont(name: "Montserrat-Regular", size: 12)
-            titleLabel.text  = "\(Variables.communitiesList.communitiesArray.count) groups at all"
-            titleLabel.alpha = 0.6
-            customView.addSubview(titleLabel)
-            tableView.tableFooterView = customView
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
-            cell.configure(imageName: "logo-" + Variables.communitiesList.communitiesArray[indexPath.row][2], title: Variables.communitiesList.communitiesArray[indexPath.row][0], detail: Variables.communitiesList.communitiesArray[indexPath.row][1], extraLabel: nil)
+        cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: "Joined")
             return cell
         }
+        let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
+    cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: nil)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            Variables.communitiesList.communitiesArray[indexPath.row][2] = "0"
-            Variables.communitiesList.communitiesArray.remove(at: indexPath.row)
+            //Variables.communitiesList.communitiesArray[indexPath.row][2] = "0"
+            Storage.allGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tempCell2 = ["\(Variables.communitiesList.communitiesArray[indexPath.row][0])", "\(Variables.communitiesList.communitiesArray[indexPath.row][1])", "\(Variables.communitiesList.communitiesArray[indexPath.row][2])"]
-        let word = "\(Variables.communitiesList.communitiesArray[indexPath.row][0])"
-        let array = Variables.favCommunitiesList.favCommunitiesArray
-        if array.contains(where: { $0.contains(word) }) {
+        if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
             print("есть такая группа")
-            showJoinError(group: tempCell2[0])
+            showJoinError(group: Storage.allGroups[indexPath.row].name)
         } else {
             print("нет такой группы")
-            Variables.favCommunitiesList.favCommunitiesArray.append(tempCell2)
-            showJoinAlert(group: tempCell2[0])
+            Storage.favGroups.append(Storage.allGroups[indexPath.row])
+            showJoinAlert(group: Storage.allGroups[indexPath.row].name)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
@@ -99,7 +81,6 @@ extension AllChannelsViewController {
     
     @objc private func refresh(sender: UIRefreshControl) {
         tableView.reloadData()
-        print(Variables.communitiesList.communitiesArray[0][3])
         sender.endRefreshing()
     }
     
@@ -107,7 +88,6 @@ extension AllChannelsViewController {
         tableView.reloadData()
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
-        
         addChannel()
     }
     
@@ -118,6 +98,10 @@ extension AllChannelsViewController {
             print("added")
             tableView.reloadData()
         }
+    }
+    
+    func isGroupInFav(groupName: String) -> Bool {
+        (Storage.favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
     }
 }
 
