@@ -10,7 +10,7 @@ import Foundation
 class UserStorage {
     
     let friends: [UserModel]
-    let allFriends: [UserModel]
+    let allUsers: [UserModel]
     
     init() {
         friends = [
@@ -49,7 +49,7 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)])
         ]
-        allFriends = [
+        allUsers = [
             UserModel(
                 name: "Boris",
                 surName: "Sobolev",

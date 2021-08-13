@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LoginFormController: UIViewController {
+class LoginFormController: UIViewController {
     @IBOutlet private var loginTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     @IBOutlet private var loginButton: UIButton!
@@ -16,12 +16,11 @@ final class LoginFormController: UIViewController {
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var scrollView: UIScrollView!
     
-    var allFriends: [UserModel] = []
+    static var allUse = UserStorage.init().allUsers
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let storage = UserStorage()
-        allFriends = storage.allFriends
+        //let storage = UserStorage()
         //         Adding code for hidding keyboard after tap on some area around keyboard
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
@@ -65,15 +64,13 @@ final class LoginFormController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        let loginText = loginTextField.text
-        let passwordText = passwordTextField.text
-        //let userId = allFriends[0]
-        if loginText == allFriends[0].userName && passwordText == allFriends[0].password {
-            print("Success Register")
-        } else {
-            //showRegisterError()
-            print("Fail Register")
-            
+        let loginText = loginTextField.text!
+        let passwordText = passwordTextField.text!
+            if isUserInDB(userName: loginText) {
+                showRegisterError(userName: loginText)
+            } else {
+                Storage.allUsers.append(UserModel(userName: loginText, password: passwordText))
+                
             
         }
     }
@@ -82,8 +79,8 @@ final class LoginFormController: UIViewController {
         print("Login with Facebook button pressed")
     }
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
-        if loginTextField.text == allFriends[0].userName && passwordTextField.text == "" {
-            print("Admin password is: \(allFriends[0].password)")
+        if true {
+            print("Login with Apple pressed")
         } else {
             //showRegisterError()
             print("Fail Register")
@@ -119,7 +116,7 @@ final class LoginFormController: UIViewController {
     func checkUserData() -> Bool {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return false }
-        if isUserInDB(userName: login) && login == UserStorage.init().allFriends[getIndexByUserName(userName: login)!].userName && password == UserStorage.init().allFriends[getIndexByUserName(userName: login)!].password {
+        if isUserInDB(userName: login) && login == Storage.allUsers[getIndexByUserName(userName: login)!].userName && password == Storage.allUsers[getIndexByUserName(userName: login)!].password {
             return true
         } else {
             return false
@@ -127,11 +124,11 @@ final class LoginFormController: UIViewController {
     }
     
     func isUserInDB(userName: String) -> Bool {
-        (UserStorage.init().friends.firstIndex(where: { $0.userName == userName }) != nil) ? true : false
+        (Storage.allUsers.firstIndex(where: { $0.userName == userName }) != nil) ? true : false
     }
     
     func getIndexByUserName(userName: String) -> Int!  {
-        UserStorage.init().friends.firstIndex(where: { $0.userName == userName })
+        Storage.allUsers.firstIndex(where: { $0.userName == userName })
     }
     
     func showLoginError() {
@@ -142,13 +139,23 @@ final class LoginFormController: UIViewController {
         present(alter, animated: true, completion: nil)
     }
     
-    func showRegisterError() {
+    func showRegisterError(userName: String) {
         print("Register fail")
         passwordTextField.text = nil
         let errorRegisterAlert = UIAlertController(
-            title: "Error",
-            message: "Register func is not available now", preferredStyle: .actionSheet)
+            title: "Register Error",
+            message: "Username \(userName) already registered. Type another username and repeat.", preferredStyle: .actionSheet)
         errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        self.present(errorRegisterAlert, animated: true, completion: nil)
+    }
+    
+    func showRegisterInformation(userName: String) {
+        print("Registration complete!")
+        //passwordTextField.text = nil
+        let errorRegisterAlert = UIAlertController(
+            title: "Registration complete!",
+            message: "Username \(userName) registered. Type username and password and repeat login.", preferredStyle: .actionSheet)
+        errorRegisterAlert.addAction(UIAlertAction(title: "Cool!", style: .default, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
     }
     
