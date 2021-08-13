@@ -18,7 +18,7 @@ class UserStorage {
                 userName: "admin", name: "Boris",
                 surName: "Sobolev",
                 password: "123",
-                avatar: "avatar01", location: "Moscow",
+                avatar: "", location: "Moscow",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -67,8 +67,7 @@ class UserStorage {
             UserModel(
                 userName: "alamzov", name: "Artem",
                 surName: "Lamzov",
-                password: "123",
-                avatar: "avatar2", location: "Moscow District",
+                password: "123", location: "Moscow District",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
