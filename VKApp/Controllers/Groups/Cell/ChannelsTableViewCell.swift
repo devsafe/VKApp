@@ -19,7 +19,7 @@ class ChannelsTableViewCell: UITableViewCell {
     func configure(imageName: String?, title: String, detail: String, extraLabel: String?) {
         imageChannelsCell.image = UIImage(named: imageName ?? "logo-default")
         labelChannelsCell.text = title
-        detailLabelChannelsCell.text = detail + " peoples"
+        detailLabelChannelsCell.text = detail + ""
         extraLabelChannelsCell?.text = extraLabel ?? ""
     }
 }

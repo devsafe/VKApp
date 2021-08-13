@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
     
     @objc func loadList(notification: NSNotification){
         //load data here
-        tabBar.items![1].badgeValue = String(Storage.favGroups.count)
+        tabBar.items![1].badgeValue = String(Storage.allUsers[Storage.userIdActiveSession].favGroups.count)
     }
 }
 

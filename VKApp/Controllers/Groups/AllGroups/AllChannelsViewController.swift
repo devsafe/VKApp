@@ -58,7 +58,8 @@ extension AllChannelsViewController {
             showJoinError(group: Storage.allGroups[indexPath.row].name)
         } else {
             print("нет такой группы")
-            Storage.favGroups.append(Storage.allGroups[indexPath.row])
+            
+            Storage.allUsers[Storage.userIdActiveSession].favGroups.append(Storage.allGroups[indexPath.row])
             showJoinAlert(group: Storage.allGroups[indexPath.row].name)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
@@ -91,7 +92,7 @@ extension AllChannelsViewController {
     }
         
     func isGroupInFav(groupName: String) -> Bool {
-        (Storage.favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
+        (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
     }
 }
 

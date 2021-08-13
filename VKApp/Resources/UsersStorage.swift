@@ -9,44 +9,10 @@ import Foundation
 
 class UserStorage {
     
-    let friends: [UserModel]
     let allUsers: [UserModel]
     
     init() {
-        friends = [
-            UserModel(
-                userName: "admin", name: "Boris",
-                surName: "Sobolev",
-                password: "123",
-                avatar: "", location: "Moscow",
-                favGroups: [GroupModel(
-                                name: "Destiny 2",
-                                description: "Cool Game!",
-                                logo: "destiny2",
-                                fullDescription: "Wow it is amazing game!",
-                                subscribersCount: 343)],
-                photo: [PhotoModel(
-                            name: "photo01",
-                            fileName: "photo01",
-                            likeCount: 23,
-                            isLike: false)]),
-            UserModel(
-                userName: "alamzov", name: "Artem",
-                surName: "Lamzov",
-                password: "123",
-                avatar: "avatar02", location: "Moscow District",
-                favGroups: [GroupModel(
-                                name: "Destiny 2",
-                                description: "Cool Game!",
-                                logo: "destiny2",
-                                fullDescription: "Wow it is amazing game!",
-                                subscribersCount: 343)],
-                photo: [PhotoModel(
-                            name: "photo01",
-                            fileName: "photo01",
-                            likeCount: 23,
-                            isLike: false)])
-        ]
+        
         allUsers = [
             UserModel(
                 userName: "admin", name: "Boris",
@@ -69,81 +35,81 @@ class UserStorage {
                                 likeCount: 23,
                                 isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo02",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo02",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo03",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo03",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo04",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo04",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo05",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo05",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo06",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo06",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo07",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo07",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo08",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo08",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo09",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo09",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo10",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo10",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo01",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo01",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo01",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo01",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo01",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo01",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo01",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo01",
+                            likeCount: 23,
+                            isLike: false),
                         PhotoModel(
-                                    name: "photo01",
-                                    fileName: "photo01",
-                                    likeCount: 23,
-                                    isLike: false),
+                            name: "photo01",
+                            fileName: "photo01",
+                            likeCount: 23,
+                            isLike: false),
                         
                 ]),
             UserModel(
                 userName: "alamzov", name: "Artem",
                 surName: "Lamzov",
-                password: "123", location: "Moscow District",
+                password: "123", avatar: "avatar13", location: "Moscow District",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",

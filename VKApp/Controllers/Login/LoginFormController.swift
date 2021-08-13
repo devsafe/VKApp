@@ -68,7 +68,7 @@ class LoginFormController: UIViewController {
             if isUserInDB(userName: loginText) {
                 showRegisterError(userName: loginText)
             } else {
-                Storage.allUsers.append(UserModel(userName: loginText, name: "Just", surName: "Registered", password: passwordText, location: "Default City"))
+                Storage.allUsers.append(UserModel(userName: loginText, name: loginTextField.text!, surName: "user", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Example Group", description: "This is example group", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, isLike: false)]))
                 showRegisterInformation(userName: loginText)
                 print(Storage.userIdActiveSession)
             

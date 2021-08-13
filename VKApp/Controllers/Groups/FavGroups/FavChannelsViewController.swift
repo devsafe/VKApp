@@ -32,19 +32,20 @@ class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension FavChannelsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Storage.favGroups.count
+//        return Storage.favGroups.count
+        return Storage.allUsers[Storage.userIdActiveSession].favGroups.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
-        cell.configure(imageName: Storage.favGroups[indexPath.row].logo, title: Storage.favGroups[indexPath.row].name, detail: Storage.favGroups[indexPath.row].description, extraLabel: nil)
+        cell.configure(imageName: Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].logo, title: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].name), detail: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].description), extraLabel: nil)
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            showDeleteFavCommunityAlert(group: Storage.favGroups[indexPath.row].name)
-            Storage.favGroups.remove(at: indexPath.row)
+            showDeleteFavCommunityAlert(group: Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].name)
+            Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
