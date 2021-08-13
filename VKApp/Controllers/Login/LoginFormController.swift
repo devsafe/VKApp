@@ -67,7 +67,7 @@ final class LoginFormController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text
         let passwordText = passwordTextField.text
-        let userId = allFriends[0]
+        //let userId = allFriends[0]
         if loginText == allFriends[0].userName && passwordText == allFriends[0].password {
             print("Success Register")
         } else {
@@ -77,70 +77,79 @@ final class LoginFormController: UIViewController {
             
         }
     }
-
-@IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
-    print("Login with Facebook button pressed")
-}
-@IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
-    if loginTextField.text == allFriends[0].userName && passwordTextField.text == "" {
-        print("Admin password is: \(allFriends[0].password)")
-    } else {
-        //showRegisterError()
-        print("Fail Register")
-        print(loginTextField.text, allFriends[0].userName, passwordTextField.text)
-        
-        
-    }
-}
-
-@objc func dismissKeyBoard() {
-    self.view.endEditing(true)
-}
-// When keyboard appear
-@objc func keyboardWasShown(notification: Notification) {
-    // let size of keyboard
-    let info = notification.userInfo! as NSDictionary
-    let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
-    let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
     
-    // add space at bottom of a UIScrollView, equals to keyboard height
-    self.scrollView?.contentInset = contentInsets
-    scrollView?.scrollIndicatorInsets = contentInsets
-}
-
-// When keyboard is disappear
-@objc func keyboardWillBeHidden(notification: Notification) {
-    // set space in bottom UIScrollView, equals 0
-    let contentInsets = UIEdgeInsets.zero
-    scrollView?.contentInset = contentInsets
-}
-
-func checkUserData() -> Bool {
-    guard let login = loginTextField.text,
-          let password = passwordTextField.text else { return false }
-    if login == "" && password == "" {
-        return true
-    } else {
-        return false
+    @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
+        print("Login with Facebook button pressed")
     }
-}
-
-func showLoginError() {
-    let alter = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
-    let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-    alter.addAction(action)
-    passwordTextField.text = nil
-    present(alter, animated: true, completion: nil)
-}
-
-func showRegisterError() {
-    print("Register fail")
-    passwordTextField.text = nil
-    let errorRegisterAlert = UIAlertController(
-        title: "Error",
-        message: "Register func is not available now", preferredStyle: .actionSheet)
-    errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
-    self.present(errorRegisterAlert, animated: true, completion: nil)
-}
-
+    @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
+        if loginTextField.text == allFriends[0].userName && passwordTextField.text == "" {
+            print("Admin password is: \(allFriends[0].password)")
+        } else {
+            //showRegisterError()
+            print("Fail Register")
+            // print(loginTextField.text, allFriends[0].userName, passwordTextField.text)
+            
+            print("////////////////")
+            
+        }
+    }
+    
+    @objc func dismissKeyBoard() {
+        self.view.endEditing(true)
+    }
+    // When keyboard appear
+    @objc func keyboardWasShown(notification: Notification) {
+        // let size of keyboard
+        let info = notification.userInfo! as NSDictionary
+        let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        
+        // add space at bottom of a UIScrollView, equals to keyboard height
+        self.scrollView?.contentInset = contentInsets
+        scrollView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    // When keyboard is disappear
+    @objc func keyboardWillBeHidden(notification: Notification) {
+        // set space in bottom UIScrollView, equals 0
+        let contentInsets = UIEdgeInsets.zero
+        scrollView?.contentInset = contentInsets
+    }
+    
+    func checkUserData() -> Bool {
+        guard let login = loginTextField.text,
+              let password = passwordTextField.text else { return false }
+        if isUserInDB(userName: login) && login == UserStorage.init().allFriends[getIndexByUserName(userName: login)!].userName && password == UserStorage.init().allFriends[getIndexByUserName(userName: login)!].password {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isUserInDB(userName: String) -> Bool {
+        (UserStorage.init().friends.firstIndex(where: { $0.userName == userName }) != nil) ? true : false
+    }
+    
+    func getIndexByUserName(userName: String) -> Int!  {
+        UserStorage.init().friends.firstIndex(where: { $0.userName == userName })
+    }
+    
+    func showLoginError() {
+        let alter = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alter.addAction(action)
+        passwordTextField.text = nil
+        present(alter, animated: true, completion: nil)
+    }
+    
+    func showRegisterError() {
+        print("Register fail")
+        passwordTextField.text = nil
+        let errorRegisterAlert = UIAlertController(
+            title: "Error",
+            message: "Register func is not available now", preferredStyle: .actionSheet)
+        errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .default, handler: nil))
+        self.present(errorRegisterAlert, animated: true, completion: nil)
+    }
+    
 }
