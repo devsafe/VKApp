@@ -8,11 +8,12 @@
 import Foundation
 
 struct UserModel {
+    var userName: String
     var name: String
     var surName: String
-    var userName: String
     var password: String
     var avatar: String
-    var favGroups: [GroupModel]
-    var photo: [PhotoModel]
+    var location: String
+    var favGroups: [GroupModel]?
+    var photo: [PhotoModel]?
 }

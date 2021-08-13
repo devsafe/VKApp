@@ -40,7 +40,7 @@ extension TabBarController: UITabBarControllerDelegate  {
         }
         
         if fromView != toView {
-            if Variables.Settings.settingsArray[0][1] == "1" {
+            if Storage.appSettings.isTabBarAnimated == true {
                 UIView.transition(from: fromView, to: toView, duration: 0.8, options: [.transitionCrossDissolve], completion: nil) }
             else {
                 

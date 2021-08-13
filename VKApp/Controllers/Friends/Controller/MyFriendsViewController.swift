@@ -37,12 +37,12 @@ extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Variables.friendsList.friendsListArray.count
+        return Storage.allUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsTableViewCell.identifier, for: indexPath) as! MyFriendsTableViewCell
-        cell.configure(imageName: "avatar" + Variables.friendsList.friendsListArray[indexPath.row][2], title: Variables.friendsList.friendsListArray[indexPath.row][0], detail: Variables.friendsList.friendsListArray[indexPath.row][1])
+        cell.configure(imageName: Storage.allUsers[indexPath.row].avatar, title: Storage.allUsers[indexPath.row].name + " " + Storage.allUsers[indexPath.row].surName, detail: Storage.allUsers[indexPath.row].location)
         return cell
     }
 }
