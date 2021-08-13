@@ -20,7 +20,6 @@ class LoginFormController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let storage = UserStorage()
         //         Adding code for hidding keyboard after tap on some area around keyboard
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
@@ -69,8 +68,9 @@ class LoginFormController: UIViewController {
             if isUserInDB(userName: loginText) {
                 showRegisterError(userName: loginText)
             } else {
-                Storage.allUsers.append(UserModel(userName: loginText, password: passwordText))
-                
+                Storage.allUsers.append(UserModel(userName: loginText, name: "Newby", surName: "Newby", password: passwordText, avatar: "avatar1", location: "Default City"))
+                showRegisterInformation(userName: loginText)
+                print(Storage.userIdActiveSession)
             
         }
     }
@@ -117,6 +117,7 @@ class LoginFormController: UIViewController {
         guard let login = loginTextField.text,
               let password = passwordTextField.text else { return false }
         if isUserInDB(userName: login) && login == Storage.allUsers[getIndexByUserName(userName: login)!].userName && password == Storage.allUsers[getIndexByUserName(userName: login)!].password {
+            Storage.userIdActiveSession = getIndexByUserName(userName: login)
             return true
         } else {
             return false

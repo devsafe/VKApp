@@ -15,11 +15,10 @@ class UserStorage {
     init() {
         friends = [
             UserModel(
-                name: "Boris",
+                userName: "admin", name: "Boris",
                 surName: "Sobolev",
-                userName: "admin",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar01", location: "Moscow",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -32,11 +31,10 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
+                userName: "alamzov", name: "Artem",
                 surName: "Lamzov",
-                userName: "alamzov",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar02", location: "Moscow District",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -51,11 +49,10 @@ class UserStorage {
         ]
         allUsers = [
             UserModel(
-                name: "Boris",
+                userName: "admin", name: "Boris",
                 surName: "Sobolev",
-                userName: "admin",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar1", location: "Zelenograd",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -68,11 +65,10 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
+                userName: "alamzov", name: "Artem",
                 surName: "Lamzov",
-                userName: "alamzov",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar2", location: "Moscow District",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -85,11 +81,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
+                userName: "apashkevich",
                 name: "Andrey",
                 surName: "Pashkevich",
-                userName: "apashkevich",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar3", location: "Moscow",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -102,11 +98,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
-                surName: "Lamzov",
-                userName: "alamzov",
+                userName: "iermolov",
+                name: "Ilya",
+                surName: "Ermolov",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar4", location: "Germany",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -119,11 +115,10 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Andrey",
-                surName: "Pashkevich",
-                userName: "apashkevich",
+                userName: "atrue", name: "Andrey",
+                surName: "Trushelev",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar5", location: "Saint Petersburg",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -136,11 +131,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
-                surName: "Lamzov",
-                userName: "alamzov",
+                userName: "nstoyan",
+                name: "Nikita",
+                surName: "Stoyan",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar6", location: "Saint Petersburg",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -153,11 +148,10 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Andrey",
-                surName: "Pashkevich",
-                userName: "apashkevich",
+                userName: "ovedmid", name: "Oleg",
+                surName: "Vedmid",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar7", location: "Kazan",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -170,11 +164,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
-                surName: "Lamzov",
-                userName: "alamzov",
+                userName: "amir",
+                name: "Amir",
+                surName: "Amiroslanov",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar8", location: "Tula",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -187,11 +181,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Andrey",
-                surName: "Pashkevich",
-                userName: "apashkevich",
+                userName: "stanly",
+                name: "Stanly",
+                surName: "March",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar9", location: "Kaluga",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -204,11 +198,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
-                surName: "Lamzov",
-                userName: "alamzov",
+                userName: "petrov",
+                name: "Sergey",
+                surName: "Petrov",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar10", location: "Dmitrov",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -221,11 +215,10 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Andrey",
-                surName: "Pashkevich",
-                userName: "apashkevich",
+                userName: "kirill", name: "Kirill",
+                surName: "Rybakov",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar11", location: "Sosensky",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -238,11 +231,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
-                surName: "Lamzov",
-                userName: "alamzov",
+                userName: "serg",
+                name: "Sergei",
+                surName: "Sinoshin",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar12", location: "Aprelevka",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -255,11 +248,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Andrey",
-                surName: "Pashkevich",
-                userName: "apashkevich",
+                userName: "potter",
+                name: "Harry",
+                surName: "Potter",
                 password: "123",
-                avatar: "avatar01",
+                avatar: "avatar13", location: "Hogwarts",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
@@ -272,11 +265,11 @@ class UserStorage {
                             likeCount: 23,
                             isLike: false)]),
             UserModel(
-                name: "Artem",
-                surName: "Lamzov",
-                userName: "alamzov",
+                userName: "gates",
+                name: "Bill",
+                surName: "Gates",
                 password: "123",
-                avatar: "avatar02",
+                avatar: "avatar14", location: "Unated States of America",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",

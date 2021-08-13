@@ -9,9 +9,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet var tabbarAnimationSwitch: UISwitch!
+    @IBOutlet var rollButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        rollButton.layer.cornerRadius = 8
         
     }
     

@@ -13,4 +13,8 @@ class Storage {
     static var allGroups = GroupStorage.init().allGroups
     static var favGroups = GroupStorage.init().favGroups
     static var appSettings = SettingsStorage.init()
+    static var userIdActiveSession = 0
 }
+
+
+
