@@ -15,7 +15,7 @@ class MyFriendsTableViewCell: UITableViewCell {
     @IBOutlet var imageFriendsCell: UIImageView!
     
     func configure(imageName: String?, title: String, detail: String) {
-        imageFriendsCell.image = UIImage(named: imageName ?? "defaultAvatar")
+        imageFriendsCell.image = UIImage(named: imageName ?? "avatarDefault")
         labelFriendsCell.text = title
         detailLabelFriendsCell.text = detail
     }

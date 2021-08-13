@@ -14,6 +14,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imagePhotosCollectionCell: UIImageView!
     
     func configure(imageName: String?) {
-        imagePhotosCollectionCell.image = UIImage(named: imageName ?? "photo")
+        imagePhotosCollectionCell.image = UIImage(named: imageName ?? "vk")
     }
 }
