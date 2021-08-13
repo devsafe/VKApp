@@ -63,7 +63,83 @@ class UserStorage {
                             name: "photo01",
                             fileName: "photo01",
                             likeCount: 23,
-                            isLike: false)]),
+                            isLike: false),PhotoModel(
+                                name: "photo01",
+                                fileName: "photo01",
+                                likeCount: 23,
+                                isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo02",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo03",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo04",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo05",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo06",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo07",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo08",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo09",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo10",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo01",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo01",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo01",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo01",
+                                    likeCount: 23,
+                                    isLike: false),
+                        PhotoModel(
+                                    name: "photo01",
+                                    fileName: "photo01",
+                                    likeCount: 23,
+                                    isLike: false),
+                        
+                ]),
             UserModel(
                 userName: "alamzov", name: "Artem",
                 surName: "Lamzov",

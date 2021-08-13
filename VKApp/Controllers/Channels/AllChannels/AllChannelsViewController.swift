@@ -88,18 +88,8 @@ extension AllChannelsViewController {
         tableView.reloadData()
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
-        addChannel()
     }
-    
-    func addChannel() {
-        if true {
-            Variables.communitiesList.communitiesArray[0].append(contentsOf: Variables.communitiesList.communitiesArray[0])
-            print(Variables.communitiesList.communitiesArray[0])
-            print("added")
-            tableView.reloadData()
-        }
-    }
-    
+        
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
     }

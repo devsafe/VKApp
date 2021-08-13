@@ -79,15 +79,10 @@ class LoginFormController: UIViewController {
         print("Login with Facebook button pressed")
     }
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
-        if true {
-            print("Login with Apple pressed")
+        if isUserInDB(userName: loginTextField.text!) {
+            print("Login with Apple pressed. User \(loginTextField.text!) in DB")
         } else {
-            //showRegisterError()
-            print("Fail Register")
-            // print(loginTextField.text, allFriends[0].userName, passwordTextField.text)
-            
-            print("////////////////")
-            
+            print("Fail Register, User \(loginTextField.text!) not in DB")
         }
     }
     

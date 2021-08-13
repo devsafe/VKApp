@@ -47,13 +47,13 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let userIndex = Int(userName)!
-        let photosCount = Variables.friendsList.photosListArray[userIndex].count
+        let photosCount = (Storage.allUsers[userIndex].photo?.count) ?? 0
         return photosCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
-        cell.configure(imageName: Variables.friendsList.photosListArray[Int(userName)!][indexPath.row])
+        cell.configure(imageName: Storage.allUsers[Int(userName)!].photo?[indexPath.row].fileName)
         return cell
     }
 }
