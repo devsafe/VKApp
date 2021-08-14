@@ -22,8 +22,9 @@ class PhotosViewController: UIViewController {
         super.viewWillAppear(animated)
         determineMyDeviceOrientation()
         let titleForNavigationBar = "\(Storage.allUsers[idUserNameFromFriendView].surName) \(Storage.allUsers[idUserNameFromFriendView].name)"
-        navigationController?.title = titleForNavigationBar
+        //navigationController?.title = titleForNavigationBar
         self.title = titleForNavigationBar
+       // self.description = "erere"
     }
     
     func determineMyDeviceOrientation()
@@ -52,9 +53,12 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return photosCount
     }
     
+
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
         cell.configure(imageName: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].fileName)
         return cell
     }
+    
 }

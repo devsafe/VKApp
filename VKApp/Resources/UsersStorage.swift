@@ -18,7 +18,7 @@ class UserStorage {
                 userName: "admin", name: "Boris",
                 surName: "Sobolev",
                 password: "123",
-                avatar: "avatar1", location: "Zelenograd",
+                avatar: "avatar26", location: "Zelenograd",
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",

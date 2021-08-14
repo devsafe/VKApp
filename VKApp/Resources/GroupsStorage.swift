@@ -29,6 +29,18 @@ class GroupStorage {
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
+                        name: "Swiftify",
+                        description: "Learn more!Learn more!Learn more!Learn more!Learn more!",
+                        logo: "logo-swiftify",
+                        fullDescription: "Eat, Sleap, Code, Repeat!",
+                        subscribersCount: 365),
+                     GroupModel(
+                        name: "Netflix",
+                        description: "Learn more!Learn more!Learn more!Learn more!Learn more!",
+                        logo: "logo-netflix",
+                        fullDescription: "Eat, Sleap, Code, Repeat!",
+                        subscribersCount: 365),
+                     GroupModel(
                         name: "Java",
                         description: "Learn more!",
                         logo: "logo-java",
@@ -468,7 +480,7 @@ class GroupStorage {
                         subscribersCount: 365),
                      GroupModel(
                         name: "Swiftify",
-                        description: "Learn more!",
+                        description: "Learn more!Learn more!Learn more!Learn more!Learn more!",
                         logo: "logo-swiftify",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
