@@ -20,25 +20,11 @@ class PhotosViewController: UIViewController {
     var idUserNameFromFriendView = Int()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        determineMyDeviceOrientation()
         let titleForNavigationBar = "\(Storage.allUsers[idUserNameFromFriendView].surName) \(Storage.allUsers[idUserNameFromFriendView].name)"
-        //navigationController?.title = titleForNavigationBar
         self.title = titleForNavigationBar
-       // self.description = "erere"
-    }
-    
-    func determineMyDeviceOrientation()
-    {
-        if UIDevice.current.orientation.isLandscape {
-            print("Device is in landscape mode")
-            collectionView.reloadData()
-        } else {
-            print("Device is in portrait mode")
-        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        determineMyDeviceOrientation()
     }
 }
 
@@ -53,13 +39,9 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return photosCount
     }
     
-
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
         cell.configure(imageName: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].fileName, likeCount: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].likeCount)
-        
         return cell
     }
-    
 }
