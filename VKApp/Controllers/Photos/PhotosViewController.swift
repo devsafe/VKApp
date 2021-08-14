@@ -16,13 +16,14 @@ class PhotosViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    var userName = String()
+    
+    var idUserNameFromFriendView = Int()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let destinationUserName = userName
-        print(destinationUserName)
-        print(userName)
         determineMyDeviceOrientation()
+        let titleForNavigationBar = "\(Storage.allUsers[idUserNameFromFriendView].surName) \(Storage.allUsers[idUserNameFromFriendView].name)"
+        navigationController?.title = titleForNavigationBar
+        self.title = titleForNavigationBar
     }
     
     func determineMyDeviceOrientation()
@@ -39,6 +40,7 @@ class PhotosViewController: UIViewController {
         determineMyDeviceOrientation()
     }
 }
+
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -46,14 +48,13 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let userIndex = Int(userName)!
-        let photosCount = Variables.friendsList.photosListArray[userIndex].count
+        let photosCount = (Storage.allUsers[idUserNameFromFriendView].photo.count)
         return photosCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
-        cell.configure(imageName: Variables.friendsList.photosListArray[Int(userName)!][indexPath.row])
+        cell.configure(imageName: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].fileName)
         return cell
     }
 }

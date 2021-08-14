@@ -16,8 +16,6 @@ class LoginFormController: UIViewController {
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var scrollView: UIScrollView!
     
-    static var allUse = UserStorage.init().allUsers
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //         Adding code for hidding keyboard after tap on some area around keyboard
@@ -65,13 +63,11 @@ class LoginFormController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text!
         let passwordText = passwordTextField.text!
-            if isUserInDB(userName: loginText) {
-                showRegisterError(userName: loginText)
-            } else {
-                Storage.allUsers.append(UserModel(userName: loginText, name: "Just", surName: "Registered", password: passwordText, location: "Default City"))
-                showRegisterInformation(userName: loginText)
-                print(Storage.userIdActiveSession)
-            
+        if isUserInDB(userName: loginText) {
+            showRegisterError(userName: loginText)
+        } else {
+            Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Example Group", description: "This is example group", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, isLike: false)]))
+            showRegisterInformation(userName: loginText)
         }
     }
     
@@ -79,15 +75,10 @@ class LoginFormController: UIViewController {
         print("Login with Facebook button pressed")
     }
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
-        if true {
-            print("Login with Apple pressed")
+        if isUserInDB(userName: loginTextField.text!) {
+            print("Login with Apple pressed. User \(loginTextField.text!) in DB")
         } else {
-            //showRegisterError()
-            print("Fail Register")
-            // print(loginTextField.text, allFriends[0].userName, passwordTextField.text)
-            
-            print("////////////////")
-            
+            print("Fail Register, User \(loginTextField.text!) not in DB")
         }
     }
     
@@ -151,13 +142,10 @@ class LoginFormController: UIViewController {
     }
     
     func showRegisterInformation(userName: String) {
-        print("Registration complete!")
-        //passwordTextField.text = nil
         let errorRegisterAlert = UIAlertController(
             title: "Registration complete!",
             message: "Username \(userName) registered. Type username and password and repeat login.", preferredStyle: .actionSheet)
         errorRegisterAlert.addAction(UIAlertAction(title: "Cool!", style: .default, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
     }
-    
 }

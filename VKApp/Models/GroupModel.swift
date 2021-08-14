@@ -1,5 +1,5 @@
 //
-//  GroupModel
+//  GroupModel.swift
 //  VKApp
 //
 //  Created by Boris Sobolev on 12.08.2021.
