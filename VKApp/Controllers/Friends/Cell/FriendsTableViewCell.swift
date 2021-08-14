@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MyFriendsTableViewCell: UITableViewCell {
+class FriendsTableViewCell: UITableViewCell {
     
-    static let identifier = "MyFriendsTableViewCell"
+    static let identifier = "FriendsTableViewCell"
     @IBOutlet var labelFriendsCell: UILabel!
     @IBOutlet var detailLabelFriendsCell: UILabel!
     @IBOutlet var imageFriendsCell: UIImageView!

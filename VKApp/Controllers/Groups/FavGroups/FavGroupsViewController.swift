@@ -1,5 +1,5 @@
 //
-//  FavChannelsViewController.swift
+//  FavGroupsViewController.swift
 //  VKApp
 //
 //  Created by Boris Sobolev on 10.08.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
     
@@ -30,7 +30,7 @@ class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableV
     }
 }
 
-extension FavChannelsViewController {
+extension FavGroupsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Storage.allUsers[Storage.userIdActiveSession].favGroups.count 
     }
@@ -54,14 +54,12 @@ extension FavChannelsViewController {
         tableView.reloadData()
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
-        print("pppppp")
     }
     
     @objc private func refresh2(sender: AnyObject) {
         tableView.reloadData()
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
-        print("pppppp")
     }
     
     @objc private func loadList2(notification: NSNotification)

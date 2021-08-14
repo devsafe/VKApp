@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="-488.40579710144931" y="110.49107142857143"/>
         </scene>
-        <!--My Channels-->
+        <!--My Groups-->
         <scene sceneID="yUK-Bn-WpV">
             <objects>
-                <viewController id="FYa-QE-lAp" customClass="FavChannelsViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FYa-QE-lAp" customClass="FavGroupsViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vbR-Fp-i44">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,7 +244,7 @@
                             <constraint firstItem="YLT-HM-QiB" firstAttribute="trailing" secondItem="vbR-Fp-i44" secondAttribute="trailing" id="ZS3-Ni-jHa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Channels" id="UcQ-ba-C9c">
+                    <navigationItem key="navigationItem" title="My Groups" id="UcQ-ba-C9c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YkW-rI-Mmp">
                             <connections>
                                 <segue destination="bc0-Rx-N8Y" kind="show" id="ZkP-et-cD9"/>
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="2330" y="-178"/>
         </scene>
-        <!--All Channels-->
+        <!--All Groups-->
         <scene sceneID="Cax-AI-Xt7">
             <objects>
-                <viewController id="bc0-Rx-N8Y" customClass="AllChannelsViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bc0-Rx-N8Y" customClass="AllGroupsViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jrs-c4-YCH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,7 +351,7 @@
                             <constraint firstItem="VsL-Qz-tsD" firstAttribute="top" secondItem="AW5-LX-A11" secondAttribute="top" id="v65-Oe-REW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="All Channels" id="oci-yD-Tli"/>
+                    <navigationItem key="navigationItem" title="All Groups" id="oci-yD-Tli"/>
                     <connections>
                         <outlet property="tableView" destination="VsL-Qz-tsD" id="Haf-1x-dO0"/>
                     </connections>
@@ -363,7 +363,7 @@
         <!--Friends-->
         <scene sceneID="04T-Fr-7rn">
             <objects>
-                <viewController id="HRa-8b-Cvt" customClass="MyFriendsViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HRa-8b-Cvt" customClass="FriendsViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbq-Kx-q4B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,7 +372,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyFriendsTableViewCell" id="MHN-xh-GSa" customClass="MyFriendsTableViewCell" customModule="VKApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendsTableViewCell" id="MHN-xh-GSa" customClass="FriendsTableViewCell" customModule="VKApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="66.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MHN-xh-GSa" id="nfK-TM-Nzd">
@@ -446,7 +446,7 @@
             </objects>
             <point key="canvasLocation" x="2350.7246376811595" y="-944.19642857142856"/>
         </scene>
-        <!--Photos-->
+        <!--Photos View Controller-->
         <scene sceneID="49z-qu-saR">
             <objects>
                 <viewController id="nWn-b4-c35" customClass="PhotosViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -500,7 +500,7 @@
                             <constraint firstItem="zWr-ep-nKJ" firstAttribute="top" secondItem="Whq-j1-Uxd" secondAttribute="top" id="i5Y-ZV-0Ky"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Photos" id="Ra3-YZ-NSh"/>
+                    <navigationItem key="navigationItem" id="Ra3-YZ-NSh"/>
                     <connections>
                         <outlet property="collectionView" destination="zWr-ep-nKJ" id="OaD-qS-JZF"/>
                     </connections>
@@ -865,11 +865,11 @@
             </objects>
             <point key="canvasLocation" x="1442" y="-178"/>
         </scene>
-        <!--Item-->
+        <!--Friends-->
         <scene sceneID="WjS-dv-HrF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lmz-Uc-2ap" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="person.2.circle" catalog="system" selectedImage="person.2.circle.fill" id="aTI-l1-BWh"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.2.circle" catalog="system" selectedImage="person.2.circle.fill" id="aTI-l1-BWh"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="y1G-1X-Efj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="CYf-3F-dha">

@@ -15,8 +15,8 @@
 		114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359426C5C3D100D9C17B /* SettingsStorage.swift */; };
 		114C359826C6E29F00D9C17B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359726C6E29F00D9C17B /* Storage.swift */; };
 		114C359C26C73BC300D9C17B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */; };
-		114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* MyFriendsViewController.swift */; };
-		114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* MyFriendsTableViewCell.swift */; };
+		114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* FriendsViewController.swift */; };
+		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
 		114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234726C4F3B4003456EF /* PhotosViewController.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
@@ -27,9 +27,9 @@
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
-		11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */; };
+		11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */; };
 		11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */; };
-		11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */; };
+		11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,8 @@
 		114C359426C5C3D100D9C17B /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		114C359726C6E29F00D9C17B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewCell.swift; path = Cell/PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
-		114E233526C2FEFE003456EF /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
-		114E233826C30171003456EF /* MyFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		114E233526C2FEFE003456EF /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		114E234726C4F3B4003456EF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,9 +55,9 @@
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavChannelsViewController.swift; sourceTree = "<group>"; };
+		11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGroupsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
-		11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChannelsViewController.swift; sourceTree = "<group>"; };
+		11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 		114E233E26C3B5C6003456EF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				114E233826C30171003456EF /* MyFriendsTableViewCell.swift */,
+				114E233826C30171003456EF /* FriendsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 		114E233F26C3B5CF003456EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				114E233526C2FEFE003456EF /* MyFriendsViewController.swift */,
+				114E233526C2FEFE003456EF /* FriendsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 		11F8BC1726C2DCAB006FFF39 /* FavGroups */ = {
 			isa = PBXGroup;
 			children = (
-				11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */,
+				11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */,
 			);
 			path = FavGroups;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 		11F8BC1A26C2ECE9006FFF39 /* AllGroups */ = {
 			isa = PBXGroup;
 			children = (
-				11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */,
+				11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */,
 			);
 			path = AllGroups;
 			sourceTree = "<group>";
@@ -327,18 +327,18 @@
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				114C359826C6E29F00D9C17B /* Storage.swift in Sources */,
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
-				11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */,
+				11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */,
 				114C359326C5BF2600D9C17B /* UsersStorage.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
-				114E233926C30171003456EF /* MyFriendsTableViewCell.swift in Sources */,
+				114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				114C359C26C73BC300D9C17B /* PhotosCollectionViewCell.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
-				114E233626C2FEFE003456EF /* MyFriendsViewController.swift in Sources */,
+				114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */,
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
 				114E234226C41983003456EF /* ProfileViewController.swift in Sources */,
 				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
-				11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */,
+				11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */,
 				114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,

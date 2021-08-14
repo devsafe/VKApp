@@ -1,5 +1,5 @@
 //
-//  MyFriendsViewController.swift
+//  FriendsViewController.swift
 //  VKApp
 //
 //  Created by Boris Sobolev on 10.08.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyFriendsViewController: UIViewController {
+class FriendsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
@@ -25,12 +25,12 @@ class MyFriendsViewController: UIViewController {
             let destination = segue.destination as? PhotosViewController,
             let userIndex = tableView.indexPathForSelectedRow?.row
         {
-            destination.userName = String(userIndex)
+            destination.idUserNameFromFriendView = userIndex
         }
     }
 }
 
-extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
+extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -41,7 +41,7 @@ extension MyFriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MyFriendsTableViewCell.identifier, for: indexPath) as! MyFriendsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as! FriendsTableViewCell
         cell.configure(imageName: Storage.allUsers[indexPath.row].avatar, title: Storage.allUsers[indexPath.row].name + " " + Storage.allUsers[indexPath.row].surName, detail: Storage.allUsers[indexPath.row].location)
         return cell
     }

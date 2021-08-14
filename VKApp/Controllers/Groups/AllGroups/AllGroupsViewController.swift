@@ -1,5 +1,5 @@
 //
-//  AllChannelsViewController.swift
+//  AllGroupsViewController.swift
 //  VKApp
 //
 //  Created by Boris Sobolev on 10.08.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
     
@@ -27,7 +27,7 @@ class AllChannelsViewController: UIViewController, UITableViewDelegate, UITableV
     }
 }
 
-extension AllChannelsViewController {
+extension AllGroupsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         Storage.allGroups.count
     }
