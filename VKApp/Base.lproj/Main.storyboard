@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-VB-oES" userLabel="ContainerView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="563"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vk" translatesAutoresizingMaskIntoConstraints="NO" id="g6j-et-nlz">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-vk" translatesAutoresizingMaskIntoConstraints="NO" id="g6j-et-nlz">
                                                 <rect key="frame" x="157" y="30" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="TJG-Q6-c5s"/>
@@ -375,14 +375,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w97-x4-Qyo">
-                                                    <rect key="frame" x="20" y="3" width="90" height="90.5"/>
+                                                    <rect key="frame" x="15" y="3" width="90" height="90.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="6T2-in-tlV"/>
                                                         <constraint firstAttribute="height" priority="999" constant="90" id="Ni5-dz-Yz0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="J0g-OG-Jkm">
-                                                    <rect key="frame" x="120" y="38" width="274" height="20.5"/>
+                                                    <rect key="frame" x="115" y="38" width="274" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4K-wj-yN0">
                                                             <rect key="frame" x="0.0" y="0.0" width="201" height="20.5"/>
@@ -408,9 +408,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="w97-x4-Qyo" secondAttribute="bottom" constant="3" id="1eu-hF-0aY"/>
                                                 <constraint firstItem="w97-x4-Qyo" firstAttribute="top" secondItem="nfK-TM-Nzd" secondAttribute="top" constant="3" id="3KH-82-5j4"/>
                                                 <constraint firstItem="J0g-OG-Jkm" firstAttribute="leading" secondItem="w97-x4-Qyo" secondAttribute="trailing" constant="10" id="4OU-qB-u3I"/>
-                                                <constraint firstAttribute="trailing" secondItem="J0g-OG-Jkm" secondAttribute="trailing" constant="20" id="Mok-4A-81c"/>
+                                                <constraint firstAttribute="trailing" secondItem="J0g-OG-Jkm" secondAttribute="trailing" constant="25" id="Mok-4A-81c"/>
                                                 <constraint firstItem="J0g-OG-Jkm" firstAttribute="centerY" secondItem="nfK-TM-Nzd" secondAttribute="centerY" id="Uho-c4-CBM"/>
-                                                <constraint firstItem="w97-x4-Qyo" firstAttribute="leading" secondItem="nfK-TM-Nzd" secondAttribute="leading" constant="20" id="rEM-Zx-o4T"/>
+                                                <constraint firstItem="w97-x4-Qyo" firstAttribute="leading" secondItem="nfK-TM-Nzd" secondAttribute="leading" constant="15" id="rEM-Zx-o4T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -452,35 +452,53 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWr-ep-nKJ">
                                 <rect key="frame" x="0.0" y="108" width="414" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="AyO-ft-ZdQ">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="AyO-ft-ZdQ">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotosCell" id="9hI-t5-W5a" customClass="PhotosCollectionViewCell" customModule="VKApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="5" y="5" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lbm-Yg-yao">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" translatesAutoresizingMaskIntoConstraints="NO" id="XY6-5N-DDs">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="757" verticalCompressionResistancePriority="757" translatesAutoresizingMaskIntoConstraints="NO" id="XY6-5N-DDs">
                                                     <rect key="frame" x="5" y="5" width="190" height="190"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="190" id="9Ws-nc-AEV"/>
                                                         <constraint firstAttribute="height" constant="190" id="JMJ-6e-XJ4"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-u9-Ymp">
+                                                    <rect key="frame" x="145" y="145" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="2hL-jd-jIg"/>
+                                                        <constraint firstAttribute="height" constant="40" id="EjW-Av-l6l"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-mR-w1q">
+                                                    <rect key="frame" x="154.5" y="152.5" width="21" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Az7-u9-Ymp" secondAttribute="trailing" constant="15" id="2Fc-tX-2Pi"/>
                                                 <constraint firstItem="XY6-5N-DDs" firstAttribute="centerX" secondItem="lbm-Yg-yao" secondAttribute="centerX" id="5LQ-1c-chz"/>
                                                 <constraint firstItem="XY6-5N-DDs" firstAttribute="centerY" secondItem="lbm-Yg-yao" secondAttribute="centerY" id="Q5W-Nf-V9N"/>
+                                                <constraint firstAttribute="bottom" secondItem="Az7-u9-Ymp" secondAttribute="bottom" constant="15" id="dZJ-2Z-M02"/>
+                                                <constraint firstItem="Az7-u9-Ymp" firstAttribute="centerX" secondItem="2Lg-mR-w1q" secondAttribute="centerX" id="dqR-Jy-Occ"/>
+                                                <constraint firstItem="2Lg-mR-w1q" firstAttribute="centerY" secondItem="Az7-u9-Ymp" secondAttribute="centerY" constant="-2" id="iY4-Dd-lQH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
+                                            <outlet property="likeCountLabelCollectionCell" destination="2Lg-mR-w1q" id="Zmn-D7-EPb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -940,13 +958,14 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="like" width="512" height="512"/>
+        <image name="logo-vk" width="511.96200561523438" height="511.96200561523438"/>
         <image name="person.2.circle" catalog="system" width="128" height="121"/>
         <image name="person.2.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="star.circle" catalog="system" width="128" height="121"/>
         <image name="star.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="vk" width="511.96200561523438" height="511.96200561523438"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
