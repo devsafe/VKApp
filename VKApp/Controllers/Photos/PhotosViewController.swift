@@ -16,6 +16,7 @@ class PhotosViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
     var userName = String()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,6 +40,7 @@ class PhotosViewController: UIViewController {
         determineMyDeviceOrientation()
     }
 }
+
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

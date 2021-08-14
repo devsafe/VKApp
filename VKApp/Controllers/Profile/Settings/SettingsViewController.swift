@@ -14,11 +14,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         rollButton.layer.cornerRadius = 8
-        
     }
     
     @IBAction func tabAnimationSwitch(_ sender: UISwitch) {
         Storage.appSettings.isTabBarAnimated = sender.isOn ? true : false
-       // print(SettingsStorage.setting1)
     }
 }

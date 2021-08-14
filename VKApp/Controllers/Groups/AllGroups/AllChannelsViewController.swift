@@ -34,18 +34,17 @@ extension AllChannelsViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
-        cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: "Joined")
+            let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
+            cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: "Joined")
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
-    cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
+        cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: nil)
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //Variables.communitiesList.communitiesArray[indexPath.row][2] = "0"
             Storage.allGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -54,11 +53,8 @@ extension AllChannelsViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
-            print("есть такая группа")
             showJoinError(group: Storage.allGroups[indexPath.row].name)
         } else {
-            print("нет такой группы")
-            
             Storage.allUsers[Storage.userIdActiveSession].favGroups.append(Storage.allGroups[indexPath.row])
             showJoinAlert(group: Storage.allGroups[indexPath.row].name)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -90,7 +86,7 @@ extension AllChannelsViewController {
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
     }
-        
+    
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
     }

@@ -32,12 +32,11 @@ class FavChannelsViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension FavChannelsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return Storage.favGroups.count
         return Storage.allUsers[Storage.userIdActiveSession].favGroups.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: ChannelsTableViewCell.identifier, for: indexPath) as! ChannelsTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
         cell.configure(imageName: Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].logo, title: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].name), detail: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].description), extraLabel: nil)
         return cell
     }

@@ -28,7 +28,7 @@
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */; };
-		11F8BC1626C1D9D6006FFF39 /* ChannelsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */; };
+		11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */; };
 		11F8BC1926C2ECE2006FFF39 /* AllChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavChannelsViewController.swift; sourceTree = "<group>"; };
-		11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableViewCell.swift; sourceTree = "<group>"; };
+		11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		11F8BC1826C2ECE2006FFF39 /* AllChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChannelsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +119,7 @@
 		114E233D26C3B5A6003456EF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				11F8BC1526C1D9D6006FFF39 /* ChannelsTableViewCell.swift */,
+				11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,
-				11F8BC1626C1D9D6006FFF39 /* ChannelsTableViewCell.swift in Sources */,
+				11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

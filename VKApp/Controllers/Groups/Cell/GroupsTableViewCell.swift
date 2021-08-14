@@ -1,5 +1,5 @@
 //
-//  FavChannelsTableViewCell.swift
+//  GroupsTableViewCell.swift
 //  VKApp
 //
 //  Created by Boris Sobolev on 10.08.2021.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ChannelsTableViewCell: UITableViewCell {
+class GroupsTableViewCell: UITableViewCell {
     
-    static let identifier = "ChannelsTableViewCell"
+    static let identifier = "GroupsTableViewCell"
     
     @IBOutlet private var labelChannelsCell: UILabel!
     @IBOutlet private var detailLabelChannelsCell: UILabel!
