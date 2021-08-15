@@ -35,11 +35,11 @@ extension AllGroupsViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
             let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
-            cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: "Joined")
+            cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: "", favouritImage: "star")
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
-        cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: nil)
+        cell.configure(imageName: Storage.allGroups[indexPath.row].logo, title: Storage.allGroups[indexPath.row].name, detail: Storage.allGroups[indexPath.row].description, extraLabel: nil, favouritImage: "nil")
         return cell
     }
     
@@ -53,10 +53,14 @@ extension AllGroupsViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
-            showJoinError(group: Storage.allGroups[indexPath.row].name)
+            //showJoinError(group: Storage.allGroups[indexPath.row].name)
+            Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: Storage.allGroups[indexPath.row].name))
+            tableView.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         } else {
             Storage.allUsers[Storage.userIdActiveSession].favGroups.append(Storage.allGroups[indexPath.row])
-            showJoinAlert(group: Storage.allGroups[indexPath.row].name)
+            //showJoinAlert(group: Storage.allGroups[indexPath.row].name)
+            tableView.reloadData()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
@@ -66,7 +70,7 @@ extension AllGroupsViewController {
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         joinAlert.addAction(action)
         present(joinAlert, animated: true, completion: nil)
-        tableView.reloadData()
+        
     }
     
     func showJoinError(group: String) {
@@ -89,6 +93,10 @@ extension AllGroupsViewController {
     
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
+    }
+    
+    func getIndexGroupByGroupName(groupName: String) -> Int!  {
+        Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName })
     }
 }
 

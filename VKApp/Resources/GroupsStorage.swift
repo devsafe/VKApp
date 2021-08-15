@@ -16,7 +16,7 @@ class GroupStorage {
         favGroups = [
             GroupModel(
                 name: "Swift",
-                description: "Learn more!",
+                description: "Lorem ipsuLorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 logo: "logo-swift",
                 fullDescription: "Eat, Sleap, Code, Repeat!",
                 subscribersCount: 365)
@@ -24,61 +24,61 @@ class GroupStorage {
         
         allGroups = [GroupModel(
                         name: "HTML 5",
-                        description: "Learn more!",
+                        description: "Duis a neque in.",
                         logo: "logo-html-5",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Swiftify",
-                        description: "Learn more!Learn more!Learn more!Learn more!Learn more!",
+                        description: "Pellentesque imperdiet augue non.",
                         logo: "logo-swiftify",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Netflix",
-                        description: "Learn more!Learn more!Learn more!Learn more!Learn more!",
+                        description: "Proin mattis justo tellus.",
                         logo: "logo-netflix",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Java",
-                        description: "Learn more!",
+                        description: "Nunc in quam luctus, accumsan.",
                         logo: "logo-java",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Node JS",
-                        description: "Learn more!",
+                        description: "Mauris laoreet massa molestie.",
                         logo: "logo-nodejs",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Microsoft",
-                        description: "Learn more!",
+                        description: "Aenean ultrices sapien vel est pretium.",
                         logo: "logo-microsoft",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Google Play Fans",
-                        description: "Learn more!",
+                        description: "Phasellus diam sapien, iaculis.",
                         logo: "logo-google-play",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Adidas",
-                        description: "Learn more!",
+                        description: "Pellentesque faucibus accumsan est.",
                         logo: "logo-adidas",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Uber",
-                        description: "Learn more!",
+                        description: "Cras efficitur, libero non.",
                         logo: "logo-uber",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
                         name: "Tinder",
-                        description: "Learn more!",
+                        description: "Orci varius natoque penatibus.",
                         logo: "logo-tinder",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),

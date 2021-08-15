@@ -17,7 +17,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         logoutButton.layer.cornerRadius = 8
         let userId = Storage.userIdActiveSession
-        profileImage.image = UIImage(named: (Storage.allUsers[userId].avatar) )
+        profileImage.image = UIImage(named: (Storage.allUsers[userId].avatar))
+        profileImage.layer.cornerRadius = 8
         profileNameSurName.text = Storage.allUsers[userId].name + " " + Storage.allUsers[userId].surName
         profileLocation.text = Storage.allUsers[userId].location
     }
