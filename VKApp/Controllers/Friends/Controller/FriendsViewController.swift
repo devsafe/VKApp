@@ -11,6 +11,8 @@ class FriendsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    let sortedFriends = Storage.allUsers.sorted(by: { $0.name < $1.name })
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -31,7 +33,7 @@ class FriendsViewController: UIViewController {
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
