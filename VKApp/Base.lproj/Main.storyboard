@@ -473,16 +473,17 @@
                                                         <constraint firstAttribute="height" constant="190" id="JMJ-6e-XJ4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-u9-Ymp">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-u9-Ymp">
                                                     <rect key="frame" x="155" y="155" width="30" height="30"/>
+                                                    <color key="tintColor" systemColor="linkColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="2hL-jd-jIg"/>
                                                         <constraint firstAttribute="height" constant="30" id="EjW-Av-l6l"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-mR-w1q">
-                                                    <rect key="frame" x="159.5" y="157.5" width="21" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="162.5" y="160" width="15.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -493,10 +494,11 @@
                                                 <constraint firstItem="XY6-5N-DDs" firstAttribute="centerY" secondItem="lbm-Yg-yao" secondAttribute="centerY" id="Q5W-Nf-V9N"/>
                                                 <constraint firstAttribute="bottom" secondItem="Az7-u9-Ymp" secondAttribute="bottom" constant="15" id="dZJ-2Z-M02"/>
                                                 <constraint firstItem="Az7-u9-Ymp" firstAttribute="centerX" secondItem="2Lg-mR-w1q" secondAttribute="centerX" id="dqR-Jy-Occ"/>
-                                                <constraint firstItem="2Lg-mR-w1q" firstAttribute="centerY" secondItem="Az7-u9-Ymp" secondAttribute="centerY" constant="-2" id="iY4-Dd-lQH"/>
+                                                <constraint firstItem="2Lg-mR-w1q" firstAttribute="centerY" secondItem="Az7-u9-Ymp" secondAttribute="centerY" constant="-3" id="iY4-Dd-lQH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="imageLikePhotosCollectionCell" destination="Az7-u9-Ymp" id="eTD-z3-McX"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeCountLabelCollectionCell" destination="2Lg-mR-w1q" id="Zmn-D7-EPb"/>
                                         </connections>
@@ -572,13 +574,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8W-LE-QWQ">
                                 <rect key="frame" x="157" y="679" width="100" height="40"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AeY-yG-yA7"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Fld-04-EEz"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="OQR-jE-yUc" eventType="touchUpInside" id="QIp-o8-9GF"/>
                                     <segue destination="OQR-jE-yUc" kind="unwind" unwindAction="logout:" id="Y0a-Bt-fBe"/>
@@ -958,7 +960,6 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="like" width="512" height="512"/>
         <image name="logo-vk" width="511.96200561523438" height="511.96200561523438"/>
         <image name="person.2.circle" catalog="system" width="128" height="121"/>
         <image name="person.2.circle.fill" catalog="system" width="128" height="121"/>
@@ -980,9 +981,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
