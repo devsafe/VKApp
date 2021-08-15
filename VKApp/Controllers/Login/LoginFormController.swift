@@ -74,7 +74,7 @@ class LoginFormController: UIViewController {
     
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
-        showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
+        //showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
     }
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
         if isUserInDB(userName: loginTextField.text!) {
