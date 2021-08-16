@@ -10,6 +10,7 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var likeControl: LikeControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,18 +10,12 @@ import UIKit
 class PhotosCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotosCollectionViewCell"
-    
-    @IBOutlet var namePhotoOutlet: UILabel!
+    var likeTapped: (() -> Void)?
+
     @IBOutlet var imagePhotosCollectionCell: UIImageView!
-    @IBOutlet var likeCountLabelCollectionCell: UILabel!
-    @IBOutlet var likeButtonOutlet: UIButton!
-    @IBOutlet var commentsButtonOutlet: UIButton!
-    @IBOutlet var commentsCountLabelOutlet: UILabel!
-    @IBAction func commentsButtonPressed(_ sender: UIButton) {
-    }
-    @IBAction func likeButtonPressed(_ sender: UIButton) {
-    }
     
+    @IBOutlet var commentControl: CommentControl!
+    @IBOutlet var likeControl: LikeControl!
     func configure(imageName: String?, likeCount: Int) {
         imagePhotosCollectionCell.image = UIImage(named: imageName ?? "logo-vk")
         imagePhotosCollectionCell.layer.cornerRadius = 8
@@ -31,14 +25,21 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         //let yourColor2 : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.5 )
         imagePhotosCollectionCell.layer.borderColor = yourColor.cgColor
         
-        likeCountLabelCollectionCell.text = String(likeCount)
+        
+        likeControl.configure(isLike: Storage.allUsers[0].photo[0].isLike,
+                              likeCount: Storage.allUsers[0].photo[0].likeCount
+        )
+        likeControl.controlTapped = {[weak self] in
+            self?.likeTapped?()
+        }
+        //likeCountLabelCollectionCell.text = String(likeCount)
        // imageLikePhotosCollectionCell.image = UIImage(named: "heart")
         //let tintableImage = imageLikePhotosCollectionCell.image!.withRenderingMode(.alwaysTemplate)
        // tintableImage.withTintColor(.white)
        // imageLikePhotosCollectionCell.image = tintableImage
         //imageLikePhotosCollectionCell.tintColor = yourColor2
-        commentsButtonOutlet.setImage(UIImage(systemName: "bubble.left"), for: .normal)
-        commentsButtonOutlet.titleLabel?.text = ""
-        likeButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+       // commentsButtonOutlet.setImage(UIImage(systemName: "bubble.left"), for: .normal)
+      //  commentsButtonOutlet.titleLabel?.text = ""
+       // likeButtonOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
     }
 }

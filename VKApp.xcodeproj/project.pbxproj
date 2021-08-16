@@ -15,6 +15,8 @@
 		114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359426C5C3D100D9C17B /* SettingsStorage.swift */; };
 		114C359826C6E29F00D9C17B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359726C6E29F00D9C17B /* Storage.swift */; };
 		114C359C26C73BC300D9C17B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */; };
+		114E086226CB0742008F519A /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E086126CB0742008F519A /* LikeControl.swift */; };
+		114E086426CB0979008F519A /* CommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E086326CB0979008F519A /* CommentControl.swift */; };
 		114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* FriendsViewController.swift */; };
 		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
@@ -41,6 +43,8 @@
 		114C359426C5C3D100D9C17B /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		114C359726C6E29F00D9C17B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewCell.swift; path = Cell/PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		114E086126CB0742008F519A /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		114E086326CB0979008F519A /* CommentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControl.swift; sourceTree = "<group>"; };
 		114E233526C2FEFE003456EF /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				114C358726C5B43A00D9C17B /* Models */,
 				11CCD83026BDA08D009A5865 /* Delegate */,
 				11CCD81E26BC6403009A5865 /* Main.storyboard */,
+				114E086126CB0742008F519A /* LikeControl.swift */,
+				114E086326CB0979008F519A /* CommentControl.swift */,
 				11CCD83326BDA194009A5865 /* Controllers */,
 				11CCD83126BDA0C2009A5865 /* Resources */,
 				11CCD83226BDA0FD009A5865 /* Configuration */,
@@ -327,6 +333,7 @@
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				114C359826C6E29F00D9C17B /* Storage.swift in Sources */,
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
+				114E086426CB0979008F519A /* CommentControl.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */,
 				114C359326C5BF2600D9C17B /* UsersStorage.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
@@ -340,6 +347,7 @@
 				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */,
 				114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */,
+				114E086226CB0742008F519A /* LikeControl.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,
