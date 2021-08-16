@@ -21,7 +21,7 @@ class UserStorage {
                 avatar: "avatar26", location: "Zelenograd",
                 favGroups: [GroupModel(
                                 name: "Swift Education School",
-                                description: "Wow!",
+                                description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.",
                                 logo: "logo-swift1",
                                 fullDescription: "Wow it is amazing game!",
                                 subscribersCount: 343)],
