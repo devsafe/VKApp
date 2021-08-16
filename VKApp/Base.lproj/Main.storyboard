@@ -172,9 +172,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YLT-HM-QiB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YLT-HM-QiB">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupsTableViewCell" id="0Kd-qg-zNN" customClass="GroupsTableViewCell" customModule="VKApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="106.5"/>
@@ -228,6 +227,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VE3-A5-17a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YLT-HM-QiB" secondAttribute="bottom" id="TmG-bU-Aaf"/>
+                            <constraint firstItem="YLT-HM-QiB" firstAttribute="top" secondItem="vbR-Fp-i44" secondAttribute="top" id="YoQ-mF-dZh"/>
+                            <constraint firstItem="YLT-HM-QiB" firstAttribute="leading" secondItem="VE3-A5-17a" secondAttribute="leading" id="j7V-FK-KbJ"/>
+                            <constraint firstItem="YLT-HM-QiB" firstAttribute="trailing" secondItem="VE3-A5-17a" secondAttribute="trailing" id="zY9-M1-aZF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Groups" id="UcQ-ba-C9c">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YkW-rI-Mmp">

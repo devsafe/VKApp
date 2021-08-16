@@ -27,7 +27,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imagePhotosCollectionCell.layer.cornerRadius = 8
         imagePhotosCollectionCell.layer.borderWidth = 1
         imagePhotosCollectionCell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        let yourColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.8 )
+        let yourColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
         //let yourColor2 : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.5 )
         imagePhotosCollectionCell.layer.borderColor = yourColor.cgColor
         
