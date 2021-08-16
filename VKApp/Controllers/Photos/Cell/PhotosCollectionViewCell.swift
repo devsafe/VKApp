@@ -19,10 +19,16 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imagePhotosCollectionCell.image = UIImage(named: imageName ?? "logo-vk")
         imagePhotosCollectionCell.layer.cornerRadius = 8
         imagePhotosCollectionCell.layer.borderWidth = 1
-        imagePhotosCollectionCell.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        imagePhotosCollectionCell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let yourColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.8 )
+        let yourColor2 : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.5 )
+        imagePhotosCollectionCell.layer.borderColor = yourColor.cgColor
+        
         likeCountLabelCollectionCell.text = String(likeCount)
         imageLikePhotosCollectionCell.image = UIImage(named: "heart")
         let tintableImage = imageLikePhotosCollectionCell.image!.withRenderingMode(.alwaysTemplate)
+        tintableImage.withTintColor(.white)
         imageLikePhotosCollectionCell.image = tintableImage
+        imageLikePhotosCollectionCell.tintColor = yourColor2
     }
 }
