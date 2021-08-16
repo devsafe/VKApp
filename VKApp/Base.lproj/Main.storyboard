@@ -472,8 +472,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="LxT-Lu-HHy" secondAttribute="trailing" id="5iF-c5-QlD"/>
                                                 <constraint firstAttribute="bottom" secondItem="LxT-Lu-HHy" secondAttribute="bottom" id="9Jr-qU-vJF"/>
-                                                <constraint firstItem="LxT-Lu-HHy" firstAttribute="leading" secondItem="Gcn-T0-ps3" secondAttribute="trailing" constant="40" id="Tbp-8B-5DR"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gcn-T0-ps3" secondAttribute="bottom" id="VAT-WA-x8P"/>
+                                                <constraint firstItem="Gcn-T0-ps3" firstAttribute="leading" secondItem="lbm-Yg-yao" secondAttribute="leading" constant="80" id="xyU-wY-3x7"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>

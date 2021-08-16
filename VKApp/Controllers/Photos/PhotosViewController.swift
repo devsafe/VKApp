@@ -42,7 +42,7 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
-        cell.configure(imageName: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].fileName, likeCount: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].likeCount)
+        cell.configure(imageName: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].fileName, likeCount: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].likeCount, isLike: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].isLike)
         return cell
     }
 }

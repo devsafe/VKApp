@@ -16,7 +16,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var commentControl: CommentControl!
     @IBOutlet var likeControl: LikeControl!
-    func configure(imageName: String?, likeCount: Int) {
+    func configure(imageName: String?, likeCount: Int, isLike: Bool) {
         imagePhotosCollectionCell.image = UIImage(named: imageName ?? "logo-vk")
         imagePhotosCollectionCell.layer.cornerRadius = 8
         imagePhotosCollectionCell.layer.borderWidth = 1
@@ -26,8 +26,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imagePhotosCollectionCell.layer.borderColor = yourColor.cgColor
         
         
-        likeControl.configure(isLike: Storage.allUsers[0].photo[0].isLike,
-                              likeCount: Storage.allUsers[0].photo[0].likeCount
+        likeControl.configure(isLike: isLike,
+                              likeCount: likeCount
         )
         likeControl.controlTapped = {[weak self] in
             self?.likeTapped?()

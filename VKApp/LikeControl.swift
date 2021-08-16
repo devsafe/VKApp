@@ -13,7 +13,7 @@ class LikeControl: UIControl {
     var imageView = UIImageView()
     var likeCountLabel = UILabel()
     
-    var likeCounter = Storage.allUsers[0].photo.count
+    var likeCounter = 0
     var isLike: Bool = false
     
     override init(frame: CGRect) {

@@ -13,7 +13,7 @@ class CommentControl: UIControl {
     var imageView = UIImageView()
     var commentCountLabel = UILabel()
     
-    var commentCounter = Storage.allUsers[0].photo.count
+    var commentCounter = 0
     var isLike: Bool = false
     
     override init(frame: CGRect) {
@@ -74,11 +74,11 @@ class CommentControl: UIControl {
     @objc func tapControl(){
         isLike.toggle()
         if isLike {
-            imageView.image = UIImage(systemName: "bubble.left")
+            imageView.image = UIImage(systemName: "text.bubble")
             commentCounter += 1
             setLikeCounterLabel()
         } else {
-            imageView.image = UIImage(systemName: "text.bubble")
+            imageView.image = UIImage(systemName: "bubble.left")
             commentCounter -= 1
             setLikeCounterLabel()
         }
