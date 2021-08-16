@@ -426,9 +426,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="2" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWr-ep-nKJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWr-ep-nKJ">
                                 <rect key="frame" x="0.0" y="108" width="414" height="651"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="AyO-ft-ZdQ">
                                     <size key="itemSize" width="180" height="180"/>
@@ -505,6 +504,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Whq-j1-Uxd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zWr-ep-nKJ" firstAttribute="top" secondItem="Whq-j1-Uxd" secondAttribute="top" id="1Kr-pL-Ink"/>
+                            <constraint firstItem="zWr-ep-nKJ" firstAttribute="trailing" secondItem="Whq-j1-Uxd" secondAttribute="trailing" id="Hdj-o3-efJ"/>
+                            <constraint firstItem="zWr-ep-nKJ" firstAttribute="bottom" secondItem="Whq-j1-Uxd" secondAttribute="bottom" id="b0v-jo-1Wf"/>
+                            <constraint firstItem="zWr-ep-nKJ" firstAttribute="leading" secondItem="Whq-j1-Uxd" secondAttribute="leading" id="gNG-ws-zlm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ra3-YZ-NSh"/>
                     <connections>
