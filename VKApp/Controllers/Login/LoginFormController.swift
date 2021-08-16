@@ -119,7 +119,7 @@ class LoginFormController: UIViewController {
     func isUserInDB(userName: String) -> Bool {
         (Storage.allUsers.firstIndex(where: { $0.userName == userName }) != nil) ? true : false
     }
-    
+
     func getIndexByUserName(userName: String) -> Int!  {
         Storage.allUsers.firstIndex(where: { $0.userName == userName })
     }
@@ -142,10 +142,11 @@ class LoginFormController: UIViewController {
     }
     
     func showRegisterInformation(userName: String) {
+        
         let nameSurNameString = Storage.allUsers[getIndexByUserName(userName: userName)].name + " " + Storage.allUsers[getIndexByUserName(userName: userName)].surName
         let userNameString = Storage.allUsers[getIndexByUserName(userName: userName)].userName == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].userName
         let passwordString = Storage.allUsers[getIndexByUserName(userName: userName)].password == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].password
-        let errorRegisterAlert = UIAlertController(
+        let showRegisterInformationAlert = UIAlertController(
             title: "Registration complete!",
             message: """
 
@@ -157,14 +158,19 @@ Name: \(nameSurNameString)
 
 Type username/password and repeat login.
 """, preferredStyle: .alert)
-        errorRegisterAlert.addAction(UIAlertAction(title: "Deal with it!", style: .default, handler: nil))
-        self.present(errorRegisterAlert, animated: true, completion: nil)
+        showRegisterInformationAlert.addAction(UIAlertAction(title: "Deal with it!", style: .default, handler:{_ in
+            
+            
+        }))
+        self.present(showRegisterInformationAlert, animated: true, completion: .some({
+        }))
     }
     
     func showRegisterProcessAlert(userName: String) {
+   
         let showRegisterProcessAlert = UIAlertController(
-            title: "Registration form:",
-            message: "Hello \(userName), what is your name?", preferredStyle: .alert)
+            title: "Almost done",
+            message: "Username created. Please, correct your name and surname:", preferredStyle: .alert)
         showRegisterProcessAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action: UIAlertAction!) in
             Storage.allUsers[self.getIndexByUserName(userName: userName)].name = showRegisterProcessAlert.textFields![0].text!
             Storage.allUsers[self.getIndexByUserName(userName: userName)].surName = showRegisterProcessAlert.textFields![1].text!
@@ -184,6 +190,7 @@ Type username/password and repeat login.
     }
     
     func registerEnterYourNameAlert(userName: String) {
+        
         let showRegisterProcessAlert = UIAlertController(
             title: "Registration form",
             message: "What is your name?", preferredStyle: .alert)
@@ -218,5 +225,4 @@ Type username/password and repeat login.
         showRegisterProcessAlert.textFields![0].text = "Default City"
         self.present(showRegisterProcessAlert, animated: true, completion: nil)
     }
-    
 }
