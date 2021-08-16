@@ -47,7 +47,6 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func logout(_ segue: UIStoryboardSegue) {
-        print("Logout")
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -68,7 +67,7 @@ class LoginFormController: UIViewController {
         } else {
             Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, isLike: false)]))
             showRegisterProcessAlert(userName: loginText)
-           // showRegisterInformation(userName: loginText)
+            // showRegisterInformation(userName: loginText)
         }
     }
     
@@ -134,32 +133,43 @@ class LoginFormController: UIViewController {
     }
     
     func showRegisterError(userName: String) {
-        print("Register fail")
         passwordTextField.text = nil
         let errorRegisterAlert = UIAlertController(
-            title: "Register Error",
+            title: "Registration is failed",
             message: "Username \(userName) already registered. Type another username and repeat.", preferredStyle: .actionSheet)
         errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .destructive, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
     }
     
     func showRegisterInformation(userName: String) {
+        let nameSurNameString = Storage.allUsers[getIndexByUserName(userName: userName)].name + " " + Storage.allUsers[getIndexByUserName(userName: userName)].surName
+        let userNameString = Storage.allUsers[getIndexByUserName(userName: userName)].userName == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].userName
+        let passwordString = Storage.allUsers[getIndexByUserName(userName: userName)].password == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].password
         let errorRegisterAlert = UIAlertController(
             title: "Registration complete!",
-            message: "Username \(userName) registered. Type username and password and repeat login.", preferredStyle: .alert)
+            message: """
+
+
+Username: \(userNameString)
+Password: \(passwordString)
+Name: \(nameSurNameString)
+
+
+Type username/password and repeat login.
+""", preferredStyle: .alert)
         errorRegisterAlert.addAction(UIAlertAction(title: "Deal with it!", style: .default, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
     }
     
     func showRegisterProcessAlert(userName: String) {
         let showRegisterProcessAlert = UIAlertController(
-            title: "Registration form",
-            message: "Hello \(userName), Type your Name and Surname to complete registration process:", preferredStyle: .alert)
+            title: "Registration form:",
+            message: "Hello \(userName), what is your name?", preferredStyle: .alert)
         showRegisterProcessAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action: UIAlertAction!) in
             Storage.allUsers[self.getIndexByUserName(userName: userName)].name = showRegisterProcessAlert.textFields![0].text!
             Storage.allUsers[self.getIndexByUserName(userName: userName)].surName = showRegisterProcessAlert.textFields![1].text!
             self.showRegisterInformation(userName: userName)
-
+            
         }))
         showRegisterProcessAlert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Name"
@@ -169,7 +179,6 @@ class LoginFormController: UIViewController {
             textField.placeholder = "Surname"
         })
         showRegisterProcessAlert.textFields![0].text = "Just"
-        //showRegisterProcessAlert.textFields![0].description = "erere"
         showRegisterProcessAlert.textFields![1].text = "Registered"
         self.present(showRegisterProcessAlert, animated: true, completion: nil)
     }

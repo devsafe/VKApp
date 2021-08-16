@@ -9,19 +9,10 @@ import Foundation
 
 class GroupStorage {
     
-    let favGroups: [GroupModel]
     let allGroups: [GroupModel]
     
     init() {
-        favGroups = [
-            GroupModel(
-                name: "Swift",
-                description: "Lorem ipsuLorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                logo: "logo-swift",
-                fullDescription: "Eat, Sleap, Code, Repeat!",
-                subscribersCount: 365)
-        ]
-        
+
         allGroups = [GroupModel(
                         name: "HTML 5",
                         description: "Duis a neque in.",
@@ -91,7 +82,7 @@ class GroupStorage {
                      GroupModel(
                         name: "Swift",
                         description: "Nam convallis turpis eu justo ultricies, id finibus sapien luctus.",
-                        logo: "logo-swift",
+                        logo: "logo-swift1",
                         fullDescription: "Eat, Sleap, Code, Repeat!",
                         subscribersCount: 365),
                      GroupModel(
