@@ -25,10 +25,10 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imagePhotosCollectionCell.layer.borderColor = yourColor.cgColor
         
         likeCountLabelCollectionCell.text = String(likeCount)
-        imageLikePhotosCollectionCell.image = UIImage(named: "heart")
-        let tintableImage = imageLikePhotosCollectionCell.image!.withRenderingMode(.alwaysTemplate)
-        tintableImage.withTintColor(.white)
-        imageLikePhotosCollectionCell.image = tintableImage
-        imageLikePhotosCollectionCell.tintColor = yourColor2
+       // imageLikePhotosCollectionCell.image = UIImage(named: "heart")
+        //let tintableImage = imageLikePhotosCollectionCell.image!.withRenderingMode(.alwaysTemplate)
+       // tintableImage.withTintColor(.white)
+//        imageLikePhotosCollectionCell.image = tintableImage
+//        imageLikePhotosCollectionCell.tintColor = yourColor2
     }
 }

@@ -450,32 +450,20 @@
                                                         <constraint firstAttribute="height" constant="180" id="JMJ-6e-XJ4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-u9-Ymp">
-                                                    <rect key="frame" x="135" y="135" width="30" height="30"/>
-                                                    <color key="tintColor" systemColor="linkColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="2hL-jd-jIg"/>
-                                                        <constraint firstAttribute="height" constant="30" id="EjW-Av-l6l"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-mR-w1q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-mR-w1q">
                                                     <rect key="frame" x="142.5" y="140" width="15.5" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Az7-u9-Ymp" secondAttribute="trailing" constant="15" id="2Fc-tX-2Pi"/>
                                                 <constraint firstItem="XY6-5N-DDs" firstAttribute="centerX" secondItem="lbm-Yg-yao" secondAttribute="centerX" id="5LQ-1c-chz"/>
                                                 <constraint firstItem="XY6-5N-DDs" firstAttribute="centerY" secondItem="lbm-Yg-yao" secondAttribute="centerY" id="Q5W-Nf-V9N"/>
-                                                <constraint firstAttribute="bottom" secondItem="Az7-u9-Ymp" secondAttribute="bottom" constant="15" id="dZJ-2Z-M02"/>
-                                                <constraint firstItem="Az7-u9-Ymp" firstAttribute="centerX" secondItem="2Lg-mR-w1q" secondAttribute="centerX" id="dqR-Jy-Occ"/>
-                                                <constraint firstItem="2Lg-mR-w1q" firstAttribute="centerY" secondItem="Az7-u9-Ymp" secondAttribute="centerY" constant="-3" id="iY4-Dd-lQH"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="imageLikePhotosCollectionCell" destination="Az7-u9-Ymp" id="eTD-z3-McX"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeCountLabelCollectionCell" destination="2Lg-mR-w1q" id="Zmn-D7-EPb"/>
                                         </connections>
