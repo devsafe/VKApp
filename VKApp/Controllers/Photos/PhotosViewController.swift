@@ -38,7 +38,7 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let photosCount = (Storage.allUsers[idUserNameFromFriendView].photo.count)
         return photosCount
     }
-    
+    //
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
         cell.configure(imageName: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].fileName, likeCount: Storage.allUsers[idUserNameFromFriendView].photo[indexPath.row].likeCount)
