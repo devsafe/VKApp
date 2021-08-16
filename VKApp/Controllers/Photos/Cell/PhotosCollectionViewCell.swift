@@ -11,6 +11,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotosCollectionViewCell"
     
+    @IBOutlet var namePhotoOutlet: UILabel!
     @IBOutlet var imagePhotosCollectionCell: UIImageView!
     @IBOutlet var likeCountLabelCollectionCell: UILabel!
     @IBOutlet var likeButtonOutlet: UIButton!
