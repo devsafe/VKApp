@@ -15,7 +15,7 @@ final class LikeControl: UIControl {
     private var likeCounter: Int = 0
     
     private let unlikedScale: CGFloat = 0.7
-    private let likedScale: CGFloat = 1.3
+    private let likedScale: CGFloat = 1.4
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,15 +62,15 @@ final class LikeControl: UIControl {
             likeCounter += 1
             likeButton.isSelected = true
         }
-        animatedLabel(likeCount: likeCounter)
+       animatedLabel(likeCount: likeCounter)
         animate()
         
     }
     
     private func animatedLabel(likeCount: Int) {
         UIView.transition(with: likeCountLabel,
-                          duration: 0.1,
-                          options: .transitionFlipFromTop,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
                           animations: { [unowned self] in
                             self.likeCountLabel.text = String(likeCount)}
         )
@@ -79,7 +79,7 @@ final class LikeControl: UIControl {
     private func animate() {
         UIView.animate(withDuration: 0.1, animations: { [self] in
         let newScale = likeButton.isSelected ? self.likedScale : self.unlikedScale
-        self.transform = self.transform.scaledBy(x: newScale, y: newScale)
+            self.transform = self.transform.scaledBy(x: newScale, y: newScale)
       }, completion: { _ in
         UIView.animate(withDuration: 0.1, animations: {
           self.transform = CGAffineTransform.identity

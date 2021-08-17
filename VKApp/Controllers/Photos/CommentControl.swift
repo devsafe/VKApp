@@ -50,7 +50,7 @@ final class CommentControl: UIControl {
     
     @objc func tapControl(_ sender: UIButton) {
         controlTapped?()
-        animatedLabel(commentCount: commentCounter)
+       // animatedLabel(commentCount: commentCounter)
     }
     
     private func animatedLabel(commentCount: Int) {
