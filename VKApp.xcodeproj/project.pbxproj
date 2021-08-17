@@ -17,6 +17,7 @@
 		114C359C26C73BC300D9C17B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */; };
 		114E086426CB0979008F519A /* CommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E086326CB0979008F519A /* CommentControl.swift */; };
 		114E086826CBE4C5008F519A /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E086726CBE4C5008F519A /* LikeControl.swift */; };
+		114E086C26CC3D3A008F519A /* WordControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E086B26CC3D3A008F519A /* WordControl.swift */; };
 		114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* FriendsViewController.swift */; };
 		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
@@ -45,6 +46,7 @@
 		114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotosCollectionViewCell.swift; path = Cell/PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		114E086326CB0979008F519A /* CommentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControl.swift; sourceTree = "<group>"; };
 		114E086726CBE4C5008F519A /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		114E086B26CC3D3A008F519A /* WordControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordControl.swift; sourceTree = "<group>"; };
 		114E233526C2FEFE003456EF /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				114E233526C2FEFE003456EF /* FriendsViewController.swift */,
+				114E086B26CC3D3A008F519A /* WordControl.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,
+				114E086C26CC3D3A008F519A /* WordControl.swift in Sources */,
 				11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

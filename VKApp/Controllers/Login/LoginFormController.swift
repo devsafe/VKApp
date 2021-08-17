@@ -227,4 +227,9 @@ Type username/password and repeat login.
         showRegisterProcessAlert.textFields![0].text = "Default City"
         self.present(showRegisterProcessAlert, animated: true, completion: nil)
     }
+    
+    func sortFriendsByName() {
+        Storage.allUsers = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
+    }
+
 }

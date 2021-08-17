@@ -11,15 +11,42 @@ class FriendsViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var wordControl: WordControl!
+    var friendsSection = [[UserModel]]()
     let sortedFriends = Storage.allUsers.sorted(by: { $0.name < $1.name })
+    let sortedSurname = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
+    func sortFriendsByName() {
+        Storage.allUsers = sortedFriends
+    }
     
+    private var firstLetters: [String] = []
+    //var friendsSection = [[FriendModel]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        sortFriendsByName()
+        let friends = Storage.allUsers
+        firstLetters = getFirstLetters(friends)
+        wordControl.setLetters(firstLetters)
+        wordControl.addTarget(self, action: #selector(scrollToLetter), for: .valueChanged)
+        
+        friendsSection = sortedForSection(friends, firstLetters: firstLetters)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
     }
-    
+    @objc func scrollToLetter() {
+        let letter = wordControl.selectLetter
+        guard
+            let firstIndexForLetter = friendsSection.firstIndex(where: { String($0.first?.name.prefix(1) ?? "" ) == letter })
+        else {
+            return
+        }
+        tableView.scrollToRow(
+            at: IndexPath(row: 0, section: firstIndexForLetter),
+            at: .top,
+            animated: true)
+    }
     let showPhotosIdentifier = "ShowPhotos"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,20 +58,38 @@ class FriendsViewController: UIViewController {
         }
     }
 }
+private func getFirstLetters(_ friends: [UserModel]) -> [String] {
+    let friendsName = friends.map { $0.name }
+    let firstLetters = Array(Set(friendsName.map { String($0.prefix(1)) })).sorted()
+    return firstLetters
+}
+private func sortedForSection(_ friends: [UserModel], firstLetters: [String]) -> [[UserModel]] {
+    var friendsSorted: [[UserModel]] = []
+    firstLetters.forEach { letter in
+        let friendsForLetter = friends.filter { String($0.name.prefix(1)) == letter}
+        friendsSorted.append(friendsForLetter)
+    }
+    return friendsSorted
+}
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        friendsSection.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Storage.allUsers.count
+        friendsSection[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as! FriendsTableViewCell
-        cell.configure(imageName: Storage.allUsers[indexPath.row].avatar, title: Storage.allUsers[indexPath.row].name + " " + Storage.allUsers[indexPath.row].surName, detail: Storage.allUsers[indexPath.row].location)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as? FriendsTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        let friend = friendsSection[indexPath.section][indexPath.row]
+        cell.configure(friend: friend)
+        cell.imageFriendsCell.layer.cornerRadius = 8
         return cell
     }
 }

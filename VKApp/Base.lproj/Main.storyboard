@@ -404,19 +404,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dip-K6-03B" customClass="WordControl" customModule="VKApp" customModuleProvider="target">
+                                <rect key="frame" x="373" y="76" width="41" height="663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="Ogg-MU-y9g"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aA6-WA-mIL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="aA6-WA-mIL" firstAttribute="bottom" secondItem="dip-K6-03B" secondAttribute="bottom" constant="20" id="6hA-8T-sSL"/>
                             <constraint firstItem="aA6-WA-mIL" firstAttribute="bottom" secondItem="xor-9a-EDh" secondAttribute="bottom" id="8BQ-qF-9Zm"/>
+                            <constraint firstItem="dip-K6-03B" firstAttribute="top" secondItem="aA6-WA-mIL" secondAttribute="top" constant="20" id="HLd-6N-ghn"/>
                             <constraint firstItem="aA6-WA-mIL" firstAttribute="trailing" secondItem="xor-9a-EDh" secondAttribute="trailing" id="Mth-62-RhP"/>
+                            <constraint firstItem="dip-K6-03B" firstAttribute="trailing" secondItem="aA6-WA-mIL" secondAttribute="trailing" id="act-Hy-VD7"/>
                             <constraint firstItem="xor-9a-EDh" firstAttribute="top" secondItem="aA6-WA-mIL" secondAttribute="top" id="g1S-cJ-F4s"/>
+                            <constraint firstItem="aA6-WA-mIL" firstAttribute="trailing" secondItem="dip-K6-03B" secondAttribute="trailing" id="hj2-Rx-swp"/>
                             <constraint firstItem="xor-9a-EDh" firstAttribute="leading" secondItem="aA6-WA-mIL" secondAttribute="leading" id="utf-Nf-w3U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="Baf-Xk-JYZ"/>
                     <connections>
                         <outlet property="tableView" destination="xor-9a-EDh" id="4p9-0m-8xi"/>
+                        <outlet property="wordControl" destination="dip-K6-03B" id="Ufy-4V-8FQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAF-Bv-Dc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -453,11 +465,11 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-Lu-HHy" customClass="LikeControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="150" y="156" width="30" height="24"/>
+                                                    <rect key="frame" x="148" y="156" width="32" height="24"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="NQw-tu-mCC"/>
-                                                        <constraint firstAttribute="width" constant="30" id="he4-Jh-ReQ"/>
+                                                        <constraint firstAttribute="width" constant="32" id="he4-Jh-ReQ"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gcn-T0-ps3" customClass="CommentControl" customModule="VKApp" customModuleProvider="target">
