@@ -11,6 +11,7 @@ struct PhotoModel {
     let name: String
     let fileName: String
     var likeCount: Int
+    var commentMessages: [String]
     var isLike: Bool {
         didSet {
             likeCount += isLike ? 1 : -1

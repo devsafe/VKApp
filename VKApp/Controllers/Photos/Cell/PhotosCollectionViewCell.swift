@@ -14,9 +14,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var imagePhotosCollectionCell: UIImageView!
     
-    @IBOutlet var likeControl2: LikeControl2!
-    @IBOutlet var commentControl: CommentControl!
     @IBOutlet var likeControl: LikeControl!
+    @IBOutlet var commentControl: CommentControl!
     func configure(photoModel: PhotoModel) {
         imagePhotosCollectionCell.image = UIImage(named: photoModel.fileName)
         imagePhotosCollectionCell.layer.cornerRadius = 8
@@ -25,9 +24,10 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         let yourColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
         //let yourColor2 : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.5 )
         imagePhotosCollectionCell.layer.borderColor = yourColor.cgColor
-        likeControl2.configure(isLike: photoModel.isLike, likeCount: photoModel.likeCount)
-        likeControl2.controlTapped = {[weak self] in
+        likeControl.configure(isLike: photoModel.isLike, likeCount: photoModel.likeCount)
+        likeControl.controlTapped = {[weak self] in
             self?.likeTapped?()
         }
+        commentControl.configure(commentCount: photoModel.commentMessages.count)
     }
 }

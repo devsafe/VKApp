@@ -10,7 +10,6 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var likeControl: LikeControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +45,6 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.configure(photoModel: photo)
         cell.likeTapped = { [weak self] in
             Storage.allUsers[self!.idUserNameFromFriendView].photo[indexPath.item].isLike.toggle()
-            //collectionView.reloadSections(IndexSet(integer: 0))
-            collectionView.reloadData()
-            
         }
         return cell
     }
