@@ -28,12 +28,12 @@ class UserStorage {
                 photo: [PhotoModel(
                             name: "photo01",
                             fileName: "concert1",
-                            likeCount: 23,
-                            isLike: false),
+                            likeCount: 1,
+                            isLike: true),
                         PhotoModel(
                             name: "photo02",
                             fileName: "concert2",
-                            likeCount: 1,
+                            likeCount: 2,
                             isLike: false),
                         PhotoModel(
                             name: "photo03",
@@ -48,67 +48,67 @@ class UserStorage {
                         PhotoModel(
                             name: "concert5",
                             fileName: "concert5",
-                            likeCount: 2,
+                            likeCount: 5,
                             isLike: false),
                         PhotoModel(
                             name: "concert6",
                             fileName: "concert6",
-                            likeCount: 4,
+                            likeCount: 6,
                             isLike: false),
                         PhotoModel(
                             name: "concert7",
                             fileName: "concert7",
-                            likeCount: 6,
+                            likeCount: 7,
                             isLike: false),
                         PhotoModel(
                             name: "concert8",
                             fileName: "concert8",
-                            likeCount: 3,
+                            likeCount: 8,
                             isLike: false),
                         PhotoModel(
                             name: "concert9",
                             fileName: "concert9",
-                            likeCount: 4,
+                            likeCount: 9,
                             isLike: false),
                         PhotoModel(
                             name: "concert10",
                             fileName: "concert10",
-                            likeCount: 44,
+                            likeCount: 10,
                             isLike: false),
                         PhotoModel(
                             name: "concert11",
                             fileName: "concert11",
-                            likeCount: 2,
+                            likeCount: 11,
                             isLike: false),
                         PhotoModel(
                             name: "concert12",
                             fileName: "concert12",
-                            likeCount: 4,
+                            likeCount: 12,
                             isLike: false),
                         PhotoModel(
                             name: "concert13",
                             fileName: "concert13",
-                            likeCount: 9,
+                            likeCount: 13,
                             isLike: false),
                         PhotoModel(
                             name: "concert14",
                             fileName: "concert14",
-                            likeCount: 3,
+                            likeCount: 14,
                             isLike: false),
                         PhotoModel(
                             name: "concert15",
                             fileName: "concert15",
-                            likeCount: 2,
+                            likeCount: 15,
                             isLike: false),
                         PhotoModel(
                             name: "concert16",
                             fileName: "concert16",
-                            likeCount: 2,
+                            likeCount: 16,
                             isLike: false),
                         PhotoModel(
                             name: "concert17",
                             fileName: "concert17",
-                            likeCount: 2,
+                            likeCount: 17,
                             isLike: false),
                         
                 ]),

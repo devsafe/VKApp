@@ -10,11 +10,12 @@ import UIKit
 class LikeControl: UIControl {
     
     var controlTapped: (() -> Void)?
-    var imageView = UIImageView()
+    var likeButton = UIButton()
+    var heartStateImageView = UIImageView()
     var likeCountLabel = UILabel()
     
-    var likeCounter = 0
-    var isLike: Bool = false
+    var likeCounter = Int()
+   var isLike = Bool()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +30,7 @@ class LikeControl: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        imageView.frame = bounds
+        heartStateImageView.frame = bounds
     }
     
     func setLike(count: Int){
@@ -38,11 +39,11 @@ class LikeControl: UIControl {
     }
     func setView() {
         
-        self.addSubview(imageView)
+        self.addSubview(heartStateImageView)
         self.addTarget(self, action: #selector(tapControl), for: .touchUpInside)
         
-        imageView.tintColor = .systemBlue
-        imageView.image = UIImage(systemName: "heart")
+        heartStateImageView.tintColor = .systemPink
+        heartStateImageView.image = UIImage(systemName: isLike == true ? "heart.fill" : "heart")
         
         setLikeCounterLabel()
     }
@@ -67,18 +68,19 @@ class LikeControl: UIControl {
         likeCountLabel.textColor = .systemBlue
              likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
         
-             likeCountLabel.trailingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: -8).isActive = true
-             likeCountLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+             likeCountLabel.trailingAnchor.constraint(equalTo: heartStateImageView.leadingAnchor, constant: -8).isActive = true
+             likeCountLabel.centerYAnchor.constraint(equalTo: heartStateImageView.centerYAnchor).isActive = true
     }
     
     @objc func tapControl(){
         isLike.toggle()
         if isLike {
-            imageView.image = UIImage(systemName: "heart.fill")
+            heartStateImageView.image = UIImage(systemName: "heart.fill")
             likeCounter += 1
+            //Тут?
             setLikeCounterLabel()
         } else {
-            imageView.image = UIImage(systemName: "heart")
+            heartStateImageView.image = UIImage(systemName: "heart")
             likeCounter -= 1
             setLikeCounterLabel()
         }
@@ -87,6 +89,7 @@ class LikeControl: UIControl {
     func configure(isLike: Bool, likeCount: Int) {
         likeCountLabel.text = String(likeCount)
         likeCounter = likeCount
+        self.isLike = isLike
     }
     
 }

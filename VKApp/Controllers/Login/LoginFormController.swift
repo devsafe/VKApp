@@ -30,6 +30,8 @@ class LoginFormController: UIViewController {
         loginWithAppleButton.layer.cornerRadius = 8
         loginWithFacebookButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
+        loginTextField.text = "admin"
+        passwordTextField.text = "123"
     }
     
     override func viewWillAppear(_ animated: Bool) {

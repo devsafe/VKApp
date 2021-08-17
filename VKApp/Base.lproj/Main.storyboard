@@ -452,7 +452,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="180" height="154"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-Lu-HHy" customClass="LikeControl" customModule="VKApp" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-Lu-HHy" customClass="LikeControl2" customModule="VKApp" customModuleProvider="target">
                                                     <rect key="frame" x="150" y="156" width="30" height="24"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -461,7 +461,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gcn-T0-ps3" customClass="CommentControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="80" y="156" width="30" height="24"/>
+                                                    <rect key="frame" x="90" y="156" width="30" height="24"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="3ho-yr-Zh8"/>
@@ -473,13 +473,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="LxT-Lu-HHy" secondAttribute="trailing" id="5iF-c5-QlD"/>
                                                 <constraint firstAttribute="bottom" secondItem="LxT-Lu-HHy" secondAttribute="bottom" id="9Jr-qU-vJF"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gcn-T0-ps3" secondAttribute="bottom" id="VAT-WA-x8P"/>
-                                                <constraint firstItem="Gcn-T0-ps3" firstAttribute="leading" secondItem="lbm-Yg-yao" secondAttribute="leading" constant="80" id="xyU-wY-3x7"/>
+                                                <constraint firstItem="Gcn-T0-ps3" firstAttribute="leading" secondItem="lbm-Yg-yao" secondAttribute="leading" constant="90" id="xyU-wY-3x7"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="commentControl" destination="Gcn-T0-ps3" id="fNJ-Y6-qm6"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeControl" destination="LxT-Lu-HHy" id="pAL-Uy-E4O"/>
+                                            <outlet property="likeControl2" destination="LxT-Lu-HHy" id="3El-Xm-zyy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
