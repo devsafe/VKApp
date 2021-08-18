@@ -28,13 +28,9 @@ final class WordControl: UIControl {
         super.layoutSubviews()
         setupUIView()
     }
-
-    /// Установка букв для кнопок контрола
     func setLetters(_ letters: [String]) {
         self.letters = letters
     }
-    
-    // Настройка кнопок для UIStackView
     private func setupViews() {
         for letter in letters {
             let button = UIButton(type: .system)
@@ -52,20 +48,16 @@ final class WordControl: UIControl {
         stackView.distribution = .fillProportionally
         stackView.layer.cornerRadius = 20
     }
-
-    // Выбранная кнопка сообщает свой индекс
     @objc private func selectedLetter(_ sender: UIButton) {
         guard let index = self.buttons.firstIndex(of: sender) else {
             return
         }
         self.selectLetter = letters[index]
     }
-    
-    // Установка внешнего вида контрола
    private func setupUIView() {
         stackView.frame = bounds
     stackView.layer.borderWidth = 0.2
-        stackView.layer.backgroundColor = UIColor.white.cgColor
+    stackView.layer.backgroundColor = UIColor.white.cgColor
         stackView.alpha = 0.3
     }
 }

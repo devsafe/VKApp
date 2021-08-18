@@ -11,6 +11,7 @@ class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     var userNameFromFriendView = String()
+    
     //let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
     
     override func viewDidLoad() {
@@ -21,7 +22,8 @@ class PhotosViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let titleForNavigationBar = "\(userNameFromFriendView)"
+        let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
+        let titleForNavigationBar = "\(Storage.allUsers[idUsernameFromFriendView].name)" + " " + "\(Storage.allUsers[idUsernameFromFriendView].surName)"
         self.title = (titleForNavigationBar)
      
     }

@@ -27,6 +27,7 @@ class FriendsViewController: UIViewController {
         let friends = Storage.allUsers
         firstLetters = getFirstLetters(friends)
         wordControl.setLetters(firstLetters)
+        wordControl.backgroundColor = .clear
         wordControl.addTarget(self, action: #selector(scrollToLetter), for: .valueChanged)
         
         friendsSection = sortedForSection(friends, firstLetters: firstLetters)
@@ -72,6 +73,7 @@ private func sortedForSection(_ friends: [UserModel], firstLetters: [String]) ->
     return friendsSorted
 }
 
+
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -82,6 +84,10 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         friendsSection[section].count
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendsTableViewCell.identifier, for: indexPath) as? FriendsTableViewCell
         else {

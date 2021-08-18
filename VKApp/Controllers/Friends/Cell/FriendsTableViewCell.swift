@@ -22,7 +22,7 @@ class FriendsTableViewCell: UITableViewCell {
 //    }
     func configure(friend: UserModel) {
         imageFriendsCell.image = UIImage(named: friend.avatar)
-        labelFriendsCell.text = friend.name
+        labelFriendsCell.text = friend.name + " " + friend.surName
         detailLabelFriendsCell.text = friend.location
     }
 }
