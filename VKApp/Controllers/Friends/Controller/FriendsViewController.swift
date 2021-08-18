@@ -83,7 +83,12 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let friend = friendsSection[indexPath.section][indexPath.row]
         cell.configure(friend: friend)
-        cell.imageFriendsCell.layer.cornerRadius = 8
+        
+        
         return cell
     }
+    
+}
+func configureCellStaticApperance() {
+
 }

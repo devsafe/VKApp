@@ -70,7 +70,7 @@ final class LikeControl: UIControl {
     
     private func animatedLabel(likeCount: Int) {
         UIView.transition(with: likeCountLabel,
-                          duration: 0.3,
+                          duration: 0.7,
                           options: .transitionFlipFromRight,
                           animations: { [unowned self] in
                             self.likeCountLabel.text = String(likeCount)}
@@ -82,7 +82,7 @@ final class LikeControl: UIControl {
         let newScale = likeButton.isSelected ? self.likedScale : self.unlikedScale
             likeButton.transform = self.transform.scaledBy(x: newScale, y: newScale)
       }, completion: { _ in
-        UIButton.animate(withDuration: 0.1, animations: { [self] in
+        UIButton.animate(withDuration: 0.2, animations: { [self] in
           likeButton.transform = CGAffineTransform.identity
         })
       })

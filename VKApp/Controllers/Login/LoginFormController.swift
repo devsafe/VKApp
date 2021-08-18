@@ -22,21 +22,27 @@ class LoginFormController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
         //Add rounded corners on buttons
-        loginButton.layer.cornerRadius = 8
-        loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
-        loginWithFacebookButton.tintColor = .white
-        loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
-        loginWithAppleButton.tintColor = .white
+loginButton.layer.cornerRadius = 8
         loginWithAppleButton.layer.cornerRadius = 8
         loginWithFacebookButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
+        loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
+        loginWithFacebookButton.tintColor = .white
+       
+        loginWithAppleButton.tintColor = .white
         loginTextField.text = "admin"
         passwordTextField.text = "123"
+        loginButton.titleLabel?.text = "Login"
+        registerButton.titleLabel?.text = "Register"
+        loginWithAppleButton.titleLabel?.text = "Login with Apple"
+        loginWithFacebookButton.titleLabel?.text = "Login with Facebook"
+        loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Observe to keyboard appear
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Observe to keyboard disappear
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)

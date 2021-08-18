@@ -12,11 +12,15 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+           //This is for removing top line from the tabbar.
+           UITabBar.appearance().layer.borderWidth = 0.1
+           UITabBar.appearance().clipsToBounds = true
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         UITabBarItem.appearance().badgeColor = .systemGray
         UITabBarItem.appearance().setBadgeTextAttributes([.font: UIFont.systemFont(ofSize: 10, weight: .medium)], for: .normal)
         tabBar.items![0].badgeValue = String(Storage.allUsers.count)
         tabBar.items![1].badgeValue = String(Storage.allUsers[Storage.userIdActiveSession].favGroups.count)
+        
     }
     
     @IBOutlet weak var tabBarOutlet: UITabBarItem!
@@ -38,9 +42,14 @@ extension TabBarController: UITabBarControllerDelegate  {
         if fromView != toView {
             if Storage.appSettings.isTabBarAnimated == true {
                 UIView.transition(from: fromView, to: toView, duration: 0.8, options: [.transitionCrossDissolve], completion: nil) }
+            
             else {
             }
         }
         return true
     }
+    
+    
 }
+
+
