@@ -34,8 +34,9 @@ final class CommentControl: UIControl {
         self.addSubview(commentCountLabel)
         self.commentButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         commentButton.tintColor = UIColor.systemBlue
-        commentButton.setImage(UIImage(systemName: "bubble.left"), for: .normal)
-        commentButton.setImage(UIImage(systemName: "bubble.left"), for: .selected)
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
+        commentButton.setImage(UIImage(systemName: "bubble.left", withConfiguration: largeConfig), for: .normal)
+        commentButton.setImage(UIImage(systemName: "bubble.left", withConfiguration: largeConfig), for: .selected)
         commentCountLabel.textColor = UIColor.systemBlue
         commentCountLabel.translatesAutoresizingMaskIntoConstraints = false
         commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.leadingAnchor, constant: -2).isActive = true

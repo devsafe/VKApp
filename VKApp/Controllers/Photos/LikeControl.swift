@@ -37,8 +37,9 @@ final class LikeControl: UIControl {
         self.addSubview(likeCountLabel)
         self.likeButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         likeButton.tintColor = UIColor.systemBlue
-        likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
+        likeButton.setImage(UIImage(systemName: "heart", withConfiguration: largeConfig), for: .normal)
+        likeButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: largeConfig), for: .selected)
         backgroundColor = .clear
         likeCountLabel.textColor = UIColor.systemBlue
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -70,19 +71,19 @@ final class LikeControl: UIControl {
     private func animatedLabel(likeCount: Int) {
         UIView.transition(with: likeCountLabel,
                           duration: 0.3,
-                          options: .transitionCrossDissolve,
+                          options: .transitionFlipFromRight,
                           animations: { [unowned self] in
                             self.likeCountLabel.text = String(likeCount)}
         )
     }
     
     private func animate() {
-        UIView.animate(withDuration: 0.1, animations: { [self] in
+        UIButton.animate(withDuration: 0.1, animations: { [self] in
         let newScale = likeButton.isSelected ? self.likedScale : self.unlikedScale
-            self.transform = self.transform.scaledBy(x: newScale, y: newScale)
+            likeButton.transform = self.transform.scaledBy(x: newScale, y: newScale)
       }, completion: { _ in
-        UIView.animate(withDuration: 0.1, animations: {
-          self.transform = CGAffineTransform.identity
+        UIButton.animate(withDuration: 0.1, animations: { [self] in
+          likeButton.transform = CGAffineTransform.identity
         })
       })
     }

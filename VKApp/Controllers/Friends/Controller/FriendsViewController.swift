@@ -13,25 +13,15 @@ class FriendsViewController: UIViewController {
     
     @IBOutlet var wordControl: WordControl!
     var friendsSection = [[UserModel]]()
-//    let sortedFriends = Storage.allUsers.sorted(by: { $0.name < $1.name })
-//    let sortedSurname = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
-//    func sortFriendsByName() {
-//        Storage.allUsers = sortedFriends
-//    }
-    
     private var firstLetters: [String] = []
-    //var friendsSection = [[FriendModel]]()
     override func viewDidLoad() {
         super.viewDidLoad()
-       // sortFriendsByName()
         let friends = Storage.allUsers
         firstLetters = getFirstLetters(friends)
         wordControl.setLetters(firstLetters)
         wordControl.backgroundColor = .clear
         wordControl.addTarget(self, action: #selector(scrollToLetter), for: .valueChanged)
-        
         friendsSection = sortedForSection(friends, firstLetters: firstLetters)
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
@@ -73,7 +63,6 @@ private func sortedForSection(_ friends: [UserModel], firstLetters: [String]) ->
     return friendsSorted
 }
 
-
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,7 +72,6 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         friendsSection[section].count
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
