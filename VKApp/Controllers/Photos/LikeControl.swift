@@ -45,7 +45,6 @@ final class LikeControl: UIControl {
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
         likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: -2).isActive = true
         likeCountLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
-        
     }
     
     func configure(isLike: Bool, likeCount: Int) {
@@ -63,9 +62,8 @@ final class LikeControl: UIControl {
             likeCounter += 1
             likeButton.isSelected = true
         }
-       animatedLabel(likeCount: likeCounter)
+        animatedLabel(likeCount: likeCounter)
         animate()
-        
     }
     
     private func animatedLabel(likeCount: Int) {
@@ -79,13 +77,12 @@ final class LikeControl: UIControl {
     
     private func animate() {
         UIButton.animate(withDuration: 0.1, animations: { [self] in
-        let newScale = likeButton.isSelected ? self.likedScale : self.unlikedScale
+            let newScale = likeButton.isSelected ? self.likedScale : self.unlikedScale
             likeButton.transform = self.transform.scaledBy(x: newScale, y: newScale)
-      }, completion: { _ in
-        UIButton.animate(withDuration: 0.2, animations: { [self] in
-          likeButton.transform = CGAffineTransform.identity
+        }, completion: { _ in
+            UIButton.animate(withDuration: 0.2, animations: { [self] in
+                likeButton.transform = CGAffineTransform.identity
+            })
         })
-      })
     }
-    
 }

@@ -11,9 +11,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotosCollectionViewCell"
     var likeTapped: (() -> Void)?
-
-    @IBOutlet var imagePhotosCollectionCell: UIImageView!
     
+    @IBOutlet var imagePhotosCollectionCell: UIImageView!
     @IBOutlet var likeControl: LikeControl!
     @IBOutlet var commentControl: CommentControl!
     
@@ -24,7 +23,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     
     func configure(photoModel: PhotoModel) {
         imagePhotosCollectionCell.image = UIImage(named: photoModel.fileName)
-       
         likeControl.configure(isLike: photoModel.isLike, likeCount: photoModel.likeCount)
         likeControl.controlTapped = {[weak self] in
             self?.likeTapped?()
@@ -38,7 +36,5 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         imagePhotosCollectionCell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
         imagePhotosCollectionCell.layer.borderColor = customColor.cgColor
-}
-
-
+    }
 }

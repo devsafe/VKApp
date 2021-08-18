@@ -12,8 +12,6 @@ class PhotosViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     var userNameFromFriendView = String()
     
-    //let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -25,7 +23,6 @@ class PhotosViewController: UIViewController {
         let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
         let titleForNavigationBar = "\(Storage.allUsers[idUsernameFromFriendView].name)" + " " + "\(Storage.allUsers[idUsernameFromFriendView].surName)"
         self.title = (titleForNavigationBar)
-     
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

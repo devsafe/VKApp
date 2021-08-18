@@ -12,7 +12,7 @@ class GroupStorage {
     let allGroups: [GroupModel]
     
     init() {
-
+        
         allGroups = [GroupModel(
                         name: "HTML 5",
                         description: "Duis a neque in.",

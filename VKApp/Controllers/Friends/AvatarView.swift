@@ -14,7 +14,6 @@ final class AvatarView: UIImageView {
         let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
         self.layer.borderColor = customColor.cgColor
         self.layer.shadowOffset = .zero
-       // self.layer.cornerRadius = 8
         self.layer.borderWidth = 1
     }
 }

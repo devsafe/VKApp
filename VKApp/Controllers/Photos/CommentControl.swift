@@ -41,7 +41,6 @@ final class CommentControl: UIControl {
         commentCountLabel.translatesAutoresizingMaskIntoConstraints = false
         commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.leadingAnchor, constant: -2).isActive = true
         commentCountLabel.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
-        
     }
     
     func configure(commentCount: Int) {
@@ -51,7 +50,7 @@ final class CommentControl: UIControl {
     
     @objc func tapControl(_ sender: UIButton) {
         controlTapped?()
-       // animatedLabel(commentCount: commentCounter)
+        // animatedLabel(off)
     }
     
     private func animatedLabel(commentCount: Int) {
@@ -62,5 +61,4 @@ final class CommentControl: UIControl {
                             self.commentCountLabel.text = String(commentCount)}
         )
     }
-    
 }

@@ -22,13 +22,12 @@ class LoginFormController: UIViewController {
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginFormController.dismissKeyBoard))
         self.scrollView?.addGestureRecognizer(tapGesture)
         //Add rounded corners on buttons
-loginButton.layer.cornerRadius = 8
+        loginButton.layer.cornerRadius = 8
         loginWithAppleButton.layer.cornerRadius = 8
         loginWithFacebookButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
         loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
         loginWithFacebookButton.tintColor = .white
-       
         loginWithAppleButton.tintColor = .white
         loginTextField.text = "admin"
         passwordTextField.text = "123"
@@ -67,6 +66,7 @@ loginButton.layer.cornerRadius = 8
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
     }
+    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text!
         let passwordText = passwordTextField.text!
@@ -75,7 +75,6 @@ loginButton.layer.cornerRadius = 8
         } else {
             Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
             showRegisterProcessAlert(userName: loginText)
-            // showRegisterInformation(userName: loginText)
         }
     }
     
@@ -83,6 +82,7 @@ loginButton.layer.cornerRadius = 8
         print("Login with Facebook button pressed")
         //showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
     }
+    
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
         if isUserInDB(userName: loginTextField.text!) {
             print("Login with Apple pressed. User \(loginTextField.text!) in DB")
@@ -127,7 +127,7 @@ loginButton.layer.cornerRadius = 8
     func isUserInDB(userName: String) -> Bool {
         (Storage.allUsers.firstIndex(where: { $0.userName == userName }) != nil) ? true : false
     }
-
+    
     func getIndexByUserName(userName: String) -> Int!  {
         Storage.allUsers.firstIndex(where: { $0.userName == userName })
     }
@@ -150,7 +150,6 @@ loginButton.layer.cornerRadius = 8
     }
     
     func showRegisterInformation(userName: String) {
-        
         let nameSurNameString = Storage.allUsers[getIndexByUserName(userName: userName)].name + " " + Storage.allUsers[getIndexByUserName(userName: userName)].surName
         let userNameString = Storage.allUsers[getIndexByUserName(userName: userName)].userName == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].userName
         let passwordString = Storage.allUsers[getIndexByUserName(userName: userName)].password == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].password
@@ -167,15 +166,12 @@ Name: \(nameSurNameString)
 Type username/password and repeat login.
 """, preferredStyle: .alert)
         showRegisterInformationAlert.addAction(UIAlertAction(title: "Deal with it!", style: .default, handler:{_ in
-            
-            
         }))
         self.present(showRegisterInformationAlert, animated: true, completion: .some({
         }))
     }
     
     func showRegisterProcessAlert(userName: String) {
-   
         let showRegisterProcessAlert = UIAlertController(
             title: "Almost done",
             message: "Username created. Please, correct your name and surname:", preferredStyle: .alert)
@@ -183,11 +179,9 @@ Type username/password and repeat login.
             Storage.allUsers[self.getIndexByUserName(userName: userName)].name = showRegisterProcessAlert.textFields![0].text!
             Storage.allUsers[self.getIndexByUserName(userName: userName)].surName = showRegisterProcessAlert.textFields![1].text!
             self.showRegisterInformation(userName: userName)
-            
         }))
         showRegisterProcessAlert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Name"
-            
         })
         showRegisterProcessAlert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Surname"
@@ -198,7 +192,6 @@ Type username/password and repeat login.
     }
     
     func registerEnterYourNameAlert(userName: String) {
-        
         let showRegisterProcessAlert = UIAlertController(
             title: "Registration form",
             message: "What is your name?", preferredStyle: .alert)
@@ -237,5 +230,4 @@ Type username/password and repeat login.
     func sortFriendsByName() {
         Storage.allUsers = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
     }
-
 }

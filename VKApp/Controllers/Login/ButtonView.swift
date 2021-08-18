@@ -15,7 +15,4 @@ class ButtonView: UIButton {
         self.layer.cornerRadius = 8
         self.layer.borderWidth = 1
     }
-    override class func awakeFromNib() {
-        
-    }
 }

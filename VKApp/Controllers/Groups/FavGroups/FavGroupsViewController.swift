@@ -19,7 +19,6 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.allowsSelection = false
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         NotificationCenter.default.addObserver(self, selector: #selector(loadList2), name: NSNotification.Name(rawValue: "load"), object: nil)

@@ -26,6 +26,7 @@ class FriendsViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorColor = .clear
     }
+    
     @objc func scrollToLetter() {
         let letter = wordControl.selectLetter
         guard
@@ -49,11 +50,13 @@ class FriendsViewController: UIViewController {
         }
     }
 }
+
 private func getFirstLetters(_ friends: [UserModel]) -> [String] {
     let friendsName = friends.map { $0.name }
     let firstLetters = Array(Set(friendsName.map { String($0.prefix(1)) })).sorted()
     return firstLetters
 }
+
 private func sortedForSection(_ friends: [UserModel], firstLetters: [String]) -> [[UserModel]] {
     var friendsSorted: [[UserModel]] = []
     firstLetters.forEach { letter in
@@ -83,12 +86,10 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let friend = friendsSection[indexPath.section][indexPath.row]
         cell.configure(friend: friend)
-        
-        
         return cell
     }
-    
 }
-func configureCellStaticApperance() {
 
+func configureCellStaticApperance() {
+    //for future implementations
 }

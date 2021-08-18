@@ -8,22 +8,22 @@
 import UIKit
 
 final class WordControl: UIControl {
-
+    
     var selectLetter: String? = nil {
         didSet {
             self.sendActions(for: .valueChanged)
         }
     }
-
+    
     private var letters = [String]() {
         didSet {
             setupViews()
         }
     }
-
+    
     private var buttons = [UIButton]()
     private var stackView: UIStackView!
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupUIView()
@@ -54,10 +54,10 @@ final class WordControl: UIControl {
         }
         self.selectLetter = letters[index]
     }
-   private func setupUIView() {
+    private func setupUIView() {
         stackView.frame = bounds
-    stackView.layer.borderWidth = 0.2
-    stackView.layer.backgroundColor = UIColor.white.cgColor
+        stackView.layer.borderWidth = 0.2
+        stackView.layer.backgroundColor = UIColor.white.cgColor
         stackView.alpha = 0.3
     }
 }
