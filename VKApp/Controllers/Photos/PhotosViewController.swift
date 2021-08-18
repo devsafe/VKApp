@@ -10,6 +10,8 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
+    var userNameFromFriendView = String()
+    //let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +19,11 @@ class PhotosViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    var idUserNameFromFriendView = Int()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let titleForNavigationBar = "\(Storage.allUsers[idUserNameFromFriendView].surName) \(Storage.allUsers[idUserNameFromFriendView].name)"
-        self.title = titleForNavigationBar
+        let titleForNavigationBar = "\(userNameFromFriendView)"
+        self.title = (titleForNavigationBar)
+     
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -35,17 +37,22 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let photosCount = (Storage.allUsers[idUserNameFromFriendView].photo.count)
+        let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
+        let photosCount = (Storage.allUsers[idUsernameFromFriendView].photo.count)
         return photosCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
-        let photo = Storage.allUsers[idUserNameFromFriendView].photo[indexPath.item]
+        let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
+        let photo = Storage.allUsers[idUsernameFromFriendView].photo[indexPath.item]
         cell.configure(photoModel: photo)
         cell.likeTapped = { [weak self] in
-            Storage.allUsers[self!.idUserNameFromFriendView].photo[indexPath.item].isLike.toggle()
+            Storage.allUsers[(self?.getIndexByUserName(userName: self!.userNameFromFriendView))! ].photo[indexPath.item].isLike.toggle()
         }
         return cell
+    }
+    func getIndexByUserName(userName: String) -> Int  {
+        Storage.allUsers.firstIndex(where: { $0.userName == userName }) ?? 0
     }
 }

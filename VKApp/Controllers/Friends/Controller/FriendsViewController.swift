@@ -13,17 +13,17 @@ class FriendsViewController: UIViewController {
     
     @IBOutlet var wordControl: WordControl!
     var friendsSection = [[UserModel]]()
-    let sortedFriends = Storage.allUsers.sorted(by: { $0.name < $1.name })
-    let sortedSurname = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
-    func sortFriendsByName() {
-        Storage.allUsers = sortedFriends
-    }
+//    let sortedFriends = Storage.allUsers.sorted(by: { $0.name < $1.name })
+//    let sortedSurname = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
+//    func sortFriendsByName() {
+//        Storage.allUsers = sortedFriends
+//    }
     
     private var firstLetters: [String] = []
     //var friendsSection = [[FriendModel]]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        sortFriendsByName()
+       // sortFriendsByName()
         let friends = Storage.allUsers
         firstLetters = getFirstLetters(friends)
         wordControl.setLetters(firstLetters)
@@ -52,9 +52,9 @@ class FriendsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == showPhotosIdentifier,
             let destination = segue.destination as? PhotosViewController,
-            let userIndex = tableView.indexPathForSelectedRow?.row
+            let userIndex = tableView.indexPathForSelectedRow
         {
-            destination.idUserNameFromFriendView = userIndex
+            destination.userNameFromFriendView = friendsSection[userIndex[0]][userIndex[1]].userName
         }
     }
 }

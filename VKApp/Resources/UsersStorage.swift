@@ -721,7 +721,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "tomb",
+                userName: "karenina",
                 name: "Anna",
                 surName: "Karenina",
                 password: "123",
@@ -922,7 +922,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "iryan",
                 name: "Irene",
                 surName: "Ryan",
                 password: "123",
@@ -939,7 +939,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "carlgonzales",
                 name: "Carl",
                 surName: "Gonzales",
                 password: "123",
@@ -956,7 +956,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "coleman",
                 name: "Kimberly",
                 surName: "Coleman",
                 password: "123",
@@ -973,7 +973,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "kenneth",
                 name: "Kenneth",
                 surName: "Kelley",
                 password: "123",
@@ -990,7 +990,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "nellie",
                 name: "Nellie",
                 surName: "Hart",
                 password: "123",
@@ -1007,7 +1007,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "gloria",
                 name: "Gloria",
                 surName: "Johnson",
                 password: "123",
@@ -1024,7 +1024,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "marion",
                 name: "Marion",
                 surName: "Grant",
                 password: "123",
@@ -1041,7 +1041,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "robert",
                 name: "Robert",
                 surName: "Jackson",
                 password: "123",
@@ -1058,7 +1058,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "gates",
+                userName: "alberto",
                 name: "Alberto",
                 surName: "Gonzales",
                 password: "123",
