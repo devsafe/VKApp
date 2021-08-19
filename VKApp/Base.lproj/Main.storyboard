@@ -218,7 +218,7 @@
                                             <outlet property="detailLabelChannelsCell" destination="UoX-5e-FDS" id="6tJ-Ug-Qa0"/>
                                             <outlet property="imageChannelsCell" destination="Cjq-HG-ahq" id="Btq-W5-mYd"/>
                                             <outlet property="labelChannelsCell" destination="Sw6-xs-yeS" id="0QA-FZ-bgN"/>
-                                            <segue destination="bjf-dF-6ug" kind="showDetail" id="zb7-7m-Tqa"/>
+                                            <segue destination="bjf-dF-6ug" kind="show" id="jGG-lF-eFH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -343,39 +343,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgQ-Uz-iBt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="groupphoto" translatesAutoresizingMaskIntoConstraints="NO" id="NKr-eH-ytX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
-                                    </imageView>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6wZ-jP-ji4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="5tR-xA-wW4"/>
-                                    <constraint firstAttribute="trailing" secondItem="NKr-eH-ytX" secondAttribute="trailing" id="CFT-cg-kWW"/>
-                                    <constraint firstItem="NKr-eH-ytX" firstAttribute="leading" secondItem="QgQ-Uz-iBt" secondAttribute="leading" id="Tqr-oF-TMQ"/>
-                                    <constraint firstItem="NKr-eH-ytX" firstAttribute="top" secondItem="QgQ-Uz-iBt" secondAttribute="top" id="chm-8L-bgd"/>
-                                    <constraint firstAttribute="bottom" secondItem="NKr-eH-ytX" secondAttribute="bottom" id="yXH-cL-6wL"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EYs-qQ-O1u">
-                                <rect key="frame" x="0.0" y="150" width="414" height="658"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="concert6" id="REx-em-D42">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hVD-u4-LTO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QgQ-Uz-iBt" firstAttribute="top" secondItem="hVD-u4-LTO" secondAttribute="top" id="4I5-FH-dFG"/>
-                            <constraint firstItem="QgQ-Uz-iBt" firstAttribute="leading" secondItem="hVD-u4-LTO" secondAttribute="leading" id="RCr-i5-9gc"/>
-                            <constraint firstItem="QgQ-Uz-iBt" firstAttribute="trailing" secondItem="hVD-u4-LTO" secondAttribute="trailing" id="SKm-8X-ctP"/>
-                            <constraint firstItem="hVD-u4-LTO" firstAttribute="bottom" secondItem="EYs-qQ-O1u" secondAttribute="bottom" id="SmN-Tr-sVw"/>
-                            <constraint firstItem="hVD-u4-LTO" firstAttribute="trailing" secondItem="EYs-qQ-O1u" secondAttribute="trailing" id="aKd-7B-vPK"/>
-                            <constraint firstItem="EYs-qQ-O1u" firstAttribute="top" secondItem="QgQ-Uz-iBt" secondAttribute="bottom" id="w8A-j8-Wdy"/>
-                            <constraint firstItem="EYs-qQ-O1u" firstAttribute="leading" secondItem="hVD-u4-LTO" secondAttribute="leading" id="y1A-39-RkB"/>
+                            <constraint firstItem="hVD-u4-LTO" firstAttribute="bottom" secondItem="6wZ-jP-ji4" secondAttribute="bottom" id="GMq-r7-VEA"/>
+                            <constraint firstItem="6wZ-jP-ji4" firstAttribute="top" secondItem="XwH-IN-13Y" secondAttribute="top" id="MgA-wg-eOd"/>
+                            <constraint firstItem="hVD-u4-LTO" firstAttribute="trailing" secondItem="6wZ-jP-ji4" secondAttribute="trailing" id="O8y-Ql-ajA"/>
+                            <constraint firstItem="6wZ-jP-ji4" firstAttribute="leading" secondItem="hVD-u4-LTO" secondAttribute="leading" id="xA5-DY-voZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PhG-Kb-bgs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ie-Yg-fbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -995,8 +981,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="concert6" width="500" height="333"/>
         <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="groupphoto" width="2247" height="1500"/>
         <image name="logo-vk" width="511.96200561523438" height="511.96200561523438"/>
         <image name="person.2.circle" catalog="system" width="128" height="121"/>
         <image name="person.2.circle.fill" catalog="system" width="128" height="121"/>

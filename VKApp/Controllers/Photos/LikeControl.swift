@@ -39,8 +39,11 @@ final class LikeControl: UIControl {
         self.likeButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         likeButton.tintColor = UIColor.systemBlue
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
-        likeButton.setImage(UIImage(systemName: "heart", withConfiguration: largeConfig), for: .normal)
-        likeButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: largeConfig), for: .selected)
+        let blueHeart = UIImage(systemName: "heart", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        let redHeart = UIImage(systemName: "heart.fill", withConfiguration: largeConfig)?.withTintColor(.systemPink, renderingMode: .alwaysOriginal)
+        likeButton.setImage(blueHeart, for: .normal)
+        likeButton.setImage(redHeart, for: .selected)
+        
         backgroundColor = .clear
         likeCountLabel.textColor = UIColor.systemBlue
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -59,9 +62,11 @@ final class LikeControl: UIControl {
         if likeButton.isSelected {
             likeCounter -= 1
             likeButton.isSelected = false
+            likeButton.tintColor = .systemBlue
         } else {
             likeCounter += 1
             likeButton.isSelected = true
+            likeButton.tintColor = .systemPink
         }
         animatedLabel(likeCount: likeCounter)
         animate()

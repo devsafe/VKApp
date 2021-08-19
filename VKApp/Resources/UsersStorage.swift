@@ -888,7 +888,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "serg",
+                userName: "jbowman",
                 name: "Jamie",
                 surName: "Bowman",
                 password: "123",
