@@ -62,11 +62,9 @@ final class LikeControl: UIControl {
         if likeButton.isSelected {
             likeCounter -= 1
             likeButton.isSelected = false
-            likeButton.tintColor = .systemBlue
         } else {
             likeCounter += 1
             likeButton.isSelected = true
-            likeButton.tintColor = .systemPink
         }
         animatedLabel(likeCount: likeCounter)
         animate()

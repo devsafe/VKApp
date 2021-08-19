@@ -661,7 +661,7 @@ class UserStorage {
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
-                                logo: "destiny2",
+                                logo: "photo14",
                                 fullDescription: "Wow it is amazing game!",
                                 subscribersCount: 343)],
                 photo: [PhotoModel(
@@ -678,7 +678,7 @@ class UserStorage {
                 favGroups: [GroupModel(
                                 name: "Destiny 2",
                                 description: "Cool Game!",
-                                logo: "destiny2",
+                                logo: "photo01",
                                 fullDescription: "Wow it is amazing game!",
                                 subscribersCount: 343)],
                 photo: [PhotoModel(
@@ -855,7 +855,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "petrov",
+                userName: "lloydsnyder",
                 name: "Lloyd",
                 surName: "Snyder",
                 password: "123",
@@ -872,7 +872,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "kirill", name: "Linda",
+                userName: "lindawarren", name: "Linda",
                 surName: "Warren",
                 password: "123",
                 avatar: "avatar39", location: "Sosensky",
@@ -905,7 +905,7 @@ class UserStorage {
                             likeCount: 23, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"],
                             isLike: false)]),
             UserModel(
-                userName: "potter",
+                userName: "cfletcher",
                 name: "Chris",
                 surName: "Fletcher",
                 password: "123",
