@@ -24,6 +24,7 @@
 		114E087626CE72AC008F519A /* FeedStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087526CE72AC008F519A /* FeedStorage.swift */; };
 		114E087826CE79C5008F519A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087726CE79C5008F519A /* FeedViewController.swift */; };
 		114E087A26CE7AA8008F519A /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087926CE7AA8008F519A /* FeedTableViewCell.swift */; };
+		114E087C26CEAAC1008F519A /* PictureBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087B26CEAAC1008F519A /* PictureBorderView.swift */; };
 		114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* FriendsViewController.swift */; };
 		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
@@ -59,6 +60,7 @@
 		114E087526CE72AC008F519A /* FeedStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStorage.swift; sourceTree = "<group>"; };
 		114E087726CE79C5008F519A /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		114E087926CE7AA8008F519A /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		114E087B26CEAAC1008F519A /* PictureBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureBorderView.swift; sourceTree = "<group>"; };
 		114E233526C2FEFE003456EF /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
 				114E086F26CD6905008F519A /* AvatarView.swift */,
+				114E087B26CEAAC1008F519A /* PictureBorderView.swift */,
 				114E087126CD72E4008F519A /* ButtonView.swift */,
 			);
 			path = Login;
@@ -360,6 +363,7 @@
 				114E087826CE79C5008F519A /* FeedViewController.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
 				114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */,
+				114E087C26CEAAC1008F519A /* PictureBorderView.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				114C359C26C73BC300D9C17B /* PhotosCollectionViewCell.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,

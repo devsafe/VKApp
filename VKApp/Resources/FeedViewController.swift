@@ -35,7 +35,7 @@ extension FeedViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
-        cell.configure(image: Storage.feedNews[indexPath.row].media, title: "Oh my " + Storage.feedNews[indexPath.row].author[0].surName)
+        cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
             return cell
         }
     
@@ -64,8 +64,11 @@ print("selectfeed")
     }
     
     @objc private func refresh(sender: UIRefreshControl) {
-        tableView.reloadData()
+        
         sender.endRefreshing()
+        print("refresh feed")
+        generateNewPostInFeed()
+        tableView.reloadData()
     }
     
     @objc private func refresh2(sender: AnyObject) {
@@ -74,6 +77,11 @@ print("selectfeed")
         myRefreshControl.endRefreshing()
     }
     
+    
+    
+    func generateNewPostInFeed() {
+        Storage.feedNews.insert(PostModel(author: Storage.feedNews.randomElement()!.author, timeStamp: Storage.feedNews.randomElement()!.timeStamp, text: Storage.feedNews.randomElement()!.text, media: Storage.feedNews.randomElement()!.media, likeCount: Storage.feedNews.randomElement()!.likeCount, commentMessages: Storage.feedNews.randomElement()!.commentMessages, isLike: Storage.feedNews.randomElement()!.isLike), at: 0)
+    }
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
     }

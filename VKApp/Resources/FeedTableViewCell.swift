@@ -17,11 +17,18 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var avatarImageFeedCell: UIImageView!
     @IBOutlet var textLabelFeedCell: UILabel!
     @IBOutlet var authorLabelFeedCell: UILabel!
+    @IBOutlet var commentControl: CommentControl!
+    @IBOutlet var likeControl: LikeControl!
     
-    func configure(image: String?, title: String) {
-        imageFeedCell.image = UIImage(named: image ?? "logo-default")
-        authorLabelFeedCell.text = title
-        imageFeedCell.layer.cornerRadius = 8
-        avatarImageFeedCell.layer.cornerRadius = 8
+    func configure(postModel: PostModel, userModel: UserModel) {
+        imageFeedCell.image = UIImage(named: postModel.media)
+        authorLabelFeedCell.text = userModel.surName + " " + userModel.name
+        //imageFeedCell.layer.cornerRadius = 8
+        avatarImageFeedCell.image = UIImage(named: userModel.avatar)
+        //avatarImageFeedCell.layer.cornerRadius = 8
+        commentControl.configure(commentCount: postModel.commentMessages.count)
+        likeControl.configure(isLike: postModel.isLike, likeCount: postModel.likeCount)
+        textLabelFeedCell.text = postModel.text
+        dateLabelFeedCell.text = postModel.timeStamp
     }
 }

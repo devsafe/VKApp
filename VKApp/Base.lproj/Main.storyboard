@@ -587,7 +587,7 @@
             </objects>
             <point key="canvasLocation" x="1441" y="609"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Feed-->
         <scene sceneID="6GL-ui-qge">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="xhd-ba-QY9" customClass="FeedViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -595,7 +595,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-Hg-hp2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="280" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-Hg-hp2">
                                 <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -612,13 +612,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-Hp-GcV">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-Hp-GcV" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="74" width="382" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="LN9-ZN-Ls7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar12" translatesAutoresizingMaskIntoConstraints="NO" id="pTp-tU-qzU">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pTp-tU-qzU" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="16" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="2QT-pl-NtC"/>
@@ -626,8 +626,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-rI-Fev">
-                                                    <rect key="frame" x="82" y="45" width="316" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="82" y="49" width="316" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -648,7 +648,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBp-Zs-2Yf" customClass="CommentControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="314" y="594" width="32" height="32"/>
+                                                    <rect key="frame" x="294" y="594" width="32" height="32"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="NfB-0c-h7t"/>
@@ -662,7 +662,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <constraint firstItem="pTp-tU-qzU" firstAttribute="leading" secondItem="rvE-g8-EcD" secondAttribute="leading" constant="16" id="A2Z-Nl-xRj"/>
                                                 <constraint firstItem="sQX-Hp-GcV" firstAttribute="leading" secondItem="rvE-g8-EcD" secondAttribute="leading" constant="16" id="Aby-ef-zde"/>
                                                 <constraint firstItem="MVH-rI-Fev" firstAttribute="bottom" secondItem="pTp-tU-qzU" secondAttribute="bottom" id="BJl-gN-pSZ"/>
-                                                <constraint firstItem="gBT-PM-AkQ" firstAttribute="leading" secondItem="WBp-Zs-2Yf" secondAttribute="trailing" constant="20" id="CEQ-a5-vF2"/>
+                                                <constraint firstItem="gBT-PM-AkQ" firstAttribute="leading" secondItem="WBp-Zs-2Yf" secondAttribute="trailing" constant="40" id="CEQ-a5-vF2"/>
                                                 <constraint firstItem="Yho-v4-Hr3" firstAttribute="top" secondItem="sQX-Hp-GcV" secondAttribute="bottom" constant="8" id="Jss-26-Tya"/>
                                                 <constraint firstItem="pTp-tU-qzU" firstAttribute="top" secondItem="rvE-g8-EcD" secondAttribute="top" constant="16" id="TEj-xp-QGf"/>
                                                 <constraint firstItem="sQX-Hp-GcV" firstAttribute="top" secondItem="pTp-tU-qzU" secondAttribute="bottom" constant="8" id="VXR-Az-UWn"/>
@@ -681,8 +681,10 @@ It is a long established fact that a reader will be distracted by the readable c
                                         <connections>
                                             <outlet property="authorLabelFeedCell" destination="RaI-bp-uz0" id="CVa-2Y-Qjb"/>
                                             <outlet property="avatarImageFeedCell" destination="pTp-tU-qzU" id="kFB-M5-AiG"/>
+                                            <outlet property="commentControl" destination="WBp-Zs-2Yf" id="L7Q-wt-1Ia"/>
                                             <outlet property="dateLabelFeedCell" destination="MVH-rI-Fev" id="U5x-Ri-ayv"/>
                                             <outlet property="imageFeedCell" destination="sQX-Hp-GcV" id="Sbw-iF-rvw"/>
+                                            <outlet property="likeControl" destination="gBT-PM-AkQ" id="CZs-sd-D4v"/>
                                             <outlet property="textLabelFeedCell" destination="Yho-v4-Hr3" id="mcr-u8-Z1z"/>
                                         </connections>
                                     </tableViewCell>
@@ -698,7 +700,7 @@ It is a long established fact that a reader will be distracted by the readable c
                             <constraint firstItem="DWq-Hg-hp2" firstAttribute="leading" secondItem="dLf-9R-yli" secondAttribute="leading" id="nu6-wR-eVi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MY1-gF-Won"/>
+                    <navigationItem key="navigationItem" title="Feed" id="MY1-gF-Won"/>
                     <connections>
                         <outlet property="tableView" destination="DWq-Hg-hp2" id="Vvz-HU-Uj4"/>
                     </connections>
@@ -1121,7 +1123,6 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <resources>
-        <image name="avatar12" width="500" height="750"/>
         <image name="concert6" width="500" height="333"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="logo-vk" width="511.96200561523438" height="511.96200561523438"/>
