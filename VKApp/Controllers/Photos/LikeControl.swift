@@ -29,7 +29,8 @@ final class LikeControl: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        likeButton.frame = bounds
+       likeButton.frame = bounds
+        backgroundColor = .clear
     }
     
     private func setView() {
@@ -43,7 +44,7 @@ final class LikeControl: UIControl {
         backgroundColor = .clear
         likeCountLabel.textColor = UIColor.systemBlue
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: -2).isActive = true
+        likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.centerXAnchor, constant: -20).isActive = true
         likeCountLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
     }
     
@@ -69,7 +70,7 @@ final class LikeControl: UIControl {
     private func animatedLabel(likeCount: Int) {
         UIView.transition(with: likeCountLabel,
                           duration: 0.7,
-                          options: .transitionFlipFromRight,
+                          options: .allowAnimatedContent,
                           animations: { [unowned self] in
                             self.likeCountLabel.text = String(likeCount)}
         )

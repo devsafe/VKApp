@@ -31,8 +31,9 @@ class PhotosViewController: UIViewController {
 
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
+        //view.backgroundColor = .clear
         super.viewDidLayoutSubviews()
-        collectionView.collectionViewLayout.invalidateLayout()
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
