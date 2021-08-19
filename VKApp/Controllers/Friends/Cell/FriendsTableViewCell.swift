@@ -16,6 +16,7 @@ class FriendsTableViewCell: UITableViewCell {
     
     func configure(imageName: String?, title: String, detail: String) {
         imageFriendsCell.image = UIImage(named: imageName ?? "avatarDefault")
+        imageFriendsCell.layer.cornerRadius = 5
         labelFriendsCell.text = title
         detailLabelFriendsCell.text = detail
     }

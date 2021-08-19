@@ -37,7 +37,7 @@ extension FavGroupsViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
-        cell.configure(imageName: Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].logo, title: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].name), detail: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].description), extraLabel: nil)
+        cell.configure(imageName: Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].logo, title: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].name), detail: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].description), extraLabel: nil, favouritImage: "")
         return cell
     }
     
