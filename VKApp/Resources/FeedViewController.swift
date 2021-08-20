@@ -26,11 +26,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == FriendsViewController.showPhotosIdentifier,
-            let destination = segue.destination as? PhotosViewController,
+        if  segue.identifier == "ShowUserProfile",
+            let destination = segue.destination as? UserProfileView,
             let userIndex = tableView.indexPathForSelectedRow
         {
-            destination.userNameFromFriendView = Storage.feedNews[userIndex.row].author.userName
+            destination.userNameFromOtherView = Storage.feedNews[userIndex.row].author.userName
         }
     }
     

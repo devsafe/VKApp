@@ -27,6 +27,7 @@
 		114E087C26CEAAC1008F519A /* PictureBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087B26CEAAC1008F519A /* PictureBorderView.swift */; };
 		114E087E26CEB518008F519A /* ShareControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087D26CEB518008F519A /* ShareControl.swift */; };
 		114E088026CF9257008F519A /* ViewsCountControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087F26CF9257008F519A /* ViewsCountControl.swift */; };
+		114E088226D03045008F519A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E088126D03045008F519A /* UserProfileView.swift */; };
 		114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* FriendsViewController.swift */; };
 		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
@@ -65,6 +66,7 @@
 		114E087B26CEAAC1008F519A /* PictureBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureBorderView.swift; sourceTree = "<group>"; };
 		114E087D26CEB518008F519A /* ShareControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareControl.swift; sourceTree = "<group>"; };
 		114E087F26CF9257008F519A /* ViewsCountControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsCountControl.swift; sourceTree = "<group>"; };
+		114E088126D03045008F519A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileView.swift; path = Controllers/UserProfileView.swift; sourceTree = "<group>"; };
 		114E233526C2FEFE003456EF /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				114C358726C5B43A00D9C17B /* Models */,
 				11CCD83026BDA08D009A5865 /* Delegate */,
 				11CCD81E26BC6403009A5865 /* Main.storyboard */,
+				114E088126D03045008F519A /* UserProfileView.swift */,
 				11CCD83326BDA194009A5865 /* Controllers */,
 				11CCD83126BDA0C2009A5865 /* Resources */,
 				11CCD83226BDA0FD009A5865 /* Configuration */,
@@ -367,6 +370,7 @@
 				11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */,
 				114C359326C5BF2600D9C17B /* UsersStorage.swift in Sources */,
 				114E087826CE79C5008F519A /* FeedViewController.swift in Sources */,
+				114E088226D03045008F519A /* UserProfileView.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
 				114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */,
 				114E087C26CEAAC1008F519A /* PictureBorderView.swift in Sources */,
