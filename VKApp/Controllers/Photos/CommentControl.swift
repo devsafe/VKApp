@@ -31,6 +31,7 @@ final class CommentControl: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         commentButton.frame = bounds
+        backgroundColor = .clear
     }
     
     private func setView() {

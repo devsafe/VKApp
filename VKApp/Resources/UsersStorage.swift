@@ -1080,7 +1080,22 @@ class UserStorage {
     static func getIndexByUsername(username: String) -> Int!  {
         Storage.allUsers.firstIndex(where: { $0.userName == username })
     }
+    
+    static func getSortedUsers(searchText: String?) -> [Character:[UserModel]]{
+        var tempUsers: [UserModel]
+        if let text = searchText?.lowercased(), searchText != "" {
+            tempUsers = Storage.allUsers.filter{ $0.name.lowercased().contains(text)}
+        } else {
+            tempUsers = Storage.allUsers
+        }
+        let sortedUsers = Dictionary.init(grouping: tempUsers) { $0.name.lowercased().first! }
+            .mapValues{ $0.sorted{ $0.name.lowercased() < $1.name.lowercased() } }
+        return sortedUsers
+    }
+    
+    static func getPhotosForUsername(username: String) -> [PhotoModel]{
+        var tempPhoto: [PhotoModel]
+            tempPhoto = Storage.allUsers[getIndexByUsername(username: username) ?? 0].photo
+            return tempPhoto
+    }
 }
-
-
-

@@ -11,11 +11,28 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var tableView: UITableView!
     
+    private var tapedInAvatar: Bool = false
+    private var indexPathForPrepare: IndexPath?
+    
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
         return refreshControl
     }()
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print(identifier)
+        return true
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == FriendsViewController.showPhotosIdentifier,
+            let destination = segue.destination as? PhotosViewController,
+            let userIndex = tableView.indexPathForSelectedRow
+        {
+            destination.userNameFromFriendView = Storage.feedNews[userIndex.row].author.userName
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +53,12 @@ extension FeedViewController {
         
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
         cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
+        
+        cell.avatarTapped = { [weak self] in
+            self?.tapedInAvatar = true
+            self?.performSegue(withIdentifier: "moveToPhoto", sender: indexPath)
+        }
+        
             return cell
         }
     

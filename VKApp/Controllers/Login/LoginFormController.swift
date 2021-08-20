@@ -80,6 +80,9 @@ class LoginFormController: UIViewController {
     
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
+        //let temp = getIndexByUserName(userName: "boris")
+        let temp2 = UserStorage.getSortedUsers(searchText: "ami")
+        print("\(temp2)")
         //showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
     }
     

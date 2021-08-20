@@ -21,6 +21,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var likeControl: LikeControl!
     @IBOutlet var viewsCountControl: ViewsCountControl!
     
+    var avatarTapped: (() -> Void)?
+    
     func configure(postModel: PostModel, userModel: UserModel) {
         imageFeedCell.image = UIImage(named: postModel.media)
         authorLabelFeedCell.text = userModel.surName + " " + userModel.name

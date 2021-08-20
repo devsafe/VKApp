@@ -39,10 +39,10 @@ class FriendsViewController: UIViewController {
             at: .top,
             animated: true)
     }
-    let showPhotosIdentifier = "ShowPhotos"
+    static let showPhotosIdentifier = "ShowPhotos"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == showPhotosIdentifier,
+        if  segue.identifier == FriendsViewController.showPhotosIdentifier,
             let destination = segue.destination as? PhotosViewController,
             let userIndex = tableView.indexPathForSelectedRow
         {

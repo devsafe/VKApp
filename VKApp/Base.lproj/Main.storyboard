@@ -467,7 +467,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWr-ep-nKJ">
-                                <rect key="frame" x="0.0" y="108" width="414" height="651"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="AyO-ft-ZdQ">
                                     <size key="itemSize" width="180" height="180"/>
@@ -595,7 +595,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="280" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-Hg-hp2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="280" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-Hg-hp2">
                                 <rect key="frame" x="0.0" y="56" width="414" height="703"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -633,8 +633,8 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-v4-Hr3">
                                                     <rect key="frame" x="16" y="232" width="382" height="354"/>
-                                                    <mutableString key="text">Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</mutableString>
+                                                    <string key="text">Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -707,6 +707,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="likeControl" destination="gBT-PM-AkQ" id="CZs-sd-D4v"/>
                                             <outlet property="textLabelFeedCell" destination="Yho-v4-Hr3" id="mcr-u8-Z1z"/>
                                             <outlet property="viewsCountControl" destination="XKp-uO-WsZ" id="2Zd-e2-aED"/>
+                                            <segue destination="nWn-b4-c35" kind="show" identifier="ShowPhotos" id="jeU-Bg-n1n"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1143,6 +1144,9 @@ It is a long established fact that a reader will be distracted by the readable c
             <point key="canvasLocation" x="1486.9565217391305" y="1287.7232142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jeU-Bg-n1n"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="concert6" width="500" height="333"/>
         <image name="gear" catalog="system" width="128" height="119"/>
