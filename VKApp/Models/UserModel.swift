@@ -11,6 +11,9 @@ struct UserModel {
     var userName: String
     var name: String
     var surName: String
+    var fullName: String {
+        return name + " " + surName
+    }
     var password: String
     var avatar: String
     var location: String
