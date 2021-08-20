@@ -40,9 +40,13 @@ final class LikeControl: UIControl {
         likeButton.tintColor = UIColor.systemBlue
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
         let blueHeart = UIImage(systemName: "heart", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        
         let redHeart = UIImage(systemName: "heart.fill", withConfiguration: largeConfig)?.withTintColor(.systemPink, renderingMode: .alwaysOriginal)
         likeButton.setImage(blueHeart, for: .normal)
         likeButton.setImage(redHeart, for: .selected)
+
+        
+    //likeCountLabel.alpha = 0.3
         
         backgroundColor = .clear
         likeCountLabel.textColor = UIColor.systemBlue

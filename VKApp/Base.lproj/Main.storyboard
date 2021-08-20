@@ -663,6 +663,14 @@ It is a long established fact that a reader will be distracted by the readable c
                                                         <constraint firstAttribute="height" constant="32" id="hy8-yN-Pyp"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKp-uO-WsZ" customClass="ViewsCountControl" customModule="VKApp" customModuleProvider="target">
+                                                    <rect key="frame" x="88" y="594" width="32" height="32"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="8FA-1D-tG3"/>
+                                                        <constraint firstAttribute="width" constant="32" id="g3P-L9-umU"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Yho-v4-Hr3" secondAttribute="trailing" constant="16" id="2la-1j-n2R"/>
@@ -673,6 +681,8 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <constraint firstItem="MVH-rI-Fev" firstAttribute="bottom" secondItem="pTp-tU-qzU" secondAttribute="bottom" id="BJl-gN-pSZ"/>
                                                 <constraint firstItem="gBT-PM-AkQ" firstAttribute="leading" secondItem="WBp-Zs-2Yf" secondAttribute="trailing" constant="40" id="CEQ-a5-vF2"/>
                                                 <constraint firstItem="Yho-v4-Hr3" firstAttribute="top" secondItem="sQX-Hp-GcV" secondAttribute="bottom" constant="8" id="Jss-26-Tya"/>
+                                                <constraint firstItem="XKp-uO-WsZ" firstAttribute="top" secondItem="Yho-v4-Hr3" secondAttribute="bottom" constant="8" id="M7y-IA-8vP"/>
+                                                <constraint firstItem="XKp-uO-WsZ" firstAttribute="leading" secondItem="Vom-RD-xRl" secondAttribute="trailing" constant="40" id="Pwf-S1-lKD"/>
                                                 <constraint firstItem="pTp-tU-qzU" firstAttribute="top" secondItem="rvE-g8-EcD" secondAttribute="top" constant="16" id="TEj-xp-QGf"/>
                                                 <constraint firstItem="sQX-Hp-GcV" firstAttribute="top" secondItem="pTp-tU-qzU" secondAttribute="bottom" constant="8" id="VXR-Az-UWn"/>
                                                 <constraint firstItem="WBp-Zs-2Yf" firstAttribute="top" secondItem="Yho-v4-Hr3" secondAttribute="bottom" constant="8" id="Wda-JJ-OPk"/>
@@ -696,6 +706,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="imageFeedCell" destination="sQX-Hp-GcV" id="Sbw-iF-rvw"/>
                                             <outlet property="likeControl" destination="gBT-PM-AkQ" id="CZs-sd-D4v"/>
                                             <outlet property="textLabelFeedCell" destination="Yho-v4-Hr3" id="mcr-u8-Z1z"/>
+                                            <outlet property="viewsCountControl" destination="XKp-uO-WsZ" id="2Zd-e2-aED"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

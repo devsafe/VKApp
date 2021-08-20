@@ -69,6 +69,10 @@ print("selectfeed")
         print("refresh feed")
         generateNewPostInFeed()
         tableView.reloadData()
+//        let temp = UserStorage.getIndexByUserName(userName: "admin2")
+//        let temp2 = Storage.allUsers[UserStorage.getIndexByUserName(userName: "admin")].surName
+//        print(temp as Any)
+//        print(temp2)
     }
     
     @objc private func refresh2(sender: AnyObject) {

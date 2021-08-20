@@ -1076,4 +1076,11 @@ class UserStorage {
                             isLike: false)]),
         ]
     }
+    
+    static func getIndexByUsername(username: String) -> Int!  {
+        Storage.allUsers.firstIndex(where: { $0.userName == username })
+    }
 }
+
+
+

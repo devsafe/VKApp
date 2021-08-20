@@ -19,6 +19,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var authorLabelFeedCell: UILabel!
     @IBOutlet var commentControl: CommentControl!
     @IBOutlet var likeControl: LikeControl!
+    @IBOutlet var viewsCountControl: ViewsCountControl!
     
     func configure(postModel: PostModel, userModel: UserModel) {
         imageFeedCell.image = UIImage(named: postModel.media)
@@ -30,5 +31,6 @@ class FeedTableViewCell: UITableViewCell {
         likeControl.configure(isLike: postModel.isLike, likeCount: postModel.likeCount)
         textLabelFeedCell.text = postModel.text
         dateLabelFeedCell.text = postModel.timeStamp
+        viewsCountControl.configure(viewsCount: postModel.commentMessages.count)
     }
 }
