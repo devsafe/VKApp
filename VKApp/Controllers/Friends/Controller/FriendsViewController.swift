@@ -46,7 +46,7 @@ class FriendsViewController: UIViewController {
             let destination = segue.destination as? PhotosViewController,
             let userIndex = tableView.indexPathForSelectedRow
         {
-            destination.userNameFromFriendView = friendsSection[userIndex[0]][userIndex[1]].userName
+            destination.userNameFromOtherView = friendsSection[userIndex[0]][userIndex[1]].userName
         }
     }
 }
