@@ -1155,7 +1155,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                 <rect key="frame" x="0.0" y="108" width="414" height="651"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrt-Cb-6V3" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-O7-385">
                                                 <rect key="frame" x="207" y="130" width="191" height="32"/>
@@ -1167,7 +1167,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Follow"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar10" translatesAutoresizingMaskIntoConstraints="NO" id="fM8-d4-uic">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar10" translatesAutoresizingMaskIntoConstraints="NO" id="fM8-d4-uic" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="16" width="176" height="165"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="176" id="GWf-jH-TZR"/>
@@ -1256,6 +1256,117 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MEg-3h-wFw">
+                                                <rect key="frame" x="0.0" y="427" width="414" height="557"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileWallTableViewCell" rowHeight="1000" id="K0h-dE-iXU" customClass="ProfileWallTableViewCell" customModule="VKApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="24.5" width="414" height="1000"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K0h-dE-iXU" id="sB4-Pl-kmN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qn-9J-F4G">
+                                                                    <rect key="frame" x="82" y="16" width="316" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lga-Nn-OvX" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="74" width="382" height="150"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="150" id="UHq-ao-1xR"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaC-PL-QKA" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="16" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="cjg-t8-vNu"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="rRz-ev-lyD"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQE-Xa-FOv">
+                                                                    <rect key="frame" x="82" y="49" width="316" height="17"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXD-FN-dYz">
+                                                                    <rect key="frame" x="16" y="232" width="382" height="725"/>
+                                                                    <string key="text">Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsn-gu-U3n" customClass="LikeControl" customModule="VKApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="366" y="965" width="32" height="32"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="32" id="U9P-Po-9k4"/>
+                                                                        <constraint firstAttribute="width" constant="32" id="UV5-mz-veh"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIF-pX-geU" customClass="CommentControl" customModule="VKApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="294" y="965" width="32" height="32"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="32" id="YUb-Qp-bie"/>
+                                                                        <constraint firstAttribute="height" constant="32" id="v8w-pZ-vOD"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="az6-Jx-62d" customClass="ShareControl" customModule="VKApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="16" y="965" width="32" height="32"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="32" id="R4z-n2-xuE"/>
+                                                                        <constraint firstAttribute="height" constant="32" id="kSK-Jl-jxz"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATI-VB-nze" customClass="ViewsCountControl" customModule="VKApp" customModuleProvider="target">
+                                                                    <rect key="frame" x="88" y="965" width="32" height="32"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="32" id="KvZ-Ue-hQ6"/>
+                                                                        <constraint firstAttribute="height" constant="32" id="OLY-Wd-4RM"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="rsn-gu-U3n" secondAttribute="bottom" constant="3" id="29E-XE-WPL"/>
+                                                                <constraint firstItem="az6-Jx-62d" firstAttribute="centerY" secondItem="rsn-gu-U3n" secondAttribute="centerY" id="5da-br-4TT"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rsn-gu-U3n" secondAttribute="trailing" constant="16" id="7WQ-PF-LU9"/>
+                                                                <constraint firstItem="rQE-Xa-FOv" firstAttribute="leading" secondItem="SaC-PL-QKA" secondAttribute="trailing" constant="16" id="9M7-dO-PQE"/>
+                                                                <constraint firstItem="az6-Jx-62d" firstAttribute="leading" secondItem="sB4-Pl-kmN" secondAttribute="leading" constant="16" id="A3t-54-9xG"/>
+                                                                <constraint firstItem="rQE-Xa-FOv" firstAttribute="bottom" secondItem="SaC-PL-QKA" secondAttribute="bottom" id="BRr-3p-at3"/>
+                                                                <constraint firstAttribute="trailing" secondItem="rQE-Xa-FOv" secondAttribute="trailing" constant="16" id="D6b-ux-MUE"/>
+                                                                <constraint firstItem="6Qn-9J-F4G" firstAttribute="top" secondItem="SaC-PL-QKA" secondAttribute="top" id="FPK-gT-eaU"/>
+                                                                <constraint firstAttribute="trailing" secondItem="OXD-FN-dYz" secondAttribute="trailing" constant="16" id="FSe-W3-zCy"/>
+                                                                <constraint firstItem="lga-Nn-OvX" firstAttribute="top" secondItem="SaC-PL-QKA" secondAttribute="bottom" constant="8" id="HiY-8m-yyp"/>
+                                                                <constraint firstAttribute="trailing" secondItem="6Qn-9J-F4G" secondAttribute="trailing" constant="16" id="JDr-Xo-DWO"/>
+                                                                <constraint firstAttribute="trailing" secondItem="lga-Nn-OvX" secondAttribute="trailing" constant="16" id="UeP-jK-qII"/>
+                                                                <constraint firstItem="rsn-gu-U3n" firstAttribute="leading" secondItem="PIF-pX-geU" secondAttribute="trailing" constant="40" id="Yta-GX-F5t"/>
+                                                                <constraint firstItem="ATI-VB-nze" firstAttribute="top" secondItem="OXD-FN-dYz" secondAttribute="bottom" constant="8" id="Ywq-gL-RDo"/>
+                                                                <constraint firstItem="rsn-gu-U3n" firstAttribute="top" secondItem="OXD-FN-dYz" secondAttribute="bottom" constant="8" id="bGb-eq-Fn5"/>
+                                                                <constraint firstItem="ATI-VB-nze" firstAttribute="leading" secondItem="az6-Jx-62d" secondAttribute="trailing" constant="40" id="dYl-of-TcF"/>
+                                                                <constraint firstItem="lga-Nn-OvX" firstAttribute="leading" secondItem="sB4-Pl-kmN" secondAttribute="leading" constant="16" id="ebX-a6-JGN"/>
+                                                                <constraint firstItem="6Qn-9J-F4G" firstAttribute="leading" secondItem="SaC-PL-QKA" secondAttribute="trailing" constant="16" id="hhK-mJ-Sw9"/>
+                                                                <constraint firstItem="OXD-FN-dYz" firstAttribute="leading" secondItem="sB4-Pl-kmN" secondAttribute="leading" constant="16" id="p5i-dF-Xdw"/>
+                                                                <constraint firstItem="SaC-PL-QKA" firstAttribute="top" secondItem="sB4-Pl-kmN" secondAttribute="top" constant="16" id="tXH-KR-9co"/>
+                                                                <constraint firstItem="PIF-pX-geU" firstAttribute="top" secondItem="OXD-FN-dYz" secondAttribute="bottom" constant="8" id="ugB-Ms-hnY"/>
+                                                                <constraint firstItem="SaC-PL-QKA" firstAttribute="leading" secondItem="sB4-Pl-kmN" secondAttribute="leading" constant="16" id="vYc-S9-4Po"/>
+                                                                <constraint firstItem="OXD-FN-dYz" firstAttribute="top" secondItem="lga-Nn-OvX" secondAttribute="bottom" constant="8" id="xI8-zQ-NSb"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="authorLabelOutlet" destination="6Qn-9J-F4G" id="zbt-TZ-1TV"/>
+                                                            <outlet property="avatarImageOutlet" destination="SaC-PL-QKA" id="CzX-uL-2To"/>
+                                                            <outlet property="mediaImageOutlet" destination="lga-Nn-OvX" id="K3W-w0-gGj"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1268,11 +1379,12 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <constraint firstItem="yPG-O7-385" firstAttribute="top" secondItem="cl1-Vq-7bu" secondAttribute="bottom" constant="16" id="KzE-hk-qNG"/>
                                             <constraint firstAttribute="trailing" secondItem="Pjc-Mv-xPN" secondAttribute="trailing" constant="16" id="MEX-ch-kXW"/>
                                             <constraint firstItem="c89-ue-N9q" firstAttribute="leading" secondItem="fM8-d4-uic" secondAttribute="trailing" constant="18" id="Mzs-oR-0vJ"/>
+                                            <constraint firstItem="MEg-3h-wFw" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" id="NP6-u9-90B"/>
                                             <constraint firstItem="k87-gg-wWa" firstAttribute="leading" secondItem="fM8-d4-uic" secondAttribute="trailing" constant="16" id="Pno-S2-5Ic"/>
                                             <constraint firstItem="fM8-d4-uic" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" constant="15" id="QZJ-S6-owi"/>
                                             <constraint firstAttribute="trailing" secondItem="nHh-MY-9sg" secondAttribute="trailing" constant="16" id="V3R-Jy-oyf"/>
                                             <constraint firstItem="Pjc-Mv-xPN" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" constant="15" id="Whd-cA-rwn"/>
-                                            <constraint firstAttribute="height" constant="758" id="YxU-fN-OJV"/>
+                                            <constraint firstAttribute="height" constant="1000" id="YxU-fN-OJV"/>
                                             <constraint firstItem="FVH-cv-yyH" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" constant="16" id="cnd-qm-OzI"/>
                                             <constraint firstItem="nHh-MY-9sg" firstAttribute="top" secondItem="5jk-m8-Uvf" secondAttribute="bottom" constant="11" id="cvj-9t-djR"/>
                                             <constraint firstAttribute="trailing" secondItem="5jk-m8-Uvf" secondAttribute="trailing" constant="16" id="doc-mc-Wqj"/>
@@ -1281,10 +1393,13 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <constraint firstItem="nHh-MY-9sg" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" constant="16" id="iOH-l3-oRN"/>
                                             <constraint firstAttribute="trailing" secondItem="k87-gg-wWa" secondAttribute="trailing" constant="16" id="kTr-Dr-NGD"/>
                                             <constraint firstItem="5jk-m8-Uvf" firstAttribute="top" secondItem="Pjc-Mv-xPN" secondAttribute="bottom" constant="5" id="lR9-n9-TXa"/>
+                                            <constraint firstItem="MEg-3h-wFw" firstAttribute="top" secondItem="FVH-cv-yyH" secondAttribute="bottom" constant="16" id="q1O-AO-uUK"/>
                                             <constraint firstItem="yPG-O7-385" firstAttribute="leading" secondItem="fM8-d4-uic" secondAttribute="trailing" constant="16" id="rU2-kZ-ybX"/>
+                                            <constraint firstAttribute="trailing" secondItem="MEg-3h-wFw" secondAttribute="trailing" id="uJy-2b-3Kb"/>
                                             <constraint firstItem="Pjc-Mv-xPN" firstAttribute="top" secondItem="fM8-d4-uic" secondAttribute="bottom" constant="15" id="vZu-eP-doG"/>
                                             <constraint firstItem="cl1-Vq-7bu" firstAttribute="leading" secondItem="fM8-d4-uic" secondAttribute="trailing" constant="16" id="vaL-5f-CSX"/>
                                             <constraint firstAttribute="trailing" secondItem="FVH-cv-yyH" secondAttribute="trailing" constant="16" id="wR2-XK-ROB"/>
+                                            <constraint firstAttribute="bottom" secondItem="MEg-3h-wFw" secondAttribute="bottom" constant="16" id="yBG-aw-fOa"/>
                                             <constraint firstAttribute="trailing" secondItem="yPG-O7-385" secondAttribute="trailing" constant="16" id="yJA-8X-O9q"/>
                                         </constraints>
                                     </view>
@@ -1315,6 +1430,7 @@ It is a long established fact that a reader will be distracted by the readable c
                         <outlet property="fullnameLabelOutlet" destination="c89-ue-N9q" id="SNA-AJ-yg2"/>
                         <outlet property="locationLabelOutlet" destination="Pjc-Mv-xPN" id="cIo-vf-TvP"/>
                         <outlet property="sendMessageButtonOutlet" destination="cl1-Vq-7bu" id="hsw-6s-5sA"/>
+                        <outlet property="tableView" destination="MEg-3h-wFw" id="SNB-bS-enB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvb-07-CeV" sceneMemberID="firstResponder"/>

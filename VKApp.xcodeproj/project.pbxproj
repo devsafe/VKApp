@@ -29,6 +29,7 @@
 		114E088026CF9257008F519A /* ViewsCountControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E087F26CF9257008F519A /* ViewsCountControl.swift */; };
 		114E088226D03045008F519A /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E088126D03045008F519A /* UserProfileView.swift */; };
 		114E088426D03EED008F519A /* UserProfilePhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E088326D03EED008F519A /* UserProfilePhotosCollectionViewCell.swift */; };
+		114E088626D05967008F519A /* ProfileWallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E088526D05967008F519A /* ProfileWallTableViewCell.swift */; };
 		114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233526C2FEFE003456EF /* FriendsViewController.swift */; };
 		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* ProfileViewController.swift */; };
@@ -69,6 +70,7 @@
 		114E087F26CF9257008F519A /* ViewsCountControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsCountControl.swift; sourceTree = "<group>"; };
 		114E088126D03045008F519A /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfileView.swift; path = Controllers/UserProfileView.swift; sourceTree = "<group>"; };
 		114E088326D03EED008F519A /* UserProfilePhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		114E088526D05967008F519A /* ProfileWallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWallTableViewCell.swift; sourceTree = "<group>"; };
 		114E233526C2FEFE003456EF /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		114E234426C4F24D003456EF /* Photos */ = {
+		114E234426C4F24D003456EF /* User Photos */ = {
 			isa = PBXGroup;
 			children = (
 				114E234726C4F3B4003456EF /* PhotosViewController.swift */,
@@ -201,7 +203,7 @@
 				114E087F26CF9257008F519A /* ViewsCountControl.swift */,
 				114C359B26C73BC300D9C17B /* PhotosCollectionViewCell.swift */,
 			);
-			path = Photos;
+			path = "User Photos";
 			sourceTree = "<group>";
 		};
 		11CCD80C26BC6403009A5865 = {
@@ -227,6 +229,7 @@
 				11CCD83026BDA08D009A5865 /* Delegate */,
 				11CCD81E26BC6403009A5865 /* Main.storyboard */,
 				114E088126D03045008F519A /* UserProfileView.swift */,
+				114E088526D05967008F519A /* ProfileWallTableViewCell.swift */,
 				11CCD83326BDA194009A5865 /* Controllers */,
 				11CCD83126BDA0C2009A5865 /* Resources */,
 				11CCD83226BDA0FD009A5865 /* Configuration */,
@@ -270,7 +273,7 @@
 		11CCD83326BDA194009A5865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				114E234426C4F24D003456EF /* Photos */,
+				114E234426C4F24D003456EF /* User Photos */,
 				114E234326C41994003456EF /* Profile */,
 				114E233C26C3B598003456EF /* Groups */,
 				114E233726C2FF04003456EF /* Friends */,
@@ -391,6 +394,7 @@
 				114E086826CBE4C5008F519A /* LikeControl.swift in Sources */,
 				114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
+				114E088626D05967008F519A /* ProfileWallTableViewCell.swift in Sources */,
 				114E087626CE72AC008F519A /* FeedStorage.swift in Sources */,
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,

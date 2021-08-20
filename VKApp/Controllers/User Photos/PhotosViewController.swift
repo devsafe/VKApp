@@ -47,7 +47,7 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let photos = UserStorage.getPhotosForUsername(username: userNameFromOtherView)[indexPath.item]
         cell.configure(photoModel: photos)
         cell.likeTapped = { [weak self] in
-            Storage.allUsers[UserStorage.getIndexByUsername(username: self!.userNameFromOtherView)].photo[indexPath.item].isLike.toggle()
+            Storage.allUsers[UserStorage.getIndexByUsername(username: self!.userNameFromOtherView)].photos[indexPath.item].isLike.toggle()
         }
         return cell
     }

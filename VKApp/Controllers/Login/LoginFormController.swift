@@ -73,7 +73,7 @@ class LoginFormController: UIViewController {
         if isUserInDB(userName: loginText) {
             showRegisterError(userName: loginText)
         } else {
-            Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
+            Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photos: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
             showRegisterProcessAlert(userName: loginText)
         }
     }
