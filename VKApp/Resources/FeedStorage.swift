@@ -23,4 +23,14 @@ class FeedStorage {
             PostModel(author: Storage.allUsers[5], timeStamp: "29.07.2021", text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.", media: "concert5", likeCount: 12, commentMessages: ["ouch","Hello!","bad article","yoaa!","hi!",":)"], isLike: false),
             PostModel(author: Storage.allUsers[6], timeStamp: "19.07.2021", text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.", media: "concert6", likeCount: 42, commentMessages: ["ouch","Hello!","bad article","yoaa!","hi!",":)"], isLike: false)]
     }
+        static func getPostsForUsername(username: String) -> [PostModel]{
+            var tempPosts: [PostModel]
+            print(username)
+            if username != "" {
+                tempPosts = Storage.feedNews.filter{ $0.author.userName.contains(username)}
+            } else {
+                tempPosts = Storage.feedNews
+            }
+            return tempPosts
+        }
 }
