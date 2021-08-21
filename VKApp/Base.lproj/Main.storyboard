@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488.40579710144931" y="110.49107142857143"/>
+            <point key="canvasLocation" x="-335" y="234"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="yUK-Bn-WpV">
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D06-6L-qtS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330" y="-178"/>
+            <point key="canvasLocation" x="2329" y="-86"/>
         </scene>
         <!--All Groups-->
         <scene sceneID="Cax-AI-Xt7">
@@ -333,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih8-f8-S10" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3215.9420289855075" y="-178.125"/>
+            <point key="canvasLocation" x="3206" y="-86"/>
         </scene>
         <!--Group Profile View Controller-->
         <scene sceneID="QgH-j2-vvC">
@@ -397,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ie-Yg-fbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3969.5652173913045" y="-190.17857142857142"/>
+            <point key="canvasLocation" x="4035" y="-86"/>
         </scene>
         <!--Friends-->
         <scene sceneID="04T-Fr-7rn">
@@ -488,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAF-Bv-Dc4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350.7246376811595" y="-944.19642857142856"/>
+            <point key="canvasLocation" x="2329" y="-789"/>
         </scene>
         <!--Photos View Controller-->
         <scene sceneID="49z-qu-saR">
@@ -577,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACP-Nq-HzX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237.68115942029" y="-945.53571428571422"/>
+            <point key="canvasLocation" x="4035" y="-790"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rqo-e2-jIR">
@@ -599,7 +599,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzC-V0-n3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="110"/>
+            <point key="canvasLocation" x="554" y="235"/>
         </scene>
         <!--Profile-->
         <scene sceneID="g0v-Gm-ZGh">
@@ -618,7 +618,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-yb-Edu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="609"/>
+            <point key="canvasLocation" x="1487" y="609"/>
         </scene>
         <!--Feed-->
         <scene sceneID="6GL-ui-qge">
@@ -765,7 +765,7 @@ It is a long established fact that a reader will be distracted by the readable c
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ir-q7-mxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2397.1014492753625" y="1287.7232142857142"/>
+            <point key="canvasLocation" x="2329" y="1288"/>
         </scene>
         <!--Profile-->
         <scene sceneID="C0D-hZ-Xeb">
@@ -1118,7 +1118,7 @@ It is a long established fact that a reader will be distracted by the readable c
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4D-LU-7VJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3215.9420289855075" y="608.70535714285711"/>
+            <point key="canvasLocation" x="3206" y="609"/>
         </scene>
         <!--Channels-->
         <scene sceneID="FPc-xa-ZAa">
@@ -1138,7 +1138,7 @@ It is a long established fact that a reader will be distracted by the readable c
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKN-Cd-f48" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="-178"/>
+            <point key="canvasLocation" x="1487" y="-86"/>
         </scene>
         <!--Friends-->
         <scene sceneID="WjS-dv-HrF">
@@ -1158,7 +1158,7 @@ It is a long established fact that a reader will be distracted by the readable c
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYW-w3-UJ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="-944"/>
+            <point key="canvasLocation" x="1487" y="-789"/>
         </scene>
         <!--Feed-->
         <scene sceneID="yTP-wh-xRZ">
@@ -1497,11 +1497,11 @@ It is a long established fact that a reader will be distracted by the readable c
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvb-07-CeV" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271.01449275362319" y="-729.24107142857144"/>
+            <point key="canvasLocation" x="3206" y="-790"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RP2-Ac-HP7"/>
+        <segue reference="huk-Qt-wDR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar10" width="500" height="625"/>
