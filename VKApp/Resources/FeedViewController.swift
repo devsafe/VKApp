@@ -40,7 +40,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
-        tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
     }
 }
 
@@ -86,20 +86,11 @@ print("selectfeed")
         present(joinAlert, animated: true, completion: nil)
     }
     
-    @objc private func refresh(sender: UIRefreshControl) {
-        
-        sender.endRefreshing()
-        print("refresh feed")
+    
+    @objc private func refresh(sender: AnyObject) {
         generateNewPostInFeed()
         tableView.reloadData()
-//        let temp = UserStorage.getIndexByUserName(userName: "admin2")
-//        let temp2 = Storage.allUsers[UserStorage.getIndexByUserName(userName: "admin")].surName
-//        print(temp as Any)
-//        print(temp2)
-    }
-    
-    @objc private func refresh2(sender: AnyObject) {
-        tableView.reloadData()
+        print("refresh 2")
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
     }
@@ -108,6 +99,7 @@ print("selectfeed")
     
     func generateNewPostInFeed() {
         Storage.feedNews.insert(PostModel(author: Storage.feedNews.randomElement()!.author, timeStamp: Storage.feedNews.randomElement()!.timeStamp, text: Storage.feedNews.randomElement()!.text, media: Storage.feedNews.randomElement()!.media, likeCount: Storage.feedNews.randomElement()!.likeCount, commentMessages: Storage.feedNews.randomElement()!.commentMessages, isLike: Storage.feedNews.randomElement()!.isLike), at: 0)
+        print("add new post")
     }
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false

@@ -60,7 +60,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         tableView.delegate = self
         tableView.dataSource = self
         let userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
-        print(userIndex)
+        //print(userIndex)
         let user = Storage.allUsers[userIndex!]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         avatarImageOutlet.layer.cornerRadius = 80

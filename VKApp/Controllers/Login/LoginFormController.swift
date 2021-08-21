@@ -73,8 +73,9 @@ class LoginFormController: UIViewController {
         if isUserInDB(userName: loginText) {
             showRegisterError(userName: loginText)
         } else {
-            Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photos: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
+            registerNewUserOnLoginView(userName: loginText, password: passwordText)
             showRegisterProcessAlert(userName: loginText)
+            
         }
     }
     
@@ -125,6 +126,12 @@ class LoginFormController: UIViewController {
         } else {
             return false
         }
+    }
+    
+    
+    func registerNewUserOnLoginView(userName: String, password: String) {
+        Storage.allUsers.append(UserModel(userName: userName, name: userName != "" ? userName : "Empty", surName: userName != "" ? "User" : "Line", password: password, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photos: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
+        Storage.feedNews.insert(PostModel(author: Storage.allUsers[UserStorage.getIndexByUsername(username: userName)], timeStamp: "Now", text: "Wtf, how i can change my avatar?!", media: "defaultPost", likeCount: 0, commentMessages: [], isLike: false), at: 0)
     }
     
     func isUserInDB(userName: String) -> Bool {

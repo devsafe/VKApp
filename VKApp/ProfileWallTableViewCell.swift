@@ -10,6 +10,7 @@ import UIKit
 class ProfileWallTableViewCell: UITableViewCell {
     @IBOutlet var mediaImageOutlet: UIImageView!
     @IBOutlet var authorLabelOutlet: UILabel!
+    @IBOutlet var postTextLabelOutlet: UILabel!
     @IBOutlet var avatarImageOutlet: UIImageView!
     
     static let identifier = "ProfileWallTableViewCell"
@@ -23,6 +24,7 @@ class ProfileWallTableViewCell: UITableViewCell {
         mediaImageOutlet.image = UIImage(named: postModel.media)
         authorLabelOutlet.text = userModel.fullName
         avatarImageOutlet.image = UIImage(named: userModel.avatar)
+        postTextLabelOutlet.text = postModel.text
     }
     
     func configureCellStaticApperance() {
