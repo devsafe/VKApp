@@ -30,7 +30,7 @@ class FeedTableViewCell: UITableViewCell {
     
     func configure(postModel: PostModel, userModel: UserModel) {
         imageFeedCell.image = UIImage(named: postModel.media)
-        authorLabelFeedCell.text = userModel.surName + " " + userModel.name
+        authorLabelFeedCell.text = Storage.allUsers[UserStorage.getIndexByUsername(username: userModel.userName)].fullName
         //imageFeedCell.layer.cornerRadius = 8
         avatarImageFeedCell.image = UIImage(named: userModel.avatar)
         //avatarImageFeedCell.layer.cornerRadius = 8
