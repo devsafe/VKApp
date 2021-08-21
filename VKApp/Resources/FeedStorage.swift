@@ -27,7 +27,7 @@ class FeedStorage {
             var tempPosts: [PostModel]
             print(username)
             if username != "" {
-                tempPosts = Storage.feedNews.filter{ $0.author.userName.contains(username)}
+                tempPosts = Storage.feedNews.filter{ $0.author.userName.elementsEqual(username)}
             } else {
                 tempPosts = Storage.feedNews
             }
