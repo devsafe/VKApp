@@ -218,7 +218,7 @@
                                             <outlet property="detailLabelChannelsCell" destination="UoX-5e-FDS" id="6tJ-Ug-Qa0"/>
                                             <outlet property="imageChannelsCell" destination="Cjq-HG-ahq" id="Btq-W5-mYd"/>
                                             <outlet property="labelChannelsCell" destination="Sw6-xs-yeS" id="0QA-FZ-bgN"/>
-                                            <segue destination="bjf-dF-6ug" kind="show" id="jGG-lF-eFH"/>
+                                            <segue destination="bjf-dF-6ug" kind="show" identifier="ShowGroup" id="jGG-lF-eFH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -335,21 +335,48 @@
             </objects>
             <point key="canvasLocation" x="3215.9420289855075" y="-178.125"/>
         </scene>
-        <!--View Controller-->
+        <!--Group Profile View Controller-->
         <scene sceneID="QgH-j2-vvC">
             <objects>
-                <viewController id="bjf-dF-6ug" sceneMemberID="viewController">
+                <viewController id="bjf-dF-6ug" customClass="GroupProfileViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XwH-IN-13Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6wZ-jP-ji4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6wZ-jP-ji4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="concert6" id="REx-em-D42">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="bsU-v7-idO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HN0-Lu-FtM">
+                                            <rect key="frame" x="95" y="-113" width="590" height="637"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-hn-q1v">
+                                            <rect key="frame" x="16" y="16" width="382" height="150"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="vYa-hn-q1v" secondAttribute="trailing" constant="16" id="Ndj-Ue-1wc"/>
+                                        <constraint firstItem="vYa-hn-q1v" firstAttribute="leading" secondItem="bsU-v7-idO" secondAttribute="leading" constant="16" id="ZPS-og-4jg"/>
+                                        <constraint firstAttribute="bottom" secondItem="vYa-hn-q1v" secondAttribute="bottom" constant="16" id="nJk-Cu-eqm"/>
+                                        <constraint firstItem="vYa-hn-q1v" firstAttribute="top" secondItem="bsU-v7-idO" secondAttribute="top" constant="16" id="ye0-iH-cnp"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zPL-8V-ynM">
+                                        <rect key="frame" x="0.0" y="206.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zPL-8V-ynM" id="a2a-uL-KV5">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hVD-u4-LTO"/>
@@ -362,6 +389,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PhG-Kb-bgs"/>
+                    <connections>
+                        <outlet property="backGroungViewOutlet" destination="vYa-hn-q1v" id="fIg-aR-Eb6"/>
+                        <outlet property="groupControlView" destination="bsU-v7-idO" id="WmT-oi-fr7"/>
+                        <outlet property="logoGroupProfileOutlet" destination="HN0-Lu-FtM" id="Ok2-Ec-ncV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ie-Yg-fbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1473,7 +1505,6 @@ It is a long established fact that a reader will be distracted by the readable c
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar10" width="500" height="625"/>
-        <image name="concert6" width="500" height="333"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="logo-vk" width="511.96200561523438" height="511.96200561523438"/>
