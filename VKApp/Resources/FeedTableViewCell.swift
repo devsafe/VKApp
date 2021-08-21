@@ -21,6 +21,11 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var likeControl: LikeControl!
     @IBOutlet var viewsCountControl: ViewsCountControl!
     
+    override func layoutSubviews() {
+            super.layoutSubviews()
+            self.configureCellStaticApperance()
+        }
+    
     var avatarTapped: (() -> Void)?
     
     func configure(postModel: PostModel, userModel: UserModel) {
@@ -34,5 +39,9 @@ class FeedTableViewCell: UITableViewCell {
         textLabelFeedCell.text = postModel.text
         dateLabelFeedCell.text = postModel.timeStamp
         viewsCountControl.configure(viewsCount: postModel.commentMessages.count)
+    }
+    
+    func configureCellStaticApperance() {
+        avatarImageFeedCell.layer.cornerRadius = 20
     }
 }

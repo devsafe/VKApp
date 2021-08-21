@@ -14,6 +14,9 @@ class FriendsViewController: UIViewController {
     @IBOutlet var wordControl: WordControl!
     var friendsSection = [[UserModel]]()
     private var firstLetters: [String] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let friends = Storage.allUsers
@@ -42,8 +45,8 @@ class FriendsViewController: UIViewController {
     static let showPhotosIdentifier = "ShowPhotos"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == FriendsViewController.showPhotosIdentifier,
-            let destination = segue.destination as? PhotosViewController,
+        if  segue.identifier == "ShowUserProfile",
+            let destination = segue.destination as? UserProfileView,
             let userIndex = tableView.indexPathForSelectedRow
         {
             destination.userNameFromOtherView = friendsSection[userIndex[0]][userIndex[1]].userName

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbz-VB-oES" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="563"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="523"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-vk" translatesAutoresizingMaskIntoConstraints="NO" id="g6j-et-nlz">
                                                 <rect key="frame" x="157" y="30" width="100" height="100"/>
@@ -31,9 +31,9 @@
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGB-bK-qXh">
-                                                <rect key="frame" x="15" y="225" width="384" height="40"/>
+                                                <rect key="frame" x="15" y="217" width="384" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="oNN-RA-ydD"/>
+                                                    <constraint firstAttribute="height" constant="32" id="oNN-RA-ydD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
@@ -42,10 +42,10 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20d-ZY-7br">
-                                                <rect key="frame" x="15" y="303" width="384" height="40"/>
+                                                <rect key="frame" x="15" y="287" width="384" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="mrS-zf-FMb"/>
+                                                    <constraint firstAttribute="height" constant="32" id="mrS-zf-FMb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,10 +56,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEn-Zs-GMA">
-                                                <rect key="frame" x="15" y="443" width="384" height="40"/>
+                                                <rect key="frame" x="15" y="419" width="384" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="ESN-ak-r1U"/>
+                                                    <constraint firstAttribute="height" constant="32" id="ESN-ak-r1U"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,10 +69,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTo-yn-RkE">
-                                                <rect key="frame" x="15" y="493" width="384" height="40"/>
+                                                <rect key="frame" x="15" y="461" width="384" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="GaN-fM-L0t"/>
+                                                    <constraint firstAttribute="height" constant="32" id="GaN-fM-L0t"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,9 +82,9 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email or telephone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIU-Ip-8nq">
-                                                <rect key="frame" x="15" y="180" width="384" height="40"/>
+                                                <rect key="frame" x="15" y="180" width="384" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="Den-Q4-FDQ"/>
+                                                    <constraint firstAttribute="height" constant="32" id="Den-Q4-FDQ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
@@ -93,10 +93,10 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGg-bD-c2m">
-                                                <rect key="frame" x="15" y="353" width="384" height="40"/>
+                                                <rect key="frame" x="15" y="329" width="384" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="WSP-qp-FbU"/>
+                                                    <constraint firstAttribute="height" constant="32" id="WSP-qp-FbU"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -422,7 +422,7 @@
                                             <outlet property="detailLabelFriendsCell" destination="kht-xl-qHc" id="hkE-mT-AZr"/>
                                             <outlet property="imageFriendsCell" destination="w97-x4-Qyo" id="pUo-FM-aL0"/>
                                             <outlet property="labelFriendsCell" destination="h4K-wj-yN0" id="1he-ij-jMu"/>
-                                            <segue destination="nWn-b4-c35" kind="show" identifier="ShowPhotos" id="Taa-0P-nh1"/>
+                                            <segue destination="frh-uP-Wug" kind="show" identifier="ShowUserProfile" id="huk-Qt-wDR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -607,32 +607,32 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaI-bp-uz0">
-                                                    <rect key="frame" x="82" y="16" width="316" height="21"/>
+                                                    <rect key="frame" x="72" y="16" width="326" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-Hp-GcV" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="74" width="382" height="150"/>
+                                                    <rect key="frame" x="16" y="64" width="382" height="150"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="LN9-ZN-Ls7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pTp-tU-qzU" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="16" width="50" height="50"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pTp-tU-qzU">
+                                                    <rect key="frame" x="16" y="16" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="2QT-pl-NtC"/>
-                                                        <constraint firstAttribute="width" constant="50" id="OLO-4J-eEj"/>
+                                                        <constraint firstAttribute="height" constant="40" id="2QT-pl-NtC"/>
+                                                        <constraint firstAttribute="width" constant="40" id="OLO-4J-eEj"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVH-rI-Fev">
-                                                    <rect key="frame" x="82" y="49" width="316" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="72" y="41.5" width="326" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-v4-Hr3">
-                                                    <rect key="frame" x="16" y="232" width="382" height="354"/>
+                                                    <rect key="frame" x="16" y="222" width="382" height="364"/>
                                                     <string key="text">Why do we use it?
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -672,7 +672,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qz-L2-rYx">
-                                                    <rect key="frame" x="379" y="30" width="19" height="22"/>
+                                                    <rect key="frame" x="379" y="25" width="19" height="22"/>
                                                     <state key="normal" image="ellipsis" catalog="system"/>
                                                 </button>
                                             </subviews>
@@ -1164,7 +1164,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-O7-385">
-                                                <rect key="frame" x="207" y="149" width="191" height="32"/>
+                                                <rect key="frame" x="191" y="144" width="207" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="Smr-Fw-e3q"/>
@@ -1173,27 +1173,27 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Follow"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar10" translatesAutoresizingMaskIntoConstraints="NO" id="fM8-d4-uic" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="16" width="176" height="165"/>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar10" translatesAutoresizingMaskIntoConstraints="NO" id="fM8-d4-uic">
+                                                <rect key="frame" x="15" y="16" width="160" height="160"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="176" id="GWf-jH-TZR"/>
-                                                    <constraint firstAttribute="height" constant="165" id="i9e-FD-nkC"/>
+                                                    <constraint firstAttribute="width" constant="160" id="GWf-jH-TZR"/>
+                                                    <constraint firstAttribute="height" constant="160" id="i9e-FD-nkC"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c89-ue-N9q">
-                                                <rect key="frame" x="209" y="16" width="176" height="21"/>
+                                                <rect key="frame" x="193" y="16" width="192" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k87-gg-wWa">
-                                                <rect key="frame" x="207" y="45" width="191" height="14.5"/>
+                                                <rect key="frame" x="191" y="45" width="207" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-Vq-7bu">
-                                                <rect key="frame" x="207" y="109" width="191" height="32"/>
+                                                <rect key="frame" x="191" y="104" width="207" height="32"/>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="KPc-Q9-4EB"/>
@@ -1203,19 +1203,19 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <state key="normal" title="Send message"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pjc-Mv-xPN">
-                                                <rect key="frame" x="15" y="196" width="383" height="14.5"/>
+                                                <rect key="frame" x="15" y="191" width="383" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job: Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jk-m8-Uvf">
-                                                <rect key="frame" x="15" y="215.5" width="383" height="14.5"/>
+                                                <rect key="frame" x="15" y="210.5" width="383" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FVH-cv-yyH">
-                                                <rect key="frame" x="16" y="261" width="382" height="120"/>
+                                                <rect key="frame" x="16" y="256" width="382" height="120"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="gJf-2n-qno"/>
@@ -1257,7 +1257,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 </cells>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MEg-3h-wFw">
-                                                <rect key="frame" x="0.0" y="397" width="414" height="587"/>
+                                                <rect key="frame" x="0.0" y="392" width="414" height="592"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileWallTableViewCell" rowHeight="1000" id="K0h-dE-iXU" customClass="ProfileWallTableViewCell" customModule="VKApp" customModuleProvider="target">
@@ -1268,32 +1268,32 @@ It is a long established fact that a reader will be distracted by the readable c
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qn-9J-F4G">
-                                                                    <rect key="frame" x="82" y="16" width="316" height="21"/>
+                                                                    <rect key="frame" x="72" y="16" width="326" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lga-Nn-OvX" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="74" width="382" height="150"/>
+                                                                    <rect key="frame" x="16" y="64" width="382" height="150"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="150" id="UHq-ao-1xR"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaC-PL-QKA" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="16" y="16" width="50" height="50"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SaC-PL-QKA">
+                                                                    <rect key="frame" x="16" y="16" width="40" height="40"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="50" id="cjg-t8-vNu"/>
-                                                                        <constraint firstAttribute="height" constant="50" id="rRz-ev-lyD"/>
+                                                                        <constraint firstAttribute="width" constant="40" id="cjg-t8-vNu"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="rRz-ev-lyD"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQE-Xa-FOv">
-                                                                    <rect key="frame" x="82" y="51.5" width="316" height="14.5"/>
+                                                                    <rect key="frame" x="72" y="41.5" width="326" height="14.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXD-FN-dYz">
-                                                                    <rect key="frame" x="16" y="232" width="382" height="725"/>
+                                                                    <rect key="frame" x="16" y="222" width="382" height="735"/>
                                                                     <string key="text">Why do we use it?
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1333,7 +1333,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                                     </constraints>
                                                                 </view>
                                                                 <button opaque="NO" contentMode="TopLeft" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k31-Wc-1S2">
-                                                                    <rect key="frame" x="366" y="30.5" width="32" height="21"/>
+                                                                    <rect key="frame" x="366" y="25.5" width="32" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="32" id="p70-kg-wcN"/>
                                                                     </constraints>
@@ -1378,14 +1378,14 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribers: 132" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHh-MY-9sg">
-                                                <rect key="frame" x="207" y="67.5" width="191" height="14.5"/>
+                                                <rect key="frame" x="191" y="67.5" width="207" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFk-Ud-uSP">
-                                                <rect key="frame" x="16" y="246" width="43" height="15"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFk-Ud-uSP">
+                                                <rect key="frame" x="16" y="241" width="382" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1402,6 +1402,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <constraint firstAttribute="trailing" secondItem="Pjc-Mv-xPN" secondAttribute="trailing" constant="16" id="MEX-ch-kXW"/>
                                             <constraint firstItem="yPG-O7-385" firstAttribute="bottom" secondItem="fM8-d4-uic" secondAttribute="bottom" id="MNa-08-u1X"/>
                                             <constraint firstItem="c89-ue-N9q" firstAttribute="leading" secondItem="fM8-d4-uic" secondAttribute="trailing" constant="18" id="Mzs-oR-0vJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="GFk-Ud-uSP" secondAttribute="trailing" constant="16" id="N6d-FT-gqM"/>
                                             <constraint firstItem="MEg-3h-wFw" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" id="NP6-u9-90B"/>
                                             <constraint firstItem="k87-gg-wWa" firstAttribute="leading" secondItem="fM8-d4-uic" secondAttribute="trailing" constant="16" id="Pno-S2-5Ic"/>
                                             <constraint firstItem="fM8-d4-uic" firstAttribute="leading" secondItem="yrt-Cb-6V3" secondAttribute="leading" constant="15" id="QZJ-S6-owi"/>
@@ -1463,7 +1464,7 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VVq-52-es3"/>
+        <segue reference="huk-Qt-wDR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar10" width="500" height="625"/>
