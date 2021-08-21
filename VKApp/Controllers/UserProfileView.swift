@@ -63,7 +63,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         let user = Storage.allUsers[userIndex!]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         fullnameLabelOutlet.text = user.fullName
-        locationLabelOutlet.text = user.location
+        locationLabelOutlet.text = "Location: " + user.location
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
         self.title = "User: \(userNameFromOtherView)"
