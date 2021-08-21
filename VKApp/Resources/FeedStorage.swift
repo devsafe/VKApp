@@ -25,7 +25,6 @@ class FeedStorage {
     }
         static func getPostsForUsername(username: String) -> [PostModel]{
             var tempPosts: [PostModel]
-            print(username)
             if username != "" {
                 tempPosts = Storage.feedNews.filter{ $0.author.userName.elementsEqual(username)}
             } else {

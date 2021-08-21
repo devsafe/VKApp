@@ -8,6 +8,17 @@
 import UIKit
 
 class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var avatarImageOutlet: UIImageView!
+    @IBOutlet var fullnameLabelOutlet: UILabel!
+    @IBOutlet var locationLabelOutlet: UILabel!
+    @IBOutlet var sendMessageButtonOutlet: UIButton!
+    @IBOutlet var followButtonOutlet: UIButton!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var tableView: UITableView!
+    
+    var userNameFromOtherView = String()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
     }
@@ -15,7 +26,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileWallTableViewCell.identifier, for: indexPath) as! ProfileWallTableViewCell
         cell.configure(postModel: FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row], userModel: Storage.allUsers[UserStorage.getIndexByUsername(username: userNameFromOtherView)])
-    
         return cell
     }
     
@@ -34,17 +44,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         return cell
     }
     
-
-    @IBOutlet var avatarImageOutlet: UIImageView!
-    @IBOutlet var fullnameLabelOutlet: UILabel!
-    @IBOutlet var locationLabelOutlet: UILabel!
-    @IBOutlet var sendMessageButtonOutlet: UIButton!
-    @IBOutlet var followButtonOutlet: UIButton!
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var tableView: UITableView!
-    
-    var userNameFromOtherView = String()
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "ShowUserPhotos",
             let destination = segue.destination as? PhotosViewController
@@ -60,7 +59,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         tableView.delegate = self
         tableView.dataSource = self
         let userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
-        //print(userIndex)
         let user = Storage.allUsers[userIndex!]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         avatarImageOutlet.layer.cornerRadius = 80
@@ -68,6 +66,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         locationLabelOutlet.text = "Location: " + user.location
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
-        self.title = "User: \(userNameFromOtherView)"
+        self.title = "id: \(userNameFromOtherView)"
     }
 }

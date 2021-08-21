@@ -1,13 +1,13 @@
 //
-//  LikeControl.swift
+//  ShareControl.swift
 //  VKApp
 //
-//  Created by Boris Sobolev on 17.08.2021.
+//  Created by Boris Sobolev on 19.08.2021.
 //
 
 import UIKit
 
-final class LikeControl: UIControl {
+final class ShareControl: UIControl {
     private var isLiked = false
     var controlTapped: (() -> Void)?
     private var likeButton = UIButton()
@@ -29,7 +29,7 @@ final class LikeControl: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-       likeButton.frame = bounds
+        likeButton.frame = bounds
         backgroundColor = .clear
     }
     
@@ -39,19 +39,14 @@ final class LikeControl: UIControl {
         self.likeButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         likeButton.tintColor = UIColor.systemBlue
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
-        let blueHeart = UIImage(systemName: "heart", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
-        
-        let redHeart = UIImage(systemName: "heart.fill", withConfiguration: largeConfig)?.withTintColor(.systemPink, renderingMode: .alwaysOriginal)
+        let blueHeart = UIImage(systemName: "arrowshape.turn.up.forward", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        let redHeart = UIImage(systemName: "arrowshape.turn.up.forward.fill", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
         likeButton.setImage(blueHeart, for: .normal)
         likeButton.setImage(redHeart, for: .selected)
-
-        
-    //likeCountLabel.alpha = 0.3
-        
         backgroundColor = .clear
         likeCountLabel.textColor = UIColor.systemBlue
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.centerXAnchor, constant: -20).isActive = true
+        likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.centerXAnchor, constant: 28).isActive = true
         likeCountLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
     }
     

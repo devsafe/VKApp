@@ -75,16 +75,11 @@ class LoginFormController: UIViewController {
         } else {
             registerNewUserOnLoginView(userName: loginText, password: passwordText)
             showRegisterProcessAlert(userName: loginText)
-            
         }
     }
     
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
-        //let temp = getIndexByUserName(userName: "boris")
-        let temp2 = UserStorage.getSortedUsers(searchText: "ami")
-        print("\(temp2)")
-        //showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
     }
     
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
@@ -104,7 +99,6 @@ class LoginFormController: UIViewController {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
-        
         // add space at bottom of a UIScrollView, equals to keyboard height
         self.scrollView?.contentInset = contentInsets
         scrollView?.scrollIndicatorInsets = contentInsets
@@ -128,10 +122,9 @@ class LoginFormController: UIViewController {
         }
     }
     
-    
     func registerNewUserOnLoginView(userName: String, password: String) {
         Storage.allUsers.append(UserModel(userName: userName, name: userName != "" ? userName : "Empty", surName: userName != "" ? "User" : "Line", password: password, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photos: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
-        Storage.feedNews.insert(PostModel(author: Storage.allUsers[UserStorage.getIndexByUsername(username: userName)], timeStamp: "Now", text: "Wtf, how i can change my avatar?!", media: "defaultPost", likeCount: 0, commentMessages: [], isLike: false), at: 0)
+        Storage.feedNews.insert(PostModel(author: Storage.allUsers[UserStorage.getIndexByUsername(username: userName)], timeStamp: "Now", text: "Wtf, how can i change my avatar?!", media: "defaultPost", likeCount: 0, commentMessages: [], isLike: false), at: 0)
     }
     
     func isUserInDB(userName: String) -> Bool {

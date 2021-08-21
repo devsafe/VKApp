@@ -15,8 +15,6 @@ class FriendsViewController: UIViewController {
     var friendsSection = [[UserModel]]()
     private var firstLetters: [String] = []
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let friends = Storage.allUsers

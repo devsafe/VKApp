@@ -19,5 +19,4 @@ struct UserModel {
     var location: String
     var favGroups: [GroupModel]
     var photos: [PhotoModel]
-   // var posts: [PostModel]
 }

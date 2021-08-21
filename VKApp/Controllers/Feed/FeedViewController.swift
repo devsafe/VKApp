@@ -20,9 +20,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return refreshControl
     }()
     
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        print(identifier)
         return true
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,7 +49,7 @@ extension FeedViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
         cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
         
         cell.avatarTapped = { [weak self] in
@@ -59,17 +57,15 @@ extension FeedViewController {
             self?.performSegue(withIdentifier: "moveToPhoto", sender: indexPath)
         }
         
-            return cell
-        }
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete feed")
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-print("selectfeed")
     }
     
     func showJoinAlert(group: String) {
@@ -86,20 +82,15 @@ print("selectfeed")
         present(joinAlert, animated: true, completion: nil)
     }
     
-    
     @objc private func refresh(sender: AnyObject) {
         generateNewPostInFeed()
         tableView.reloadData()
-        print("refresh 2")
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
     }
     
-    
-    
     func generateNewPostInFeed() {
         Storage.feedNews.insert(PostModel(author: Storage.feedNews.randomElement()!.author, timeStamp: Storage.feedNews.randomElement()!.timeStamp, text: Storage.feedNews.randomElement()!.text, media: Storage.feedNews.randomElement()!.media, likeCount: Storage.feedNews.randomElement()!.likeCount, commentMessages: Storage.feedNews.randomElement()!.commentMessages, isLike: Storage.feedNews.randomElement()!.isLike), at: 0)
-        print("add new post")
     }
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false

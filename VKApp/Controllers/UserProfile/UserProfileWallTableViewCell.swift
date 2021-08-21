@@ -16,9 +16,9 @@ class ProfileWallTableViewCell: UITableViewCell {
     static let identifier = "ProfileWallTableViewCell"
     
     override func layoutSubviews() {
-            super.layoutSubviews()
-            self.configureCellStaticApperance()
-        }
+        super.layoutSubviews()
+        self.configureCellStaticApperance()
+    }
     
     func configure(postModel: PostModel, userModel: UserModel) {
         mediaImageOutlet.image = UIImage(named: postModel.media)
@@ -30,4 +30,4 @@ class ProfileWallTableViewCell: UITableViewCell {
     func configureCellStaticApperance() {
         avatarImageOutlet.layer.cornerRadius = 20
     }
-    }
+}

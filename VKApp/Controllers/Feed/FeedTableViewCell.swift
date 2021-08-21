@@ -22,18 +22,16 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var viewsCountControl: ViewsCountControl!
     
     override func layoutSubviews() {
-            super.layoutSubviews()
-            self.configureCellStaticApperance()
-        }
+        super.layoutSubviews()
+        self.configureCellStaticApperance()
+    }
     
     var avatarTapped: (() -> Void)?
     
     func configure(postModel: PostModel, userModel: UserModel) {
         imageFeedCell.image = UIImage(named: postModel.media)
         authorLabelFeedCell.text = Storage.allUsers[UserStorage.getIndexByUsername(username: userModel.userName)].fullName
-        //imageFeedCell.layer.cornerRadius = 8
         avatarImageFeedCell.image = UIImage(named: userModel.avatar)
-        //avatarImageFeedCell.layer.cornerRadius = 8
         commentControl.configure(commentCount: postModel.commentMessages.count)
         likeControl.configure(isLike: postModel.isLike, likeCount: postModel.likeCount)
         textLabelFeedCell.text = postModel.text

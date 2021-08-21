@@ -1,13 +1,14 @@
 //
-//  CommentControl.swift
+//  ViewsCountControl.swift
 //  VKApp
 //
-//  Created by Boris Sobolev on 16.08.2021.
+//  Created by Boris Sobolev on 20.08.2021.
 //
+
 
 import UIKit
 
-final class CommentControl: UIControl {
+final class ViewsCountControl: UIControl {
     
     var controlTapped: (() -> Void)?
     private var commentButton = UIButton()
@@ -39,18 +40,19 @@ final class CommentControl: UIControl {
         self.addSubview(commentCountLabel)
         self.commentButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         commentButton.tintColor = UIColor.systemBlue
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
-        commentButton.setImage(UIImage(systemName: "bubble.left", withConfiguration: largeConfig), for: .normal)
-        commentButton.setImage(UIImage(systemName: "bubble.left", withConfiguration: largeConfig), for: .selected)
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 18, weight: .thin, scale: .default)
+        commentButton.setImage(UIImage(systemName: "eye.fill", withConfiguration: largeConfig), for: .normal)
+        commentButton.setImage(UIImage(systemName: "eye.fill", withConfiguration: largeConfig), for: .selected)
         commentCountLabel.textColor = UIColor.systemBlue
+        commentButton.alpha = 0.7
         commentCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.centerXAnchor, constant: -20).isActive = true
+        commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.centerXAnchor, constant: 28).isActive = true
         commentCountLabel.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
     }
     
-    func configure(commentCount: Int) {
-        commentCountLabel.text = String(commentCount)
-        commentCounter = commentCount
+    func configure(viewsCount: Int) {
+        commentCountLabel.text = String(viewsCount)
+        commentCounter = viewsCount
     }
     
     @objc func tapControl(_ sender: UIButton) {
@@ -88,6 +90,5 @@ final class CommentControl: UIControl {
             textField.placeholder = "Location"
         })
         commentAlert.textFields![0].text = ""
-       // self.present(, animated: true, completion: nil)
     }
 }

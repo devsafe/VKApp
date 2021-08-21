@@ -20,7 +20,6 @@ class PhotosViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(userNameFromOtherView)
         let titleFriend = Storage.allUsers[UserStorage.getIndexByUsername(username: userNameFromOtherView)].fullName
         self.title = (titleFriend)
     }
@@ -29,12 +28,9 @@ class PhotosViewController: UIViewController {
     }
 }
 
-
-
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
