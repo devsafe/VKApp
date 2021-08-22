@@ -14,10 +14,9 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet var detailLabelFriendsCell: UILabel!
     @IBOutlet var imageFriendsCell: UIImageView!
     
-    func configure(imageName: String?, title: String, detail: String) {
-        imageFriendsCell.image = UIImage(named: imageName ?? "avatarDefault")
-        imageFriendsCell.layer.cornerRadius = 5
-        labelFriendsCell.text = title
-        detailLabelFriendsCell.text = detail
+    func configure(friend: UserModel) {
+        imageFriendsCell.image = UIImage(named: friend.avatar)
+        labelFriendsCell.text = friend.name + " " + friend.surName
+        detailLabelFriendsCell.text = friend.location
     }
 }

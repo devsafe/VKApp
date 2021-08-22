@@ -23,18 +23,25 @@ class LoginFormController: UIViewController {
         self.scrollView?.addGestureRecognizer(tapGesture)
         //Add rounded corners on buttons
         loginButton.layer.cornerRadius = 8
-        loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
-        loginWithFacebookButton.tintColor = .white
-        loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
-        loginWithAppleButton.tintColor = .white
         loginWithAppleButton.layer.cornerRadius = 8
         loginWithFacebookButton.layer.cornerRadius = 8
         registerButton.layer.cornerRadius = 8
+        loginWithFacebookButton.setImage(UIImage(systemName: "envelope.circle.fill"), for: .normal)
+        loginWithFacebookButton.tintColor = .white
+        loginWithAppleButton.tintColor = .white
+        loginTextField.text = "admin"
+        passwordTextField.text = "123"
+        loginButton.titleLabel?.text = "Login"
+        registerButton.titleLabel?.text = "Register"
+        loginWithAppleButton.titleLabel?.text = "Login with Apple"
+        loginWithFacebookButton.titleLabel?.text = "Login with Facebook"
+        loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Observe to keyboard appear
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Observe to keyboard disappear
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -47,7 +54,6 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func logout(_ segue: UIStoryboardSegue) {
-        print("Logout")
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -60,22 +66,23 @@ class LoginFormController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
     }
+    
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         let loginText = loginTextField.text!
         let passwordText = passwordTextField.text!
         if isUserInDB(userName: loginText) {
             showRegisterError(userName: loginText)
         } else {
-            Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Example Group", description: "This is example group", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, isLike: false)]))
+            Storage.allUsers.append(UserModel(userName: loginText, name: loginText != "" ? loginText : "Empty", surName: loginText != "" ? "User" : "Line", password: passwordText, avatar: "avatarDefault", location: "Default City", favGroups: [GroupModel(name: "Swift Education School", description: "Multi-paradigm, compiled programming language developed by Apple Inc. and the open-source community.", logo: "logo-swift", fullDescription: "", subscribersCount: 0)], photo: [PhotoModel(name: "", fileName: "avatarDefault", likeCount: 0, commentMessages: ["Cool!","Omg! ^-^","Fantastic!"], isLike: false)]))
             showRegisterProcessAlert(userName: loginText)
-           // showRegisterInformation(userName: loginText)
         }
     }
     
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
-        showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
+        //showRegisterProcessAlert(userName: loginTextField.text != "" ? loginTextField.text! : "User")
     }
+    
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
         if isUserInDB(userName: loginTextField.text!) {
             print("Login with Apple pressed. User \(loginTextField.text!) in DB")
@@ -134,42 +141,52 @@ class LoginFormController: UIViewController {
     }
     
     func showRegisterError(userName: String) {
-        print("Register fail")
         passwordTextField.text = nil
         let errorRegisterAlert = UIAlertController(
-            title: "Register Error",
+            title: "Registration is failed",
             message: "Username \(userName) already registered. Type another username and repeat.", preferredStyle: .actionSheet)
         errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .destructive, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
     }
     
     func showRegisterInformation(userName: String) {
-        let errorRegisterAlert = UIAlertController(
+        let nameSurNameString = Storage.allUsers[getIndexByUserName(userName: userName)].name + " " + Storage.allUsers[getIndexByUserName(userName: userName)].surName
+        let userNameString = Storage.allUsers[getIndexByUserName(userName: userName)].userName == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].userName
+        let passwordString = Storage.allUsers[getIndexByUserName(userName: userName)].password == "" ? "<Empty Line>" : Storage.allUsers[getIndexByUserName(userName: userName)].password
+        let showRegisterInformationAlert = UIAlertController(
             title: "Registration complete!",
-            message: "Username \(userName) registered. Type username and password and repeat login.", preferredStyle: .alert)
-        errorRegisterAlert.addAction(UIAlertAction(title: "Deal with it!", style: .default, handler: nil))
-        self.present(errorRegisterAlert, animated: true, completion: nil)
+            message: """
+
+
+Username: \(userNameString)
+Password: \(passwordString)
+Name: \(nameSurNameString)
+
+
+Type username/password and repeat login.
+""", preferredStyle: .alert)
+        showRegisterInformationAlert.addAction(UIAlertAction(title: "Deal with it!", style: .default, handler:{_ in
+        }))
+        self.present(showRegisterInformationAlert, animated: true, completion: .some({
+        }))
     }
     
     func showRegisterProcessAlert(userName: String) {
         let showRegisterProcessAlert = UIAlertController(
-            title: "Registration form",
-            message: "Hello \(userName), Type your Name and Surname to complete registration process:", preferredStyle: .alert)
+            title: "Almost done",
+            message: "Username created. Please, correct your name and surname:", preferredStyle: .alert)
         showRegisterProcessAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action: UIAlertAction!) in
             Storage.allUsers[self.getIndexByUserName(userName: userName)].name = showRegisterProcessAlert.textFields![0].text!
             Storage.allUsers[self.getIndexByUserName(userName: userName)].surName = showRegisterProcessAlert.textFields![1].text!
             self.showRegisterInformation(userName: userName)
-
         }))
         showRegisterProcessAlert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Name"
-            
         })
         showRegisterProcessAlert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Surname"
         })
         showRegisterProcessAlert.textFields![0].text = "Just"
-        //showRegisterProcessAlert.textFields![0].description = "erere"
         showRegisterProcessAlert.textFields![1].text = "Registered"
         self.present(showRegisterProcessAlert, animated: true, completion: nil)
     }
@@ -210,4 +227,7 @@ class LoginFormController: UIViewController {
         self.present(showRegisterProcessAlert, animated: true, completion: nil)
     }
     
+    func sortFriendsByName() {
+        Storage.allUsers = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
+    }
 }

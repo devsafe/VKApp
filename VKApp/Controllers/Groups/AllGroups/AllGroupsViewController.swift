@@ -53,13 +53,11 @@ extension AllGroupsViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isGroupInFav(groupName: Storage.allGroups[indexPath.row].name) {
-            //showJoinError(group: Storage.allGroups[indexPath.row].name)
             Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: Storage.allGroups[indexPath.row].name))
             tableView.reloadData()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         } else {
             Storage.allUsers[Storage.userIdActiveSession].favGroups.append(Storage.allGroups[indexPath.row])
-            //showJoinAlert(group: Storage.allGroups[indexPath.row].name)
             tableView.reloadData()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
@@ -70,7 +68,6 @@ extension AllGroupsViewController {
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         joinAlert.addAction(action)
         present(joinAlert, animated: true, completion: nil)
-        
     }
     
     func showJoinError(group: String) {

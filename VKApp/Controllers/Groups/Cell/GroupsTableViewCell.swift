@@ -22,5 +22,7 @@ class GroupsTableViewCell: UITableViewCell {
         detailLabelChannelsCell.text = detail + ""
         extraLabelChannelsCell?.text = extraLabel ?? ""
         favouritGroupImageCell?.image = UIImage(named: favouritImage)
+        let tintableImage = favouritGroupImageCell?.image?.withRenderingMode(.alwaysTemplate)
+        favouritGroupImageCell?.image = tintableImage
     }
 }
