@@ -30,6 +30,7 @@ final class LikeControl: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         likeButton.frame = bounds
+        backgroundColor = .clear
     }
     
     private func setView() {
@@ -38,12 +39,15 @@ final class LikeControl: UIControl {
         self.likeButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         likeButton.tintColor = UIColor.systemBlue
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
-        likeButton.setImage(UIImage(systemName: "heart", withConfiguration: largeConfig), for: .normal)
-        likeButton.setImage(UIImage(systemName: "heart.fill", withConfiguration: largeConfig), for: .selected)
+        let blueHeart = UIImage(systemName: "heart", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        
+        let redHeart = UIImage(systemName: "heart.fill", withConfiguration: largeConfig)?.withTintColor(.systemPink, renderingMode: .alwaysOriginal)
+        likeButton.setImage(blueHeart, for: .normal)
+        likeButton.setImage(redHeart, for: .selected)
         backgroundColor = .clear
         likeCountLabel.textColor = UIColor.systemBlue
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: -2).isActive = true
+        likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.centerXAnchor, constant: -20).isActive = true
         likeCountLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
     }
     
@@ -69,7 +73,7 @@ final class LikeControl: UIControl {
     private func animatedLabel(likeCount: Int) {
         UIView.transition(with: likeCountLabel,
                           duration: 0.7,
-                          options: .transitionFlipFromRight,
+                          options: .allowAnimatedContent,
                           animations: { [unowned self] in
                             self.likeCountLabel.text = String(likeCount)}
         )

@@ -17,5 +17,3 @@ final class AvatarView: UIImageView {
         self.layer.borderWidth = 1
     }
 }
-
-

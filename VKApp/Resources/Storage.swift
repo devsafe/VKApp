@@ -10,6 +10,7 @@ import Foundation
 class Storage {
     static var allUsers = UserStorage.init().allUsers
     static var allGroups = GroupStorage.init().allGroups
+    static var feedNews = FeedStorage.init().usersFeed
     static var appSettings = SettingsStorage.init()
     static var userIdActiveSession = 0
 }

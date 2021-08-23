@@ -10,7 +10,7 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
-    var userNameFromFriendView = String()
+    var userNameFromOtherView = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,8 @@ class PhotosViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
-        let titleForNavigationBar = "\(Storage.allUsers[idUsernameFromFriendView].name)" + " " + "\(Storage.allUsers[idUsernameFromFriendView].surName)"
-        self.title = (titleForNavigationBar)
+        let titleFriend = Storage.allUsers[UserStorage.getIndexByUsername(username: userNameFromOtherView)].fullName
+        self.title = (titleFriend)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -32,26 +31,20 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
-        let photosCount = (Storage.allUsers[idUsernameFromFriendView].photo.count)
+        let photosCount = UserStorage.getPhotosForUsername(username: userNameFromOtherView).count
         return photosCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
-        let idUsernameFromFriendView = getIndexByUserName(userName: userNameFromFriendView)
-        let photo = Storage.allUsers[idUsernameFromFriendView].photo[indexPath.item]
-        cell.configure(photoModel: photo)
+        let photos = UserStorage.getPhotosForUsername(username: userNameFromOtherView)[indexPath.item]
+        cell.configure(photoModel: photos)
         cell.likeTapped = { [weak self] in
-            Storage.allUsers[(self?.getIndexByUserName(userName: self!.userNameFromFriendView))! ].photo[indexPath.item].isLike.toggle()
+            Storage.allUsers[UserStorage.getIndexByUsername(username: self!.userNameFromOtherView)].photos[indexPath.item].isLike.toggle()
         }
         return cell
-    }
-    func getIndexByUserName(userName: String) -> Int  {
-        Storage.allUsers.firstIndex(where: { $0.userName == userName }) ?? 0
     }
 }

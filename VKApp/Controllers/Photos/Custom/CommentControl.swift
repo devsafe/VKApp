@@ -1,5 +1,5 @@
 //
-//  LikeControl.swift
+//  CommentControl.swift
 //  VKApp
 //
 //  Created by Boris Sobolev on 16.08.2021.
@@ -19,6 +19,9 @@ final class CommentControl: UIControl {
         self.setView()
     }
     
+    private let uncommentScale: CGFloat = 0.7
+    private let commentScale: CGFloat = 1.4
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.setView()
@@ -27,6 +30,7 @@ final class CommentControl: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         commentButton.frame = bounds
+        backgroundColor = .clear
     }
     
     private func setView() {
@@ -39,7 +43,7 @@ final class CommentControl: UIControl {
         commentButton.setImage(UIImage(systemName: "bubble.left", withConfiguration: largeConfig), for: .selected)
         commentCountLabel.textColor = UIColor.systemBlue
         commentCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.leadingAnchor, constant: -2).isActive = true
+        commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.centerXAnchor, constant: -20).isActive = true
         commentCountLabel.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
     }
     
@@ -50,15 +54,38 @@ final class CommentControl: UIControl {
     
     @objc func tapControl(_ sender: UIButton) {
         controlTapped?()
-        // animatedLabel(off)
+        animatedLabel(commentCount: commentCounter)
+        animate()
+        commentAlert()
     }
     
     private func animatedLabel(commentCount: Int) {
         UIView.transition(with: commentCountLabel,
                           duration: 0.2,
-                          options: .transitionFlipFromTop,
+                          options: .allowAnimatedContent,
                           animations: { [unowned self] in
                             self.commentCountLabel.text = String(commentCount)}
         )
+    }
+    private func animate() {
+        UIButton.animate(withDuration: 0.1, animations: { [self] in
+            let newScale = commentButton.isSelected ? self.commentScale : self.uncommentScale
+            commentButton.transform = self.transform.scaledBy(x: newScale, y: newScale)
+        }, completion: { _ in
+            UIButton.animate(withDuration: 0.2, animations: { [self] in
+                commentButton.transform = CGAffineTransform.identity
+            })
+        })
+    }
+    
+    func commentAlert() {
+        let commentAlert = UIAlertController(
+            title: "Comment",
+            message: "Type your comment:", preferredStyle: .alert)
+        commentAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: nil))
+        commentAlert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Location"
+        })
+        commentAlert.textFields![0].text = ""
     }
 }
