@@ -499,7 +499,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWr-ep-nKJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="AyO-ft-ZdQ">
                                     <size key="itemSize" width="343" height="263"/>
@@ -1296,6 +1296,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </collectionViewCellContentView>
                                                     <connections>
                                                         <outlet property="photosProfileCollectionViewCell" destination="GcB-jS-8Tj" id="cu7-hV-lU4"/>
+                                                        <segue destination="nWn-b4-c35" kind="show" identifier="ShowUserPhotos" id="Sag-ce-bTo"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -1810,6 +1811,7 @@ It is a long established fact that a reader will be distracted by the readable c
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ndZ-81-WTG"/>
+        <segue reference="Sag-ce-bTo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar10" width="500" height="625"/>
