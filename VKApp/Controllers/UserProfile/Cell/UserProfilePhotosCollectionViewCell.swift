@@ -9,7 +9,8 @@ import UIKit
 
 class UserProfilePhotosCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var photoProfileCollectionCell: UIImageView!
+    @IBOutlet var photosProfileCollectionViewCell: UIImageView!
+    
     static let identifier = "UserProfilePhotosCollectionViewCell"
     var likeTapped: (() -> Void)?
     override func layoutSubviews() {
@@ -18,7 +19,7 @@ class UserProfilePhotosCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(photoModel: PhotoModel) {
-        photoProfileCollectionCell.image = UIImage(named: photoModel.fileName)
+        photosProfileCollectionViewCell.image = UIImage(named: photoModel.fileName)
     }
     
     func configureCellStaticApperance() {

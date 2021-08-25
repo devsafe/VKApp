@@ -35,6 +35,7 @@
 		114E234226C41983003456EF /* OldProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* OldProfileViewController.swift */; };
 		114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234726C4F3B4003456EF /* PhotosViewController.swift */; };
 		1193D88C26D1787E000509CA /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88B26D1787E000509CA /* GroupProfileViewController.swift */; };
+		1193D88F26D654F1000509CA /* UserProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88E26D654F1000509CA /* UserProfileView2.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		114E234126C41982003456EF /* OldProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldProfileViewController.swift; sourceTree = "<group>"; };
 		114E234726C4F3B4003456EF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		1193D88B26D1787E000509CA /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
+		1193D88E26D654F1000509CA /* UserProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView2.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				1193D88926D119A5000509CA /* Cell */,
 				114E088526D05967008F519A /* UserProfileWallTableViewCell.swift */,
 				114E088126D03045008F519A /* UserProfileView.swift */,
+				1193D88E26D654F1000509CA /* UserProfileView2.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				114E234226C41983003456EF /* OldProfileViewController.swift in Sources */,
+				1193D88F26D654F1000509CA /* UserProfileView2.swift in Sources */,
 				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */,
 				114E086826CBE4C5008F519A /* LikeControl.swift in Sources */,
