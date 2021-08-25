@@ -24,8 +24,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ShowUserProfile",
-            let destination = segue.destination as? UserProfileView,
+        if  segue.identifier == "ShowUserProfile2",
+            let destination = segue.destination as? UserProfileView2,
             let userIndex = tableView.indexPathForSelectedRow
         {
             destination.userNameFromOtherView = Storage.feedNews[userIndex.row].author.userName
