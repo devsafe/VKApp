@@ -21,7 +21,12 @@ class GroupProfileViewController: UIViewController {
         logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
         title = groupFromOtherView.name
         print(groupFromOtherView.name)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
         backGroungViewOutlet.layer.cornerRadius = 8
-        backGroungViewOutlet.alpha = 0.9
+       // backGroungViewOutlet.alpha = 0.9
     }
 }
