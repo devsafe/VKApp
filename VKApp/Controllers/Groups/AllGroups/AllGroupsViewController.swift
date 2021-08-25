@@ -10,6 +10,7 @@ import UIKit
 class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBarAllGroups: UISearchBar!
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -21,6 +22,7 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBarAllGroups.delegate = self
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
@@ -98,3 +100,8 @@ extension AllGroupsViewController {
 }
 
 
+extension AllGroupsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("change")
+    }
+}
