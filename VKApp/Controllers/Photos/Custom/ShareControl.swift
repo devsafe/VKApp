@@ -38,13 +38,13 @@ final class ShareControl: UIControl {
         self.addSubview(likeCountLabel)
         self.likeButton.addTarget(self, action: #selector(tapControl(_:)), for: .touchUpInside)
         likeButton.tintColor = UIColor.systemBlue
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .thin, scale: .default)
-        let blueHeart = UIImage(systemName: "arrowshape.turn.up.forward", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 26, weight: .regular, scale: .default)
+        let blueHeart = UIImage(systemName: "arrowshape.turn.up.forward", withConfiguration: largeConfig)?.withTintColor(#colorLiteral(red: 0.01734360866, green: 0.4780374765, blue: 1, alpha: 0.6994547772), renderingMode: .alwaysOriginal)
         let redHeart = UIImage(systemName: "arrowshape.turn.up.forward.fill", withConfiguration: largeConfig)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
         likeButton.setImage(blueHeart, for: .normal)
         likeButton.setImage(redHeart, for: .selected)
         backgroundColor = .clear
-        likeCountLabel.textColor = UIColor.systemBlue
+        likeCountLabel.textColor = #colorLiteral(red: 0.01734360866, green: 0.4780374765, blue: 1, alpha: 0.6994547772)
         likeCountLabel.translatesAutoresizingMaskIntoConstraints = false
         likeCountLabel.trailingAnchor.constraint(equalTo: likeButton.centerXAnchor, constant: 28).isActive = true
         likeCountLabel.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
