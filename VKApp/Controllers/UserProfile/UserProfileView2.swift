@@ -19,6 +19,8 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
    
     var userNameFromOtherView = String()
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
         
@@ -64,6 +66,10 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         let user = Storage.allUsers[userIndex!]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         avatarImageOutlet.layer.cornerRadius = 80
+        avatarImageOutlet.layer.borderWidth = 1
+        avatarImageOutlet.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
+        avatarImageOutlet.layer.borderColor = customColor.cgColor
         fullnameLabelOutlet.text = user.fullName
         locationLabelOutlet.text = "Location: " + user.location
         sendMessageButtonOutlet.layer.cornerRadius = 8

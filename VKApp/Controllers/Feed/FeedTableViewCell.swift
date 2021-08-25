@@ -41,5 +41,8 @@ class FeedTableViewCell: UITableViewCell {
     
     func configureCellStaticApperance() {
         avatarImageFeedCell.layer.cornerRadius = 20
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
     }
 }

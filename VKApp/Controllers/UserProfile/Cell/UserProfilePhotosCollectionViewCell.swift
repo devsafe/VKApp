@@ -23,5 +23,10 @@ class UserProfilePhotosCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCellStaticApperance() {
+        photosProfileCollectionViewCell.layer.cornerRadius = 8
+        photosProfileCollectionViewCell.layer.borderWidth = 1
+        photosProfileCollectionViewCell.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
+        photosProfileCollectionViewCell.layer.borderColor = customColor.cgColor
     }
 }
