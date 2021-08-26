@@ -10,6 +10,7 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
     
     static let identifier = "FeedTableViewCell"
+    var likeTapped: (() -> Void)?
     
     @IBOutlet var imageFeedCell: UIImageView!
     @IBOutlet var titleLableFeedCell: UILabel!
@@ -34,6 +35,10 @@ class FeedTableViewCell: UITableViewCell {
         avatarImageFeedCell.image = UIImage(named: userModel.avatar)
         commentControl.configure(commentCount: postModel.commentMessages.count)
         likeControl.configure(isLike: postModel.isLike, likeCount: postModel.likeCount)
+        likeControl.controlTapped = {[weak self] in
+            self?.likeTapped?()
+        }
+        
         textLabelFeedCell.text = postModel.text
         dateLabelFeedCell.text = postModel.timeStamp
         viewsCountControl.configure(viewsCount: postModel.commentMessages.count)

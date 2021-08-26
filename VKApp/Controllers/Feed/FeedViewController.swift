@@ -51,6 +51,9 @@ extension FeedViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
         cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
+        cell.likeTapped = { [weak self] in
+            Storage.feedNews[indexPath.row].isLike.toggle()
+        }
         
         cell.avatarTapped = { [weak self] in
             self?.tapedInAvatar = true
