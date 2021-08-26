@@ -1273,11 +1273,11 @@ It is a long established fact that a reader will be distracted by the readable c
             </objects>
             <point key="canvasLocation" x="3206" y="609"/>
         </scene>
-        <!--Channels-->
+        <!--Groups-->
         <scene sceneID="FPc-xa-ZAa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJy-aJ-HUW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Channels" image="star.circle" catalog="system" selectedImage="star.circle.fill" id="tSv-BO-2A2"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="star.circle" catalog="system" selectedImage="star.circle.fill" id="tSv-BO-2A2"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="nPC-Y2-1yG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QPQ-Fk-LgY">

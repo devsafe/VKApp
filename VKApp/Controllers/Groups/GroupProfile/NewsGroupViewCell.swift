@@ -38,9 +38,14 @@ class NewsGroupViewCell: UITableViewCell {
     }
     
     func configureCellStaticApperance() {
-//        avatarImageFeedCell.layer.cornerRadius = 20
+        logoGroupNewsImage.layer.cornerRadius = 20
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         selectedBackgroundView = bgColorView
+        
+        let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
+        logoGroupNewsImage.layer.borderColor = customColor.cgColor
+        logoGroupNewsImage.layer.shadowOffset = .zero
+        logoGroupNewsImage.layer.borderWidth = 1
     }
 }
