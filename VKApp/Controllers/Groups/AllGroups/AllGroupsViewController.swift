@@ -33,8 +33,6 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
         self.tableView.reloadData()
     }
-    
-    
 }
 
 extension AllGroupsViewController {
@@ -53,26 +51,6 @@ extension AllGroupsViewController {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            Storage.allGroups.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .left)
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-//        }
-//    }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if isGroupInFav(groupName: filteredGroups[indexPath.row].name) {
-//            Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: filteredGroups[indexPath.row].name))
-//            tableView.reloadData()
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-//        } else {
-//            Storage.allUsers[Storage.userIdActiveSession].favGroups.append(filteredGroups[indexPath.row])
-//            tableView.reloadData()
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-//        }
-//    }
-    
     func showJoinAlert(group: String) {
         let joinAlert = UIAlertController(title: "Information", message: "You are joined to \(group) group!", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -89,13 +67,11 @@ extension AllGroupsViewController {
     
     @objc private func refresh(sender: UIRefreshControl) {
         tableView.reloadData()
-        print("refr1")
         sender.endRefreshing()
     }
     
     @objc private func refresh2(sender: AnyObject) {
         tableView.reloadData()
-        print("refr12")
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
     }
@@ -118,10 +94,8 @@ extension AllGroupsViewController {
     }
 }
 
-
 extension AllGroupsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("change")
         filteredGroups = []
         
         if searchText == "" {

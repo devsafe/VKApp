@@ -16,7 +16,7 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
-   
+    
     var userNameFromOtherView = String()
     
     
@@ -62,7 +62,6 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         tableView.delegate = self
         tableView.dataSource = self
         let userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
-        print("user = \(userNameFromOtherView)")
         let user = Storage.allUsers[userIndex!]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         avatarImageOutlet.layer.cornerRadius = 80

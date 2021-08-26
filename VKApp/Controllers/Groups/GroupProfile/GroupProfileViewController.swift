@@ -38,7 +38,6 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tableView: UITableView!
     
     @IBAction func followGroupButtonPressed(_ sender: UIButton) {
-        print("follow pressed")
         if isGroupInFav(groupName: groupFromOtherView.name) {
             followButtonOutlet.setTitle("Follow", for: .normal)
             Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: groupFromOtherView.name))
@@ -58,7 +57,6 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
         title = groupFromOtherView.name
-        print(groupFromOtherView.name)
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = logoGroupProfileOutlet.bounds
