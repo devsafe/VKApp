@@ -321,6 +321,7 @@
                                             <outlet property="favouritGroupImageCell" destination="NGi-q1-K2r" id="qx5-ei-8RS"/>
                                             <outlet property="imageChannelsCell" destination="jpY-KB-WMV" id="Q1b-ri-Dks"/>
                                             <outlet property="labelChannelsCell" destination="cmU-Et-hes" id="b2P-VG-dOB"/>
+                                            <segue destination="bjf-dF-6ug" kind="show" identifier="ShowGroup" id="IK1-qu-XFc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1538,6 +1539,7 @@ It is a long established fact that a reader will be distracted by the readable c
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ndZ-81-WTG"/>
+        <segue reference="IK1-qu-XFc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar10" width="500" height="625"/>

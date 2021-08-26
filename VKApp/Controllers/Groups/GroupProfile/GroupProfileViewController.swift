@@ -20,6 +20,16 @@ class GroupProfileViewController: UIViewController {
     @IBOutlet var followButtonOutlet: UIButton!
     @IBAction func followGroupButtonPressed(_ sender: UIButton) {
         print("follow pressed")
+        if isGroupInFav(groupName: groupFromOtherView.name) {
+            followButtonOutlet.setTitle("Follow", for: .normal)
+            Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: groupFromOtherView.name))
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+            //presentingViewController?.storyboard.allgrou
+        } else {
+            followButtonOutlet.setTitle("UnFollow", for: .normal)
+            Storage.allUsers[Storage.userIdActiveSession].favGroups.append(groupFromOtherView)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
     }
     
     
@@ -42,5 +52,8 @@ class GroupProfileViewController: UIViewController {
     
     func isGroupInFav(groupName: String) -> Bool {
         (Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName }) != nil) ? true : false
+    }
+    func getIndexGroupByGroupName(groupName: String) -> Int!  {
+        Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName })
     }
 }

@@ -28,6 +28,13 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.refreshControl = myRefreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    
 }
 
 extension AllGroupsViewController {
@@ -54,17 +61,17 @@ extension AllGroupsViewController {
 //        }
 //    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isGroupInFav(groupName: filteredGroups[indexPath.row].name) {
-            Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: filteredGroups[indexPath.row].name))
-            tableView.reloadData()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        } else {
-            Storage.allUsers[Storage.userIdActiveSession].favGroups.append(filteredGroups[indexPath.row])
-            tableView.reloadData()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if isGroupInFav(groupName: filteredGroups[indexPath.row].name) {
+//            Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: filteredGroups[indexPath.row].name))
+//            tableView.reloadData()
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+//        } else {
+//            Storage.allUsers[Storage.userIdActiveSession].favGroups.append(filteredGroups[indexPath.row])
+//            tableView.reloadData()
+//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+//        }
+//    }
     
     func showJoinAlert(group: String) {
         let joinAlert = UIAlertController(title: "Information", message: "You are joined to \(group) group!", preferredStyle: .alert)
@@ -82,11 +89,13 @@ extension AllGroupsViewController {
     
     @objc private func refresh(sender: UIRefreshControl) {
         tableView.reloadData()
+        print("refr1")
         sender.endRefreshing()
     }
     
     @objc private func refresh2(sender: AnyObject) {
         tableView.reloadData()
+        print("refr12")
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
     }
@@ -97,6 +106,15 @@ extension AllGroupsViewController {
     
     func getIndexGroupByGroupName(groupName: String) -> Int!  {
         Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "ShowGroup",
+            let destination = segue.destination as? GroupProfileViewController,
+            let groupIndex = tableView.indexPathForSelectedRow
+        {
+            destination.groupFromOtherView =  Storage.allGroups[groupIndex.row]
+        }
     }
 }
 
