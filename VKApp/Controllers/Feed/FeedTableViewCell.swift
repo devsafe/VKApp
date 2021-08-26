@@ -49,10 +49,8 @@ class FeedTableViewCell: UITableViewCell {
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         selectedBackgroundView = bgColorView
-        
-        
-            let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
-            avatarImageFeedCell.layer.borderColor = customColor.cgColor
+        let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
+        avatarImageFeedCell.layer.borderColor = customColor.cgColor
         avatarImageFeedCell.layer.shadowOffset = .zero
         avatarImageFeedCell.layer.borderWidth = 1
     }

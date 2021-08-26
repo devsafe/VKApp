@@ -24,10 +24,9 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
             self?.tapedInAvatar = true
             self?.performSegue(withIdentifier: "moveToPhoto", sender: indexPath)
         }
-        
         return cell
     }
-
+    
     var groupFromOtherView = GroupModel(name: "", description: "", logo: "", fullDescription: "", subscribersCount: 0)
     @IBOutlet var groupControlView: UIView!
     @IBOutlet var logoGroupProfileOutlet: UIImageView!
@@ -37,7 +36,6 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var groupSubscribersCountLabelOutlet: UILabel!
     @IBOutlet var followButtonOutlet: UIButton!
     @IBOutlet var tableView: UITableView!
-    
     
     @IBAction func followGroupButtonPressed(_ sender: UIButton) {
         print("follow pressed")
@@ -58,9 +56,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
-        
         title = groupFromOtherView.name
         print(groupFromOtherView.name)
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
@@ -71,7 +67,6 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         smallLogoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
         followButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.setTitle(isGroupInFav(groupName: groupFromOtherView.name) ? "Unfollow" : "Follow", for: .normal)
-       // backGroungViewOutlet.alpha = 0.9
     }
     
     func isGroupInFav(groupName: String) -> Bool {

@@ -15,7 +15,7 @@ class NewsGroupViewCell: UITableViewCell {
     
     static let identifier = "NewsGroupViewCell"
     
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureCellStaticApperance()
@@ -27,14 +27,6 @@ class NewsGroupViewCell: UITableViewCell {
     func configure(newsModel: NewsModel, groupModel: GroupModel) {
         logoGroupNewsImage.image = UIImage(named: groupModel.logo)
         authorGroupNewsLabel.text = groupModel.name
-//        imageFeedCell.image = UIImage(named: postModel.media)
-//        authorLabelFeedCell.text = Storage.allUsers[UserStorage.getIndexByUsername(username: userModel.userName)].fullName
-//        avatarImageFeedCell.image = UIImage(named: userModel.avatar)
-//        commentControl.configure(commentCount: postModel.commentMessages.count)
-//        likeControl.configure(isLike: postModel.isLike, likeCount: postModel.likeCount)
-//        textLabelFeedCell.text = postModel.text
-//        dateLabelFeedCell.text = postModel.timeStamp
-//        viewsCountControl.configure(viewsCount: postModel.commentMessages.count)
     }
     
     func configureCellStaticApperance() {
