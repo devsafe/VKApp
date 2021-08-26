@@ -35,6 +35,9 @@
 		114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234726C4F3B4003456EF /* PhotosViewController.swift */; };
 		1193D88C26D1787E000509CA /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88B26D1787E000509CA /* GroupProfileViewController.swift */; };
 		1193D88F26D654F1000509CA /* UserProfileView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88E26D654F1000509CA /* UserProfileView2.swift */; };
+		1193D89126D79410000509CA /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89026D79410000509CA /* NewsModel.swift */; };
+		1193D89326D79457000509CA /* NewsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89226D79457000509CA /* NewsStorage.swift */; };
+		1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89426D795EC000509CA /* NewsGroupViewCell.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -77,6 +80,9 @@
 		114E234726C4F3B4003456EF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		1193D88B26D1787E000509CA /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
 		1193D88E26D654F1000509CA /* UserProfileView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView2.swift; sourceTree = "<group>"; };
+		1193D89026D79410000509CA /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		1193D89226D79457000509CA /* NewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStorage.swift; sourceTree = "<group>"; };
+		1193D89426D795EC000509CA /* NewsGroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsGroupViewCell.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 				114C358826C5B50C00D9C17B /* UserModel.swift */,
 				114C358C26C5B6D500D9C17B /* PhotoModel.swift */,
 				114E087326CE7064008F519A /* PostModel.swift */,
+				1193D89026D79410000509CA /* NewsModel.swift */,
 				114C358A26C5B52B00D9C17B /* GroupModel.swift */,
 			);
 			path = Models;
@@ -251,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				1193D88B26D1787E000509CA /* GroupProfileViewController.swift */,
+				1193D89426D795EC000509CA /* NewsGroupViewCell.swift */,
 			);
 			path = GroupProfile;
 			sourceTree = "<group>";
@@ -336,6 +344,7 @@
 				114C359026C5BB8800D9C17B /* GroupsStorage.swift */,
 				114C359226C5BF2600D9C17B /* UsersStorage.swift */,
 				114E087526CE72AC008F519A /* FeedStorage.swift */,
+				1193D89226D79457000509CA /* NewsStorage.swift */,
 				114C359426C5C3D100D9C17B /* SettingsStorage.swift */,
 				11CCD82126BC6405009A5865 /* Assets.xcassets */,
 			);
@@ -457,6 +466,7 @@
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
 				114E086426CB0979008F519A /* CommentControl.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */,
+				1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */,
 				114C359326C5BF2600D9C17B /* UsersStorage.swift in Sources */,
 				114E087826CE79C5008F519A /* FeedViewController.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
@@ -470,6 +480,7 @@
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
 				114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */,
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
+				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				114E234226C41983003456EF /* OldProfileViewController.swift in Sources */,
 				1193D88F26D654F1000509CA /* UserProfileView2.swift in Sources */,
@@ -485,6 +496,7 @@
 				114E087426CE7064008F519A /* PostModel.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,
 				114E087A26CE7AA8008F519A /* FeedTableViewCell.swift in Sources */,
+				1193D89326D79457000509CA /* NewsStorage.swift in Sources */,
 				114E087E26CEB518008F519A /* ShareControl.swift in Sources */,
 				114E086C26CC3D3A008F519A /* WordControl.swift in Sources */,
 				11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */,

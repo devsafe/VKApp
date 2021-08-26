@@ -16,6 +16,12 @@ class GroupsTableViewCell: UITableViewCell {
     @IBOutlet private var imageChannelsCell: UIImageView!
     @IBOutlet private var extraLabelChannelsCell: UILabel!
     @IBOutlet var favouritGroupImageCell: UIImageView?
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.configureCellStaticApperance()
+    }
+    
     func configure(imageName: String?, title: String, detail: String, extraLabel: String?, favouritImage: String) {
         imageChannelsCell.image = UIImage(named: imageName ?? "logo-default")
         labelChannelsCell.text = title
@@ -24,5 +30,11 @@ class GroupsTableViewCell: UITableViewCell {
         favouritGroupImageCell?.image = UIImage(named: favouritImage)
         let tintableImage = favouritGroupImageCell?.image?.withRenderingMode(.alwaysTemplate)
         favouritGroupImageCell?.image = tintableImage
+    }
+    
+    func configureCellStaticApperance() {
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
     }
 }

@@ -8,7 +8,25 @@
 import UIKit
 
 
-class GroupProfileViewController: UIViewController {
+class GroupProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    private var tapedInAvatar: Bool = false
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        Storage.feedGroupNews.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsGroupViewCell.identifier, for: indexPath) as! NewsGroupViewCell
+        cell.configure(newsModel: Storage.feedGroupNews[indexPath.row], groupModel: groupFromOtherView)
+        
+        cell.avatarTapped = { [weak self] in
+            self?.tapedInAvatar = true
+            self?.performSegue(withIdentifier: "moveToPhoto", sender: indexPath)
+        }
+        
+        return cell
+    }
 
     var groupFromOtherView = GroupModel(name: "", description: "", logo: "", fullDescription: "", subscribersCount: 0)
     @IBOutlet var groupControlView: UIView!
@@ -18,6 +36,9 @@ class GroupProfileViewController: UIViewController {
     @IBOutlet var fullGroupDescriptionLabel: UILabel!
     @IBOutlet var groupSubscribersCountLabelOutlet: UILabel!
     @IBOutlet var followButtonOutlet: UIButton!
+    @IBOutlet var tableView: UITableView!
+    
+    
     @IBAction func followGroupButtonPressed(_ sender: UIButton) {
         print("follow pressed")
         if isGroupInFav(groupName: groupFromOtherView.name) {
@@ -26,7 +47,7 @@ class GroupProfileViewController: UIViewController {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
             //presentingViewController?.storyboard.allgrou
         } else {
-            followButtonOutlet.setTitle("UnFollow", for: .normal)
+            followButtonOutlet.setTitle("Unfollow", for: .normal)
             Storage.allUsers[Storage.userIdActiveSession].favGroups.append(groupFromOtherView)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
@@ -35,6 +56,9 @@ class GroupProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
         
         title = groupFromOtherView.name

@@ -416,13 +416,114 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zPL-8V-ynM">
-                                        <rect key="frame" x="0.0" y="216.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsGroupViewCell" rowHeight="629" id="65R-EZ-eCK" customClass="NewsGroupViewCell" customModule="VKApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="216.5" width="414" height="629"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zPL-8V-ynM" id="a2a-uL-KV5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="65R-EZ-eCK" id="zTV-5b-gWn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="629"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9Y-TM-yk2">
+                                                    <rect key="frame" x="72" y="16" width="326" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m0u-G1-Ai2" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="64" width="382" height="229.5"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bUA-1s-qnT">
+                                                    <rect key="frame" x="16" y="16" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="a8C-qp-vIq"/>
+                                                        <constraint firstAttribute="width" constant="40" id="fzg-ZS-cNW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M46-2R-4xv">
+                                                    <rect key="frame" x="72" y="41.5" width="326" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPw-m9-epk">
+                                                    <rect key="frame" x="16" y="301.5" width="382" height="284.5"/>
+                                                    <string key="text">Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dId-lI-FCP" customClass="LikeControl" customModule="VKApp" customModuleProvider="target">
+                                                    <rect key="frame" x="366" y="594" width="32" height="32"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="U4w-mp-ydm"/>
+                                                        <constraint firstAttribute="height" constant="32" id="ZGc-Oz-Aib"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-bz-Cwl" customClass="CommentControl" customModule="VKApp" customModuleProvider="target">
+                                                    <rect key="frame" x="294" y="594" width="32" height="32"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="0G1-m7-9XN"/>
+                                                        <constraint firstAttribute="height" constant="32" id="Rri-Q3-6eg"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Czf-eu-g00" customClass="ShareControl" customModule="VKApp" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="594" width="32" height="32"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="CTC-qx-CI0"/>
+                                                        <constraint firstAttribute="width" constant="32" id="ZNe-km-Tax"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNh-Da-seQ" customClass="ViewsCountControl" customModule="VKApp" customModuleProvider="target">
+                                                    <rect key="frame" x="88" y="594" width="32" height="32"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="YOc-Nc-zNL"/>
+                                                        <constraint firstAttribute="width" constant="32" id="kQZ-LO-lp0"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZs-U5-Nrv">
+                                                    <rect key="frame" x="379" y="25" width="19" height="22"/>
+                                                    <state key="normal" image="ellipsis" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dId-lI-FCP" firstAttribute="top" secondItem="ZPw-m9-epk" secondAttribute="bottom" constant="8" id="0Fk-Zm-KGv"/>
+                                                <constraint firstItem="dId-lI-FCP" firstAttribute="leading" secondItem="ldF-bz-Cwl" secondAttribute="trailing" constant="40" id="0UR-F7-prz"/>
+                                                <constraint firstItem="ZPw-m9-epk" firstAttribute="top" secondItem="m0u-G1-Ai2" secondAttribute="bottom" constant="8" id="6iR-US-4Oq"/>
+                                                <constraint firstItem="m0u-G1-Ai2" firstAttribute="leading" secondItem="zTV-5b-gWn" secondAttribute="leading" constant="16" id="BbH-S5-UKE"/>
+                                                <constraint firstItem="VZs-U5-Nrv" firstAttribute="centerY" secondItem="bUA-1s-qnT" secondAttribute="centerY" id="CHs-Ti-fJu"/>
+                                                <constraint firstItem="bUA-1s-qnT" firstAttribute="leading" secondItem="zTV-5b-gWn" secondAttribute="leading" constant="16" id="HRJ-2H-UPo"/>
+                                                <constraint firstItem="a9Y-TM-yk2" firstAttribute="leading" secondItem="bUA-1s-qnT" secondAttribute="trailing" constant="16" id="HZY-Uf-jLU"/>
+                                                <constraint firstItem="bUA-1s-qnT" firstAttribute="top" secondItem="zTV-5b-gWn" secondAttribute="top" constant="16" id="MKq-2o-3e9"/>
+                                                <constraint firstItem="Czf-eu-g00" firstAttribute="centerY" secondItem="dId-lI-FCP" secondAttribute="centerY" id="N6n-mC-fkH"/>
+                                                <constraint firstItem="UNh-Da-seQ" firstAttribute="top" secondItem="ZPw-m9-epk" secondAttribute="bottom" constant="8" id="SUD-J6-ORq"/>
+                                                <constraint firstItem="M46-2R-4xv" firstAttribute="leading" secondItem="bUA-1s-qnT" secondAttribute="trailing" constant="16" id="TlU-Ez-Yae"/>
+                                                <constraint firstAttribute="trailing" secondItem="dId-lI-FCP" secondAttribute="trailing" constant="16" id="VFF-hT-87t"/>
+                                                <constraint firstItem="ldF-bz-Cwl" firstAttribute="top" secondItem="ZPw-m9-epk" secondAttribute="bottom" constant="8" id="YQK-tW-fms"/>
+                                                <constraint firstItem="UNh-Da-seQ" firstAttribute="leading" secondItem="Czf-eu-g00" secondAttribute="trailing" constant="40" id="cvW-Yb-ZuH"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZPw-m9-epk" secondAttribute="trailing" constant="16" id="d9X-1C-bUd"/>
+                                                <constraint firstItem="a9Y-TM-yk2" firstAttribute="top" secondItem="bUA-1s-qnT" secondAttribute="top" id="hs3-V9-zsw"/>
+                                                <constraint firstAttribute="trailing" secondItem="a9Y-TM-yk2" secondAttribute="trailing" constant="16" id="jCy-dx-Swp"/>
+                                                <constraint firstItem="ZPw-m9-epk" firstAttribute="leading" secondItem="zTV-5b-gWn" secondAttribute="leading" constant="16" id="jbW-WM-jcM"/>
+                                                <constraint firstAttribute="trailing" secondItem="VZs-U5-Nrv" secondAttribute="trailing" constant="16" id="m5m-Og-lGK"/>
+                                                <constraint firstAttribute="bottom" secondItem="dId-lI-FCP" secondAttribute="bottom" constant="3" id="mSC-Wt-yS6"/>
+                                                <constraint firstItem="m0u-G1-Ai2" firstAttribute="top" secondItem="bUA-1s-qnT" secondAttribute="bottom" constant="8" id="sCu-8a-cLc"/>
+                                                <constraint firstItem="Czf-eu-g00" firstAttribute="leading" secondItem="zTV-5b-gWn" secondAttribute="leading" constant="16" id="sWX-IY-z6d"/>
+                                                <constraint firstAttribute="trailing" secondItem="m0u-G1-Ai2" secondAttribute="trailing" constant="16" id="sYJ-FZ-UQZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="M46-2R-4xv" secondAttribute="trailing" constant="16" id="x08-Vk-fuI"/>
+                                                <constraint firstItem="M46-2R-4xv" firstAttribute="bottom" secondItem="bUA-1s-qnT" secondAttribute="bottom" id="y1E-lA-p8s"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorGroupNewsLabel" destination="a9Y-TM-yk2" id="sug-tu-iW6"/>
+                                            <outlet property="logoGroupNewsImage" destination="bUA-1s-qnT" id="PXH-mv-5Jz"/>
+                                            <outlet property="mediaGroupNewsImage" destination="m0u-G1-Ai2" id="zsY-SB-BZX"/>
+                                            <outlet property="textGroupNewsLabel" destination="ZPw-m9-epk" id="3YZ-1x-BI1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -444,6 +545,7 @@
                         <outlet property="groupSubscribersCountLabelOutlet" destination="FJg-bD-1Fv" id="Qrt-9Q-QfA"/>
                         <outlet property="logoGroupProfileOutlet" destination="HN0-Lu-FtM" id="Ok2-Ec-ncV"/>
                         <outlet property="smallLogoGroupProfileOutlet" destination="wi0-8A-N4J" id="BJ1-Qm-jNg"/>
+                        <outlet property="tableView" destination="6wZ-jP-ji4" id="Hec-7t-T88"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ie-Yg-fbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
