@@ -269,7 +269,7 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupsTableViewCell" id="6g5-wN-K7W" customClass="GroupsTableViewCell" customModule="VKApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="75.5" width="414" height="76.5"/>
+                                        <rect key="frame" x="0.0" y="80.5" width="414" height="76.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6g5-wN-K7W" id="ZSn-YK-LBL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76.5"/>
@@ -1344,15 +1344,6 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar10" translatesAutoresizingMaskIntoConstraints="NO" id="tud-dD-y4H">
-                                            <rect key="frame" x="16" y="16" width="160" height="160"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="160" id="4yg-LM-0SC"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="CIF-wl-Ajs"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="Ebs-NZ-d33"/>
-                                                <constraint firstAttribute="width" constant="160" id="cvC-R0-CkE"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWa-Fg-vef">
                                             <rect key="frame" x="192" y="45" width="206" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1445,6 +1436,23 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nkm-QN-6OV">
+                                            <rect key="frame" x="16" y="16" width="160" height="160"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar10" translatesAutoresizingMaskIntoConstraints="NO" id="tud-dD-y4H">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="tud-dD-y4H" firstAttribute="leading" secondItem="Nkm-QN-6OV" secondAttribute="leading" id="2hu-R4-Uya"/>
+                                                <constraint firstAttribute="bottom" secondItem="tud-dD-y4H" secondAttribute="bottom" id="CZQ-mu-eyL"/>
+                                                <constraint firstAttribute="height" constant="160" id="O3n-H6-NSa"/>
+                                                <constraint firstItem="tud-dD-y4H" firstAttribute="top" secondItem="Nkm-QN-6OV" secondAttribute="top" id="Qke-F4-rsq"/>
+                                                <constraint firstAttribute="trailing" secondItem="tud-dD-y4H" secondAttribute="trailing" id="pPd-vr-8pi"/>
+                                                <constraint firstAttribute="width" constant="160" id="sAv-df-5bS"/>
+                                            </constraints>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upc-UY-yUz">
                                             <rect key="frame" x="192" y="16" width="206" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
@@ -1455,35 +1463,35 @@ It is a long established fact that a reader will be distracted by the readable c
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="SjR-n8-wy6" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="19d-d0-YsY"/>
-                                        <constraint firstItem="Thc-Pw-3X7" firstAttribute="leading" secondItem="tud-dD-y4H" secondAttribute="trailing" constant="16" id="1rR-JN-eyc"/>
+                                        <constraint firstItem="Thc-Pw-3X7" firstAttribute="leading" secondItem="Nkm-QN-6OV" secondAttribute="trailing" constant="16" id="2uw-sW-B36"/>
                                         <constraint firstItem="utf-Pm-xBk" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="7Pc-pi-rMP"/>
                                         <constraint firstAttribute="trailing" secondItem="utf-Pm-xBk" secondAttribute="trailing" constant="16" id="9Ll-qI-wnj"/>
+                                        <constraint firstItem="utf-Pm-xBk" firstAttribute="top" secondItem="Nkm-QN-6OV" secondAttribute="bottom" constant="16" id="ADn-S4-J4U"/>
+                                        <constraint firstItem="Nkm-QN-6OV" firstAttribute="top" secondItem="Lt9-FJ-OMU" secondAttribute="top" constant="16" id="D52-TW-G1e"/>
                                         <constraint firstItem="mWa-Fg-vef" firstAttribute="top" secondItem="upc-UY-yUz" secondAttribute="bottom" constant="8" id="FSR-BZ-eed"/>
                                         <constraint firstItem="ziC-bX-vtM" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="G8s-CH-5q7"/>
                                         <constraint firstAttribute="trailing" secondItem="ziC-bX-vtM" secondAttribute="trailing" constant="16" id="GVQ-tx-zqy"/>
                                         <constraint firstItem="SjR-n8-wy6" firstAttribute="top" secondItem="6CJ-a9-hQL" secondAttribute="bottom" constant="16" id="God-CI-2HM"/>
                                         <constraint firstAttribute="trailing" secondItem="jB8-nb-v3s" secondAttribute="trailing" constant="16" id="INL-eU-TMH"/>
                                         <constraint firstItem="ziC-bX-vtM" firstAttribute="top" secondItem="SjR-n8-wy6" secondAttribute="bottom" id="IPZ-IU-EyP"/>
-                                        <constraint firstItem="mWa-Fg-vef" firstAttribute="leading" secondItem="tud-dD-y4H" secondAttribute="trailing" constant="16" id="Lcp-nA-qcP"/>
+                                        <constraint firstItem="Nkm-QN-6OV" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="LpQ-AF-Jpb"/>
                                         <constraint firstItem="bzQ-g2-XSr" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="Mcf-XR-BuT"/>
                                         <constraint firstItem="bzQ-g2-XSr" firstAttribute="top" secondItem="ziC-bX-vtM" secondAttribute="bottom" constant="8" id="NvK-2Y-qDz"/>
                                         <constraint firstAttribute="trailing" secondItem="Thc-Pw-3X7" secondAttribute="trailing" constant="16" id="OR0-Ys-vhQ"/>
-                                        <constraint firstItem="jB8-nb-v3s" firstAttribute="leading" secondItem="tud-dD-y4H" secondAttribute="trailing" constant="16" id="QTx-BJ-jDY"/>
+                                        <constraint firstItem="upc-UY-yUz" firstAttribute="leading" secondItem="Nkm-QN-6OV" secondAttribute="trailing" constant="16" id="RkG-6d-Cng"/>
                                         <constraint firstAttribute="trailing" secondItem="upc-UY-yUz" secondAttribute="trailing" constant="16" id="TXp-AB-p5g"/>
                                         <constraint firstAttribute="trailing" secondItem="6CJ-a9-hQL" secondAttribute="trailing" constant="16" id="Td6-lP-1BQ"/>
                                         <constraint firstAttribute="trailing" secondItem="SjR-n8-wy6" secondAttribute="trailing" constant="16" id="Tef-1y-M2Y"/>
                                         <constraint firstAttribute="trailing" secondItem="mWa-Fg-vef" secondAttribute="trailing" constant="16" id="UiU-ek-cPj"/>
                                         <constraint firstItem="6CJ-a9-hQL" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="Upl-zT-h9o"/>
-                                        <constraint firstItem="EOe-fm-qmu" firstAttribute="leading" secondItem="tud-dD-y4H" secondAttribute="trailing" constant="16" id="dfy-4W-xx3"/>
+                                        <constraint firstItem="mWa-Fg-vef" firstAttribute="leading" secondItem="Nkm-QN-6OV" secondAttribute="trailing" constant="16" id="V0O-cj-TzY"/>
+                                        <constraint firstItem="EOe-fm-qmu" firstAttribute="bottom" secondItem="tud-dD-y4H" secondAttribute="bottom" id="YRb-TI-ddD"/>
                                         <constraint firstAttribute="trailing" secondItem="EOe-fm-qmu" secondAttribute="trailing" constant="16" id="gzv-e8-Xir"/>
-                                        <constraint firstItem="tud-dD-y4H" firstAttribute="leading" secondItem="Lt9-FJ-OMU" secondAttribute="leading" constant="16" id="h0u-TW-CMi"/>
                                         <constraint firstItem="Thc-Pw-3X7" firstAttribute="top" secondItem="mWa-Fg-vef" secondAttribute="bottom" constant="8" id="iF4-Ch-Sin"/>
-                                        <constraint firstItem="tud-dD-y4H" firstAttribute="top" secondItem="Lt9-FJ-OMU" secondAttribute="top" constant="16" id="kdX-HQ-qUy"/>
-                                        <constraint firstItem="upc-UY-yUz" firstAttribute="top" secondItem="tud-dD-y4H" secondAttribute="top" id="klI-ae-nOc"/>
-                                        <constraint firstItem="utf-Pm-xBk" firstAttribute="top" secondItem="tud-dD-y4H" secondAttribute="bottom" constant="16" id="maT-mk-oPD"/>
+                                        <constraint firstItem="EOe-fm-qmu" firstAttribute="leading" secondItem="Nkm-QN-6OV" secondAttribute="trailing" constant="16" id="leA-2x-aTc"/>
+                                        <constraint firstItem="jB8-nb-v3s" firstAttribute="leading" secondItem="Nkm-QN-6OV" secondAttribute="trailing" constant="16" id="mR4-bg-9FO"/>
+                                        <constraint firstItem="upc-UY-yUz" firstAttribute="top" secondItem="tud-dD-y4H" secondAttribute="top" id="paq-os-nVo"/>
                                         <constraint firstItem="6CJ-a9-hQL" firstAttribute="top" secondItem="utf-Pm-xBk" secondAttribute="bottom" constant="8" id="q1e-yG-cub"/>
-                                        <constraint firstItem="upc-UY-yUz" firstAttribute="leading" secondItem="tud-dD-y4H" secondAttribute="trailing" constant="16" id="rcn-7s-RE0"/>
-                                        <constraint firstItem="EOe-fm-qmu" firstAttribute="bottom" secondItem="tud-dD-y4H" secondAttribute="bottom" id="tPK-cU-5re"/>
                                         <constraint firstAttribute="trailing" secondItem="bzQ-g2-XSr" secondAttribute="trailing" constant="16" id="zux-ZN-i9h"/>
                                         <constraint firstItem="EOe-fm-qmu" firstAttribute="top" secondItem="jB8-nb-v3s" secondAttribute="bottom" constant="8" id="zyR-dg-iw7"/>
                                     </constraints>
@@ -1627,7 +1635,7 @@ It is a long established fact that a reader will be distracted by the readable c
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8p-SR-yc5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3206" y="-790"/>
+            <point key="canvasLocation" x="3205.7971014492755" y="-790.17857142857144"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

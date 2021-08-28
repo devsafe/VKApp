@@ -74,5 +74,29 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
         self.title = "id: \(userNameFromOtherView)"
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedImage))
+        
+        avatarImageOutlet.addGestureRecognizer(tap)
+    }
+    
+    @objc func tappedImage() {
+        UIView.animateKeyframes(
+            withDuration: 0.3,
+            delay: 0,
+            options: [],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0,
+                                   relativeDuration: 0.5,
+                                   animations: {
+                                    self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                                   })
+                UIView.addKeyframe(withRelativeStartTime: 0.5,
+                                   relativeDuration: 0.6,
+                                   animations: {
+                                    self.avatarImageOutlet.transform = .identity
+                                   })
+            },
+            completion: nil
+        )
     }
 }
