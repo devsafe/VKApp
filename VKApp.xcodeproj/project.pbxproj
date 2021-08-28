@@ -38,6 +38,7 @@
 		1193D89126D79410000509CA /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89026D79410000509CA /* NewsModel.swift */; };
 		1193D89326D79457000509CA /* NewsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89226D79457000509CA /* NewsStorage.swift */; };
 		1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89426D795EC000509CA /* NewsGroupViewCell.swift */; };
+		1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -83,6 +84,7 @@
 		1193D89026D79410000509CA /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		1193D89226D79457000509CA /* NewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStorage.swift; sourceTree = "<group>"; };
 		1193D89426D795EC000509CA /* NewsGroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsGroupViewCell.swift; sourceTree = "<group>"; };
+		1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCustomLayout.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				114E086726CBE4C5008F519A /* LikeControl.swift */,
+				1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */,
 				114E086326CB0979008F519A /* CommentControl.swift */,
 				114E087F26CF9257008F519A /* ViewsCountControl.swift */,
 				114E087D26CEB518008F519A /* ShareControl.swift */,
@@ -491,6 +494,7 @@
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114E088626D05967008F519A /* UserProfileWallTableViewCell.swift in Sources */,
 				114E087626CE72AC008F519A /* FeedStorage.swift in Sources */,
+				1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */,
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
 				114E087426CE7064008F519A /* PostModel.swift in Sources */,

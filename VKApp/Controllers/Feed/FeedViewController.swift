@@ -14,6 +14,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var tapedInAvatar: Bool = false
     private var indexPathForPrepare: IndexPath?
     
+    
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
