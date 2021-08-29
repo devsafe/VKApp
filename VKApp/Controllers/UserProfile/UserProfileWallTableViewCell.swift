@@ -29,5 +29,8 @@ class ProfileWallTableViewCell: UITableViewCell {
     
     func configureCellStaticApperance() {
         avatarImageOutlet.layer.cornerRadius = 20
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
     }
 }

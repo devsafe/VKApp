@@ -29,6 +29,8 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 }
 
+
+
 extension FavGroupsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Storage.allUsers[Storage.userIdActiveSession].favGroups.count 
@@ -46,6 +48,15 @@ extension FavGroupsViewController {
             Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "ShowGroup",
+            let destination = segue.destination as? GroupProfileViewController,
+            let groupIndex = tableView.indexPathForSelectedRow
+        {
+            destination.groupFromOtherView =  Storage.allUsers[Storage.userIdActiveSession].favGroups[groupIndex.row]
         }
     }
     

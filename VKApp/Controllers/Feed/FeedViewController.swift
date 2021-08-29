@@ -14,6 +14,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var tapedInAvatar: Bool = false
     private var indexPathForPrepare: IndexPath?
     
+    
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -24,8 +25,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ShowUserProfile",
-            let destination = segue.destination as? UserProfileView,
+        if  segue.identifier == "ShowUserProfile2",
+            let destination = segue.destination as? UserProfileView2,
             let userIndex = tableView.indexPathForSelectedRow
         {
             destination.userNameFromOtherView = Storage.feedNews[userIndex.row].author.userName
@@ -51,6 +52,9 @@ extension FeedViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
         cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
+        cell.likeTapped = { [weak self] in
+            Storage.feedNews[indexPath.row].isLike.toggle()
+        }
         
         cell.avatarTapped = { [weak self] in
             self?.tapedInAvatar = true

@@ -43,7 +43,7 @@ final class ViewsCountControl: UIControl {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 18, weight: .thin, scale: .default)
         commentButton.setImage(UIImage(systemName: "eye.fill", withConfiguration: largeConfig), for: .normal)
         commentButton.setImage(UIImage(systemName: "eye.fill", withConfiguration: largeConfig), for: .selected)
-        commentCountLabel.textColor = UIColor.systemBlue
+        commentCountLabel.textColor = #colorLiteral(red: 0.01734360866, green: 0.4780374765, blue: 1, alpha: 0.6994547772)
         commentButton.alpha = 0.7
         commentCountLabel.translatesAutoresizingMaskIntoConstraints = false
         commentCountLabel.trailingAnchor.constraint(equalTo: commentButton.centerXAnchor, constant: 28).isActive = true

@@ -1,26 +1,29 @@
 //
-//  UserProfileView.swift
+//  UserProfileView2.swift
 //  VKApp
 //
-//  Created by Boris Sobolev on 20.08.2021.
+//  Created by Boris Sobolev on 25.08.2021.
 //
 
 import UIKit
 
-class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
-    
+class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var avatarImageOutlet: UIImageView!
     @IBOutlet var fullnameLabelOutlet: UILabel!
     @IBOutlet var locationLabelOutlet: UILabel!
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
-    @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var tableView: UITableView!
+    
     
     var userNameFromOtherView = String()
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,10 +65,38 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         let user = Storage.allUsers[userIndex!]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         avatarImageOutlet.layer.cornerRadius = 80
+        avatarImageOutlet.layer.borderWidth = 1
+        avatarImageOutlet.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
+        avatarImageOutlet.layer.borderColor = customColor.cgColor
         fullnameLabelOutlet.text = user.fullName
         locationLabelOutlet.text = "Location: " + user.location
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
         self.title = "id: \(userNameFromOtherView)"
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedImage))
+        
+        avatarImageOutlet.addGestureRecognizer(tap)
+    }
+    
+    @objc func tappedImage() {
+        UIView.animateKeyframes(
+            withDuration: 0.3,
+            delay: 0,
+            options: [],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0,
+                                   relativeDuration: 0.5,
+                                   animations: {
+                                    self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                                   })
+                UIView.addKeyframe(withRelativeStartTime: 0.5,
+                                   relativeDuration: 0.6,
+                                   animations: {
+                                    self.avatarImageOutlet.transform = .identity
+                                   })
+            },
+            completion: nil
+        )
     }
 }

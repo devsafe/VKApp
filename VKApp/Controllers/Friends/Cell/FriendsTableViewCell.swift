@@ -14,9 +14,20 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet var detailLabelFriendsCell: UILabel!
     @IBOutlet var imageFriendsCell: UIImageView!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.configureCellStaticApperance()
+    }
+    
     func configure(friend: UserModel) {
         imageFriendsCell.image = UIImage(named: friend.avatar)
         labelFriendsCell.text = friend.fullName
         detailLabelFriendsCell.text = friend.location
+    }
+    
+    func configureCellStaticApperance() {
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
     }
 }
