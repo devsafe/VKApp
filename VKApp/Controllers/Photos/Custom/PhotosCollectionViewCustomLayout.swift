@@ -8,27 +8,18 @@
 import UIKit
 
 class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
-    
-    // Хранит атрибуты для заданных индексов
     var cacheAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
-    
-    // Количество столбцов
     var columnsCount = 2
-    
-    // Высота ячейки
-    var cellHeight: CGFloat = 270
-    
-    // Хранит суммарную высоту всех ячеек
+    var cellHeight: CGFloat = 165
     private var totalCellsHeight: CGFloat = 0
     
     override func prepare() {
-        // Инициализируем атрибуты
+        // init attributes
         self.cacheAttributes = [:]
-        
-        // Проверяем наличие collectionView
+        // check collectionView
         guard let collectionView = self.collectionView else { return }
         
-        // Проверяем, что в секции есть хотя бы одна ячейка
+        // check items > 0
         let itemsCount = collectionView.numberOfItems(inSection: 0)
         guard itemsCount > 0 else { return }
         
@@ -46,17 +37,17 @@ class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
             
             if isBigCell {
                 attributes.frame = CGRect(x: 16, y: lastY,
-                                          width: bigCellWidth, height: self.cellHeight)
+                                          width: bigCellWidth, height: bigCellWidth / 1.5)
                 
-                lastY += self.cellHeight + 16
+                lastY += bigCellWidth / 1.5 + 16
             } else {
                 attributes.frame = CGRect(x: lastX, y: lastY,
-                                          width: smallCellWidth, height: self.cellHeight)
+                                          width: smallCellWidth, height: smallCellWidth / 1.5)
                 
                 let isLastColumn = (index + 2) % (self.columnsCount + 1) == 0 || index == itemsCount - 1
                 if isLastColumn {
                     lastX = 16
-                    lastY += self.cellHeight + 16
+                    lastY += smallCellWidth / 1.5 + 16
                 } else {
                     lastX += smallCellWidth + 16
                 }
