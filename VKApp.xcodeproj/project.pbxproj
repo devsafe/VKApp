@@ -39,6 +39,7 @@
 		1193D89326D79457000509CA /* NewsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89226D79457000509CA /* NewsStorage.swift */; };
 		1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89426D795EC000509CA /* NewsGroupViewCell.swift */; };
 		1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */; };
+		1193D89926DBEF88000509CA /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89826DBEF88000509CA /* DialogViewController.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		1193D89226D79457000509CA /* NewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStorage.swift; sourceTree = "<group>"; };
 		1193D89426D795EC000509CA /* NewsGroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsGroupViewCell.swift; sourceTree = "<group>"; };
 		1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCustomLayout.swift; sourceTree = "<group>"; };
+		1193D89826DBEF88000509CA /* DialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewController.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +268,14 @@
 			path = GroupProfile;
 			sourceTree = "<group>";
 		};
+		1193D89C26DBF0FD000509CA /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				1193D89826DBEF88000509CA /* DialogViewController.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		119E68F326D11335000345E6 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +376,7 @@
 		11CCD83326BDA194009A5865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1193D89C26DBF0FD000509CA /* Dialog */,
 				114E233A26C3B535003456EF /* Login */,
 				114E233726C2FF04003456EF /* Friends */,
 				119E68F326D11335000345E6 /* UserProfile */,
@@ -504,6 +515,7 @@
 				114E087E26CEB518008F519A /* ShareControl.swift in Sources */,
 				114E086C26CC3D3A008F519A /* WordControl.swift in Sources */,
 				11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */,
+				1193D89926DBEF88000509CA /* DialogViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
