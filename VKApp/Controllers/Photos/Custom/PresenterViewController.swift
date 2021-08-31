@@ -8,27 +8,25 @@
 import UIKit
 
 class PresenterViewController: UIViewController {
-
-    var userNameFromOtherView = String()
+    
     var photosFromOtherView = [PhotoModel]()
     var selectedPhoto = 0
-    var selectedPhoto2 = IndexPath.init()
-
+    
     var leftImageView: UIImageView!
     var middleImageView: UIImageView!
     var rightImageView: UIImageView!
-
+    
     var swipeToRight: UIViewPropertyAnimator!
     var swipeToLeft: UIViewPropertyAnimator!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         let gestPan = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         view.addGestureRecognizer(gestPan)
         setImage()
@@ -38,15 +36,15 @@ class PresenterViewController: UIViewController {
         super.viewWillDisappear(animated)
         view.subviews.forEach({ $0.removeFromSuperview() })
     }
-
+    
     func setImage(){
         var indexPhotoLeft = selectedPhoto - 1
         let indexPhotoMid = selectedPhoto
         var indexPhotoRight = selectedPhoto + 1
-
+        
         if indexPhotoLeft < 0 {
             indexPhotoLeft = photosFromOtherView.count - 1
-
+            
         }
         if indexPhotoRight > photosFromOtherView.count - 1 {
             indexPhotoRight = 0
@@ -55,56 +53,56 @@ class PresenterViewController: UIViewController {
         leftImageView = UIImageView()
         middleImageView = UIImageView()
         rightImageView = UIImageView()
-
+        
         leftImageView.contentMode = .scaleAspectFit
         middleImageView.contentMode = .scaleAspectFit
         rightImageView.contentMode = .scaleAspectFit
-
+        
         view.addSubview(leftImageView)
         view.addSubview(middleImageView)
         view.addSubview(rightImageView)
-
+        
         leftImageView.translatesAutoresizingMaskIntoConstraints = false
         middleImageView.translatesAutoresizingMaskIntoConstraints = false
         rightImageView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             middleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             middleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             middleImageView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 0),
             middleImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-
+            
             leftImageView.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             leftImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             leftImageView.heightAnchor.constraint(equalTo: middleImageView.heightAnchor),
             leftImageView.widthAnchor.constraint(equalTo: middleImageView.widthAnchor),
-
+            
             rightImageView.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             rightImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             rightImageView.heightAnchor.constraint(equalTo: middleImageView.heightAnchor),
             rightImageView.widthAnchor.constraint(equalTo: middleImageView.widthAnchor),
         ])
-
+        
         leftImageView.image = UIImage(named: photosFromOtherView[indexPhotoLeft].fileName)
         middleImageView.image = UIImage(named: photosFromOtherView[indexPhotoMid].fileName)
         rightImageView.image = UIImage(named: photosFromOtherView[indexPhotoRight].fileName)
-
+        
         middleImageView.layer.cornerRadius = 8
         rightImageView.layer.cornerRadius = 8
         leftImageView.layer.cornerRadius = 8
-
+        
         middleImageView.clipsToBounds = true
         rightImageView.clipsToBounds = true
         leftImageView.clipsToBounds = true
-
+        
         let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-
+        
         self.middleImageView.transform = scale
         self.rightImageView.transform = scale
         self.leftImageView.transform = scale
-
+        
     }
-
+    
     func startAnimate(){
         setImage()
         UIView.animate(
@@ -115,9 +113,9 @@ class PresenterViewController: UIViewController {
                 self.middleImageView.transform = .identity
                 self.rightImageView.transform = .identity
                 self.leftImageView.transform = .identity
-        })
+            })
     }
-
+    
     @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
@@ -136,14 +134,14 @@ class PresenterViewController: UIViewController {
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
-                    }, completion: { [unowned self] _ in
-                        self.selectedPhoto -= 1
-                        if self.selectedPhoto < 0 {
-                            self.selectedPhoto = self.photosFromOtherView.count - 1
-                        }
-                        self.startAnimate()
-                    })
-            })
+                        }, completion: { [unowned self] _ in
+                            self.selectedPhoto -= 1
+                            if self.selectedPhoto < 0 {
+                                self.selectedPhoto = self.photosFromOtherView.count - 1
+                            }
+                            self.startAnimate()
+                        })
+                })
             swipeToLeft = UIViewPropertyAnimator(
                 duration: 0.3,
                 curve: .easeInOut,
@@ -159,14 +157,14 @@ class PresenterViewController: UIViewController {
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
-                    }, completion: { [unowned self] _ in
-                        self.selectedPhoto += 1
-                        if self.selectedPhoto > self.photosFromOtherView.count - 1 {
-                            self.selectedPhoto = 0
-                        }
-                        self.startAnimate()
-                    })
-            })
+                        }, completion: { [unowned self] _ in
+                            self.selectedPhoto += 1
+                            if self.selectedPhoto > self.photosFromOtherView.count - 1 {
+                                self.selectedPhoto = 0
+                            }
+                            self.startAnimate()
+                        })
+                })
         case .changed:
             let translationX = recognizer.translation(in: self.view).x
             if translationX > 0 {
@@ -174,7 +172,7 @@ class PresenterViewController: UIViewController {
             } else {
                 swipeToLeft.fractionComplete = abs(translationX)/100
             }
-
+            
         case .ended:
             swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
             swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
