@@ -34,6 +34,8 @@ class PhotosViewController: UIViewController {
         {
             destination.userNameFromOtherView = userNameFromOtherView
             destination.photosFromOtherView = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
+            let indexPath2 = collectionView.indexPathsForSelectedItems
+            destination.selectedPhoto = indexPath2![0].item
         }
     }
 }

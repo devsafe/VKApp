@@ -11,9 +11,8 @@ class PresenterViewController: UIViewController {
 
     var userNameFromOtherView = String()
     var photosFromOtherView = [PhotoModel]()
-    
-    //var photos2: [String] = ["photo11", "photo12", "photo13", "photo14", "photo15", "photo16", "photo17", "photo18", "photo19"]
     var selectedPhoto = 0
+    var selectedPhoto2 = IndexPath.init()
 
     var leftImageView: UIImageView!
     var middleImageView: UIImageView!
@@ -109,7 +108,7 @@ class PresenterViewController: UIViewController {
     func startAnimate(){
         setImage()
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.3,
             delay: 0,
             options: [],
             animations: { [unowned self] in
@@ -123,7 +122,7 @@ class PresenterViewController: UIViewController {
         switch recognizer.state {
         case .began:
             swipeToRight = UIViewPropertyAnimator(
-                duration: 0.5,
+                duration: 0.3,
                 curve: .easeInOut,
                 animations: {
                     UIView.animate(
@@ -132,7 +131,7 @@ class PresenterViewController: UIViewController {
                         options: [],
                         animations: { [unowned self] in
                             let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                            let translation = CGAffineTransform(translationX: self.view.bounds.maxX - 40, y: 0)
+                            let translation = CGAffineTransform(translationX: self.view.bounds.maxX - 0, y: 0)
                             let transform = scale.concatenating(translation)
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
@@ -146,7 +145,7 @@ class PresenterViewController: UIViewController {
                     })
             })
             swipeToLeft = UIViewPropertyAnimator(
-                duration: 0.5,
+                duration: 0.3,
                 curve: .easeInOut,
                 animations: {
                     UIView.animate(
@@ -155,7 +154,7 @@ class PresenterViewController: UIViewController {
                         options: [],
                         animations: { [unowned self] in
                             let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                            let translation = CGAffineTransform(translationX: -self.view.bounds.maxX + 40, y: 0)
+                            let translation = CGAffineTransform(translationX: -self.view.bounds.maxX + 0, y: 0)
                             let transform = scale.concatenating(translation)
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
