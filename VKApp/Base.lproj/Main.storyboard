@@ -700,6 +700,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="commentControl" destination="Gcn-T0-ps3" id="ihv-YV-Nai"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeControl" destination="LxT-Lu-HHy" id="pAL-Uy-E4O"/>
+                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowPresenterPhotos" id="fEH-Db-oV9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -722,6 +723,22 @@ It is a long established fact that a reader will be distracted by the readable c
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACP-Nq-HzX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4035" y="-790"/>
+        </scene>
+        <!--Presenter View Controller-->
+        <scene sceneID="0Jf-iz-h4e">
+            <objects>
+                <viewController id="3FV-Fs-Eba" customClass="PresenterViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yd1-m8-0pp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dOX-Yo-ZCb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EDv-mm-Kmo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiq-Mx-NZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4798" y="-789"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rqo-e2-jIR">

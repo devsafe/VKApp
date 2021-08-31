@@ -26,7 +26,20 @@ class PhotosViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "ShowPresenterPhotos",
+            let destination = segue.destination as? PresenterViewController
+        {
+            destination.userNameFromOtherView = userNameFromOtherView
+            destination.photosFromOtherView = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
+        }
+    }
 }
+
+
+
 
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {
