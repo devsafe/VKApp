@@ -116,6 +116,19 @@ class PresenterViewController: UIViewController {
             })
     }
     
+    func revertAnimate(){
+        setImage()
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: [],
+            animations: { [unowned self] in
+                self.middleImageView.transform = .identity
+                self.rightImageView.transform = .identity
+                self.leftImageView.transform = .identity
+            })
+    }
+    
     @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
@@ -168,14 +181,18 @@ class PresenterViewController: UIViewController {
         case .changed:
             let translationX = recognizer.translation(in: self.view).x
             if translationX > 0 {
-                swipeToRight.fractionComplete = abs(translationX)/100
-            } else {
+                    swipeToRight.fractionComplete = abs(translationX)/200
+            } else  {
                 swipeToLeft.fractionComplete = abs(translationX)/100
             }
             
         case .ended:
-            swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-            swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            let translationX = recognizer.translation(in: self.view).x
+            if translationX > 100 {swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
+            if translationX < -100 {
+                swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
+            if translationX > -100 || translationX < 100 {
+                revertAnimate() }
         default:
             return
         }

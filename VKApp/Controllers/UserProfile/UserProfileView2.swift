@@ -78,25 +78,29 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         
         avatarImageOutlet.addGestureRecognizer(tap)
     }
+
     
     @objc func tappedImage() {
         UIView.animateKeyframes(
             withDuration: 0.3,
             delay: 0,
-            options: [],
+            options: [.repeat],
             animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0,
                                    relativeDuration: 0.5,
                                    animations: {
-                                    self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                                    self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                                    self.avatarImageOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
                                    })
                 UIView.addKeyframe(withRelativeStartTime: 0.5,
                                    relativeDuration: 0.6,
                                    animations: {
                                     self.avatarImageOutlet.transform = .identity
+                                    self.avatarImageOutlet.animationRepeatCount = 4
                                    })
             },
             completion: nil
         )
+        
     }
 }
