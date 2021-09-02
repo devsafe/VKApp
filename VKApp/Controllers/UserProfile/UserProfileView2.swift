@@ -74,33 +74,66 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
         self.title = "id: \(userNameFromOtherView)"
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedImage))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.animateWithKeyFrames))
         
         avatarImageOutlet.addGestureRecognizer(tap)
     }
 
-    
+   // var x = 0
     @objc func tappedImage() {
-        UIView.animateKeyframes(
-            withDuration: 0.3,
-            delay: 0,
-            options: [.repeat],
-            animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0,
-                                   relativeDuration: 0.5,
-                                   animations: {
-                                    self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                                    self.avatarImageOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-                                   })
-                UIView.addKeyframe(withRelativeStartTime: 0.5,
-                                   relativeDuration: 0.6,
-                                   animations: {
-                                    self.avatarImageOutlet.transform = .identity
-                                    self.avatarImageOutlet.animationRepeatCount = 4
-                                   })
-            },
-            completion: nil
-        )
-        
+var x = 0
+        while x < 3 {
+            UIView.animateKeyframes(
+                withDuration: 0.3,
+                delay: 0,
+                options: [],
+                animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0,
+                                       relativeDuration: 0.5,
+                                       animations: {
+                                        //self.avatarImageOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                        self.avatarImageOutlet.alpha = 0
+                                        print("1")
+                                       })
+                    UIView.addKeyframe(withRelativeStartTime: 0.5,
+                                       relativeDuration: 0.6,
+                                       animations: {
+                                        //self.avatarImageOutlet.transform = .identity
+                                        self.avatarImageOutlet.alpha = 1
+                                        print("2")
+                                       })
+                },
+                completion: {_ in
+                    x = x + 1
+                    self.tappedImage()
+                }
+            )
+        }
+        x = x + 1
+    }
+    
+    @objc func animateWithKeyFrames(){
+        //Total animation duration is 1.0 seconds - This time is inside the
+        UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
+                //1.Expansion + button label alpha
+                self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
+                //2.Shrink
+                self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.25, animations: {
+                //3.Grant momentum
+                self.avatarImageOutlet.frame.origin.x -= 16
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
+                //4.Move out of screen and reduce alpha to 0
+                self.avatarImageOutlet.frame.origin.x = self.view.frame.size.width
+                self.avatarImageOutlet.alpha = 0.0
+            })
+        }) { (completed) in
+            //Completion of whole animation sequence
+        }
     }
 }
