@@ -181,18 +181,14 @@ class PresenterViewController: UIViewController {
         case .changed:
             let translationX = recognizer.translation(in: self.view).x
             if translationX > 0 {
-                    swipeToRight.fractionComplete = abs(translationX)/200
+                    swipeToRight.fractionComplete = abs(translationX)/100
             } else  {
                 swipeToLeft.fractionComplete = abs(translationX)/100
             }
             
         case .ended:
-            let translationX = recognizer.translation(in: self.view).x
-            if translationX > 100 {swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
-            if translationX < -100 {
-                swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
-            if translationX > -100 || translationX < 100 {
-                revertAnimate() }
+            swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                        swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         default:
             return
         }
