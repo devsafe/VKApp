@@ -38,13 +38,16 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var tableView: UITableView!
     
     @IBAction func followGroupButtonPressed(_ sender: UIButton) {
+        animateFollowButtonPressed()
         if isGroupInFav(groupName: groupFromOtherView.name) {
             followButtonOutlet.setTitle("Follow", for: .normal)
+            followButtonOutlet.backgroundColor = .systemBlue
             Storage.allUsers[Storage.userIdActiveSession].favGroups.remove(at: getIndexGroupByGroupName(groupName: groupFromOtherView.name))
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
             //presentingViewController?.storyboard.allgrou
         } else {
-            followButtonOutlet.setTitle("Unfollow", for: .normal)
+            followButtonOutlet.setTitle("Followed", for: .normal)
+            followButtonOutlet.backgroundColor = .systemGray2
             Storage.allUsers[Storage.userIdActiveSession].favGroups.append(groupFromOtherView)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
@@ -64,7 +67,8 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         logoGroupProfileOutlet.addSubview(blurEffectView)
         smallLogoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
         followButtonOutlet.layer.cornerRadius = 8
-        followButtonOutlet.setTitle(isGroupInFav(groupName: groupFromOtherView.name) ? "Unfollow" : "Follow", for: .normal)
+        followButtonOutlet.setTitle(isGroupInFav(groupName: groupFromOtherView.name) ? "Followed" : "Follow", for: .normal)
+        followButtonOutlet.backgroundColor = (isGroupInFav(groupName: groupFromOtherView.name) ? .systemGray2 : .systemBlue)
     }
     
     func isGroupInFav(groupName: String) -> Bool {
@@ -72,5 +76,34 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
     }
     func getIndexGroupByGroupName(groupName: String) -> Int!  {
         Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName })
+    }
+    
+    
+    @objc func animateFollowButtonPressed() {
+        UIView.animateKeyframes(
+            withDuration: 0.7,
+            delay: 0,
+            options: [],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0,
+                                   relativeDuration: 0.1,
+                                   animations: {
+                                    
+                                   // self.followButtonOutlet.backgroundColor = .systemRed
+                                    self.followButtonOutlet.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                                    //self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+                                   })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.2,
+                                   relativeDuration: 0.1,
+                                   animations: {
+                                   // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                    self.followButtonOutlet.transform = .identity
+                                    //self.imageFriendsCell.animationRepeatCount = 4
+                                   })
+            },
+            completion: nil
+        )
+        
     }
 }
