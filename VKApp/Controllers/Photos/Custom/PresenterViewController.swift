@@ -188,7 +188,9 @@ class PresenterViewController: UIViewController {
             
         case .ended:
             swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            //swipeToLeft.fractionComplete = 0
                         swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            
         default:
             return
         }

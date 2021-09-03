@@ -60,7 +60,7 @@ class LoginFormController: UIViewController {
         let checkResult = checkUserData()
         if !checkResult {
             showLoginError()
-            animateLoginButtonError()
+            animateButtonError(animateview: loginButton)
         }
         return checkResult
     }
@@ -74,7 +74,8 @@ class LoginFormController: UIViewController {
         let passwordText = passwordTextField.text!
         if isUserInDB(userName: loginText) {
             showRegisterError(userName: loginText)
-            animateRegisterButtonError()
+            animateButtonError(animateview: registerButton)
+            
         } else {
             registerNewUserOnLoginView(userName: loginText, password: passwordText)
             showRegisterProcessAlert(userName: loginText)
@@ -83,6 +84,8 @@ class LoginFormController: UIViewController {
     
     @IBAction func loginWithFacebookButtonPressed(_ sender: UIButton) {
         print("Login with Facebook button pressed")
+       // animateFaceBookButton()
+        //shakeAnimation()
     }
     
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
@@ -253,18 +256,20 @@ Type username/password and repeat login.
         }
     }
     
-    @objc func animateLoginButtonError() {
+    @objc func animateButtonError(animateview: UIView) {
+        shakeAnimation(animateview: animateview)
         UIView.animateKeyframes(
             withDuration: 0.7,
             delay: 0,
             options: [],
             animations: {
+                let originalColorButton = animateview.backgroundColor
                 UIView.addKeyframe(withRelativeStartTime: 0,
-                                   relativeDuration: 0.1,
+                                   relativeDuration: 0,
                                    animations: {
                                     
-                                    self.loginButton.backgroundColor = .systemRed
-                                    self.loginButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                                    animateview.backgroundColor = .systemRed
+                                   // self.loginButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
                                     //self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
                                    })
                 
@@ -272,14 +277,14 @@ Type username/password and repeat login.
                                    relativeDuration: 0.1,
                                    animations: {
                                    // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-                                    self.loginButton.transform = .identity
+                                    animateview.transform = .identity
                                     //self.imageFriendsCell.animationRepeatCount = 4
                                    })
                 UIView.addKeyframe(withRelativeStartTime: 0.8,
                                    relativeDuration: 0.2,
                                    animations: {
                                    // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-                                    self.loginButton.backgroundColor = .systemBlue
+                                    animateview.backgroundColor = originalColorButton
                                     //self.imageFriendsCell.animationRepeatCount = 4
                                    })
             },
@@ -321,5 +326,36 @@ Type username/password and repeat login.
             completion: nil
         )
         
+    }
+    
+    func animateFaceBookButton() {
+        loginWithFacebookButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        let mass: CGFloat = 2.0 // weight of the object
+            let stiffness: CGFloat = 25.0 //elasticity
+            let damping: CGFloat = 2*sqrt(mass*stiffness) // point where the system comes to rest in the shortest period of time
+            let underDamping: CGFloat = damping * 0.5
+            let initialVelocity: CGVector = CGVector.zero
+            let springParameters: UISpringTimingParameters = UISpringTimingParameters(mass: mass, stiffness: stiffness, damping: underDamping, initialVelocity: initialVelocity)
+            let animationDelay = 3
+
+            let pulseEffect = UIViewPropertyAnimator(duration: 5, timingParameters: springParameters)
+            pulseEffect.addAnimations( {[weak self] in
+                UIView.setAnimationRepeatCount(3)
+                UIView.setAnimationRepeatAutoreverses(true)
+                self!.loginWithFacebookButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+              })
+            pulseEffect.isReversed = true
+            pulseEffect.startAnimation(afterDelay: TimeInterval(animationDelay))
+    }
+    
+    func shakeAnimation(animateview: UIView) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: animateview.center.x - 3, y: animateview.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: animateview.center.x + 3, y: animateview.center.y))
+
+        animateview.layer.add(animation, forKey: "position")
     }
 }
