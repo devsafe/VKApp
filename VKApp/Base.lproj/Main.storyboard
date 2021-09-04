@@ -105,6 +105,13 @@
                                                     <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bN1-KX-tcI"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="D3k-Aq-0KM">
+                                                <rect key="frame" x="371" y="186" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="Vz3-Iu-Efx"/>
+                                                    <constraint firstAttribute="height" constant="20" id="hHd-2v-1zy"/>
+                                                </constraints>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -114,7 +121,9 @@
                                             <constraint firstAttribute="trailing" secondItem="CGg-bD-c2m" secondAttribute="trailing" constant="15" id="Ae8-pb-QCy"/>
                                             <constraint firstItem="g6j-et-nlz" firstAttribute="top" secondItem="hbz-VB-oES" secondAttribute="top" constant="30" id="Ait-QA-EZ1"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="top" secondItem="sIU-Ip-8nq" secondAttribute="bottom" constant="5" id="Avv-ZQ-nPz"/>
+                                            <constraint firstItem="D3k-Aq-0KM" firstAttribute="centerY" secondItem="sIU-Ip-8nq" secondAttribute="centerY" id="BoJ-dZ-yff"/>
                                             <constraint firstItem="20d-ZY-7br" firstAttribute="centerX" secondItem="hbz-VB-oES" secondAttribute="centerX" id="ErT-ZD-POg"/>
+                                            <constraint firstItem="sIU-Ip-8nq" firstAttribute="trailing" secondItem="D3k-Aq-0KM" secondAttribute="trailing" constant="8" id="LM0-6K-BRn"/>
                                             <constraint firstItem="sIU-Ip-8nq" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="LRu-qp-dtg"/>
                                             <constraint firstItem="CGg-bD-c2m" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="MLx-Rj-16o"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="P49-k1-SJq"/>
@@ -151,6 +160,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingIndicatorOutlet" destination="D3k-Aq-0KM" id="0Ap-7x-SpS"/>
                         <outlet property="loginButton" destination="20d-ZY-7br" id="Y8Z-Pn-daq"/>
                         <outlet property="loginTextField" destination="sIU-Ip-8nq" id="u4M-vz-N0R"/>
                         <outlet property="loginWithAppleButton" destination="bTo-yn-RkE" id="e3q-4a-drS"/>

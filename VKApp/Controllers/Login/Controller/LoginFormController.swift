@@ -16,6 +16,7 @@ class LoginFormController: UIViewController {
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet var logoAppImageOutlet: UIImageView!
+    @IBOutlet var loadingIndicatorOutlet: UIActivityIndicatorView!
     
     
     
@@ -43,6 +44,7 @@ class LoginFormController: UIViewController {
         loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
         setupCloudView()
         cubeView.isHidden = true
+        loadingIndicatorOutlet.hidesWhenStopped = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +55,7 @@ class LoginFormController: UIViewController {
         // Observe to keyboard disappear
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         cubeView.isHidden = true
+        loadingIndicatorOutlet.stopAnimating()
         
     }
     
@@ -68,7 +71,9 @@ class LoginFormController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        loadingIndicatorOutlet.startAnimating()
         let checkResult = checkUserData()
+        //loadingIndicatorOutlet.stopAnimating()
         if !checkResult {
             showLoginError()
             animateButtonError(animateview: loginButton)
@@ -78,7 +83,7 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        
+        loadingIndicatorOutlet.startAnimating()
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -98,10 +103,11 @@ class LoginFormController: UIViewController {
         print("Login with Facebook button pressed")
        // animateFaceBookButton()
         //shakeAnimation()
+        
         cubeView.isHidden = false
         cubeView.animationStart()
-        animationLogo()
-        
+        //animationLogo()
+        loadingIndicatorOutlet.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
             if self.shouldPerformSegue(withIdentifier: "ShowAppAfterLogin", sender: nil) {
                 self.performSegue(withIdentifier: "ShowAppAfterLogin", sender: nil)
@@ -175,16 +181,23 @@ class LoginFormController: UIViewController {
     
     func showLoginError() {
         let alter = UIAlertController(title: "Error", message: "Invalid username or password", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .destructive, handler: { [self]_ in
+            print("OK")
+            loadingIndicatorOutlet.stopAnimating()
+        })
         alter.addAction(action)
-        passwordTextField.text = nil
-        present(alter, animated: true, completion: nil)
+        
+        present(alter, animated: true, completion: { [self] in
+            loadingIndicatorOutlet.stopAnimating()
+            passwordTextField.text = nil
+        })
+        //loadingIndicatorOutlet.stopAnimating()
     }
     
     func showRegisterError(userName: String) {
         passwordTextField.text = nil
         let errorRegisterAlert = UIAlertController(
-            title: "Registration is failed",
+            title: "Registration failed",
             message: "Username \(userName) already registered. Type another username and repeat.", preferredStyle: .actionSheet)
         errorRegisterAlert.addAction(UIAlertAction(title: "Back", style: .destructive, handler: nil))
         self.present(errorRegisterAlert, animated: true, completion: nil)
@@ -392,12 +405,13 @@ Type username/password and repeat login.
     }
     
     private func setupCloudView() {
-        loginButton.addSubview(cubeView)
+        scrollView.addSubview(cubeView)
+        cubeView.alpha = 0.3
         
         
         NSLayoutConstraint.activate([
-            cubeView.bottomAnchor.constraint(equalTo: logoAppImageOutlet.topAnchor, constant: 48),
-            cubeView.leadingAnchor.constraint(equalTo: logoAppImageOutlet.leadingAnchor),
+            cubeView.centerXAnchor.constraint(equalTo: loginWithAppleButton.centerXAnchor, constant: -16),
+            cubeView.centerYAnchor.constraint(equalTo: loginWithAppleButton.bottomAnchor, constant: 160),
          //   cubeView.heightAnchor.constraint(equalToConstant: 0),
           //  cubeView.widthAnchor.constraint(equalToConstant: 0)
         ])
