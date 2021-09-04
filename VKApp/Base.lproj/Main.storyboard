@@ -959,6 +959,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="OQR-jE-yUc" eventType="touchUpInside" id="QIp-o8-9GF"/>
+                                    <action selector="logoutButtonPressed:" destination="hzE-oH-cZS" eventType="touchUpInside" id="2b8-HE-9jm"/>
                                     <segue destination="OQR-jE-yUc" kind="unwind" unwindAction="logout:" id="Y0a-Bt-fBe"/>
                                 </connections>
                             </button>

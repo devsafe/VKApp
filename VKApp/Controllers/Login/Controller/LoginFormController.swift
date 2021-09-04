@@ -127,6 +127,7 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
+        
         if isUserInDB(userName: loginTextField.text!) {
             print("Login with Apple pressed. User \(loginTextField.text!) in DB")
         } else {
