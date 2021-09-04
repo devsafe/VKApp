@@ -52,7 +52,7 @@
                                                 <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DvL-af-7l7"/>
-                                                    <segue destination="dPd-11-6cT" kind="show" id="3gg-NP-xTv"/>
+                                                    <segue destination="dPd-11-6cT" kind="show" identifier="ShowAppAfterLogin" id="3gg-NP-xTv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEn-Zs-GMA">
@@ -155,6 +155,7 @@
                         <outlet property="loginTextField" destination="sIU-Ip-8nq" id="u4M-vz-N0R"/>
                         <outlet property="loginWithAppleButton" destination="bTo-yn-RkE" id="e3q-4a-drS"/>
                         <outlet property="loginWithFacebookButton" destination="TEn-Zs-GMA" id="r5L-y0-cEM"/>
+                        <outlet property="logoAppImageOutlet" destination="g6j-et-nlz" id="6Zz-Eo-tB8"/>
                         <outlet property="passwordTextField" destination="OGB-bK-qXh" id="s5R-9k-6t6"/>
                         <outlet property="registerButton" destination="CGg-bD-c2m" id="NlT-wG-zKW"/>
                         <outlet property="scrollView" destination="f6P-eN-4AV" id="jgH-MR-Y3c"/>
@@ -1718,7 +1719,7 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ndZ-81-WTG"/>
+        <segue reference="aZj-M6-pwy"/>
         <segue reference="IK1-qu-XFc"/>
     </inferredMetricsTieBreakers>
     <resources>

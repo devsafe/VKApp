@@ -22,7 +22,7 @@ class PresenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.1794480681, green: 0.1929571033, blue: 0.2130343616, alpha: 1)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -180,10 +180,16 @@ class PresenterViewController: UIViewController {
                 })
         case .changed:
             let translationX = recognizer.translation(in: self.view).x
-            if translationX > 0 {
+            if translationX > 2 {
                     swipeToRight.fractionComplete = abs(translationX)/100
-            } else  {
+            } else if translationX < -2 {
                 swipeToLeft.fractionComplete = abs(translationX)/100
+                print(translationX)
+            } else {
+                print("-2 - +2")
+                swipeToRight.isReversed = !swipeToRight.isReversed
+                //swipeToLeft.stopAnimation(true)
+                //break
             }
             
         case .ended:

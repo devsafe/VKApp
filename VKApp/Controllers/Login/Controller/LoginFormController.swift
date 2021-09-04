@@ -15,6 +15,11 @@ class LoginFormController: UIViewController {
     @IBOutlet private var loginWithAppleButton: UIButton!
     @IBOutlet private var registerButton: UIButton!
     @IBOutlet private var scrollView: UIScrollView!
+    @IBOutlet var logoAppImageOutlet: UIImageView!
+    
+    
+    
+    private let cubeView = Cube()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +41,8 @@ class LoginFormController: UIViewController {
         loginWithAppleButton.titleLabel?.text = "Login with Apple"
         loginWithFacebookButton.titleLabel?.text = "Login with Facebook"
         loginWithAppleButton.setImage(UIImage(systemName: "applelogo"), for: .normal)
+        setupCloudView()
+        cubeView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +52,16 @@ class LoginFormController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         // Observe to keyboard disappear
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        cubeView.isHidden = true
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        cubeView.animationStop()
+        //cubeView.isHidden = true
     }
     
     @IBAction func logout(_ segue: UIStoryboardSegue) {
@@ -61,6 +72,7 @@ class LoginFormController: UIViewController {
         if !checkResult {
             showLoginError()
             animateButtonError(animateview: loginButton)
+            cubeView.isHidden = true
         }
         return checkResult
     }
@@ -86,6 +98,26 @@ class LoginFormController: UIViewController {
         print("Login with Facebook button pressed")
        // animateFaceBookButton()
         //shakeAnimation()
+        cubeView.isHidden = false
+        cubeView.animationStart()
+        animationLogo()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            if self.shouldPerformSegue(withIdentifier: "ShowAppAfterLogin", sender: nil) {
+                self.performSegue(withIdentifier: "ShowAppAfterLogin", sender: nil)
+            }
+        }
+       // cubeView.animationStop()
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = scrollView.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        scrollView.addSubview(blurEffectView)
+        
+        UIView.animate(withDuration: 5) {
+            blurEffectView.effect = UIBlurEffect(style: UIBlurEffect.Style.prominent)
+        }
     }
     
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
@@ -340,8 +372,8 @@ Type username/password and repeat login.
 
             let pulseEffect = UIViewPropertyAnimator(duration: 5, timingParameters: springParameters)
             pulseEffect.addAnimations( {[weak self] in
-                UIView.setAnimationRepeatCount(3)
-                UIView.setAnimationRepeatAutoreverses(true)
+               // UIView.setAnimationRepeatCount(3)
+               // UIView.setAnimationRepeatAutoreverses(true)
                 self!.loginWithFacebookButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
               })
             pulseEffect.isReversed = true
@@ -357,5 +389,27 @@ Type username/password and repeat login.
         animation.toValue = NSValue(cgPoint: CGPoint(x: animateview.center.x + 3, y: animateview.center.y))
 
         animateview.layer.add(animation, forKey: "position")
+    }
+    
+    private func setupCloudView() {
+        loginButton.addSubview(cubeView)
+        
+        
+        NSLayoutConstraint.activate([
+            cubeView.bottomAnchor.constraint(equalTo: logoAppImageOutlet.topAnchor, constant: 48),
+            cubeView.leadingAnchor.constraint(equalTo: logoAppImageOutlet.leadingAnchor),
+         //   cubeView.heightAnchor.constraint(equalToConstant: 0),
+          //  cubeView.widthAnchor.constraint(equalToConstant: 0)
+        ])
+    }
+    
+    private func animationLogo() {
+        let scale = CGAffineTransform(scaleX: 1.1, y: 1.1)
+
+        cubeView.transform = CGAffineTransform(translationX: 0, y: 0).concatenating(scale)
+        
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.cubeView.transform = .identity
+        })
     }
 }

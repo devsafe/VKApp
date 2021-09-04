@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1149ADCE26E34D200003FFB6 /* Cube.swift */; };
 		114C358926C5B50C00D9C17B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358826C5B50C00D9C17B /* UserModel.swift */; };
 		114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358A26C5B52B00D9C17B /* GroupModel.swift */; };
 		114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358C26C5B6D500D9C17B /* PhotoModel.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1149ADCE26E34D200003FFB6 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		114C358826C5B50C00D9C17B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		114C358A26C5B52B00D9C17B /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		114C358C26C5B6D500D9C17B /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
+				1149ADCE26E34D200003FFB6 /* Cube.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */,
 				114C359326C5BF2600D9C17B /* UsersStorage.swift in Sources */,
 				114E087826CE79C5008F519A /* FeedViewController.swift in Sources */,
+				1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
 				114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */,
 				114E087C26CEAAC1008F519A /* PictureBorderView.swift in Sources */,
