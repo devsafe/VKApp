@@ -8,8 +8,8 @@
 import UIKit
 
 class FullScreenViewController: UIViewController {
-
-   
+    
+    
     @IBOutlet var fullScreenView: FullScreenView!
     
     var bigTappedVC: ((Int) -> IndexPath)?
@@ -25,7 +25,6 @@ class FullScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(photosFromOtherView, "photoes fromotherview")
         fullScreenView.photoes = photosFromOtherView.map({$0.fileName})
         fullScreenView.visibleIndex = selectedPhoto
         fullScreenView.namePhoto = photosFromOtherView.map({$0.name})
@@ -46,25 +45,23 @@ class FullScreenViewController: UIViewController {
     }
     
     func setSingleTap() {
-    let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
         singleTap.numberOfTapsRequired = 1
         let fakeDoubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.fakeDoubleTap))
-            singleTap.numberOfTapsRequired = 1
+        singleTap.numberOfTapsRequired = 1
         fakeDoubleTap.numberOfTapsRequired = 2
-       singleTap.require(toFail: fakeDoubleTap)
-            singleTap.delaysTouchesBegan = true
+        singleTap.require(toFail: fakeDoubleTap)
+        singleTap.delaysTouchesBegan = true
         fakeDoubleTap.delaysTouchesBegan = true
-    view.addGestureRecognizer(singleTap)
+        view.addGestureRecognizer(singleTap)
         view.addGestureRecognizer(fakeDoubleTap)
     }
     
     @objc func handleSingleTap() {
-        print("single tap")
         tabBarController?.tabBar.isHidden.toggle()
         navigationController?.navigationBar.isHidden.toggle()
-     }
+    }
     
     @objc func fakeDoubleTap() {
-        print("fakeDoubleTap")
-     }
+    }
 }

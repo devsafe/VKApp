@@ -32,7 +32,6 @@ class FullScreenView: UIView {
     private var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = ""
-        //nameLabel.textColor = .white
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -45,14 +44,14 @@ class FullScreenView: UIView {
         likeControl.backgroundColor = UIColor.clear
         likeControl.alpha = 0
         likeControl.translatesAutoresizingMaskIntoConstraints = false
-       return likeControl
+        return likeControl
     }()
     private var panGesture: UIPanGestureRecognizer?
     private var beginCenterXVisibleView: CGFloat = 0
     private var beginCenterXRightView: CGFloat = 0
     private var beginCenterXLeftView: CGFloat = 0
     private let scale = CGAffineTransform(scaleX: 0.95, y: 0.95)
-
+    
     var namePhoto: [String] = []
     var photoes: [String] = []
     var visibleIndex: Int = 0
@@ -62,7 +61,7 @@ class FullScreenView: UIView {
         setViews()
         setGesture()
         setDoubleTap()
-  
+        
         setPhotos()
         beginCenterXVisibleView = visibleView.center.x
         beginCenterXRightView = rightView.center.x
@@ -122,7 +121,6 @@ class FullScreenView: UIView {
             photoes.count > visibleIndex && visibleIndex >= 0
         else {
             print("Error index for visible view")
-            print(photoes)
             return
         }
         visibleView.image = UIImage(named: photoes[visibleIndex])
@@ -158,19 +156,15 @@ class FullScreenView: UIView {
     }
     
     func setDoubleTap() {
-    let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap))
+        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap))
         doubleTap.numberOfTapsRequired = 2
-            doubleTap.delaysTouchesBegan = true
-    self.visibleView.addGestureRecognizer(doubleTap)
+        doubleTap.delaysTouchesBegan = true
+        self.visibleView.addGestureRecognizer(doubleTap)
     }
-    
- 
     
     @objc func handleDoubleTap() {
         likeAnimation()
-     }
-    
-
+    }
     
     private func nextIndex() -> Int {
         let lastIndex = photoes.count - 1
@@ -190,15 +184,12 @@ class FullScreenView: UIView {
         }
     }
     
-//MARK:- Animation
-    
     enum DirectionAnimation {
         case left
         case right
         case revert
     }
     
-    // Анимация перехода изображения
     private func startAnimate(_ direction: DirectionAnimation) {
         visibleView.isUserInteractionEnabled = false
         self.leftView.isHidden = false
@@ -229,7 +220,7 @@ class FullScreenView: UIView {
         }
     }
     
-   private func transformAnimate() {
+    private func transformAnimate() {
         UIView.animate(
             withDuration: 0.2,
             delay: 0,
@@ -251,18 +242,17 @@ class FullScreenView: UIView {
     }
     
     private func firstTransformAnimate() {
-         UIView.animate(
+        UIView.animate(
             withDuration: 0.2,
-             delay: 0,
-             options: [.curveEaseOut,],
-             animations: { [unowned self] in
+            delay: 0,
+            options: [.curveEaseOut,],
+            animations: { [unowned self] in
                 visibleView.transform = scale
                 rightView.transform = scale
                 leftView.transform = scale
-             }, completion: nil )
-     }
+            }, completion: nil )
+    }
     
-    // Анимация исчезновения названия
     private func labelAlphaAnimate() {
         UIView.animate(
             withDuration: 1,
@@ -276,23 +266,24 @@ class FullScreenView: UIView {
     
     private func likeAnimation() {
         UIView.animateKeyframes(
-            withDuration: 1,
+            withDuration: 0.8,
             delay: 0,
             options: [],
             animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0,
                                    relativeDuration: 1/10,
                                    animations: {
-                                    self.likeControl.alpha = 0.3
+                                    self.likeControl.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                                    self.likeControl.alpha = 0.9
                                    })
                 UIView.addKeyframe(withRelativeStartTime: 1/2,
                                    relativeDuration: 1/2,
                                    animations: {
                                     self.likeControl.alpha = 0
+                                    self.likeControl.transform = .identity
                                    })
             },
             completion: nil
         )
     }
-    
 }
