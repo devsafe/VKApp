@@ -52,7 +52,7 @@ extension FeedViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
         cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
-        cell.likeTapped = { [weak self] in
+        cell.likeTapped = {
             Storage.feedNews[indexPath.row].isLike.toggle()
         }
         

@@ -116,6 +116,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="sIU-Ip-8nq" firstAttribute="top" secondItem="g6j-et-nlz" secondAttribute="bottom" constant="50" id="1dU-VB-85c"/>
+                                            <constraint firstAttribute="trailing" secondItem="D3k-Aq-0KM" secondAttribute="trailing" constant="23" id="1jY-yr-h5s"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="centerX" secondItem="hbz-VB-oES" secondAttribute="centerX" id="3hL-WS-zJ0"/>
                                             <constraint firstItem="20d-ZY-7br" firstAttribute="top" secondItem="OGB-bK-qXh" secondAttribute="bottom" constant="38" id="97p-uk-k62"/>
                                             <constraint firstAttribute="trailing" secondItem="CGg-bD-c2m" secondAttribute="trailing" constant="15" id="Ae8-pb-QCy"/>
@@ -123,7 +124,6 @@
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="top" secondItem="sIU-Ip-8nq" secondAttribute="bottom" constant="5" id="Avv-ZQ-nPz"/>
                                             <constraint firstItem="D3k-Aq-0KM" firstAttribute="centerY" secondItem="sIU-Ip-8nq" secondAttribute="centerY" id="BoJ-dZ-yff"/>
                                             <constraint firstItem="20d-ZY-7br" firstAttribute="centerX" secondItem="hbz-VB-oES" secondAttribute="centerX" id="ErT-ZD-POg"/>
-                                            <constraint firstItem="sIU-Ip-8nq" firstAttribute="trailing" secondItem="D3k-Aq-0KM" secondAttribute="trailing" constant="8" id="LM0-6K-BRn"/>
                                             <constraint firstItem="sIU-Ip-8nq" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="LRu-qp-dtg"/>
                                             <constraint firstItem="CGg-bD-c2m" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="MLx-Rj-16o"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="P49-k1-SJq"/>
