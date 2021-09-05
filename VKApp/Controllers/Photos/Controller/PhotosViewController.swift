@@ -29,8 +29,8 @@ class PhotosViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ShowPresenterPhotos",
-            let destination = segue.destination as? PresenterViewController
+        if  segue.identifier == "ShowFullScreenPhotos",
+            let destination = segue.destination as? FullScreenViewController
         {
             destination.photosFromOtherView = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
             let indexPath2 = collectionView.indexPathsForSelectedItems

@@ -711,7 +711,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="commentControl" destination="Gcn-T0-ps3" id="ihv-YV-Nai"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeControl" destination="LxT-Lu-HHy" id="pAL-Uy-E4O"/>
-                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowPresenterPhotos" id="fEH-Db-oV9"/>
+                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="fEH-Db-oV9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -735,17 +735,32 @@ It is a long established fact that a reader will be distracted by the readable c
             </objects>
             <point key="canvasLocation" x="4035" y="-790"/>
         </scene>
-        <!--Presenter View Controller-->
+        <!--Full Screen View Controller-->
         <scene sceneID="0Jf-iz-h4e">
             <objects>
-                <viewController id="3FV-Fs-Eba" customClass="PresenterViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3FV-Fs-Eba" customClass="FullScreenViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yd1-m8-0pp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa5-Ja-6aR" customClass="FullScreenView" customModule="VKApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="414" height="651"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dOX-Yo-ZCb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xa5-Ja-6aR" firstAttribute="leading" secondItem="dOX-Yo-ZCb" secondAttribute="leading" id="3eh-tl-bDc"/>
+                            <constraint firstItem="dOX-Yo-ZCb" firstAttribute="trailing" secondItem="xa5-Ja-6aR" secondAttribute="trailing" id="jBd-E8-SPF"/>
+                            <constraint firstItem="dOX-Yo-ZCb" firstAttribute="bottom" secondItem="xa5-Ja-6aR" secondAttribute="bottom" id="mzw-LJ-qQS"/>
+                            <constraint firstItem="xa5-Ja-6aR" firstAttribute="top" secondItem="dOX-Yo-ZCb" secondAttribute="top" id="tFs-St-1PD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EDv-mm-Kmo"/>
+                    <connections>
+                        <outlet property="fullScreenView" destination="xa5-Ja-6aR" id="zgm-aa-0Pu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiq-Mx-NZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

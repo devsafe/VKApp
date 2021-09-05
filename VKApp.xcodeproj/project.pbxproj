@@ -50,6 +50,8 @@
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
+		11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */; };
+		11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */; };
 		11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */; };
 		11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */; };
@@ -101,6 +103,8 @@
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
+		11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGroupsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 		1193D88726D1193B000509CA /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				11F6D1C226E4BCDF00D17B60 /* FullScreenView */,
 				114E086726CBE4C5008F519A /* LikeControl.swift */,
 				1193D89D26DE226E000509CA /* PresenterViewController.swift */,
 				1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */,
@@ -395,6 +400,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		11F6D1C226E4BCDF00D17B60 /* FullScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */,
+				11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */,
+			);
+			path = FullScreenView;
+			sourceTree = "<group>";
+		};
 		11F8BC1726C2DCAB006FFF39 /* FavGroups */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +518,7 @@
 				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				114E234226C41983003456EF /* OldProfileViewController.swift in Sources */,
+				11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */,
 				1193D88F26D654F1000509CA /* UserProfileView2.swift in Sources */,
 				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */,
@@ -512,6 +527,7 @@
 				1193D89E26DE226E000509CA /* PresenterViewController.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114E088626D05967008F519A /* UserProfileWallTableViewCell.swift in Sources */,
+				11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */,
 				114E087626CE72AC008F519A /* FeedStorage.swift in Sources */,
 				1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */,
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,

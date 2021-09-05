@@ -28,6 +28,7 @@ class PresenterViewController: UIViewController {
         let y: CGFloat = 0
         override func viewDidLoad() {
             super.viewDidLoad()
+            
             let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
             self.view.addGestureRecognizer(recognizer)
             
@@ -45,14 +46,14 @@ class PresenterViewController: UIViewController {
         
         func firstSetImage() {
             photoImageView.frame = UIScreen.main.bounds
-            photoImageView.image = UIImage(named: photosFromOtherView[0].fileName)
+            photoImageView.image = UIImage(named: photosFromOtherView[selectedPhoto].fileName)
             photoImageView.contentMode = .scaleAspectFit
             photoImageView.transform = CGAffineTransform(translationX: 0, y: y)
             self.view.addSubview(photoImageView)
             if photosFromOtherView.count > 1 {
                 suppImageView.frame = UIScreen.main.bounds
                 suppImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: y)
-                suppImageView.image = UIImage(named: photosFromOtherView[1].fileName)
+                suppImageView.image = UIImage(named: photosFromOtherView[(selectedPhoto + 1)].fileName)
 
                 suppImageView.contentMode = .scaleAspectFit
                 self.view.addSubview(suppImageView)
