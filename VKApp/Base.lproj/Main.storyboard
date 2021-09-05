@@ -954,6 +954,7 @@ It is a long established fact that a reader will be distracted by the readable c
                     <navigationItem key="navigationItem" title="Feed" largeTitleDisplayMode="always" id="MY1-gF-Won"/>
                     <connections>
                         <outlet property="tableView" destination="DWq-Hg-hp2" id="Vvz-HU-Uj4"/>
+                        <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenMedia" id="GIC-yv-aG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ir-q7-mxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1756,8 +1757,8 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aZj-M6-pwy"/>
-        <segue reference="1uB-gh-mhV"/>
+        <segue reference="ndZ-81-WTG"/>
+        <segue reference="GIC-yv-aG0"/>
         <segue reference="IK1-qu-XFc"/>
     </inferredMetricsTieBreakers>
     <resources>

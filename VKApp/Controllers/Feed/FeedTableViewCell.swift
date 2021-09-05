@@ -23,8 +23,11 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var viewsCountControl: ViewsCountControl!
     @IBOutlet var shareControl: ShareControl!
     
+    var controlTapped: (() -> Void)?
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        setSingleTap()
         self.configureCellStaticApperance()
     }
     
@@ -32,6 +35,7 @@ class FeedTableViewCell: UITableViewCell {
     
     func configure(postModel: PostModel, userModel: UserModel) {
         imageFeedCell.image = UIImage(named: postModel.media)
+        imageFeedCell.isUserInteractionEnabled = true
         authorLabelFeedCell.text = Storage.allUsers[UserStorage.getIndexByUsername(username: userModel.userName)].fullName
         avatarImageFeedCell.image = UIImage(named: userModel.avatar)
         commentControl.configure(commentCount: postModel.commentMessages.count)
@@ -59,5 +63,16 @@ class FeedTableViewCell: UITableViewCell {
     
     func randomBool() -> Bool {
         return arc4random_uniform(2) == 0
+    }
+    
+    func setSingleTap() {
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
+        singleTap.numberOfTapsRequired = 1
+        imageFeedCell.addGestureRecognizer(singleTap)
+    }
+    
+    @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
+        print("tap media in post")
+        controlTapped?()
     }
 }

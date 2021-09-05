@@ -30,6 +30,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             let userIndex = tableView.indexPathForSelectedRow
         {
             destination.userNameFromOtherView = Storage.feedNews[userIndex.row].author.userName
+        } else if segue.identifier == "ShowFullScreenMedia",
+                  let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
+        {
+            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.feedGroupNews[indexPath.row].media)", fileName: "\(Storage.feedGroupNews[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.selectedPhoto = 0
         }
     }
     
@@ -42,7 +47,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.reloadData()
     }
+    
 }
+
+
 
 extension FeedViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,6 +69,9 @@ extension FeedViewController {
             self?.tapedInAvatar = true
             self?.performSegue(withIdentifier: "moveToPhoto", sender: indexPath)
         }
+        
+        cell.controlTapped = { [weak self] in
+            self?.performSegue(withIdentifier: "ShowFullScreenMedia", sender: indexPath)}
         
         return cell
     }

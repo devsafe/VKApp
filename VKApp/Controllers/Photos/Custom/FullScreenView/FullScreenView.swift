@@ -101,8 +101,8 @@ class FullScreenView: UIView {
             
             likeControl.centerYAnchor.constraint(equalTo: visibleView.centerYAnchor),
             likeControl.centerXAnchor.constraint(equalTo: visibleView.centerXAnchor),
-            likeControl.heightAnchor.constraint(equalToConstant: 200),
-            likeControl.widthAnchor.constraint(equalToConstant: 230),
+            likeControl.heightAnchor.constraint(equalToConstant: 100),
+            likeControl.widthAnchor.constraint(equalToConstant: 130),
         ])
     }
     

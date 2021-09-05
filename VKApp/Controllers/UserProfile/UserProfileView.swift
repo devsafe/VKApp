@@ -133,31 +133,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         x = x + 1
     }
     
-    @objc func animateWithKeyFrames(){
-        //Total animation duration is 1.0 seconds - This time is inside the
-        UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
-                //1.Expansion + button label alpha
-                self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
-                //2.Shrink
-                self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.25, animations: {
-                //3.Grant momentum
-                self.avatarImageOutlet.frame.origin.x -= 16
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
-                //4.Move out of screen and reduce alpha to 0
-                self.avatarImageOutlet.frame.origin.x = self.view.frame.size.width
-                self.avatarImageOutlet.alpha = 0.0
-            })
-        }) { (completed) in
-            //Completion of whole animation sequence
-        }
-    }
-    
     func setSingleTap() {
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
         singleTap.numberOfTapsRequired = 1
