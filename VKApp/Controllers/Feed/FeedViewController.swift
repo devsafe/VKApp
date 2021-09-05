@@ -33,7 +33,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if segue.identifier == "ShowFullScreenMedia",
                   let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
         {
-            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.feedGroupNews[indexPath.row].media)", fileName: "\(Storage.feedGroupNews[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.feedNews[indexPath.row].media)", fileName: "\(Storage.feedNews[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
             destination.selectedPhoto = 0
         }
     }
