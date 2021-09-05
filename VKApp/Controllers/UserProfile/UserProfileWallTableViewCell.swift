@@ -12,6 +12,10 @@ class ProfileWallTableViewCell: UITableViewCell {
     @IBOutlet var authorLabelOutlet: UILabel!
     @IBOutlet var postTextLabelOutlet: UILabel!
     @IBOutlet var avatarImageOutlet: UIImageView!
+    @IBOutlet var likeProfileWallControl: LikeControl!
+    @IBOutlet var commentsProfileWallControl: CommentControl!
+    @IBOutlet var shareProfileWallControl: ShareControl!
+    @IBOutlet var viewsProfileWallControl: ViewsCountControl!
     
     static let identifier = "ProfileWallTableViewCell"
     
@@ -27,6 +31,11 @@ class ProfileWallTableViewCell: UITableViewCell {
         authorLabelOutlet.text = userModel.fullName
         avatarImageOutlet.image = UIImage(named: userModel.avatar)
         postTextLabelOutlet.text = postModel.text
+        likeProfileWallControl.configure(isLike: postModel.isLike, likeCount: postModel.likeCount)
+        commentsProfileWallControl.configure(commentCount: postModel.commentMessages.count)
+        shareProfileWallControl.configure(isLike: false, likeCount: Int.random(in: 3..<9))
+        viewsProfileWallControl.configure(viewsCount: postModel.commentMessages.count)
+        
     }
     
     func configureCellStaticApperance() {

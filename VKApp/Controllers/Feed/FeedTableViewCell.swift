@@ -21,6 +21,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet var commentControl: CommentControl!
     @IBOutlet var likeControl: LikeControl!
     @IBOutlet var viewsCountControl: ViewsCountControl!
+    @IBOutlet var shareControl: ShareControl!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -42,6 +43,7 @@ class FeedTableViewCell: UITableViewCell {
         textLabelFeedCell.text = postModel.text
         dateLabelFeedCell.text = postModel.timeStamp
         viewsCountControl.configure(viewsCount: postModel.commentMessages.count)
+        shareControl.configure(isLike: randomBool(), likeCount: Int.random(in: 3..<9))
     }
     
     func configureCellStaticApperance() {
@@ -53,5 +55,9 @@ class FeedTableViewCell: UITableViewCell {
         avatarImageFeedCell.layer.borderColor = customColor.cgColor
         avatarImageFeedCell.layer.shadowOffset = .zero
         avatarImageFeedCell.layer.borderWidth = 1
+    }
+    
+    func randomBool() -> Bool {
+        return arc4random_uniform(2) == 0
     }
 }

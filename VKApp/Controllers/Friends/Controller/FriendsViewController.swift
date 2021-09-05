@@ -44,7 +44,7 @@ class FriendsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "ShowUserProfile2",
-            let destination = segue.destination as? UserProfileView2,
+            let destination = segue.destination as? UserProfileView,
             let userIndex = tableView.indexPathForSelectedRow
         {
             destination.userNameFromOtherView = friendsSection[userIndex[0]][userIndex[1]].userName

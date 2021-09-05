@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var avatarImageOutlet: UIImageView!
@@ -71,6 +71,7 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         followButtonOutlet.layer.cornerRadius = 8
         self.title = "id: \(userNameFromOtherView)"
         setSingleTap()
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
