@@ -19,6 +19,7 @@ class ProfileWallTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        configureCellStaticApperance()
     }
     
     func configure(postModel: PostModel, userModel: UserModel) {

@@ -51,7 +51,7 @@ class FullScreenView: UIView {
     private var beginCenterXVisibleView: CGFloat = 0
     private var beginCenterXRightView: CGFloat = 0
     private var beginCenterXLeftView: CGFloat = 0
-    private let scale = CGAffineTransform(scaleX: 0.85, y: 0.85)
+    private let scale = CGAffineTransform(scaleX: 0.95, y: 0.95)
 
     var namePhoto: [String] = []
     var photoes: [String] = []
