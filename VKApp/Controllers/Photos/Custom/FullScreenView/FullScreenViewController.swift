@@ -48,12 +48,23 @@ class FullScreenViewController: UIViewController {
     func setSingleTap() {
     let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
         singleTap.numberOfTapsRequired = 1
+        let fakeDoubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.fakeDoubleTap))
+            singleTap.numberOfTapsRequired = 1
+        fakeDoubleTap.numberOfTapsRequired = 2
+       singleTap.require(toFail: fakeDoubleTap)
+            singleTap.delaysTouchesBegan = true
+        fakeDoubleTap.delaysTouchesBegan = true
     view.addGestureRecognizer(singleTap)
+        view.addGestureRecognizer(fakeDoubleTap)
     }
     
     @objc func handleSingleTap() {
         print("single tap")
         tabBarController?.tabBar.isHidden.toggle()
         navigationController?.navigationBar.isHidden.toggle()
+     }
+    
+    @objc func fakeDoubleTap() {
+        print("fakeDoubleTap")
      }
 }

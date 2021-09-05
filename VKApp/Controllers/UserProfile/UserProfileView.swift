@@ -29,6 +29,11 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileWallTableViewCell.identifier, for: indexPath) as! ProfileWallTableViewCell
         cell.configure(postModel: FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row], userModel: Storage.allUsers[UserStorage.getIndexByUsername(username: userNameFromOtherView)])
+        cell.likeTapped = {
+            //dummy for write data
+        }
+        cell.controlTapped = { [weak self] in
+            self?.performSegue(withIdentifier: "ShowFullScreenMedia", sender: indexPath)}
         return cell
     }
     
@@ -84,7 +89,15 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         {
             destination.photosFromOtherView = [PhotoModel(name: "\(Storage.allUsers[userIndex].avatar)", fileName: "\(Storage.allUsers[userIndex].avatar)", likeCount: 0, commentMessages: [], isLike: false)]
             destination.selectedPhoto = 0
+        } else if segue.identifier == "ShowFullScreenMedia",
+                  let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
+        {
+            destination.photosFromOtherView = [PhotoModel(name: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", fileName: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.selectedPhoto = 0
         }
+        
+        
+        //ShowFullScreenMedia
     }
     
     // var x = 0
@@ -152,7 +165,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     }
     
     @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
-        //  performSegue "showBigImageNews" вызывается в контроллере
         print("tap on avatar")
         performSegue(withIdentifier: "ShowFullScreenPhotos", sender: nil)
     }

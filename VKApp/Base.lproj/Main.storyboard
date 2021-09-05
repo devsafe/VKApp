@@ -1728,6 +1728,7 @@ It is a long established fact that a reader will be distracted by the readable c
                         <outlet property="sendMessageButtonOutlet" destination="EOe-fm-qmu" id="xK7-t9-faR"/>
                         <outlet property="tableView" destination="0ES-w6-FWq" id="t4m-dN-oc1"/>
                         <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="rV0-pR-MJP"/>
+                        <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenMedia" id="1uB-gh-mhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8p-SR-yc5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1755,8 +1756,8 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ndZ-81-WTG"/>
-        <segue reference="rV0-pR-MJP"/>
+        <segue reference="aZj-M6-pwy"/>
+        <segue reference="1uB-gh-mhV"/>
         <segue reference="IK1-qu-XFc"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -67,6 +67,7 @@ class FullScreenView: UIView {
         beginCenterXVisibleView = visibleView.center.x
         beginCenterXRightView = rightView.center.x
         beginCenterXLeftView = leftView.center.x
+        
     }
     
     private func setViews() {
@@ -159,6 +160,7 @@ class FullScreenView: UIView {
     func setDoubleTap() {
     let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap))
         doubleTap.numberOfTapsRequired = 2
+            doubleTap.delaysTouchesBegan = true
     self.visibleView.addGestureRecognizer(doubleTap)
     }
     
@@ -207,21 +209,17 @@ class FullScreenView: UIView {
                 self.visibleView.center.x = self.beginCenterXVisibleView
                 self.leftView.center.x = self.beginCenterXLeftView
                 self.rightView.center.x = self.beginCenterXRightView
-//                self.transformAnimate()
             case .left:
                 self.visibleView.center.x = self.beginCenterXLeftView
                 self.rightView.center.x = self.beginCenterXVisibleView
                 self.visibleIndex = self.nextIndex()
-//                self.transformAnimate()
             case .right:
                 self.visibleView.center.x = self.beginCenterXRightView
                 self.leftView.center.x = self.beginCenterXVisibleView
                 self.visibleIndex = self.earlyIndex()
-//                self.transformAnimate()
             }
         } completion: { _ in
             self.transformAnimate()
-//            self.visibleView.isUserInteractionEnabled = true
             self.visibleView.center.x = self.beginCenterXVisibleView
             self.leftView.center.x = self.beginCenterXLeftView
             self.rightView.center.x = self.beginCenterXRightView
@@ -231,7 +229,6 @@ class FullScreenView: UIView {
         }
     }
     
-   // Анимация плавного завершения перехода (наплывания) и затухания названия
    private func transformAnimate() {
         UIView.animate(
             withDuration: 0.2,
@@ -253,7 +250,6 @@ class FullScreenView: UIView {
             })
     }
     
-    // Анимация отдаления фото при прокручивании
     private func firstTransformAnimate() {
          UIView.animate(
             withDuration: 0.2,
@@ -278,7 +274,6 @@ class FullScreenView: UIView {
             })
     }
     
-    // Анимация лайка
     private func likeAnimation() {
         UIView.animateKeyframes(
             withDuration: 1,
