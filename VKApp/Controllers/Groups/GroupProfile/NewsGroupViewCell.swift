@@ -19,11 +19,9 @@ class NewsGroupViewCell: UITableViewCell {
     
     static let identifier = "NewsGroupViewCell"
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureCellStaticApperance()
-        
     }
     
     var avatarTapped: (() -> Void)?

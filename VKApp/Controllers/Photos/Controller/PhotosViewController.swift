@@ -27,7 +27,6 @@ class PhotosViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "ShowFullScreenPhotos",
             let destination = segue.destination as? FullScreenViewController
@@ -38,9 +37,6 @@ class PhotosViewController: UIViewController {
         }
     }
 }
-
-
-
 
 extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     override func viewDidLayoutSubviews() {

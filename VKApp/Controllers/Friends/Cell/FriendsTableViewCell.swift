@@ -43,10 +43,7 @@ class FriendsTableViewCell: UITableViewCell {
                 UIView.addKeyframe(withRelativeStartTime: 0,
                                    relativeDuration: 0.5,
                                    animations: {
-                                    
-                                    
                                     self.imageFriendsCell.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                                    //self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
                                    })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.5,
@@ -54,7 +51,6 @@ class FriendsTableViewCell: UITableViewCell {
                                    animations: {
                                     self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
                                     self.imageFriendsCell.transform = .identity
-                                    //self.imageFriendsCell.animationRepeatCount = 4
                                    })
             },
             completion: nil

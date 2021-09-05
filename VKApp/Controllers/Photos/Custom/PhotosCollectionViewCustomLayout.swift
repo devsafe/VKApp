@@ -10,7 +10,6 @@ import UIKit
 class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
     var cacheAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
     var columnsCount = 2
-    //var cellHeight: CGFloat = 165
     private var totalCellsHeight: CGFloat = 0
     
     override func prepare() {
@@ -28,7 +27,7 @@ class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
         
         var lastY: CGFloat = 16
         var lastX: CGFloat = 16
-            
+        
         for index in 0..<itemsCount {
             let indexPath = IndexPath(item: index, section: 0)
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
@@ -63,7 +62,7 @@ class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
             return rect.intersects(attributes.frame)
         }
     }
-
+    
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return cacheAttributes[indexPath]
     }

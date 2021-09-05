@@ -20,7 +20,6 @@ final class ViewsCountControl: UIControl {
         self.setView()
     }
     
-    
     private let uncommentScale: CGFloat = 0.7
     private let commentScale: CGFloat = 1.4
     

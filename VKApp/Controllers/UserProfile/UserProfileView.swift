@@ -16,14 +16,11 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
-    
     var userNameFromOtherView = String()
     var userIndex = 0
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,10 +48,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         }
         return cell
     }
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,12 +88,8 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
             destination.photosFromOtherView = [PhotoModel(name: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", fileName: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
             destination.selectedPhoto = 0
         }
-        
-        
-        //ShowFullScreenMedia
     }
     
-    // var x = 0
     @objc func tappedImage() {
         var x = 0
         while x < 3 {
@@ -140,7 +129,6 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     }
     
     @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
-        print("tap on avatar")
         performSegue(withIdentifier: "ShowFullScreenPhotos", sender: nil)
     }
 }

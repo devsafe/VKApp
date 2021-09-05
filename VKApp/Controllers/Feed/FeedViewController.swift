@@ -47,10 +47,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         tableView.reloadData()
     }
-    
 }
-
-
 
 extension FeedViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

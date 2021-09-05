@@ -20,8 +20,7 @@ class ProfileWallTableViewCell: UITableViewCell {
     
     static let identifier = "ProfileWallTableViewCell"
     var likeTapped: (() -> Void)?
-    
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         configureCellStaticApperance()
@@ -58,7 +57,6 @@ class ProfileWallTableViewCell: UITableViewCell {
     }
     
     @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
-        print("tap media in post")
         controlTapped?()
     }
 }

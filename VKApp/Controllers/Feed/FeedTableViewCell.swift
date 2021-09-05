@@ -72,7 +72,6 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
-        print("tap media in post")
         controlTapped?()
     }
 }
