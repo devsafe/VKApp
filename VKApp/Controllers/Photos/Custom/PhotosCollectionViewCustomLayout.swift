@@ -10,7 +10,7 @@ import UIKit
 class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
     var cacheAttributes = [IndexPath: UICollectionViewLayoutAttributes]()
     var columnsCount = 2
-    var cellHeight: CGFloat = 165
+    //var cellHeight: CGFloat = 165
     private var totalCellsHeight: CGFloat = 0
     
     override func prepare() {
@@ -37,17 +37,17 @@ class PhotosCollectionViewCustomLayout: UICollectionViewLayout {
             
             if isBigCell {
                 attributes.frame = CGRect(x: 16, y: lastY,
-                                          width: bigCellWidth, height: bigCellWidth / 1.5)
+                                          width: bigCellWidth, height: bigCellWidth / 1.7)
                 
-                lastY += bigCellWidth / 1.5 + 16
+                lastY += bigCellWidth / 1.7 + 16
             } else {
                 attributes.frame = CGRect(x: lastX, y: lastY,
-                                          width: smallCellWidth, height: smallCellWidth / 1.5)
+                                          width: smallCellWidth, height: smallCellWidth / 1.2)
                 
                 let isLastColumn = (index + 2) % (self.columnsCount + 1) == 0 || index == itemsCount - 1
                 if isLastColumn {
                     lastX = 16
-                    lastY += smallCellWidth / 1.5 + 16
+                    lastY += smallCellWidth / 1.2 + 16
                 } else {
                     lastX += smallCellWidth + 16
                 }
