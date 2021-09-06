@@ -124,8 +124,8 @@ class FullScreenView: UIView {
             return
         }
         visibleView.image = UIImage(named: photoes[visibleIndex])
-        leftView.image = UIImage(named: photoes[earlyIndex()])
-        rightView.image = UIImage(named: photoes[nextIndex()])
+        leftView.image = photoes.count > 1 ? UIImage(named: photoes[earlyIndex()]) : nil
+        rightView.image = photoes.count > 1 ? UIImage(named: photoes[nextIndex()]) : nil
         nameLabel.text = namePhoto[visibleIndex]
         visibleView.isUserInteractionEnabled = true
     }
