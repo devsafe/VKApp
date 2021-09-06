@@ -145,9 +145,9 @@ class FullScreenView: UIView {
         recognizer.setTranslation(.zero, in: self.visibleView)
         if recognizer.state == .ended {
             let offset = beginCenterXVisibleView - visibleView.center.x
-            if offset > 100 {
+            if offset > 100 && photoes.count > 1 {
                 startAnimate(.left)
-            } else if offset < -100 {
+            } else if offset < -100 && photoes.count > 1 {
                 startAnimate(.right)
             } else {
                 startAnimate(.revert)
