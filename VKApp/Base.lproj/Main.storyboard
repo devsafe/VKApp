@@ -1318,7 +1318,7 @@ It is a long established fact that a reader will be distracted by the readable c
         <!--Groups-->
         <scene sceneID="FPc-xa-ZAa">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJy-aJ-HUW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eJy-aJ-HUW" customClass="NavigationAnimations" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Groups" image="star.circle" catalog="system" selectedImage="star.circle.fill" id="tSv-BO-2A2"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="nPC-Y2-1yG"/>
