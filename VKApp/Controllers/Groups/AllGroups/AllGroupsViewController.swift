@@ -89,7 +89,7 @@ extension AllGroupsViewController {
             let destination = segue.destination as? GroupProfileViewController,
             let groupIndex = tableView.indexPathForSelectedRow
         {
-            destination.groupFromOtherView =  Storage.allGroups[groupIndex.row]
+            destination.groupFromOtherView =  filteredGroups[groupIndex.row]
         }
     }
 }

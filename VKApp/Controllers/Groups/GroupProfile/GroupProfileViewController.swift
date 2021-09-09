@@ -53,7 +53,6 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -78,7 +77,6 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         Storage.allUsers[Storage.userIdActiveSession].favGroups.firstIndex(where: { $0.name == groupName })
     }
     
-    
     @objc func animateFollowButtonPressed() {
         UIView.animateKeyframes(
             withDuration: 0.7,
@@ -88,18 +86,13 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
                 UIView.addKeyframe(withRelativeStartTime: 0,
                                    relativeDuration: 0.1,
                                    animations: {
-                                    
-                                   // self.followButtonOutlet.backgroundColor = .systemRed
                                     self.followButtonOutlet.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-                                    //self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
                                    })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.2,
                                    relativeDuration: 0.1,
                                    animations: {
-                                   // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
                                     self.followButtonOutlet.transform = .identity
-                                    //self.imageFriendsCell.animationRepeatCount = 4
                                    })
             },
             completion: nil

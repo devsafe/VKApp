@@ -26,10 +26,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "ShowUserProfile2",
-            let destination = segue.destination as? UserProfileView2,
+            let destination = segue.destination as? UserProfileView,
             let userIndex = tableView.indexPathForSelectedRow
         {
             destination.userNameFromOtherView = Storage.feedNews[userIndex.row].author.userName
+        } else if segue.identifier == "ShowFullScreenMedia",
+                  let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
+        {
+            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.feedNews[indexPath.row].media)", fileName: "\(Storage.feedNews[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.selectedPhoto = 0
         }
     }
     
@@ -40,6 +45,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.reloadData()
     }
 }
 
@@ -52,7 +58,7 @@ extension FeedViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier, for: indexPath) as! FeedTableViewCell
         cell.configure(postModel: Storage.feedNews[indexPath.row], userModel: Storage.feedNews[indexPath.row].author)
-        cell.likeTapped = { [weak self] in
+        cell.likeTapped = {
             Storage.feedNews[indexPath.row].isLike.toggle()
         }
         
@@ -60,6 +66,9 @@ extension FeedViewController {
             self?.tapedInAvatar = true
             self?.performSegue(withIdentifier: "moveToPhoto", sender: indexPath)
         }
+        
+        cell.controlTapped = { [weak self] in
+            self?.performSegue(withIdentifier: "ShowFullScreenMedia", sender: indexPath)}
         
         return cell
     }

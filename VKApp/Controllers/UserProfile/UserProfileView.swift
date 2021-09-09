@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var avatarImageOutlet: UIImageView!
@@ -16,19 +16,21 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
-    
     var userNameFromOtherView = String()
-    
-    
+    var userIndex = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileWallTableViewCell.identifier, for: indexPath) as! ProfileWallTableViewCell
         cell.configure(postModel: FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row], userModel: Storage.allUsers[UserStorage.getIndexByUsername(username: userNameFromOtherView)])
+        cell.likeTapped = {
+            //dummy for write data
+        }
+        cell.controlTapped = { [weak self] in
+            self?.performSegue(withIdentifier: "ShowFullScreenMedia", sender: indexPath)}
         return cell
     }
     
@@ -47,22 +49,14 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ShowUserPhotos",
-            let destination = segue.destination as? PhotosViewController
-        {
-            destination.userNameFromOtherView = userNameFromOtherView
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self
         tableView.dataSource = self
-        let userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
-        let user = Storage.allUsers[userIndex!]
+        userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
+        let user = Storage.allUsers[userIndex]
         avatarImageOutlet.image = UIImage(named: user.avatar)
         avatarImageOutlet.layer.cornerRadius = 80
         avatarImageOutlet.layer.borderWidth = 1
@@ -74,14 +68,30 @@ class UserProfileView2: UIViewController, UICollectionViewDelegate, UICollection
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
         self.title = "id: \(userNameFromOtherView)"
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.animateWithKeyFrames))
-        
-        avatarImageOutlet.addGestureRecognizer(tap)
+        setSingleTap()
+        tableView.reloadData()
     }
-
-   // var x = 0
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "ShowUserPhotos",
+            let destination = segue.destination as? PhotosViewController
+        {
+            destination.userNameFromOtherView = userNameFromOtherView
+        } else if segue.identifier == "ShowFullScreenPhotos",
+                  let destination = segue.destination as? FullScreenViewController
+        {
+            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.allUsers[userIndex].avatar)", fileName: "\(Storage.allUsers[userIndex].avatar)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.selectedPhoto = 0
+        } else if segue.identifier == "ShowFullScreenMedia",
+                  let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
+        {
+            destination.photosFromOtherView = [PhotoModel(name: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", fileName: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.selectedPhoto = 0
+        }
+    }
+    
     @objc func tappedImage() {
-var x = 0
+        var x = 0
         while x < 3 {
             UIView.animateKeyframes(
                 withDuration: 0.3,
@@ -112,28 +122,13 @@ var x = 0
         x = x + 1
     }
     
-    @objc func animateWithKeyFrames(){
-        //Total animation duration is 1.0 seconds - This time is inside the
-        UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
-                //1.Expansion + button label alpha
-                self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
-                //2.Shrink
-                self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.25, animations: {
-                //3.Grant momentum
-                self.avatarImageOutlet.frame.origin.x -= 16
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
-                //4.Move out of screen and reduce alpha to 0
-                self.avatarImageOutlet.frame.origin.x = self.view.frame.size.width
-                self.avatarImageOutlet.alpha = 0.0
-            })
-        }) { (completed) in
-            //Completion of whole animation sequence
-        }
+    func setSingleTap() {
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleSingleTap))
+        singleTap.numberOfTapsRequired = 1
+        avatarImageOutlet.addGestureRecognizer(singleTap)
+    }
+    
+    @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ShowFullScreenPhotos", sender: nil)
     }
 }

@@ -12,14 +12,16 @@ class NewsGroupViewCell: UITableViewCell {
     @IBOutlet var logoGroupNewsImage: UIImageView!
     @IBOutlet var mediaGroupNewsImage: UIImageView!
     @IBOutlet var textGroupNewsLabel: UILabel!
+    @IBOutlet var likeGroupNewsControl: LikeControl!
+    @IBOutlet var commentsGroupNewsControl: CommentControl!
+    @IBOutlet var shareGroupNewsControl: ShareControl!
+    @IBOutlet var viewsGroupNewsControl: ViewsCountControl!
     
     static let identifier = "NewsGroupViewCell"
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureCellStaticApperance()
-        
     }
     
     var avatarTapped: (() -> Void)?

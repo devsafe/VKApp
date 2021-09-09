@@ -116,6 +116,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="sIU-Ip-8nq" firstAttribute="top" secondItem="g6j-et-nlz" secondAttribute="bottom" constant="50" id="1dU-VB-85c"/>
+                                            <constraint firstAttribute="trailing" secondItem="D3k-Aq-0KM" secondAttribute="trailing" constant="23" id="1jY-yr-h5s"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="centerX" secondItem="hbz-VB-oES" secondAttribute="centerX" id="3hL-WS-zJ0"/>
                                             <constraint firstItem="20d-ZY-7br" firstAttribute="top" secondItem="OGB-bK-qXh" secondAttribute="bottom" constant="38" id="97p-uk-k62"/>
                                             <constraint firstAttribute="trailing" secondItem="CGg-bD-c2m" secondAttribute="trailing" constant="15" id="Ae8-pb-QCy"/>
@@ -123,7 +124,6 @@
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="top" secondItem="sIU-Ip-8nq" secondAttribute="bottom" constant="5" id="Avv-ZQ-nPz"/>
                                             <constraint firstItem="D3k-Aq-0KM" firstAttribute="centerY" secondItem="sIU-Ip-8nq" secondAttribute="centerY" id="BoJ-dZ-yff"/>
                                             <constraint firstItem="20d-ZY-7br" firstAttribute="centerX" secondItem="hbz-VB-oES" secondAttribute="centerX" id="ErT-ZD-POg"/>
-                                            <constraint firstItem="sIU-Ip-8nq" firstAttribute="trailing" secondItem="D3k-Aq-0KM" secondAttribute="trailing" constant="8" id="LM0-6K-BRn"/>
                                             <constraint firstItem="sIU-Ip-8nq" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="LRu-qp-dtg"/>
                                             <constraint firstItem="CGg-bD-c2m" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="MLx-Rj-16o"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="P49-k1-SJq"/>
@@ -531,9 +531,13 @@ It is a long established fact that a reader will be distracted by the readable c
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="authorGroupNewsLabel" destination="a9Y-TM-yk2" id="sug-tu-iW6"/>
+                                            <outlet property="commentsGroupNewsControl" destination="ldF-bz-Cwl" id="L0Y-eQ-Iu7"/>
+                                            <outlet property="likeGroupNewsControl" destination="dId-lI-FCP" id="2iD-Mp-vaT"/>
                                             <outlet property="logoGroupNewsImage" destination="bUA-1s-qnT" id="PXH-mv-5Jz"/>
                                             <outlet property="mediaGroupNewsImage" destination="m0u-G1-Ai2" id="zsY-SB-BZX"/>
+                                            <outlet property="shareGroupNewsControl" destination="Czf-eu-g00" id="TFo-qJ-x82"/>
                                             <outlet property="textGroupNewsLabel" destination="ZPw-m9-epk" id="3YZ-1x-BI1"/>
+                                            <outlet property="viewsGroupNewsControl" destination="UNh-Da-seQ" id="Nep-Pf-sYa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -711,7 +715,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="commentControl" destination="Gcn-T0-ps3" id="ihv-YV-Nai"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeControl" destination="LxT-Lu-HHy" id="pAL-Uy-E4O"/>
-                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowPresenterPhotos" id="fEH-Db-oV9"/>
+                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="fEH-Db-oV9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -735,17 +739,32 @@ It is a long established fact that a reader will be distracted by the readable c
             </objects>
             <point key="canvasLocation" x="4035" y="-790"/>
         </scene>
-        <!--Presenter View Controller-->
+        <!--Full Screen View Controller-->
         <scene sceneID="0Jf-iz-h4e">
             <objects>
-                <viewController id="3FV-Fs-Eba" customClass="PresenterViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3FV-Fs-Eba" customClass="FullScreenViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yd1-m8-0pp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa5-Ja-6aR" customClass="FullScreenView" customModule="VKApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="414" height="651"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dOX-Yo-ZCb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xa5-Ja-6aR" firstAttribute="leading" secondItem="dOX-Yo-ZCb" secondAttribute="leading" id="3eh-tl-bDc"/>
+                            <constraint firstItem="dOX-Yo-ZCb" firstAttribute="trailing" secondItem="xa5-Ja-6aR" secondAttribute="trailing" id="jBd-E8-SPF"/>
+                            <constraint firstItem="dOX-Yo-ZCb" firstAttribute="bottom" secondItem="xa5-Ja-6aR" secondAttribute="bottom" id="mzw-LJ-qQS"/>
+                            <constraint firstItem="xa5-Ja-6aR" firstAttribute="top" secondItem="dOX-Yo-ZCb" secondAttribute="top" id="tFs-St-1PD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EDv-mm-Kmo"/>
+                    <connections>
+                        <outlet property="fullScreenView" destination="xa5-Ja-6aR" id="zgm-aa-0Pu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiq-Mx-NZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -819,7 +838,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-Hp-GcV" customClass="PictureBorderView" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="64" width="382" height="229.5"/>
+                                                    <rect key="frame" x="16" y="64" width="382" height="216.5"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pTp-tU-qzU">
                                                     <rect key="frame" x="16" y="16" width="40" height="40"/>
@@ -835,7 +854,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yho-v4-Hr3">
-                                                    <rect key="frame" x="16" y="301.5" width="382" height="284.5"/>
+                                                    <rect key="frame" x="16" y="288.5" width="382" height="284.5"/>
                                                     <string key="text">Why do we use it?
 It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -843,7 +862,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBT-PM-AkQ" customClass="LikeControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="366" y="594" width="32" height="32"/>
+                                                    <rect key="frame" x="366" y="581" width="32" height="32"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="9ys-yZ-g0c"/>
@@ -851,7 +870,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBp-Zs-2Yf" customClass="CommentControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="294" y="594" width="32" height="32"/>
+                                                    <rect key="frame" x="294" y="581" width="32" height="32"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="NfB-0c-h7t"/>
@@ -859,7 +878,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vom-RD-xRl" customClass="ShareControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="594" width="32" height="32"/>
+                                                    <rect key="frame" x="16" y="581" width="32" height="32"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="IyE-r5-MJV"/>
@@ -867,7 +886,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKp-uO-WsZ" customClass="ViewsCountControl" customModule="VKApp" customModuleProvider="target">
-                                                    <rect key="frame" x="88" y="594" width="32" height="32"/>
+                                                    <rect key="frame" x="88" y="581" width="32" height="32"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="8FA-1D-tG3"/>
@@ -901,7 +920,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <constraint firstItem="Yho-v4-Hr3" firstAttribute="leading" secondItem="rvE-g8-EcD" secondAttribute="leading" constant="16" id="iNc-rw-bh1"/>
                                                 <constraint firstAttribute="trailing" secondItem="sQX-Hp-GcV" secondAttribute="trailing" constant="16" id="ibo-2q-EdQ"/>
                                                 <constraint firstItem="gBT-PM-AkQ" firstAttribute="top" secondItem="Yho-v4-Hr3" secondAttribute="bottom" constant="8" id="lPN-0p-vGy"/>
-                                                <constraint firstAttribute="bottom" secondItem="gBT-PM-AkQ" secondAttribute="bottom" constant="3" id="qD4-6b-P6K"/>
+                                                <constraint firstAttribute="bottom" secondItem="gBT-PM-AkQ" secondAttribute="bottom" constant="16" id="qD4-6b-P6K"/>
                                                 <constraint firstAttribute="trailing" secondItem="gBT-PM-AkQ" secondAttribute="trailing" constant="16" id="sab-dI-bm0"/>
                                                 <constraint firstItem="RaI-bp-uz0" firstAttribute="leading" secondItem="pTp-tU-qzU" secondAttribute="trailing" constant="16" id="v2n-bd-h3G"/>
                                                 <constraint firstAttribute="trailing" secondItem="6qz-L2-rYx" secondAttribute="trailing" constant="16" id="xTL-Lw-iuf"/>
@@ -914,6 +933,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="dateLabelFeedCell" destination="MVH-rI-Fev" id="U5x-Ri-ayv"/>
                                             <outlet property="imageFeedCell" destination="sQX-Hp-GcV" id="Sbw-iF-rvw"/>
                                             <outlet property="likeControl" destination="gBT-PM-AkQ" id="CZs-sd-D4v"/>
+                                            <outlet property="shareControl" destination="Vom-RD-xRl" id="5Mq-8y-3fy"/>
                                             <outlet property="textLabelFeedCell" destination="Yho-v4-Hr3" id="mcr-u8-Z1z"/>
                                             <outlet property="viewsCountControl" destination="XKp-uO-WsZ" id="2Zd-e2-aED"/>
                                             <segue destination="3vF-Su-DLg" kind="show" identifier="ShowUserProfile2" id="ndZ-81-WTG"/>
@@ -934,6 +954,7 @@ It is a long established fact that a reader will be distracted by the readable c
                     <navigationItem key="navigationItem" title="Feed" largeTitleDisplayMode="always" id="MY1-gF-Won"/>
                     <connections>
                         <outlet property="tableView" destination="DWq-Hg-hp2" id="Vvz-HU-Uj4"/>
+                        <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenMedia" id="GIC-yv-aG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ir-q7-mxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1395,10 +1416,10 @@ It is a long established fact that a reader will be distracted by the readable c
             </objects>
             <point key="canvasLocation" x="2329" y="1967"/>
         </scene>
-        <!--User Profile View2-->
+        <!--User Profile View-->
         <scene sceneID="b0t-sO-Q41">
             <objects>
-                <viewController id="3vF-Su-DLg" customClass="UserProfileView2" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3vF-Su-DLg" customClass="UserProfileView" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I4u-tM-ya8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1570,10 +1591,10 @@ It is a long established fact that a reader will be distracted by the readable c
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileWallTableViewCell" id="joO-hv-jjZ" customClass="ProfileWallTableViewCell" customModule="VKApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="363.5" width="414" height="400"/>
+                                        <rect key="frame" x="0.0" y="363.5" width="414" height="413"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="joO-hv-jjZ" id="70y-9e-Wge">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="413"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYo-oG-wEi">
@@ -1660,7 +1681,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <constraint firstItem="JgP-A9-ztD" firstAttribute="leading" secondItem="70y-9e-Wge" secondAttribute="leading" constant="16" id="KXi-Or-mP0"/>
                                                 <constraint firstItem="xMQ-ay-DTf" firstAttribute="leading" secondItem="70y-9e-Wge" secondAttribute="leading" constant="16" id="QEM-td-IPK"/>
                                                 <constraint firstItem="JqV-6f-U0i" firstAttribute="centerY" secondItem="0Er-B4-y0H" secondAttribute="centerY" id="Qey-tP-1fe"/>
-                                                <constraint firstAttribute="bottom" secondItem="0Er-B4-y0H" secondAttribute="bottom" constant="3" id="RFq-rS-CGb"/>
+                                                <constraint firstAttribute="bottom" secondItem="0Er-B4-y0H" secondAttribute="bottom" constant="16" id="RFq-rS-CGb"/>
                                                 <constraint firstAttribute="trailing" secondItem="LG7-Ib-8g6" secondAttribute="trailing" constant="16" id="T2j-NQ-Xpj"/>
                                                 <constraint firstItem="JqV-6f-U0i" firstAttribute="leading" secondItem="JgP-A9-ztD" secondAttribute="trailing" constant="40" id="dvi-8r-R9N"/>
                                                 <constraint firstItem="0Er-B4-y0H" firstAttribute="top" secondItem="xMQ-ay-DTf" secondAttribute="bottom" constant="16" id="jbX-jG-CmR"/>
@@ -1678,8 +1699,12 @@ It is a long established fact that a reader will be distracted by the readable c
                                         <connections>
                                             <outlet property="authorLabelOutlet" destination="qYo-oG-wEi" id="Ofh-Su-Ojs"/>
                                             <outlet property="avatarImageOutlet" destination="I38-wX-Jjw" id="LrQ-Rq-fZ8"/>
+                                            <outlet property="commentsProfileWallControl" destination="lB6-E6-70O" id="vae-c4-Ha1"/>
+                                            <outlet property="likeProfileWallControl" destination="0Er-B4-y0H" id="wc3-v2-WgZ"/>
                                             <outlet property="mediaImageOutlet" destination="BK0-pQ-wFX" id="fFT-8o-aOt"/>
                                             <outlet property="postTextLabelOutlet" destination="xMQ-ay-DTf" id="4Im-Km-GgX"/>
+                                            <outlet property="shareProfileWallControl" destination="JgP-A9-ztD" id="zVR-mp-pRH"/>
+                                            <outlet property="viewsProfileWallControl" destination="JqV-6f-U0i" id="t81-zT-TMw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1703,6 +1728,8 @@ It is a long established fact that a reader will be distracted by the readable c
                         <outlet property="locationLabelOutlet" destination="utf-Pm-xBk" id="xJo-P0-Zbp"/>
                         <outlet property="sendMessageButtonOutlet" destination="EOe-fm-qmu" id="xK7-t9-faR"/>
                         <outlet property="tableView" destination="0ES-w6-FWq" id="t4m-dN-oc1"/>
+                        <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="rV0-pR-MJP"/>
+                        <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenMedia" id="1uB-gh-mhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8p-SR-yc5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1730,7 +1757,8 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aZj-M6-pwy"/>
+        <segue reference="ndZ-81-WTG"/>
+        <segue reference="GIC-yv-aG0"/>
         <segue reference="IK1-qu-XFc"/>
     </inferredMetricsTieBreakers>
     <resources>

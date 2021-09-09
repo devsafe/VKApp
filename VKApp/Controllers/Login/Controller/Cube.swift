@@ -32,8 +32,6 @@ class Cube: UIView {
         cloudLayer.fillColor = UIColor.systemBlue.cgColor
         cloudLayer.strokeColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         cloudLayer.lineCap = .round
-        //cloudLayer.strokeStart = 0.5
-        //cloudLayer.strokeEnd = 1
         cloudLayer.shadowColor = UIColor.white.cgColor
         cloudLayer.shadowOpacity = 0.3
         cloudLayer.shadowOffset = .zero
@@ -50,36 +48,17 @@ class Cube: UIView {
         startAnimationStroke.toValue = 1
         //startAnimationStroke.duration = 3
         startAnimationStroke.beginTime = 0.1
-
+        
         let endAnimationStroke = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
         endAnimationStroke.fromValue = 0
         endAnimationStroke.toValue = 1
-        //endAnimationStroke.beginTime = 2
-        //endAnimationStroke.duration = 10
-
-
+        
         let animationGroup = CAAnimationGroup()
         animationGroup.animations = [endAnimationStroke, startAnimationStroke]
         animationGroup.repeatCount = .infinity
         animationGroup.duration = duration
-
-        cloudLayer.add(animationGroup, forKey: nil)
         
-        //Test CAKeyframeAnimation animation
-//        let circle = CAShapeLayer()
-//        circle.backgroundColor = UIColor.red.cgColor
-//        circle.bounds = CGRect(x: 0, y: 0, width: 10, height: 10)
-//        circle.position = CGPoint(x: 40, y: 20)
-//        circle.cornerRadius = 5
-//        self.layer.addSublayer(circle)
-//
-//        let followPathAnimation = CAKeyframeAnimation(keyPath: "position")
-//        followPathAnimation.path = cloudePath.cgPath
-//        followPathAnimation.calculationMode = CAAnimationCalculationMode.cubicPaced
-//        followPathAnimation.speed = 0.05
-//        followPathAnimation.repeatCount = .infinity
-//
-//        circle.add(followPathAnimation, forKey: nil)
+        cloudLayer.add(animationGroup, forKey: nil)
     }
     
     func animationStop() {
@@ -142,6 +121,6 @@ struct CubePath {
         path.addLine(to: CGPoint(x: 468, y: 116))
         path.addLine(to: CGPoint(x: 468, y: 378.7))
         path.close()
-    return path
+        return path
     }
 }
