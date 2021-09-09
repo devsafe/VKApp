@@ -60,11 +60,13 @@ class LoginFormController: UIViewController {
         let checkResult = checkUserData()
         if !checkResult {
             showLoginError()
+            animateLoginButtonError()
         }
         return checkResult
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
@@ -72,6 +74,7 @@ class LoginFormController: UIViewController {
         let passwordText = passwordTextField.text!
         if isUserInDB(userName: loginText) {
             showRegisterError(userName: loginText)
+            animateRegisterButtonError()
         } else {
             registerNewUserOnLoginView(userName: loginText, password: passwordText)
             showRegisterProcessAlert(userName: loginText)
@@ -232,5 +235,91 @@ Type username/password and repeat login.
     
     func sortFriendsByName() {
         Storage.allUsers = Storage.allUsers.sorted(by: { $0.surName < $1.surName })
+    }
+    
+    @objc func animateLoginButton(){
+        //Total animation duration is 1.0 seconds - This time is inside the
+        UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
+                //1.Expansion + button label alpha
+                self.loginButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
+                //2.Shrink
+                self.loginButton.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+            })
+        }) { (completed) in
+            //Completion of whole animation sequence
+        }
+    }
+    
+    @objc func animateLoginButtonError() {
+        UIView.animateKeyframes(
+            withDuration: 0.7,
+            delay: 0,
+            options: [],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0,
+                                   relativeDuration: 0.1,
+                                   animations: {
+                                    
+                                    self.loginButton.backgroundColor = .systemRed
+                                    self.loginButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                                    //self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+                                   })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.2,
+                                   relativeDuration: 0.1,
+                                   animations: {
+                                   // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                    self.loginButton.transform = .identity
+                                    //self.imageFriendsCell.animationRepeatCount = 4
+                                   })
+                UIView.addKeyframe(withRelativeStartTime: 0.8,
+                                   relativeDuration: 0.2,
+                                   animations: {
+                                   // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                    self.loginButton.backgroundColor = .systemBlue
+                                    //self.imageFriendsCell.animationRepeatCount = 4
+                                   })
+            },
+            completion: nil
+        )
+        
+    }
+    
+    @objc func animateRegisterButtonError() {
+        UIView.animateKeyframes(
+            withDuration: 0.7,
+            delay: 0,
+            options: [],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0,
+                                   relativeDuration: 0.1,
+                                   animations: {
+                                    
+                                    self.registerButton.backgroundColor = .systemRed
+                                    self.registerButton.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+                                    //self.imageFriendsCell.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+                                   })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.2,
+                                   relativeDuration: 0.1,
+                                   animations: {
+                                   // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                    self.registerButton.transform = .identity
+                                    //self.imageFriendsCell.animationRepeatCount = 4
+                                   })
+                UIView.addKeyframe(withRelativeStartTime: 0.8,
+                                   relativeDuration: 0.2,
+                                   animations: {
+                                   // self.loginButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                    self.registerButton.backgroundColor = .systemGreen
+                                    //self.imageFriendsCell.animationRepeatCount = 4
+                                   })
+            },
+            completion: nil
+        )
+        
     }
 }

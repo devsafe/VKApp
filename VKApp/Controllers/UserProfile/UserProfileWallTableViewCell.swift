@@ -15,9 +15,10 @@ class ProfileWallTableViewCell: UITableViewCell {
     
     static let identifier = "ProfileWallTableViewCell"
     
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.configureCellStaticApperance()
     }
     
     func configure(postModel: PostModel, userModel: UserModel) {
@@ -32,5 +33,29 @@ class ProfileWallTableViewCell: UITableViewCell {
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.clear
         selectedBackgroundView = bgColorView
+    }
+    
+    @objc func tappedImage() {
+        UIView.animateKeyframes(
+            withDuration: 0.3,
+            delay: 0,
+            options: [.repeat],
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0,
+                                   relativeDuration: 0.5,
+                                   animations: {
+                                    self.avatarImageOutlet.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                                    self.avatarImageOutlet.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+                                   })
+                UIView.addKeyframe(withRelativeStartTime: 0.5,
+                                   relativeDuration: 0.6,
+                                   animations: {
+                                    self.avatarImageOutlet.transform = .identity
+                                    self.avatarImageOutlet.animationRepeatCount = 4
+                                   })
+            },
+            completion: nil
+        )
+        
     }
 }
