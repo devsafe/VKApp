@@ -51,6 +51,8 @@
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
 		11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */; };
 		11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */; };
+		11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C826E7964F00D17B60 /* NavigationControllerAnimations.swift */; };
+		11F6D1CB26E796C700D17B60 /* CustomInteractiveTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */; };
 		11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */; };
 		11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */; };
@@ -103,6 +105,8 @@
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
+		11F6D1C826E7964F00D17B60 /* NavigationControllerAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerAnimations.swift; sourceTree = "<group>"; };
+		11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransitions.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGroupsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -384,6 +388,7 @@
 		11CCD83326BDA194009A5865 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				11F6D1C726E7962100D17B60 /* Navigation */,
 				1193D89C26DBF0FD000509CA /* Dialog */,
 				114E233A26C3B535003456EF /* Login */,
 				114E233726C2FF04003456EF /* Friends */,
@@ -404,6 +409,23 @@
 				11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */,
 			);
 			path = FullScreenView;
+			sourceTree = "<group>";
+		};
+		11F6D1C726E7962100D17B60 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				11F6D1CC26E7A8B100D17B60 /* Custom */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		11F6D1CC26E7A8B100D17B60 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				11F6D1C826E7964F00D17B60 /* NavigationControllerAnimations.swift */,
+				11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		11F8BC1726C2DCAB006FFF39 /* FavGroups */ = {
@@ -500,6 +522,7 @@
 				1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */,
 				114C359326C5BF2600D9C17B /* UsersStorage.swift in Sources */,
 				114E087826CE79C5008F519A /* FeedViewController.swift in Sources */,
+				11F6D1CB26E796C700D17B60 /* CustomInteractiveTransitions.swift in Sources */,
 				1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
 				114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */,
@@ -514,6 +537,7 @@
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
 				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
+				11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */,
 				114E234226C41983003456EF /* OldProfileViewController.swift in Sources */,
 				11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */,
 				1193D88F26D654F1000509CA /* UserProfileView.swift in Sources */,
