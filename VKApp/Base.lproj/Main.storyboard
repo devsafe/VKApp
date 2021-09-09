@@ -52,7 +52,7 @@
                                                 <state key="normal" title="Login"/>
                                                 <connections>
                                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DvL-af-7l7"/>
-                                                    <segue destination="dPd-11-6cT" kind="show" id="3gg-NP-xTv"/>
+                                                    <segue destination="dPd-11-6cT" kind="show" identifier="ShowAppAfterLogin" id="3gg-NP-xTv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEn-Zs-GMA">
@@ -105,6 +105,13 @@
                                                     <action selector="registerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bN1-KX-tcI"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="D3k-Aq-0KM">
+                                                <rect key="frame" x="371" y="186" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="Vz3-Iu-Efx"/>
+                                                    <constraint firstAttribute="height" constant="20" id="hHd-2v-1zy"/>
+                                                </constraints>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -114,7 +121,9 @@
                                             <constraint firstAttribute="trailing" secondItem="CGg-bD-c2m" secondAttribute="trailing" constant="15" id="Ae8-pb-QCy"/>
                                             <constraint firstItem="g6j-et-nlz" firstAttribute="top" secondItem="hbz-VB-oES" secondAttribute="top" constant="30" id="Ait-QA-EZ1"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="top" secondItem="sIU-Ip-8nq" secondAttribute="bottom" constant="5" id="Avv-ZQ-nPz"/>
+                                            <constraint firstItem="D3k-Aq-0KM" firstAttribute="centerY" secondItem="sIU-Ip-8nq" secondAttribute="centerY" id="BoJ-dZ-yff"/>
                                             <constraint firstItem="20d-ZY-7br" firstAttribute="centerX" secondItem="hbz-VB-oES" secondAttribute="centerX" id="ErT-ZD-POg"/>
+                                            <constraint firstItem="sIU-Ip-8nq" firstAttribute="trailing" secondItem="D3k-Aq-0KM" secondAttribute="trailing" constant="8" id="LM0-6K-BRn"/>
                                             <constraint firstItem="sIU-Ip-8nq" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="LRu-qp-dtg"/>
                                             <constraint firstItem="CGg-bD-c2m" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="MLx-Rj-16o"/>
                                             <constraint firstItem="OGB-bK-qXh" firstAttribute="leading" secondItem="hbz-VB-oES" secondAttribute="leading" constant="15" id="P49-k1-SJq"/>
@@ -151,10 +160,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingIndicatorOutlet" destination="D3k-Aq-0KM" id="0Ap-7x-SpS"/>
                         <outlet property="loginButton" destination="20d-ZY-7br" id="Y8Z-Pn-daq"/>
                         <outlet property="loginTextField" destination="sIU-Ip-8nq" id="u4M-vz-N0R"/>
                         <outlet property="loginWithAppleButton" destination="bTo-yn-RkE" id="e3q-4a-drS"/>
                         <outlet property="loginWithFacebookButton" destination="TEn-Zs-GMA" id="r5L-y0-cEM"/>
+                        <outlet property="logoAppImageOutlet" destination="g6j-et-nlz" id="6Zz-Eo-tB8"/>
                         <outlet property="passwordTextField" destination="OGB-bK-qXh" id="s5R-9k-6t6"/>
                         <outlet property="registerButton" destination="CGg-bD-c2m" id="NlT-wG-zKW"/>
                         <outlet property="scrollView" destination="f6P-eN-4AV" id="jgH-MR-Y3c"/>
@@ -948,6 +959,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logoutButton:" destination="OQR-jE-yUc" eventType="touchUpInside" id="QIp-o8-9GF"/>
+                                    <action selector="logoutButtonPressed:" destination="hzE-oH-cZS" eventType="touchUpInside" id="2b8-HE-9jm"/>
                                     <segue destination="OQR-jE-yUc" kind="unwind" unwindAction="logout:" id="Y0a-Bt-fBe"/>
                                 </connections>
                             </button>
@@ -1718,7 +1730,7 @@ It is a long established fact that a reader will be distracted by the readable c
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ndZ-81-WTG"/>
+        <segue reference="aZj-M6-pwy"/>
         <segue reference="IK1-qu-XFc"/>
     </inferredMetricsTieBreakers>
     <resources>

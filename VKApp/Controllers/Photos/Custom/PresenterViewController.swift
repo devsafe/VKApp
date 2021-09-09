@@ -11,190 +11,329 @@ class PresenterViewController: UIViewController {
     
     var photosFromOtherView = [PhotoModel]()
     var selectedPhoto = 0
-    
-    var leftImageView: UIImageView!
-    var middleImageView: UIImageView!
-    var rightImageView: UIImageView!
-    
-    var swipeToRight: UIViewPropertyAnimator!
-    var swipeToLeft: UIViewPropertyAnimator!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let gestPan = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
-        view.addGestureRecognizer(gestPan)
-        setImage()
-        startAnimate()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        view.subviews.forEach({ $0.removeFromSuperview() })
-    }
-    
-    func setImage(){
-        var indexPhotoLeft = selectedPhoto - 1
-        let indexPhotoMid = selectedPhoto
-        var indexPhotoRight = selectedPhoto + 1
-        
-        if indexPhotoLeft < 0 {
-            indexPhotoLeft = photosFromOtherView.count - 1
+        var photoImageView = UIImageView()
+       // var photos = [PhotoModel]()
+        var interactiveAnimator: UIViewPropertyAnimator!
+        var suppImageView = UIImageView()
+        var index = 0
+        private var isLeftSwipe = false
+        private var isRightSwipe = false
+        private var chooseFlag = false
+        var isSupImageFirst = false
+        var isLeftSwipePerform = false
+        var isRightSwipePerform = false
+      
+        var isLastPhoto = false
+        let anime2 = CASpringAnimation(keyPath: "transform.scale")
+        let y: CGFloat = 0
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+            self.view.addGestureRecognizer(recognizer)
+            
+     
+            anime2.fromValue = 1
+            anime2.toValue = 0.7
+            anime2.stiffness = 50
+            anime2.mass = 1
+            anime2.duration = 0.2
+            anime2.fillMode = CAMediaTimingFillMode.backwards
+
+            firstSetImage()
             
         }
-        if indexPhotoRight > photosFromOtherView.count - 1 {
-            indexPhotoRight = 0
+        
+        func firstSetImage() {
+            photoImageView.frame = UIScreen.main.bounds
+            photoImageView.image = UIImage(named: photosFromOtherView[0].fileName)
+            photoImageView.contentMode = .scaleAspectFit
+            photoImageView.transform = CGAffineTransform(translationX: 0, y: y)
+            self.view.addSubview(photoImageView)
+            if photosFromOtherView.count > 1 {
+                suppImageView.frame = UIScreen.main.bounds
+                suppImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: y)
+                suppImageView.image = UIImage(named: photosFromOtherView[1].fileName)
+
+                suppImageView.contentMode = .scaleAspectFit
+                self.view.addSubview(suppImageView)
+            }
+           
         }
-        view.subviews.forEach({ $0.removeFromSuperview() })
-        leftImageView = UIImageView()
-        middleImageView = UIImageView()
-        rightImageView = UIImageView()
         
-        leftImageView.contentMode = .scaleAspectFit
-        middleImageView.contentMode = .scaleAspectFit
-        rightImageView.contentMode = .scaleAspectFit
+        func setImage() {
+            if isLeftSwipePerform {
+                if isSupImageFirst {
+                    photoImageView.image = UIImage(named: photosFromOtherView[index].fileName)
+    //                suppImageView.layer.add(anime2, forKey: nil)
+                } else {
+                    suppImageView.image = UIImage(named: photosFromOtherView[index].fileName)
+    //                photoImageView.layer.add(anime2, forKey: nil)
+                }
+            }
+            if isRightSwipePerform {
+                if isSupImageFirst {
+                    photoImageView.image = UIImage(named: photosFromOtherView[index].fileName)
+    //                suppImageView.layer.add(anime2, forKey: nil)
+                } else {
+                    suppImageView.image = UIImage(named: photosFromOtherView[index].fileName)
+    //                photoImageView.layer.add(anime2, forKey: nil)
+                }
+            }
+        }
         
-        view.addSubview(leftImageView)
-        view.addSubview(middleImageView)
-        view.addSubview(rightImageView)
         
-        leftImageView.translatesAutoresizingMaskIntoConstraints = false
-        middleImageView.translatesAutoresizingMaskIntoConstraints = false
-        rightImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            middleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            middleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            middleImageView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 0),
-            middleImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            leftImageView.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            leftImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            leftImageView.heightAnchor.constraint(equalTo: middleImageView.heightAnchor),
-            leftImageView.widthAnchor.constraint(equalTo: middleImageView.widthAnchor),
-            
-            rightImageView.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            rightImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            rightImageView.heightAnchor.constraint(equalTo: middleImageView.heightAnchor),
-            rightImageView.widthAnchor.constraint(equalTo: middleImageView.widthAnchor),
-        ])
+        func performImageViewForRightSwipe() {
+            isRightSwipePerform = true
+            if index > photosFromOtherView.count - 1 {
+                index = photosFromOtherView.count - 1
+            }
+            index -= 1
+            if index >= 0 {
+                print(index)
+                setImage()
+                if isSupImageFirst {
+                    photoImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+                } else {
+                    suppImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: y)
+                }
+            }
+        }
         
-        leftImageView.image = UIImage(named: photosFromOtherView[indexPhotoLeft].fileName)
-        middleImageView.image = UIImage(named: photosFromOtherView[indexPhotoMid].fileName)
-        rightImageView.image = UIImage(named: photosFromOtherView[indexPhotoRight].fileName)
+        func performImageViewForLeftSwipe() {
+            isLeftSwipePerform = true
+            if index < 0 {
+                index = 0
+            }
+            index += 1
+            if index <= photosFromOtherView.count - 1  {
+                setImage()
+                if isSupImageFirst {
+                    photoImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                } else {
+                    suppImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: y)
+                }
+            }
+        }
         
-        middleImageView.layer.cornerRadius = 8
-        rightImageView.layer.cornerRadius = 8
-        leftImageView.layer.cornerRadius = 8
+        func leftSwipe() {
+            if index < photosFromOtherView.count {
+                if isSupImageFirst {
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.suppImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: self.y)
+                        self.photoImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                        
+                    })
+                    isSupImageFirst = false
+                    
+                    interactiveAnimator.pauseAnimation()
+                } else {
+
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.photoImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+                        self.suppImageView.transform = CGAffineTransform(translationX: 0, y: self.y)
+                        
+                    })
+                    isSupImageFirst = true
+                    interactiveAnimator.pauseAnimation()
+                }
+            }
+        }
         
-        middleImageView.clipsToBounds = true
-        rightImageView.clipsToBounds = true
-        leftImageView.clipsToBounds = true
+        func rightSwipe() {
+            print(index, photosFromOtherView.count )
+            if index >= 0 {
+                if isSupImageFirst {
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.suppImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: self.y)
+                        self.photoImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                        
+                    })
+                    isSupImageFirst = false
+                    
+                    interactiveAnimator.pauseAnimation()
+                } else {
+                    
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.photoImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                        self.suppImageView.transform = CGAffineTransform(translationX: 0, y: self.y)
+                        
+                    })
+                    isSupImageFirst = true
+                    interactiveAnimator.pauseAnimation()
+                }
+            }
+        }
         
-        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        
-        self.middleImageView.transform = scale
-        self.rightImageView.transform = scale
-        self.leftImageView.transform = scale
-        
-    }
-    
-    func startAnimate(){
-        setImage()
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0,
-            options: [],
-            animations: { [unowned self] in
-                self.middleImageView.transform = .identity
-                self.rightImageView.transform = .identity
-                self.leftImageView.transform = .identity
-            })
-    }
-    
-    func revertAnimate(){
-        setImage()
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0,
-            options: [],
-            animations: { [unowned self] in
-                self.middleImageView.transform = .identity
-                self.rightImageView.transform = .identity
-                self.leftImageView.transform = .identity
-            })
-    }
-    
-    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            swipeToRight = UIViewPropertyAnimator(
-                duration: 0.3,
-                curve: .easeInOut,
-                animations: {
-                    UIView.animate(
-                        withDuration: 0.01,
-                        delay: 0,
-                        options: [],
-                        animations: { [unowned self] in
-                            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                            let translation = CGAffineTransform(translationX: self.view.bounds.maxX - 0, y: 0)
-                            let transform = scale.concatenating(translation)
-                            self.middleImageView.transform = transform
-                            self.rightImageView.transform = transform
-                            self.leftImageView.transform = transform
-                        }, completion: { [unowned self] _ in
-                            self.selectedPhoto -= 1
-                            if self.selectedPhoto < 0 {
-                                self.selectedPhoto = self.photosFromOtherView.count - 1
-                            }
-                            self.startAnimate()
-                        })
-                })
-            swipeToLeft = UIViewPropertyAnimator(
-                duration: 0.3,
-                curve: .easeInOut,
-                animations: {
-                    UIView.animate(
-                        withDuration: 0.01,
-                        delay: 0,
-                        options: [],
-                        animations: { [unowned self] in
-                            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                            let translation = CGAffineTransform(translationX: -self.view.bounds.maxX + 0, y: 0)
-                            let transform = scale.concatenating(translation)
-                            self.middleImageView.transform = transform
-                            self.rightImageView.transform = transform
-                            self.leftImageView.transform = transform
-                        }, completion: { [unowned self] _ in
-                            self.selectedPhoto += 1
-                            if self.selectedPhoto > self.photosFromOtherView.count - 1 {
-                                self.selectedPhoto = 0
-                            }
-                            self.startAnimate()
-                        })
-                })
-        case .changed:
-            let translationX = recognizer.translation(in: self.view).x
-            if translationX > 0 {
-                    swipeToRight.fractionComplete = abs(translationX)/200
-            } else  {
-                swipeToLeft.fractionComplete = abs(translationX)/100
+        func goBack() {
+            if isLeftSwipePerform {
+                index -= 1
+                if isSupImageFirst {
+                   
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.photoImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                        self.suppImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                    })
+                    interactiveAnimator.pauseAnimation()
+
+                } else {
+                    
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.photoImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                        self.suppImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                    })
+                    
+                    interactiveAnimator.pauseAnimation()
+                }
             }
             
-        case .ended:
-            let translationX = recognizer.translation(in: self.view).x
-            if translationX > 100 {swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
-            if translationX < -100 {
-                swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0) }
-            if translationX > -100 || translationX < 100 {
-                revertAnimate() }
-        default:
-            return
+            if isRightSwipePerform {
+                index += 1
+                if isSupImageFirst {
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.photoImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+                        self.suppImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                    })
+                    interactiveAnimator.pauseAnimation()
+
+                } else {
+                    
+                    interactiveAnimator?.startAnimation()
+                    interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {
+                        self.photoImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                        self.suppImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+                    })
+                    
+                    interactiveAnimator.pauseAnimation()
+                }
+            }
+            
         }
+        
+        @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
+            if let animator = interactiveAnimator,
+               animator.isRunning {
+                return
+            }
+            
+            
+            switch recognizer.state {
+            case .began:
+               
+                   
+                interactiveAnimator?.startAnimation()
+                
+                interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut, animations: {})
+                
+                interactiveAnimator.pauseAnimation()
+
+                
+                
+                
+            case .changed:
+                let translation = recognizer.translation(in: self.view)
+                
+                interactiveAnimator.fractionComplete = translation.x / -UIScreen.main.bounds.width
+                
+                if translation.x < 0 {
+                    if !isLeftSwipePerform {
+                        performImageViewForLeftSwipe()
+                    }
+                    if index <= photosFromOtherView.count - 1 {
+                        if isSupImageFirst {
+                            
+                            interactiveAnimator?.startAnimation()
+                            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+                                self.photoImageView.transform = CGAffineTransform(translationX: self.suppImageView.frame.maxX, y: 0)
+                                self.suppImageView.transform = CGAffineTransform(translationX: translation.x, y: self.y)
+
+                            })
+                            
+                            interactiveAnimator.pauseAnimation()
+                        } else {
+                            interactiveAnimator?.startAnimation()
+                            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+                                self.photoImageView.transform = CGAffineTransform(translationX: translation.x, y: 0)
+                                self.suppImageView.transform = CGAffineTransform(translationX: self.photoImageView.frame.maxX , y: self.y)
+                            })
+                            interactiveAnimator.pauseAnimation()
+                        }
+                    }
+                }
+                
+                if translation.x > 0 {
+                    if !isRightSwipePerform {
+                        if index >= 0 {
+                            performImageViewForRightSwipe()
+                        }
+                   
+                    }
+                    if index >= 0 {
+                        print("начало свайпа вправа")
+                        if isSupImageFirst {
+                            print("свайп вправо если сап имг первая")
+                            interactiveAnimator?.startAnimation()
+                            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+                                self.photoImageView.transform = CGAffineTransform(translationX: self.suppImageView.frame.minX - self.photoImageView.frame.width, y: 0)
+                                self.suppImageView.transform = CGAffineTransform(translationX: translation.x, y: self.y)
+
+                            })
+                            
+                            interactiveAnimator.pauseAnimation()
+                        } else {
+                            print("свайп вправо если сап имг вторая")
+                            interactiveAnimator?.startAnimation()
+                            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+                                self.photoImageView.transform = CGAffineTransform(translationX: translation.x, y: 0)
+                                self.suppImageView.transform = CGAffineTransform(translationX: self.photoImageView.frame.minX -  self.suppImageView.frame.width, y: self.y)
+                            })
+                            interactiveAnimator.pauseAnimation()
+                        }
+                    }
+                }
+            
+            case .ended:
+                let translation = recognizer.translation(in: self.view)
+                print(translation.x)
+                interactiveAnimator.fractionComplete = translation.x / -UIScreen.main.bounds.width
+                if translation.x < 0 {
+                    print("LL \(index)")
+                    if index <= photosFromOtherView.count - 1 {
+                        if -translation.x < UIScreen.main.bounds.width/4 {
+                            goBack()
+                        } else {
+                            print(index)
+                            leftSwipe()
+                        }
+                    }
+                }
+                
+                if translation.x > 0 {
+                    print("LL \(index)")
+                    if index >= 0 {
+                        if translation.x < UIScreen.main.bounds.width/4 {
+                            print("свайп вправо не был")
+                            goBack()
+                        } else {
+                            print("свайп вправо был")
+                            rightSwipe()
+
+                        }
+                    }
+                }
+                isLeftSwipePerform = false
+                isRightSwipePerform = false
+                interactiveAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            default:
+                return
+            }
+        }
+        
     }
-}
