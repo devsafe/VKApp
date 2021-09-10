@@ -18,7 +18,7 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         return refreshControl
     }()
     
-    var currentTableAnimation: TableAnimation = .moveUpBounce(rowHeight: 500, duration: 1.7, delay: 0) {
+    var currentTableAnimation: TableAnimation = .moveUpBounce(rowHeight: 300, duration: 0.7, delay: 0) {
         didSet {
            // self.tableViewHeaderText = currentTableAnimation.getTitle()
         }

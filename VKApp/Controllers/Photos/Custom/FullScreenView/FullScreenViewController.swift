@@ -33,10 +33,26 @@ class FullScreenViewController: UIViewController {
         setSingleTap()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+//        //view.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        view.transform = CGAffineTransform(translationX: 0, y: 0)
+//          // view.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+//           UIView.animate(withDuration: 2.5, animations: { [weak self] in
+//               self?.view.transform = CGAffineTransform.identity
+//           })
+       }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
         navigationController?.navigationBar.isHidden = false
+        
+        
+        view.transform = CGAffineTransform.identity
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            self?.view.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+        })
     }
     
     override func viewDidDisappear(_ animated: Bool) {
