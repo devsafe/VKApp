@@ -18,6 +18,12 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         return refreshControl
     }()
     
+    var currentTableAnimation: TableAnimation = .moveUpBounce(rowHeight: 300, duration: 0.7, delay: 0) {
+        didSet {
+           // self.tableViewHeaderText = currentTableAnimation.getTitle()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -49,6 +55,13 @@ extension AllGroupsViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
         cell.configure(imageName: filteredGroups[indexPath.row].logo, title: filteredGroups[indexPath.row].name, detail: filteredGroups[indexPath.row].description, extraLabel: nil, favouritImage: "nil")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // fetch the animation from the TableAnimation enum and initialze the TableViewAnimator class
+        let animation = currentTableAnimation.getAnimation()
+        let animator = TableViewAnimator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
     }
     
     func showJoinAlert(group: String) {

@@ -53,6 +53,8 @@
 		11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */; };
 		11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C826E7964F00D17B60 /* NavigationControllerAnimations.swift */; };
 		11F6D1CB26E796C700D17B60 /* CustomInteractiveTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */; };
+		11F6D1CE26E7E5D600D17B60 /* GroupsCellAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CD26E7E5D600D17B60 /* GroupsCellAnimation.swift */; };
+		11F6D1D026E7E72700D17B60 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CF26E7E72700D17B60 /* Tables.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */; };
 		11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */; };
 		11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */; };
@@ -107,6 +109,8 @@
 		11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
 		11F6D1C826E7964F00D17B60 /* NavigationControllerAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerAnimations.swift; sourceTree = "<group>"; };
 		11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransitions.swift; sourceTree = "<group>"; };
+		11F6D1CD26E7E5D600D17B60 /* GroupsCellAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCellAnimation.swift; sourceTree = "<group>"; };
+		11F6D1CF26E7E72700D17B60 /* Tables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tables.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGroupsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -439,7 +443,9 @@
 		11F8BC1A26C2ECE9006FFF39 /* AllGroups */ = {
 			isa = PBXGroup;
 			children = (
+				11F6D1CF26E7E72700D17B60 /* Tables.swift */,
 				11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */,
+				11F6D1CD26E7E5D600D17B60 /* GroupsCellAnimation.swift */,
 			);
 			path = AllGroups;
 			sourceTree = "<group>";
@@ -548,7 +554,9 @@
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114E088626D05967008F519A /* UserProfileWallTableViewCell.swift in Sources */,
 				11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */,
+				11F6D1D026E7E72700D17B60 /* Tables.swift in Sources */,
 				114E087626CE72AC008F519A /* FeedStorage.swift in Sources */,
+				11F6D1CE26E7E5D600D17B60 /* GroupsCellAnimation.swift in Sources */,
 				1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */,
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
