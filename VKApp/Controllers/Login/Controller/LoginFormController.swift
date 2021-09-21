@@ -127,7 +127,7 @@ class LoginFormController: UIViewController {
     }
     
     @IBAction func loginWithAppleButtonPressed(_ sender: UIButton) {
-        let toViewController = LoginWebViewController()
+        let toViewController = WKLoginViewController()
         self.present(toViewController, animated: true, completion: nil)
         
         if isUserInDB(userName: loginTextField.text!) {
