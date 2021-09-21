@@ -10,7 +10,7 @@ import UIKit
 class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
-    
+    let networkService = NetworkService()
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -19,6 +19,7 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkService.groupsGet(user_id: UserSession.shared.userId)
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         NotificationCenter.default.addObserver(self, selector: #selector(loadList2), name: NSNotification.Name(rawValue: "load"), object: nil)

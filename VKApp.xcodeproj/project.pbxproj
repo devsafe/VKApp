@@ -51,6 +51,7 @@
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
+		11E28B6126FA38D700D7917D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E28B6026FA38D700D7917D /* NetworkService.swift */; };
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
 		11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */; };
 		11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */; };
@@ -114,6 +115,7 @@
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		11E28B6026FA38D700D7917D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
 				1149ADCE26E34D200003FFB6 /* Cube.swift */,
 				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
+				11E28B6026FA38D700D7917D /* NetworkService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				1193D88F26D654F1000509CA /* UserProfileView.swift in Sources */,
 				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */,
+				11E28B6126FA38D700D7917D /* NetworkService.swift in Sources */,
 				114E086826CBE4C5008F519A /* LikeControl.swift in Sources */,
 				114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */,
 				11F6D1D726EB980D00D17B60 /* PhotoZoomViewController.swift in Sources */,

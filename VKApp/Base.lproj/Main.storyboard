@@ -749,7 +749,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="commentControl" destination="Gcn-T0-ps3" id="ihv-YV-Nai"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeControl" destination="LxT-Lu-HHy" id="pAL-Uy-E4O"/>
-                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="nLG-e1-TTN"/>
+                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="Nee-5j-VoL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1792,7 +1792,7 @@ It is a long established fact that a reader will be distracted by the readable c
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aZj-M6-pwy"/>
-        <segue reference="nLG-e1-TTN"/>
+        <segue reference="Nee-5j-VoL"/>
         <segue reference="jGG-lF-eFH"/>
     </inferredMetricsTieBreakers>
     <resources>
