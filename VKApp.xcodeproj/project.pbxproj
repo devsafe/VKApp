@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,6 +42,11 @@
 		1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */; };
 		1193D89926DBEF88000509CA /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89826DBEF88000509CA /* DialogViewController.swift */; };
 		11AB517226F91AAD0057804A /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517126F91AAD0057804A /* UserSession.swift */; };
+		11AB517526F91C1D0057804A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 11AB517426F91C1D0057804A /* Alamofire */; };
+		11AB517726F9233C0057804A /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517626F9233C0057804A /* LoginWebViewController.swift */; };
+		11AB517926F923FE0057804A /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517826F923FE0057804A /* NetworkingService.swift */; };
+		11AB517B26F924DD0057804A /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517A26F924DD0057804A /* NetworkConstants.swift */; };
+		11AB517D26FA12800057804A /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517C26FA12800057804A /* WKLoginViewController.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -102,6 +107,10 @@
 		1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCustomLayout.swift; sourceTree = "<group>"; };
 		1193D89826DBEF88000509CA /* DialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewController.swift; sourceTree = "<group>"; };
 		11AB517126F91AAD0057804A /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		11AB517626F9233C0057804A /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		11AB517826F923FE0057804A /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		11AB517A26F924DD0057804A /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		11AB517C26FA12800057804A /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AB517526F91C1D0057804A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +337,10 @@
 			children = (
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
 				1149ADCE26E34D200003FFB6 /* Cube.swift */,
+				11AB517626F9233C0057804A /* LoginWebViewController.swift */,
+				11AB517826F923FE0057804A /* NetworkingService.swift */,
+				11AB517A26F924DD0057804A /* NetworkConstants.swift */,
+				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -500,6 +514,9 @@
 			dependencies = (
 			);
 			name = VKApp;
+			packageProductDependencies = (
+				11AB517426F91C1D0057804A /* Alamofire */,
+			);
 			productName = VKApp;
 			productReference = 11CCD81526BC6403009A5865 /* VKApp.app */;
 			productType = "com.apple.product-type.application";
@@ -527,6 +544,9 @@
 				Base,
 			);
 			mainGroup = 11CCD80C26BC6403009A5865;
+			packageReferences = (
+				11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 11CCD81626BC6403009A5865 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -573,12 +593,14 @@
 				11F6D1E026EB98D500D17B60 /* ZoomTransition.swift in Sources */,
 				114E088426D03EED008F519A /* UserProfilePhotosCollectionViewCell.swift in Sources */,
 				1193D88C26D1787E000509CA /* GroupProfileViewController.swift in Sources */,
+				11AB517926F923FE0057804A /* NetworkingService.swift in Sources */,
 				114E088026CF9257008F519A /* ViewsCountControl.swift in Sources */,
 				11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */,
 				114C359C26C73BC300D9C17B /* PhotosCollectionViewCell.swift in Sources */,
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
 				114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */,
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
+				11AB517D26FA12800057804A /* WKLoginViewController.swift in Sources */,
 				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */,
@@ -595,11 +617,13 @@
 				11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */,
 				11F6D1D026E7E72700D17B60 /* Tables.swift in Sources */,
 				114E087626CE72AC008F519A /* FeedStorage.swift in Sources */,
+				11AB517726F9233C0057804A /* LoginWebViewController.swift in Sources */,
 				11F6D1CE26E7E5D600D17B60 /* GroupsCellAnimation.swift in Sources */,
 				1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */,
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
 				114E087426CE7064008F519A /* PostModel.swift in Sources */,
+				11AB517B26F924DD0057804A /* NetworkConstants.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,
 				114E087A26CE7AA8008F519A /* FeedTableViewCell.swift in Sources */,
 				1193D89326D79457000509CA /* NewsStorage.swift in Sources */,
@@ -811,6 +835,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11AB517426F91C1D0057804A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11CCD80D26BC6403009A5865 /* Project object */;
 }
