@@ -13,7 +13,7 @@ class NetworkService {
     let apiUrl = "https://api.vk.com/method/"
     let apiToken = UserSession.shared.token
     
-//    func loadWeatherData(city: String, completion: @escaping (Result<[WeatherObject], WeatherServiceError>) -> Void)
+    //    func loadWeatherData(city: String, completion: @escaping (Result<[WeatherObject], WeatherServiceError>) -> Void)
     
     func friendsGet(user_id: Int, completion: @escaping (Result<FriendsResponseModel, VKServiceError>) -> Void) {
         let method = "friends.get"
@@ -29,22 +29,22 @@ class NetworkService {
         let url = apiUrl + method
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
-  guard let json = response.data else { return }
-           print(json)
+            guard let json = response.data else { return }
+            print(json)
             
             
-//            
-//            if let error = response.error {
-//                completion(.failure(.serverError))
-//                print("FAILTURE")
-//                print(error)
-//            }
-//
-//            guard let data = response.data else {
-//                completion(.failure(.notData))
-//                print("NOT DATA")
-//                return
-//            }
+            //
+            //            if let error = response.error {
+            //                completion(.failure(.serverError))
+            //                print("FAILTURE")
+            //                print(error)
+            //            }
+            //
+            //            guard let data = response.data else {
+            //                completion(.failure(.notData))
+            //                print("NOT DATA")
+            //                return
+            //            }
             
             
             do {
@@ -52,7 +52,7 @@ class NetworkService {
                 print(users)
                 print(users.response.count)
                 print("GOOD")
-               // let users2 = users.response.items
+                // let users2 = users.response.items
                 completion(.success(users))
             } catch {
                 print(error)
@@ -71,10 +71,10 @@ class NetworkService {
         
         AF.request(url, method: .get).response { response in
             guard response.data != nil else { return }
-                          do {
-                              let photo = UIImage(data: ((response.data! as NSData) as Data))
-                              completion(.success(photo!))
-                      }
+            do {
+                let photo = UIImage(data: ((response.data! as NSData) as Data))
+                completion(.success(photo!))
+            }
             
             
             
@@ -98,15 +98,15 @@ class NetworkService {
         AF.request(url, method: .get, parameters: params).responseJSON { response in
             print(response.value as Any)
             guard response.value != nil else { return }
-                          do {
-                              let groups = try JSONDecoder().decode(GroupsResponseModel.self, from: response.data!)
-                              completion(.success(groups))
-                      } catch {
-                          print(error)
-                      }
+            do {
+                let groups = try JSONDecoder().decode(GroupsResponseModel.self, from: response.data!)
+                completion(.success(groups))
+            } catch {
+                print(error)
+            }
             
             
-           
+            
         }.resume()
     }
     
