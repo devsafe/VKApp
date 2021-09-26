@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1148B08C26FFC39B00EA3803 /* NewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08B26FFC39B00EA3803 /* NewModel.swift */; };
 		1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1149ADCE26E34D200003FFB6 /* Cube.swift */; };
 		114C358926C5B50C00D9C17B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358826C5B50C00D9C17B /* UserModel.swift */; };
 		114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358A26C5B52B00D9C17B /* GroupModel.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1148B08B26FFC39B00EA3803 /* NewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModel.swift; sourceTree = "<group>"; };
 		1149ADCE26E34D200003FFB6 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		114C358826C5B50C00D9C17B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		114C358A26C5B52B00D9C17B /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				1149ADCE26E34D200003FFB6 /* Cube.swift */,
 				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
 				11E28B6026FA38D700D7917D /* NetworkService.swift */,
+				1148B08B26FFC39B00EA3803 /* NewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				11F6D1CE26E7E5D600D17B60 /* GroupsCellAnimation.swift in Sources */,
 				1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */,
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,
+				1148B08C26FFC39B00EA3803 /* NewModel.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
 				114E087426CE7064008F519A /* PostModel.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,

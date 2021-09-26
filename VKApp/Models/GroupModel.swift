@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GroupModel {
+struct GroupModel: Codable {
     let name: String
     let description: String
     let logo: String

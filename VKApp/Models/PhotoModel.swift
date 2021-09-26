@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PhotoModel {
+struct PhotoModel: Codable {
     let name: String
     let fileName: String
     var likeCount: Int

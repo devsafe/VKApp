@@ -7,25 +7,79 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class NetworkService {
     let apiUrl = "https://api.vk.com/method/"
     let apiToken = UserSession.shared.token
-    func friendsGet(user_id: Int) {
+    
+//    func loadWeatherData(city: String, completion: @escaping (Result<[WeatherObject], WeatherServiceError>) -> Void)
+    
+    func friendsGet(user_id: Int, completion: @escaping (Result<FriendsResponseModel, VKServiceError>) -> Void) {
         let method = "friends.get"
         let params: Parameters = [
             "user_id": user_id,
-            "fields" : "bdate",
-            "lang" : "en",
+            "fields" : "city, photo_100",
+            "lang" : "ru",
             //"order": "name",
-            "count": 10,
+            //"count": 10,
             "v" : 5.131,
             "access_token" : apiToken
         ]
         let url = apiUrl + method
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
-            print(response.value as Any)
+  guard let json = response.data else { return }
+           print(json)
+            
+            
+//            
+//            if let error = response.error {
+//                completion(.failure(.serverError))
+//                print("FAILTURE")
+//                print(error)
+//            }
+//
+//            guard let data = response.data else {
+//                completion(.failure(.notData))
+//                print("NOT DATA")
+//                return
+//            }
+            
+            
+            do {
+                let users = try JSONDecoder().decode(FriendsResponseModel.self, from: response.data!)
+                print(users)
+                print(users.response.count)
+                print("GOOD")
+                let users2 = users.response.items
+                completion(.success(users))
+            } catch {
+                print(error)
+            }
+            
+            
+            
+            
+            
+        }.resume()
+    }
+    
+    func photoLoad(url: String, completion: @escaping (Result<UIImage, VKServiceError>) -> Void) {
+        //let params: Parameters = []
+        let url = url
+        
+        AF.request(url, method: .get).response { response in
+            guard let photo = response.data else { return }
+                          do {
+                              let photo = UIImage(data: ((response.data! as NSData) as Data))
+                              completion(.success(photo!))
+                      } catch {
+                          print(error)
+                      }
+            
+            
+            
         }.resume()
     }
     
@@ -82,9 +136,12 @@ class NetworkService {
             print(response.value as Any)
         }.resume()
     }
-    
 }
 
 
 
-//groups.search
+enum VKServiceError: Error {
+    case decodeError
+    case notData
+    case serverError
+}

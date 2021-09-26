@@ -14,6 +14,7 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet var detailLabelFriendsCell: UILabel!
     @IBOutlet var imageFriendsCell: UIImageView!
     var avatarTapped: (() -> Void)?
+    let networkService = NetworkService()
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureCellStaticApperance()
@@ -22,10 +23,21 @@ class FriendsTableViewCell: UITableViewCell {
         imageFriendsCell.isUserInteractionEnabled = true
     }
     
-    func configure(friend: UserModel) {
-        imageFriendsCell.image = UIImage(named: friend.avatar)
-        labelFriendsCell.text = friend.fullName
-        detailLabelFriendsCell.text = friend.location
+    func configure(friend: FriendsItems) {
+        
+        networkService.photoLoad(url: friend.photo_100) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.imageFriendsCell.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        //imageFriendsCell.image = UIImage(named: friend.photo_100)
+        
+        labelFriendsCell.text = friend.first_name + " " + friend.last_name
+        detailLabelFriendsCell.text = friend.photo_100
     }
     
     func configureCellStaticApperance() {
