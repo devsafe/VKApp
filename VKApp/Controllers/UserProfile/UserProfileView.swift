@@ -19,10 +19,13 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     
     let networkService = NetworkService()
     var userNameFromOtherView = String()
+    var userFromOtherView = FriendsItems(id: 0, first_name: "", last_name: "", city: City(id: 0, title: "" ), photo_100: "")
+    
+    
     var userIndex = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
+        FeedStorage.getPostsForUsername(username: userFromOtherView.last_name).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,8 +40,9 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let photosCount = UserStorage.getPhotosForUsername(username: userNameFromOtherView).count
-        return photosCount
+        let photosCount = UserStorage.getPhotosForUsername(username: userFromOtherView.last_name).count
+        print(photosCount)
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,16 +65,26 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
         let user = Storage.allUsers[userIndex]
         avatarImageOutlet.image = UIImage(named: user.avatar)
+        
+        networkService.photoLoad(url: userFromOtherView.photo_100) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.avatarImageOutlet.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
         avatarImageOutlet.layer.cornerRadius = 80
         avatarImageOutlet.layer.borderWidth = 1
         avatarImageOutlet.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
         avatarImageOutlet.layer.borderColor = customColor.cgColor
-        fullnameLabelOutlet.text = user.fullName
-        locationLabelOutlet.text = "Location: " + user.location
+        fullnameLabelOutlet.text = userFromOtherView.first_name + " " + userFromOtherView.last_name
+        locationLabelOutlet.text = "Location: " + (userFromOtherView.city?.title ?? "No information")
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
-        self.title = "id: \(userNameFromOtherView)"
+        self.title = "id: \(userFromOtherView.id)"
         setSingleTap()
         tableView.reloadData()
     }

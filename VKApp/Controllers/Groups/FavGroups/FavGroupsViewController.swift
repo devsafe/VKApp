@@ -74,7 +74,7 @@ extension FavGroupsViewController {
             let destination = segue.destination as? GroupProfileViewController,
             let groupIndex = tableView.indexPathForSelectedRow
         {
-            destination.groupFromOtherView =  Storage.allUsers[Storage.userIdActiveSession].favGroups[groupIndex.row]
+            destination.groupFromOtherView =  groupsAF[groupIndex.row]
         }
     }
     

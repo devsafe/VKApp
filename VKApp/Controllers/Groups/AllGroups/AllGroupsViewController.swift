@@ -101,10 +101,12 @@ extension AllGroupsViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "ShowGroup",
-            let destination = segue.destination as? GroupProfileViewController,
+           let destination = segue.destination as? GroupProfileViewController,
             let groupIndex = tableView.indexPathForSelectedRow
         {
-            destination.groupFromOtherView =  filteredGroups[groupIndex.row]
+            //destination.groupFromOtherView =  filteredGroups[groupIndex.row]
+            print("oo")
+            print(destination, groupIndex)
         }
     }
 }

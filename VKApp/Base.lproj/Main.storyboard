@@ -417,9 +417,9 @@
                                                 <constraint firstAttribute="width" constant="160" id="j5w-Tb-xMx"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHH-Ya-3gX">
-                                            <rect key="frame" x="192" y="16" width="206" height="72"/>
-                                            <string key="text">Full Description ggetr gertgrt g wth rthg rsth ertherth er ther he  ggetr gertgrt g wth rthg rsth ertherth er ther he  ggetr gertgrt g wth rthg rsth ertherth er ther he  ggetr</string>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHH-Ya-3gX">
+                                            <rect key="frame" x="192" y="16" width="206" height="86"/>
+                                            <string key="text">Full Description ggetr gertgrt g wth rthg rsth ertherth er ther he  ggetr gertgrt g wth rthg rsth ertherth er ther he  ggetr gertgrt g wth rthg rsth ertherth er ther he  ggetr tg rth rt hrh r hr hr y h</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -470,7 +470,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9Y-TM-yk2">
-                                                    <rect key="frame" x="72" y="16" width="326" height="21"/>
+                                                    <rect key="frame" x="72" y="16" width="310" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -553,7 +553,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                                 <constraint firstItem="UNh-Da-seQ" firstAttribute="leading" secondItem="Czf-eu-g00" secondAttribute="trailing" constant="40" id="cvW-Yb-ZuH"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZPw-m9-epk" secondAttribute="trailing" constant="16" id="d9X-1C-bUd"/>
                                                 <constraint firstItem="a9Y-TM-yk2" firstAttribute="top" secondItem="bUA-1s-qnT" secondAttribute="top" id="hs3-V9-zsw"/>
-                                                <constraint firstAttribute="trailing" secondItem="a9Y-TM-yk2" secondAttribute="trailing" constant="16" id="jCy-dx-Swp"/>
+                                                <constraint firstItem="VZs-U5-Nrv" firstAttribute="trailing" secondItem="a9Y-TM-yk2" secondAttribute="trailing" constant="16" id="jCy-dx-Swp"/>
                                                 <constraint firstItem="ZPw-m9-epk" firstAttribute="leading" secondItem="zTV-5b-gWn" secondAttribute="leading" constant="16" id="jbW-WM-jcM"/>
                                                 <constraint firstAttribute="trailing" secondItem="VZs-U5-Nrv" secondAttribute="trailing" constant="16" id="m5m-Og-lGK"/>
                                                 <constraint firstAttribute="bottom" secondItem="dId-lI-FCP" secondAttribute="bottom" constant="3" id="mSC-Wt-yS6"/>

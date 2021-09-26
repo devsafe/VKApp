@@ -20,7 +20,7 @@ class NetworkService {
         let params: Parameters = [
             "user_id": user_id,
             "fields" : "city, photo_100",
-            "lang" : "ru",
+            "lang" : "en",
             //"order": "name",
             //"count": 10,
             "v" : 5.131,
@@ -52,7 +52,7 @@ class NetworkService {
                 print(users)
                 print(users.response.count)
                 print("GOOD")
-                let users2 = users.response.items
+               // let users2 = users.response.items
                 completion(.success(users))
             } catch {
                 print(error)
@@ -70,12 +70,10 @@ class NetworkService {
         let url = url
         
         AF.request(url, method: .get).response { response in
-            guard let photo = response.data else { return }
+            guard response.data != nil else { return }
                           do {
                               let photo = UIImage(data: ((response.data! as NSData) as Data))
                               completion(.success(photo!))
-                      } catch {
-                          print(error)
                       }
             
             
@@ -99,10 +97,9 @@ class NetworkService {
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
             print(response.value as Any)
-            guard let json = response.value else { return }
+            guard response.value != nil else { return }
                           do {
                               let groups = try JSONDecoder().decode(GroupsResponseModel.self, from: response.data!)
-                              let groups2 = groups.response.items
                               completion(.success(groups))
                       } catch {
                           print(error)
