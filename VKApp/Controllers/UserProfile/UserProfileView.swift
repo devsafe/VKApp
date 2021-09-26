@@ -17,6 +17,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet var followButtonOutlet: UIButton!
     
     var photosAF: [PhotoItems] = []
+    var avatarAF: [PhotoItems] = []
     
     
     let networkService = NetworkService()
@@ -59,6 +60,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatarAF = [PhotoItems(id: 0, sizes: [Sizes(url: userFromOtherView.photo_100), Sizes(url: userFromOtherView.photo_100), Sizes(url: userFromOtherView.photo_100), Sizes(url: userFromOtherView.photo_100)])]
         networkService.photosGetAll(owner_id: userFromOtherView.id) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -109,7 +111,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         } else if segue.identifier == "ShowFullScreenPhotos",
                   let destination = segue.destination as? FullScreenViewController
         {
-            destination.photosFromOtherView = photosAF
+            destination.photosFromOtherView = avatarAF
             destination.selectedPhoto = 0
         } else if segue.identifier == "ShowFullScreenMedia",
                   let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath

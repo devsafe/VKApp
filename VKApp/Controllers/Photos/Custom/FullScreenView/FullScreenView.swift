@@ -137,7 +137,7 @@ class FullScreenView: UIView {
             guard let self = self else { return }
             switch result {
             case .success(let photo):
-                self.leftView.image = photo
+                self.leftView.image = self.photoes.count > 1 ? photo : nil
             case .failure: print("ERROR")
             }
         }
@@ -146,7 +146,7 @@ class FullScreenView: UIView {
             guard let self = self else { return }
             switch result {
             case .success(let photo):
-                self.rightView.image = photo
+                self.rightView.image = self.photoes.count > 1 ? photo : nil
             case .failure: print("ERROR")
             }
         }
