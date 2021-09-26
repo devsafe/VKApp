@@ -20,7 +20,7 @@ struct FriendsItems: Codable {
     let id: Int
     let first_name: String
     let last_name: String
-   // let city: City
+    let city: City?
     let photo_100: String
 }
 

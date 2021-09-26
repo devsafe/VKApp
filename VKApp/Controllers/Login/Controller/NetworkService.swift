@@ -83,14 +83,14 @@ class NetworkService {
         }.resume()
     }
     
-    func groupsGet(user_id: Int) {
+    func groupsGet(user_id: Int, completion: @escaping (Result<GroupsResponseModel, VKServiceError>) -> Void) {
         let method = "groups.get"
         let params: Parameters = [
             "user_id": user_id,
             "fields" : "description",
             "lang" : "en",
             "extended" : 1,
-            "count": 10,
+            //"count": 10,
             "v" : 5.131,
             "access_token" : apiToken
         ]
@@ -99,6 +99,17 @@ class NetworkService {
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
             print(response.value as Any)
+            guard let json = response.value else { return }
+                          do {
+                              let groups = try JSONDecoder().decode(GroupsResponseModel.self, from: response.data!)
+                              let groups2 = groups.response.items
+                              completion(.success(groups))
+                      } catch {
+                          print(error)
+                      }
+            
+            
+           
         }.resume()
     }
     

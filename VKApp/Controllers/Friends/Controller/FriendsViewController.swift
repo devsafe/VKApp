@@ -15,11 +15,12 @@ class FriendsViewController: UIViewController {
     var friendsSection = [[FriendsItems]]()
     let friends = [[FriendsItems]]()
     var friends2 = [FriendsItems]()
+    var friendsAF: [FriendsItems] = []
     private var firstLetters: [String] = []
     let networkService = NetworkService()
     //var friendsAloma: FriendsResponseModel = FriendsResponseModel(response: <#Response#>)
     
-    var friendsAF: [FriendsItems] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

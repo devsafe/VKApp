@@ -13,6 +13,7 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var searchBarAllGroups: UISearchBar!
     var filteredGroups: [GroupModel]!
     let networkService = NetworkService()
+    var groupsAF: [GroupsItems] = []
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -50,11 +51,11 @@ extension AllGroupsViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isGroupInFav(groupName: filteredGroups[indexPath.row].name) {
             let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
-            cell.configure(imageName: filteredGroups[indexPath.row].logo, title: filteredGroups[indexPath.row].name, detail: filteredGroups[indexPath.row].description, extraLabel: "", favouritImage: "star")
+            cell.configure(group: groupsAF[indexPath.row])
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
-        cell.configure(imageName: filteredGroups[indexPath.row].logo, title: filteredGroups[indexPath.row].name, detail: filteredGroups[indexPath.row].description, extraLabel: nil, favouritImage: "nil")
+        cell.configure(group: groupsAF[indexPath.row])
         return cell
     }
     
