@@ -16,6 +16,8 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
+    var photosAF: [PhotoItems] = []
+    
     
     let networkService = NetworkService()
     var userNameFromOtherView = String()
@@ -42,12 +44,12 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let photosCount = UserStorage.getPhotosForUsername(username: userFromOtherView.last_name).count
         print(photosCount)
-        return 0
+        return photosAF.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfilePhotosCell", for: indexPath) as! UserProfilePhotosCollectionViewCell
-        let photos = UserStorage.getPhotosForUsername(username: userNameFromOtherView)[indexPath.item]
+        let photos = photosAF[indexPath.item]
         cell.configure(photoModel: photos)
         cell.likeTapped = { [weak self] in
             Storage.allUsers[UserStorage.getIndexByUsername(username: self!.userNameFromOtherView)].photos[indexPath.item].isLike.toggle()
@@ -57,7 +59,16 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.photosGetAll(owner_id: UserSession.shared.userId)
+        networkService.photosGetAll(owner_id: userFromOtherView.id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.photosAF = photo.response.items
+                print(self.photosAF)
+                self.collectionView.reloadData()
+            case .failure: print("ERROR GET ALL PHOTOS")
+            }
+        }
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self
@@ -94,6 +105,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
             let destination = segue.destination as? PhotosViewController
         {
             destination.userNameFromOtherView = userNameFromOtherView
+            destination.photosFromOtherView = photosAF
         } else if segue.identifier == "ShowFullScreenPhotos",
                   let destination = segue.destination as? FullScreenViewController
         {

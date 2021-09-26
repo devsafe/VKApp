@@ -110,14 +110,15 @@ class NetworkService {
         }.resume()
     }
     
-    func photosGetAll(owner_id: Int) {
+    func photosGetAll(owner_id: Int, completion: @escaping (Result<PhotoResponseModel, VKServiceError>) -> Void) {
         let method = "photos.getAll"
         let params: Parameters = [
             "owner_id": owner_id,
             "fields" : "description",
+            "photo_sizes" : 1,
             "lang" : "en",
             "extended" : 1,
-            "count": 10,
+            //"count": 10,
             "v" : 5.131,
             "access_token" : apiToken
         ]
@@ -125,6 +126,13 @@ class NetworkService {
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
             print(response.value as Any)
+            guard response.value != nil else { return }
+            do {
+                let photos = try JSONDecoder().decode(PhotoResponseModel.self, from: response.data!)
+                completion(.success(photos))
+            } catch {
+                print(error)
+            }
         }.resume()
     }
     
