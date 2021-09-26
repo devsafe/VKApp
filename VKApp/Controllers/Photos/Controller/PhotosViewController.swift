@@ -35,7 +35,7 @@ class PhotosViewController: UIViewController {
         if  segue.identifier == "ShowFullScreenPhotos",
             let destination = segue.destination as? FullScreenViewController
         {
-            destination.photosFromOtherView = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
+            destination.photosFromOtherView = photosFromOtherView
             let indexPath2 = collectionView.indexPathsForSelectedItems
             destination.selectedPhoto = indexPath2![0].item
         } else if  segue.identifier == "ShowPhotoPageView",

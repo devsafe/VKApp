@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+let networkService = NetworkService()
 class FullScreenView: UIView {
     
     private var leftView: UIImageView = {
@@ -123,7 +123,35 @@ class FullScreenView: UIView {
             print("Error index for visible view")
             return
         }
-        visibleView.image = UIImage(named: photoes[visibleIndex])
+        
+        networkService.photoLoad(url: photoes[visibleIndex]) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.visibleView.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        networkService.photoLoad(url: photoes[earlyIndex()]) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.leftView.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        networkService.photoLoad(url: photoes[nextIndex()]) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.rightView.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        //visibleView.image = UIImage(named: photoes[visibleIndex])
         leftView.image = photoes.count > 1 ? UIImage(named: photoes[earlyIndex()]) : nil
         rightView.image = photoes.count > 1 ? UIImage(named: photoes[nextIndex()]) : nil
         nameLabel.text = namePhoto[visibleIndex]

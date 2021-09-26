@@ -109,12 +109,12 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         } else if segue.identifier == "ShowFullScreenPhotos",
                   let destination = segue.destination as? FullScreenViewController
         {
-            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.allUsers[userIndex].avatar)", fileName: "\(Storage.allUsers[userIndex].avatar)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.photosFromOtherView = photosAF
             destination.selectedPhoto = 0
         } else if segue.identifier == "ShowFullScreenMedia",
                   let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
         {
-            destination.photosFromOtherView = [PhotoModel(name: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", fileName: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.photosFromOtherView = photosAF
             destination.selectedPhoto = 0
         }
     }
