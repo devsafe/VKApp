@@ -1,4 +1,4 @@
-## Welcome to Test GitHub Page
+## VKApp by devsafe
 
 You can use the [editor on GitHub](https://github.com/devsafe/VKApp/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
