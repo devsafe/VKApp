@@ -15,14 +15,14 @@ class NetworkService {
     
     //    func loadWeatherData(city: String, completion: @escaping (Result<[WeatherObject], WeatherServiceError>) -> Void)
     
-    func friendsGet(user_id: Int, completion: @escaping (Result<FriendsResponseModel, VKServiceError>) -> Void) {
+    func friendsGet(user_id: Int, completion: @escaping (Result<[Friend], VKServiceError>) -> Void) {
         let method = "friends.get"
         let params: Parameters = [
             "user_id": user_id,
             "fields" : "city, photo_100",
             "lang" : "en",
             //"order": "name",
-            //"count": 10,
+            "count": 10,
             "v" : 5.131,
             "access_token" : apiToken
         ]
@@ -30,7 +30,7 @@ class NetworkService {
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
             guard let json = response.data else { return }
-            print(json)
+            //print(json)
             
             
             //
@@ -48,12 +48,13 @@ class NetworkService {
             
             
             do {
-                let users = try JSONDecoder().decode(FriendsResponseModel.self, from: response.data!)
-                print(users)
-                print(users.response.count)
+                let users = try JSONDecoder().decode(Response<Friend>.self, from: response.data!)
+                print(users.response.items)
+                //print(users.response.count)
+               // print(response.value)
                 print("GOOD")
                 // let users2 = users.response.items
-                completion(.success(users))
+                completion(.success(users.response.items))
             } catch {
                 print(error)
             }

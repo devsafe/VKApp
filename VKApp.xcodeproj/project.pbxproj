@@ -36,6 +36,9 @@
 		114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E233826C30171003456EF /* FriendsTableViewCell.swift */; };
 		114E234226C41983003456EF /* OldProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234126C41982003456EF /* OldProfileViewController.swift */; };
 		114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114E234726C4F3B4003456EF /* PhotosViewController.swift */; };
+		115A971F2704AA87006B358A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 115A971E2704AA87006B358A /* Realm */; };
+		115A97212704AA87006B358A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 115A97202704AA87006B358A /* RealmSwift */; };
+		115A97232704AEB8006B358A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A97222704AEB8006B358A /* Response.swift */; };
 		1193D88C26D1787E000509CA /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88B26D1787E000509CA /* GroupProfileViewController.swift */; };
 		1193D88F26D654F1000509CA /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88E26D654F1000509CA /* UserProfileView.swift */; };
 		1193D89126D79410000509CA /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89026D79410000509CA /* NewsModel.swift */; };
@@ -102,6 +105,7 @@
 		114E233826C30171003456EF /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		114E234126C41982003456EF /* OldProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldProfileViewController.swift; sourceTree = "<group>"; };
 		114E234726C4F3B4003456EF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		115A97222704AEB8006B358A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		1193D88B26D1787E000509CA /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
 		1193D88E26D654F1000509CA /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		1193D89026D79410000509CA /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115A97212704AA87006B358A /* RealmSwift in Frameworks */,
+				115A971F2704AA87006B358A /* Realm in Frameworks */,
 				11AB517526F91C1D0057804A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +348,7 @@
 				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
 				11E28B6026FA38D700D7917D /* NetworkService.swift */,
 				1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */,
+				115A97222704AEB8006B358A /* Response.swift */,
 				1148B08D2700B52600EA3803 /* NewGroupsModel.swift */,
 				119757F12700DF5B00329371 /* NewPhotoModel.swift */,
 			);
@@ -519,6 +526,8 @@
 			name = VKApp;
 			packageProductDependencies = (
 				11AB517426F91C1D0057804A /* Alamofire */,
+				115A971E2704AA87006B358A /* Realm */,
+				115A97202704AA87006B358A /* RealmSwift */,
 			);
 			productName = VKApp;
 			productReference = 11CCD81526BC6403009A5865 /* VKApp.app */;
@@ -549,6 +558,7 @@
 			mainGroup = 11CCD80C26BC6403009A5865;
 			packageReferences = (
 				11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				115A971D2704AA87006B358A /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 11CCD81626BC6403009A5865 /* Products */;
 			projectDirPath = "";
@@ -581,6 +591,7 @@
 				114C359826C6E29F00D9C17B /* Storage.swift in Sources */,
 				11F6D1DC26EB988800D17B60 /* ZoomAnimator.swift in Sources */,
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
+				115A97232704AEB8006B358A /* Response.swift in Sources */,
 				114E086426CB0979008F519A /* CommentControl.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */,
 				1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */,
@@ -841,6 +852,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		115A971D2704AA87006B358A /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -852,6 +871,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		115A971E2704AA87006B358A /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 115A971D2704AA87006B358A /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		115A97202704AA87006B358A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 115A971D2704AA87006B358A /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		11AB517426F91C1D0057804A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */;
