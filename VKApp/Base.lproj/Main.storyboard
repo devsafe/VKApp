@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CkG-L3-lkz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -9,10 +9,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="d11-iG-EvN">
+            <objects>
+                <viewController id="CkG-L3-lkz" customClass="WKLoginViewController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bPh-mE-Woa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ov9-LJ-ucW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="u7N-Bp-FFg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u7N-Bp-FFg" firstAttribute="bottom" secondItem="Ov9-LJ-ucW" secondAttribute="bottom" id="2jt-6k-lf5"/>
+                            <constraint firstItem="Ov9-LJ-ucW" firstAttribute="top" secondItem="u7N-Bp-FFg" secondAttribute="top" id="baL-yE-YVe"/>
+                            <constraint firstItem="u7N-Bp-FFg" firstAttribute="trailing" secondItem="Ov9-LJ-ucW" secondAttribute="trailing" id="eiM-Ep-aEf"/>
+                            <constraint firstItem="Ov9-LJ-ucW" firstAttribute="leading" secondItem="u7N-Bp-FFg" secondAttribute="leading" id="iMv-QO-WM7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Ov9-LJ-ucW" id="a8c-m2-CKm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvy-Hp-fPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="-447"/>
+        </scene>
         <!--Login Form Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginFormController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginFormController" id="BYZ-38-t0r" customClass="LoginFormController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -715,7 +749,7 @@ It is a long established fact that a reader will be distracted by the readable c
                                             <outlet property="commentControl" destination="Gcn-T0-ps3" id="ihv-YV-Nai"/>
                                             <outlet property="imagePhotosCollectionCell" destination="XY6-5N-DDs" id="wAo-0Y-BhK"/>
                                             <outlet property="likeControl" destination="LxT-Lu-HHy" id="pAL-Uy-E4O"/>
-                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="fEH-Db-oV9"/>
+                                            <segue destination="3FV-Fs-Eba" kind="show" identifier="ShowFullScreenPhotos" id="Nee-5j-VoL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -773,7 +807,7 @@ It is a long established fact that a reader will be distracted by the readable c
         <!--Tab Bar Controller-->
         <scene sceneID="rqo-e2-jIR">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="dPd-11-6cT" customClass="TabBarController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" modalPresentationStyle="fullScreen" id="dPd-11-6cT" customClass="TabBarController" customModule="VKApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="zgs-8w-TGR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UFz-ir-knA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1758,8 +1792,8 @@ It is a long established fact that a reader will be distracted by the readable c
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aZj-M6-pwy"/>
-        <segue reference="rV0-pR-MJP"/>
-        <segue reference="IK1-qu-XFc"/>
+        <segue reference="Nee-5j-VoL"/>
+        <segue reference="jGG-lF-eFH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="avatar10" width="500" height="625"/>

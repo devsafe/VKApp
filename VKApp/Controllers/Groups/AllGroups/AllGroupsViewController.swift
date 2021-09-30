@@ -12,6 +12,7 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBarAllGroups: UISearchBar!
     var filteredGroups: [GroupModel]!
+    let networkService = NetworkService()
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -121,5 +122,6 @@ extension AllGroupsViewController: UISearchBarDelegate {
             }
         }
         self.tableView.reloadData()
+        networkService.groupsSearch(text: searchText)
     }
 }

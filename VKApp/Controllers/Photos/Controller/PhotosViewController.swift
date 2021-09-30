@@ -12,6 +12,9 @@ class PhotosViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     var userNameFromOtherView = String()
     
+    var currentLeftSafeAreaInset  : CGFloat = 0.0
+    var currentRightSafeAreaInset : CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -34,7 +37,13 @@ class PhotosViewController: UIViewController {
             destination.photosFromOtherView = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
             let indexPath2 = collectionView.indexPathsForSelectedItems
             destination.selectedPhoto = indexPath2![0].item
-        }
+        } else if  segue.identifier == "ShowPhotoPageView",
+                   let destination = segue.destination as? PhotoPageContainerViewController
+               {
+                   destination.photos = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
+                   let indexPath2 = collectionView.indexPathsForSelectedItems
+                   destination.currentIndex = indexPath2![0].item
+               }
     }
 }
 

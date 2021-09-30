@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,9 @@
 		1193D89526D795EC000509CA /* NewsGroupViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89426D795EC000509CA /* NewsGroupViewCell.swift */; };
 		1193D89726DAB536000509CA /* PhotosCollectionViewCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */; };
 		1193D89926DBEF88000509CA /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89826DBEF88000509CA /* DialogViewController.swift */; };
+		11AB517226F91AAD0057804A /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517126F91AAD0057804A /* UserSession.swift */; };
+		11AB517526F91C1D0057804A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 11AB517426F91C1D0057804A /* Alamofire */; };
+		11AB517D26FA12800057804A /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AB517C26FA12800057804A /* WKLoginViewController.swift */; };
 		11CCD81926BC6403009A5865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81826BC6403009A5865 /* AppDelegate.swift */; };
 		11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD81A26BC6403009A5865 /* SceneDelegate.swift */; };
 		11CCD82026BC6403009A5865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD81E26BC6403009A5865 /* Main.storyboard */; };
@@ -48,6 +51,7 @@
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
+		11E28B6126FA38D700D7917D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E28B6026FA38D700D7917D /* NetworkService.swift */; };
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
 		11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */; };
 		11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */; };
@@ -55,6 +59,11 @@
 		11F6D1CB26E796C700D17B60 /* CustomInteractiveTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */; };
 		11F6D1CE26E7E5D600D17B60 /* GroupsCellAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CD26E7E5D600D17B60 /* GroupsCellAnimation.swift */; };
 		11F6D1D026E7E72700D17B60 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1CF26E7E72700D17B60 /* Tables.swift */; };
+		11F6D1D526EB97D800D17B60 /* PhotoPageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1D426EB97D800D17B60 /* PhotoPageContainerViewController.swift */; };
+		11F6D1D726EB980D00D17B60 /* PhotoZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1D626EB980D00D17B60 /* PhotoZoomViewController.swift */; };
+		11F6D1DC26EB988800D17B60 /* ZoomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1DB26EB988800D17B60 /* ZoomAnimator.swift */; };
+		11F6D1DE26EB98B300D17B60 /* ZoomDissmiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1DD26EB98B300D17B60 /* ZoomDissmiss.swift */; };
+		11F6D1E026EB98D500D17B60 /* ZoomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1DF26EB98D500D17B60 /* ZoomTransition.swift */; };
 		11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */; };
 		11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */; };
 		11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */; };
@@ -95,6 +104,8 @@
 		1193D89426D795EC000509CA /* NewsGroupViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsGroupViewCell.swift; sourceTree = "<group>"; };
 		1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCustomLayout.swift; sourceTree = "<group>"; };
 		1193D89826DBEF88000509CA /* DialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogViewController.swift; sourceTree = "<group>"; };
+		11AB517126F91AAD0057804A /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		11AB517C26FA12800057804A /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
 		11CCD81526BC6403009A5865 /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CCD81826BC6403009A5865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11CCD81A26BC6403009A5865 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +115,7 @@
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		11E28B6026FA38D700D7917D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		11F6D1C526E4BD4200D17B60 /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
@@ -111,6 +123,11 @@
 		11F6D1CA26E796C700D17B60 /* CustomInteractiveTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransitions.swift; sourceTree = "<group>"; };
 		11F6D1CD26E7E5D600D17B60 /* GroupsCellAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCellAnimation.swift; sourceTree = "<group>"; };
 		11F6D1CF26E7E72700D17B60 /* Tables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tables.swift; sourceTree = "<group>"; };
+		11F6D1D426EB97D800D17B60 /* PhotoPageContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPageContainerViewController.swift; sourceTree = "<group>"; };
+		11F6D1D626EB980D00D17B60 /* PhotoZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoZoomViewController.swift; sourceTree = "<group>"; };
+		11F6D1DB26EB988800D17B60 /* ZoomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAnimator.swift; sourceTree = "<group>"; };
+		11F6D1DD26EB98B300D17B60 /* ZoomDissmiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomDissmiss.swift; sourceTree = "<group>"; };
+		11F6D1DF26EB98D500D17B60 /* ZoomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomTransition.swift; sourceTree = "<group>"; };
 		11F8BC1326C1D586006FFF39 /* FavGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavGroupsViewController.swift; sourceTree = "<group>"; };
 		11F8BC1526C1D9D6006FFF39 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
 		11F8BC1826C2ECE2006FFF39 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11AB517526F91C1D0057804A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +269,7 @@
 				11F6D1C226E4BCDF00D17B60 /* FullScreenView */,
 				114E086726CBE4C5008F519A /* LikeControl.swift */,
 				1193D89626DAB536000509CA /* PhotosCollectionViewCustomLayout.swift */,
+				11F6D1D326EB977A00D17B60 /* NewFullScreenView */,
 				114E086326CB0979008F519A /* CommentControl.swift */,
 				114E087F26CF9257008F519A /* ViewsCountControl.swift */,
 				114E087D26CEB518008F519A /* ShareControl.swift */,
@@ -314,6 +333,8 @@
 			children = (
 				11CCD82E26BD75A2009A5865 /* LoginFormController.swift */,
 				1149ADCE26E34D200003FFB6 /* Cube.swift */,
+				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
+				11E28B6026FA38D700D7917D /* NetworkService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -376,6 +397,7 @@
 				1193D89226D79457000509CA /* NewsStorage.swift */,
 				114C359426C5C3D100D9C17B /* SettingsStorage.swift */,
 				11CCD82126BC6405009A5865 /* Assets.xcassets */,
+				11AB517126F91AAD0057804A /* UserSession.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -432,6 +454,26 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		11F6D1D326EB977A00D17B60 /* NewFullScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				11F6D1D426EB97D800D17B60 /* PhotoPageContainerViewController.swift */,
+				11F6D1DA26EB987800D17B60 /* Animation */,
+				11F6D1D626EB980D00D17B60 /* PhotoZoomViewController.swift */,
+			);
+			path = NewFullScreenView;
+			sourceTree = "<group>";
+		};
+		11F6D1DA26EB987800D17B60 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				11F6D1DB26EB988800D17B60 /* ZoomAnimator.swift */,
+				11F6D1DD26EB98B300D17B60 /* ZoomDissmiss.swift */,
+				11F6D1DF26EB98D500D17B60 /* ZoomTransition.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		11F8BC1726C2DCAB006FFF39 /* FavGroups */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +508,9 @@
 			dependencies = (
 			);
 			name = VKApp;
+			packageProductDependencies = (
+				11AB517426F91C1D0057804A /* Alamofire */,
+			);
 			productName = VKApp;
 			productReference = 11CCD81526BC6403009A5865 /* VKApp.app */;
 			productType = "com.apple.product-type.application";
@@ -493,6 +538,9 @@
 				Base,
 			);
 			mainGroup = 11CCD80C26BC6403009A5865;
+			packageReferences = (
+				11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 11CCD81626BC6403009A5865 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -522,6 +570,7 @@
 			files = (
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				114C359826C6E29F00D9C17B /* Storage.swift in Sources */,
+				11F6D1DC26EB988800D17B60 /* ZoomAnimator.swift in Sources */,
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
 				114E086426CB0979008F519A /* CommentControl.swift in Sources */,
 				11F8BC1426C1D586006FFF39 /* FavGroupsViewController.swift in Sources */,
@@ -531,8 +580,11 @@
 				11F6D1CB26E796C700D17B60 /* CustomInteractiveTransitions.swift in Sources */,
 				1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */,
 				114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */,
+				11F6D1D526EB97D800D17B60 /* PhotoPageContainerViewController.swift in Sources */,
+				11F6D1DE26EB98B300D17B60 /* ZoomDissmiss.swift in Sources */,
 				114E233926C30171003456EF /* FriendsTableViewCell.swift in Sources */,
 				114E087C26CEAAC1008F519A /* PictureBorderView.swift in Sources */,
+				11F6D1E026EB98D500D17B60 /* ZoomTransition.swift in Sources */,
 				114E088426D03EED008F519A /* UserProfilePhotosCollectionViewCell.swift in Sources */,
 				1193D88C26D1787E000509CA /* GroupProfileViewController.swift in Sources */,
 				114E088026CF9257008F519A /* ViewsCountControl.swift in Sources */,
@@ -541,6 +593,7 @@
 				11CCD81B26BC6403009A5865 /* SceneDelegate.swift in Sources */,
 				114E233626C2FEFE003456EF /* FriendsViewController.swift in Sources */,
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
+				11AB517D26FA12800057804A /* WKLoginViewController.swift in Sources */,
 				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */,
@@ -549,8 +602,10 @@
 				1193D88F26D654F1000509CA /* UserProfileView.swift in Sources */,
 				11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */,
 				11F8BC1926C2ECE2006FFF39 /* AllGroupsViewController.swift in Sources */,
+				11E28B6126FA38D700D7917D /* NetworkService.swift in Sources */,
 				114E086826CBE4C5008F519A /* LikeControl.swift in Sources */,
 				114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */,
+				11F6D1D726EB980D00D17B60 /* PhotoZoomViewController.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114E088626D05967008F519A /* UserProfileWallTableViewCell.swift in Sources */,
 				11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */,
@@ -566,6 +621,7 @@
 				1193D89326D79457000509CA /* NewsStorage.swift in Sources */,
 				114E087E26CEB518008F519A /* ShareControl.swift in Sources */,
 				114E086C26CC3D3A008F519A /* WordControl.swift in Sources */,
+				11AB517226F91AAD0057804A /* UserSession.swift in Sources */,
 				11F8BC1626C1D9D6006FFF39 /* GroupsTableViewCell.swift in Sources */,
 				1193D89926DBEF88000509CA /* DialogViewController.swift in Sources */,
 			);
@@ -771,6 +827,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11AB517426F91C1D0057804A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11AB517326F91C1D0057804A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11CCD80D26BC6403009A5865 /* Project object */;
 }

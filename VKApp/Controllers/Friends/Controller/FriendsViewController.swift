@@ -14,9 +14,11 @@ class FriendsViewController: UIViewController {
     @IBOutlet var wordControl: WordControl!
     var friendsSection = [[UserModel]]()
     private var firstLetters: [String] = []
+    let networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkService.friendsGet(user_id: UserSession.shared.userId)
         let friends = Storage.allUsers
         firstLetters = getFirstLetters(friends)
         wordControl.setLetters(firstLetters)

@@ -16,6 +16,8 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
+    
+    let networkService = NetworkService()
     var userNameFromOtherView = String()
     var userIndex = 0
     
@@ -51,6 +53,7 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkService.photosGetAll(owner_id: UserSession.shared.userId)
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self
