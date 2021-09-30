@@ -21,8 +21,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         self.configureCellStaticApperance()
     }
     
-    func configure(photoModel: PhotoItems) {
-        networkService.photoLoad(url: photoModel.sizes[2].url) { [weak self] result in
+    func configure(photoModel: Photo) {
+        networkService.photoLoad(url: photoModel.sizes.last?.url ?? "") { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):
@@ -31,7 +31,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
             }
         }
         
-        imagePhotosCollectionCell.image = UIImage(named: photoModel.sizes[0].url)
+        imagePhotosCollectionCell.image = UIImage(named: photoModel.sizes.last?.url ?? "")
         
         likeControl.configure(isLike: false, likeCount: 3)
         likeControl.controlTapped = {[weak self] in

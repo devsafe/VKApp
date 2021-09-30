@@ -16,6 +16,6 @@ class Items<T: Codable>: Codable {
     let items: [T]
 }
 
-class ResponseJoin: Codable {
-    let response: Int
-}
+//class ResponseJoin: Codable {
+//    let response: Int
+//}

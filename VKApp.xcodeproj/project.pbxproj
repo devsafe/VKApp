@@ -160,6 +160,9 @@
 		114C358726C5B43A00D9C17B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */,
+				1148B08D2700B52600EA3803 /* NewGroupsModel.swift */,
+				119757F12700DF5B00329371 /* NewPhotoModel.swift */,
 				114C358826C5B50C00D9C17B /* UserModel.swift */,
 				114C358C26C5B6D500D9C17B /* PhotoModel.swift */,
 				114E087326CE7064008F519A /* PostModel.swift */,
@@ -347,10 +350,7 @@
 				1149ADCE26E34D200003FFB6 /* Cube.swift */,
 				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
 				11E28B6026FA38D700D7917D /* NetworkService.swift */,
-				1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */,
 				115A97222704AEB8006B358A /* Response.swift */,
-				1148B08D2700B52600EA3803 /* NewGroupsModel.swift */,
-				119757F12700DF5B00329371 /* NewPhotoModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

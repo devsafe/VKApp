@@ -16,8 +16,11 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
-    var photosAF: [PhotoItems] = []
-    var avatarAF: [PhotoItems] = []
+    let photos = [[Photo]]()
+    var photos2 = [Photo]()
+    var photosAF: [Photo] = []
+    
+    var avatarAF: [Photo] = []
     
     
     let networkService = NetworkService()
@@ -61,12 +64,12 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatarAF = [PhotoItems(id: 0, sizes: [Sizes(url: userFromOtherView.avatarURL), Sizes(url: userFromOtherView.avatarURL), Sizes(url: userFromOtherView.avatarURL), Sizes(url: userFromOtherView.avatarURL)])]
+        avatarAF = [Photo]()
         networkService.photosGetAll(owner_id: userFromOtherView.id) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):
-                self.photosAF = photo.response.items
+                self.photosAF = photo
                 print(self.photosAF)
                 self.collectionView.reloadData()
             case .failure: print("ERROR GET ALL PHOTOS")

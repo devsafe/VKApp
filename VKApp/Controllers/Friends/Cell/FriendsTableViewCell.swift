@@ -37,7 +37,7 @@ class FriendsTableViewCell: UITableViewCell {
         //imageFriendsCell.image = UIImage(named: friend.photo_100)
         
         labelFriendsCell.text = friend.firstName + " " + friend.lastName
-        detailLabelFriendsCell.text = friend.firstName
+        detailLabelFriendsCell.text = friend.cityName
     }
     
     func configureCellStaticApperance() {

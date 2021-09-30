@@ -19,8 +19,8 @@ class UserProfilePhotosCollectionViewCell: UICollectionViewCell {
         self.configureCellStaticApperance()
     }
     
-    func configure(photoModel: PhotoItems) {
-        networkService.photoLoad(url: photoModel.sizes[0].url) { [weak self] result in
+    func configure(photoModel: Photo) {
+        networkService.photoLoad(url: photoModel.sizes.last!.url) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):

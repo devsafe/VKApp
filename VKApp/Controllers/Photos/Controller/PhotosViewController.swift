@@ -11,7 +11,7 @@ class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     var userNameFromOtherView = String()
-    var photosFromOtherView = [PhotoItems]()
+    var photosFromOtherView = [Photo]()
     
     var currentLeftSafeAreaInset  : CGFloat = 0.0
     var currentRightSafeAreaInset : CGFloat = 0.0

@@ -28,7 +28,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    var groupFromOtherView = GroupsItems(id: 0, name: "", screen_name: "", description: "", photo_100: "")
+    var groupFromOtherView = Group()
     @IBOutlet var groupControlView: UIView!
     @IBOutlet var logoGroupProfileOutlet: UIImageView!
     @IBOutlet var backGroungViewOutlet: UIView!
@@ -59,7 +59,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-        networkService.photoLoad(url: groupFromOtherView.photo_100) { [weak self] result in
+        networkService.photoLoad(url: groupFromOtherView.groupLogo) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):
@@ -69,14 +69,14 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.photo_100)
+        logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.groupLogo)
         title = groupFromOtherView.name
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = logoGroupProfileOutlet.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         logoGroupProfileOutlet.addSubview(blurEffectView)
-        smallLogoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.photo_100)
+        smallLogoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.groupLogo)
         followButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.setTitle(isGroupInFav(groupName: groupFromOtherView.name) ? "Followed" : "Follow", for: .normal)
         fullGroupDescriptionLabel.text = groupFromOtherView.description

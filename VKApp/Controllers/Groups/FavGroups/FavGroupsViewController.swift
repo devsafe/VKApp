@@ -12,9 +12,9 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView!
     let networkService = NetworkService()
     //private let networkService = NetworkService()
-    let groups = [[GroupsItems]]()
-    var groups2 = [GroupsItems]()
-    var groupsAF: [GroupsItems] = []
+    let groups = [[Group]]()
+    var groups2 = [Group]()
+    var groupsAF: [Group] = []
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -29,7 +29,7 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
             guard let self = self else { return }
             switch result {
             case .success(let groups):
-                self.groupsAF = groups.response.items
+                self.groupsAF = groups
                 self.groups2 = self.groupsAF
                 print("debug loadWeatherData weatherService: ", self.groupsAF.count)
                 self.tableView.reloadData()
