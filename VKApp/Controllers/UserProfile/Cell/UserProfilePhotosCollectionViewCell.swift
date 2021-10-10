@@ -13,13 +13,23 @@ class UserProfilePhotosCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "UserProfilePhotosCollectionViewCell"
     var likeTapped: (() -> Void)?
+    let networkService = NetworkService()
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureCellStaticApperance()
     }
     
-    func configure(photoModel: PhotoModel) {
-        photosProfileCollectionViewCell.image = UIImage(named: photoModel.fileName)
+    func configure(photoModel: PhotoItems) {
+        networkService.photoLoad(url: photoModel.sizes[0].url) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.photosProfileCollectionViewCell.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        photosProfileCollectionViewCell.image = UIImage(named: "photoModel.fileName")
     }
     
     func configureCellStaticApperance() {

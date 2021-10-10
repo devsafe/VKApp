@@ -11,6 +11,7 @@ import UIKit
 class GroupProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var tapedInAvatar: Bool = false
+    let networkService = NetworkService()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         Storage.feedGroupNews.count
@@ -27,7 +28,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    var groupFromOtherView = GroupModel(name: "", description: "", logo: "", fullDescription: "", subscribersCount: 0)
+    var groupFromOtherView = GroupsItems(id: 0, name: "", screen_name: "", description: "", photo_100: "")
     @IBOutlet var groupControlView: UIView!
     @IBOutlet var logoGroupProfileOutlet: UIImageView!
     @IBOutlet var backGroungViewOutlet: UIView!
@@ -48,7 +49,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             followButtonOutlet.setTitle("Followed", for: .normal)
             followButtonOutlet.backgroundColor = .systemGray2
-            Storage.allUsers[Storage.userIdActiveSession].favGroups.append(groupFromOtherView)
+            //Storage.allUsers[Storage.userIdActiveSession].favGroups.append(groupFromOtherView)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
     }
@@ -57,16 +58,28 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
+        
+        networkService.photoLoad(url: groupFromOtherView.photo_100) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.logoGroupProfileOutlet.image = photo
+                self.smallLogoGroupProfileOutlet.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.photo_100)
         title = groupFromOtherView.name
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = logoGroupProfileOutlet.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         logoGroupProfileOutlet.addSubview(blurEffectView)
-        smallLogoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.logo)
+        smallLogoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.photo_100)
         followButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.setTitle(isGroupInFav(groupName: groupFromOtherView.name) ? "Followed" : "Follow", for: .normal)
+        fullGroupDescriptionLabel.text = groupFromOtherView.description
         followButtonOutlet.backgroundColor = (isGroupInFav(groupName: groupFromOtherView.name) ? .systemGray2 : .systemBlue)
     }
     

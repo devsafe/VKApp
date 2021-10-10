@@ -11,6 +11,7 @@ class PhotosViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     var userNameFromOtherView = String()
+    var photosFromOtherView = [PhotoItems]()
     
     var currentLeftSafeAreaInset  : CGFloat = 0.0
     var currentRightSafeAreaInset : CGFloat = 0.0
@@ -23,8 +24,8 @@ class PhotosViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let titleFriend = Storage.allUsers[UserStorage.getIndexByUsername(username: userNameFromOtherView)].fullName
-        self.title = (titleFriend)
+       // let titleFriend = userNameFromOtherView
+        self.title = "Photos"
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -34,7 +35,7 @@ class PhotosViewController: UIViewController {
         if  segue.identifier == "ShowFullScreenPhotos",
             let destination = segue.destination as? FullScreenViewController
         {
-            destination.photosFromOtherView = UserStorage.getPhotosForUsername(username: userNameFromOtherView)
+            destination.photosFromOtherView = photosFromOtherView
             let indexPath2 = collectionView.indexPathsForSelectedItems
             destination.selectedPhoto = indexPath2![0].item
         } else if  segue.identifier == "ShowPhotoPageView",
@@ -53,13 +54,13 @@ extension PhotosViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let photosCount = UserStorage.getPhotosForUsername(username: userNameFromOtherView).count
+        let photosCount = photosFromOtherView.count
         return photosCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCell", for: indexPath) as! PhotosCollectionViewCell
-        let photos = UserStorage.getPhotosForUsername(username: userNameFromOtherView)[indexPath.item]
+        let photos = photosFromOtherView[indexPath.item]
         cell.configure(photoModel: photos)
         cell.likeTapped = { [weak self] in
             Storage.allUsers[UserStorage.getIndexByUsername(username: self!.userNameFromOtherView)].photos[indexPath.item].isLike.toggle()

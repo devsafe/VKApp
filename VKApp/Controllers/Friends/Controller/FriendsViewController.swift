@@ -12,14 +12,34 @@ class FriendsViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var wordControl: WordControl!
-    var friendsSection = [[UserModel]]()
+    var friendsSection = [[FriendsItems]]()
+    let friends = [[FriendsItems]]()
+    var friends2 = [FriendsItems]()
+    var friendsAF: [FriendsItems] = []
     private var firstLetters: [String] = []
     let networkService = NetworkService()
+    //var friendsAloma: FriendsResponseModel = FriendsResponseModel(response: <#Response#>)
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.friendsGet(user_id: UserSession.shared.userId)
-        let friends = Storage.allUsers
+        networkService.friendsGet(user_id: UserSession.shared.userId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let friends):
+                self.friendsAF = friends.response.items
+                self.friends2 = self.friendsAF
+                print("debug loadWeatherData weatherService: ", self.friendsAF.count)
+                self.tableView.reloadData()
+            case .failure: print("ERROR")
+            }
+        }
+        
+        
+        let friends = friendsAF
+        print(friends.count)
+        print(friends2.count)
         firstLetters = getFirstLetters(friends)
         wordControl.setLetters(firstLetters)
         wordControl.backgroundColor = .clear
@@ -30,10 +50,15 @@ class FriendsViewController: UIViewController {
         tableView.separatorColor = .clear
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     @objc func scrollToLetter() {
         let letter = wordControl.selectLetter
         guard
-            let firstIndexForLetter = friendsSection.firstIndex(where: { String($0.first?.name.prefix(1) ?? "" ) == letter })
+            let firstIndexForLetter = friendsSection.firstIndex(where: { String($0.first?.first_name.prefix(1) ?? "" ) == letter })
         else {
             return
         }
@@ -49,21 +74,22 @@ class FriendsViewController: UIViewController {
             let destination = segue.destination as? UserProfileView,
             let userIndex = tableView.indexPathForSelectedRow
         {
-            destination.userNameFromOtherView = friendsSection[userIndex[0]][userIndex[1]].userName
+            destination.userNameFromOtherView = "admin"
+            destination.userFromOtherView = friendsAF[userIndex.row]
         }
     }
 }
 
-private func getFirstLetters(_ friends: [UserModel]) -> [String] {
-    let friendsName = friends.map { $0.name }
+private func getFirstLetters(_ friends: [FriendsItems]) -> [String] {
+    let friendsName = friends.map { $0.first_name }
     let firstLetters = Array(Set(friendsName.map { String($0.prefix(1)) })).sorted()
     return firstLetters
 }
 
-private func sortedForSection(_ friends: [UserModel], firstLetters: [String]) -> [[UserModel]] {
-    var friendsSorted: [[UserModel]] = []
+private func sortedForSection(_ friends: [FriendsItems], firstLetters: [String]) -> [[FriendsItems]] {
+    var friendsSorted: [[FriendsItems]] = []
     firstLetters.forEach { letter in
-        let friendsForLetter = friends.filter { String($0.name.prefix(1)) == letter}
+        let friendsForLetter = friends.filter { String($0.first_name.prefix(1)) == letter}
         friendsSorted.append(friendsForLetter)
     }
     return friendsSorted
@@ -72,11 +98,13 @@ private func sortedForSection(_ friends: [UserModel], firstLetters: [String]) ->
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        friendsSection.count
+        //friendsSection.count
+        1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friendsSection[section].count
+       // friendsSection[section].count
+        friendsAF.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,7 +115,8 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-        let friend = friendsSection[indexPath.section][indexPath.row]
+       // let friend = friendsSection[indexPath.section][indexPath.row]
+        let friend = friendsAF[indexPath.row]
         cell.configure(friend: friend)
         return cell
     }

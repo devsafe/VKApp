@@ -15,19 +15,29 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imagePhotosCollectionCell: UIImageView!
     @IBOutlet var likeControl: LikeControl!
     @IBOutlet var commentControl: CommentControl!
-    
+    let networkService = NetworkService()
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureCellStaticApperance()
     }
     
-    func configure(photoModel: PhotoModel) {
-        imagePhotosCollectionCell.image = UIImage(named: photoModel.fileName)
-        likeControl.configure(isLike: photoModel.isLike, likeCount: photoModel.likeCount)
+    func configure(photoModel: PhotoItems) {
+        networkService.photoLoad(url: photoModel.sizes[2].url) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.imagePhotosCollectionCell.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
+        imagePhotosCollectionCell.image = UIImage(named: photoModel.sizes[0].url)
+        
+        likeControl.configure(isLike: false, likeCount: 3)
         likeControl.controlTapped = {[weak self] in
             self?.likeTapped?()
         }
-        commentControl.configure(commentCount: photoModel.commentMessages.count)
+        commentControl.configure(commentCount: 4)
     }
     
     func configureCellStaticApperance() {

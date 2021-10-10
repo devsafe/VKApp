@@ -16,13 +16,19 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     @IBOutlet var sendMessageButtonOutlet: UIButton!
     @IBOutlet var followButtonOutlet: UIButton!
     
+    var photosAF: [PhotoItems] = []
+    var avatarAF: [PhotoItems] = []
+    
     
     let networkService = NetworkService()
     var userNameFromOtherView = String()
+    var userFromOtherView = FriendsItems(id: 0, first_name: "", last_name: "", city: City(id: 0, title: "" ), photo_100: "")
+    
+    
     var userIndex = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        FeedStorage.getPostsForUsername(username: userNameFromOtherView).count
+        FeedStorage.getPostsForUsername(username: userFromOtherView.last_name).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,13 +43,14 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let photosCount = UserStorage.getPhotosForUsername(username: userNameFromOtherView).count
-        return photosCount
+        let photosCount = UserStorage.getPhotosForUsername(username: userFromOtherView.last_name).count
+        print(photosCount)
+        return photosAF.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfilePhotosCell", for: indexPath) as! UserProfilePhotosCollectionViewCell
-        let photos = UserStorage.getPhotosForUsername(username: userNameFromOtherView)[indexPath.item]
+        let photos = photosAF[indexPath.item]
         cell.configure(photoModel: photos)
         cell.likeTapped = { [weak self] in
             Storage.allUsers[UserStorage.getIndexByUsername(username: self!.userNameFromOtherView)].photos[indexPath.item].isLike.toggle()
@@ -53,7 +60,17 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.photosGetAll(owner_id: UserSession.shared.userId)
+        avatarAF = [PhotoItems(id: 0, sizes: [Sizes(url: userFromOtherView.photo_100), Sizes(url: userFromOtherView.photo_100), Sizes(url: userFromOtherView.photo_100), Sizes(url: userFromOtherView.photo_100)])]
+        networkService.photosGetAll(owner_id: userFromOtherView.id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.photosAF = photo.response.items
+                print(self.photosAF)
+                self.collectionView.reloadData()
+            case .failure: print("ERROR GET ALL PHOTOS")
+            }
+        }
         collectionView.delegate = self
         collectionView.dataSource = self
         tableView.delegate = self
@@ -61,16 +78,26 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
         userIndex = UserStorage.getIndexByUsername(username: userNameFromOtherView)
         let user = Storage.allUsers[userIndex]
         avatarImageOutlet.image = UIImage(named: user.avatar)
+        
+        networkService.photoLoad(url: userFromOtherView.photo_100) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let photo):
+                self.avatarImageOutlet.image = photo
+            case .failure: print("ERROR")
+            }
+        }
+        
         avatarImageOutlet.layer.cornerRadius = 80
         avatarImageOutlet.layer.borderWidth = 1
         avatarImageOutlet.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
         avatarImageOutlet.layer.borderColor = customColor.cgColor
-        fullnameLabelOutlet.text = user.fullName
-        locationLabelOutlet.text = "Location: " + user.location
+        fullnameLabelOutlet.text = userFromOtherView.first_name + " " + userFromOtherView.last_name
+        locationLabelOutlet.text = "Location: " + (userFromOtherView.city?.title ?? "No information")
         sendMessageButtonOutlet.layer.cornerRadius = 8
         followButtonOutlet.layer.cornerRadius = 8
-        self.title = "id: \(userNameFromOtherView)"
+        self.title = "id: \(userFromOtherView.id)"
         setSingleTap()
         tableView.reloadData()
     }
@@ -80,15 +107,16 @@ class UserProfileView: UIViewController, UICollectionViewDelegate, UICollectionV
             let destination = segue.destination as? PhotosViewController
         {
             destination.userNameFromOtherView = userNameFromOtherView
+            destination.photosFromOtherView = photosAF
         } else if segue.identifier == "ShowFullScreenPhotos",
                   let destination = segue.destination as? FullScreenViewController
         {
-            destination.photosFromOtherView = [PhotoModel(name: "\(Storage.allUsers[userIndex].avatar)", fileName: "\(Storage.allUsers[userIndex].avatar)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.photosFromOtherView = avatarAF
             destination.selectedPhoto = 0
         } else if segue.identifier == "ShowFullScreenMedia",
                   let destination = segue.destination as? FullScreenViewController, let indexPath = sender as? IndexPath
         {
-            destination.photosFromOtherView = [PhotoModel(name: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", fileName: "\(FeedStorage.getPostsForUsername(username: userNameFromOtherView)[indexPath.row].media)", likeCount: 0, commentMessages: [], isLike: false)]
+            destination.photosFromOtherView = photosAF
             destination.selectedPhoto = 0
         }
     }

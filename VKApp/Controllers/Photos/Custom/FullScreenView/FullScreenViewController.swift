@@ -16,7 +16,7 @@ class FullScreenViewController: UIViewController {
     var bigPhotoes: [PhotoModel] = []
     var sourceIndexPath: IndexPath = IndexPath()
     
-    var photosFromOtherView = [PhotoModel]()
+    var photosFromOtherView = [PhotoItems]()
     var selectedPhoto = Int()
     
     required init?(coder: NSCoder) {
@@ -25,9 +25,9 @@ class FullScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fullScreenView.photoes = photosFromOtherView.map({$0.fileName})
+        fullScreenView.photoes = photosFromOtherView.map({$0.sizes[3].url})
         fullScreenView.visibleIndex = selectedPhoto
-        fullScreenView.namePhoto = photosFromOtherView.map({$0.name})
+        fullScreenView.namePhoto = photosFromOtherView.map({$0.sizes[3].url})
         tabBarController?.tabBar.isHidden = true
         navigationController?.navigationBar.isHidden = true
         setSingleTap()

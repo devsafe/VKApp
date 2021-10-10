@@ -11,6 +11,11 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var tableView: UITableView!
     let networkService = NetworkService()
+    //private let networkService = NetworkService()
+    let groups = [[GroupsItems]]()
+    var groups2 = [GroupsItems]()
+    var groupsAF: [GroupsItems] = []
+    
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -19,7 +24,19 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.groupsGet(user_id: UserSession.shared.userId)
+        //networkService.groupsGet(user_id: UserSession.shared.userId)
+        networkService.groupsGet(user_id: UserSession.shared.userId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                self.groupsAF = groups.response.items
+                self.groups2 = self.groupsAF
+                print("debug loadWeatherData weatherService: ", self.groupsAF.count)
+                self.tableView.reloadData()
+            case .failure: print("ERROR")
+            }
+        }
+        
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         NotificationCenter.default.addObserver(self, selector: #selector(loadList2), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -34,12 +51,12 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
 
 extension FavGroupsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Storage.allUsers[Storage.userIdActiveSession].favGroups.count 
+        return groupsAF.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: GroupsTableViewCell.identifier, for: indexPath) as! GroupsTableViewCell
-        cell.configure(imageName: Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].logo, title: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].name), detail: (Storage.allUsers[Storage.userIdActiveSession].favGroups[indexPath.row].description), extraLabel: nil, favouritImage: "")
+        cell.configure(group: groupsAF[indexPath.row])
         return cell
     }
     
@@ -57,7 +74,7 @@ extension FavGroupsViewController {
             let destination = segue.destination as? GroupProfileViewController,
             let groupIndex = tableView.indexPathForSelectedRow
         {
-            destination.groupFromOtherView =  Storage.allUsers[Storage.userIdActiveSession].favGroups[groupIndex.row]
+            destination.groupFromOtherView =  groupsAF[groupIndex.row]
         }
     }
     
