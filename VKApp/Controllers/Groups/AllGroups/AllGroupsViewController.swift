@@ -13,7 +13,7 @@ class AllGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var searchBarAllGroups: UISearchBar!
     var filteredGroups: [GroupModel]!
     let networkService = NetworkService()
-    var groupsAF: [Group] = []
+    var groupsAF: [GroupsItems] = []
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)

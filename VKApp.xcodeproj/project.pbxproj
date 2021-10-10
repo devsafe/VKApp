@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11422C502712DDCA004C160E /* NewGroupsModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11422C4F2712DDCA004C160E /* NewGroupsModel2.swift */; };
+		11422C532712DE82004C160E /* GroupsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11422C522712DE82004C160E /* GroupsGetService.swift */; };
 		1148B08C26FFC39B00EA3803 /* NewFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */; };
 		1148B08E2700B52600EA3803 /* NewGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08D2700B52600EA3803 /* NewGroupsModel.swift */; };
 		1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1149ADCE26E34D200003FFB6 /* Cube.swift */; };
@@ -76,6 +78,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11422C4F2712DDCA004C160E /* NewGroupsModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsModel2.swift; sourceTree = "<group>"; };
+		11422C522712DE82004C160E /* GroupsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsGetService.swift; sourceTree = "<group>"; };
 		1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendsModel.swift; sourceTree = "<group>"; };
 		1148B08D2700B52600EA3803 /* NewGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsModel.swift; sourceTree = "<group>"; };
 		1149ADCE26E34D200003FFB6 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
@@ -157,11 +161,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11422C512712DE62004C160E /* NewNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				11422C522712DE82004C160E /* GroupsGetService.swift */,
+			);
+			path = NewNetworkService;
+			sourceTree = "<group>";
+		};
 		114C358726C5B43A00D9C17B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */,
 				1148B08D2700B52600EA3803 /* NewGroupsModel.swift */,
+				11422C4F2712DDCA004C160E /* NewGroupsModel2.swift */,
 				119757F12700DF5B00329371 /* NewPhotoModel.swift */,
 				114C358826C5B50C00D9C17B /* UserModel.swift */,
 				114C358C26C5B6D500D9C17B /* PhotoModel.swift */,
@@ -350,6 +363,7 @@
 				1149ADCE26E34D200003FFB6 /* Cube.swift */,
 				11AB517C26FA12800057804A /* WKLoginViewController.swift */,
 				11E28B6026FA38D700D7917D /* NetworkService.swift */,
+				11422C512712DE62004C160E /* NewNetworkService */,
 				115A97222704AEB8006B358A /* Response.swift */,
 			);
 			path = Controller;
@@ -590,6 +604,7 @@
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				114C359826C6E29F00D9C17B /* Storage.swift in Sources */,
 				11F6D1DC26EB988800D17B60 /* ZoomAnimator.swift in Sources */,
+				11422C502712DDCA004C160E /* NewGroupsModel2.swift in Sources */,
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
 				115A97232704AEB8006B358A /* Response.swift in Sources */,
 				114E086426CB0979008F519A /* CommentControl.swift in Sources */,
@@ -626,6 +641,7 @@
 				114E086826CBE4C5008F519A /* LikeControl.swift in Sources */,
 				114C358D26C5B6D500D9C17B /* PhotoModel.swift in Sources */,
 				11F6D1D726EB980D00D17B60 /* PhotoZoomViewController.swift in Sources */,
+				11422C532712DE82004C160E /* GroupsGetService.swift in Sources */,
 				11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */,
 				114E088626D05967008F519A /* UserProfileWallTableViewCell.swift in Sources */,
 				11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */,

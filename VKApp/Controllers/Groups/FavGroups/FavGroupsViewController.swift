@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
     let networkService = NetworkService()
     //private let networkService = NetworkService()
-    let groups = [[Group]]()
-    var groups2 = [Group]()
-    var groupsAF: [Group] = []
+   // let groups = [[GroupsItems]]()
+    var groups2 = [GroupsItems]()
+    var groupsAF: [GroupsItems] = []
+    
+    private var afGroups = GroupsGet()
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -25,18 +28,18 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         //networkService.groupsGet(user_id: UserSession.shared.userId)
-        networkService.groupsGet(user_id: UserSession.shared.userId) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let groups):
-                self.groupsAF = groups
-                self.groups2 = self.groupsAF
-                print("debug loadWeatherData weatherService: ", self.groupsAF.count)
-                self.tableView.reloadData()
-            case .failure: print("ERROR")
-            }
-        }
-        
+//        networkService.groupsGet(user_id: UserSession.shared.userId) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let groups):
+//                self.groupsAF = groups
+//                self.groups2 = self.groupsAF
+//                print("debug loadWeatherData weatherService: ", self.groupsAF.count)
+//                self.tableView.reloadData()
+//            case .failure: print("ERROR")
+//            }
+//        }
+        getGroupsAF()
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
         NotificationCenter.default.addObserver(self, selector: #selector(loadList2), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -45,8 +48,40 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.refreshControl?.addTarget(self, action: #selector(refresh2), for: UIControl.Event.valueChanged)
         self.extendedLayoutIncludesOpaqueBars = true
     }
-}
+    
+    
+    private func getGroupsAF() {
+        afGroups.getMyGroups() {[weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                //self.groupsAF = groups
+               // self.groups2 = self.groupsAF
+                self.loadData()
+                self.tableView.reloadData()
+            case .failure:
+                print("getGroups FAIL")
+                print()
+            }
+        }
+    }
+    
+    func loadData() {
+            do {
+                let realm = try Realm()
+                
+                let groupsFromRealm = realm.objects(GroupsItems.self)
+                print("33333333")
+                self.groupsAF = Array(groupsFromRealm)
+                print(self.groupsAF)
+                
+            } catch {
+    // если произошла ошибка, выводим ее в консоль
+                print(error)
+            }
 
+}
+}
 
 
 extension FavGroupsViewController {
@@ -80,18 +115,23 @@ extension FavGroupsViewController {
     
     @objc private func refresh(sender: AnyObject) {
         tableView.reloadData()
+        print("refresh")
         sender.endRefreshing()
         myRefreshControl.endRefreshing()
     }
     
     @objc private func refresh2(sender: AnyObject) {
-        tableView.reloadData()
+        print("refresh2")
+        
         sender.endRefreshing()
+        loadData()
+        tableView.reloadData()
         myRefreshControl.endRefreshing()
     }
     
     @objc private func loadList2(notification: NSNotification)
     {
+        print("loadList2")
         tableView.reloadData()
         self.view.setNeedsDisplay()
     }
