@@ -15,14 +15,14 @@ class NetworkService {
     
     //    func loadWeatherData(city: String, completion: @escaping (Result<[WeatherObject], WeatherServiceError>) -> Void)
     
-    func friendsGet(user_id: Int, completion: @escaping (Result<FriendsResponseModel, VKServiceError>) -> Void) {
+    func friendsGet(user_id: Int, completion: @escaping (Result<[Friend], VKServiceError>) -> Void) {
         let method = "friends.get"
         let params: Parameters = [
             "user_id": user_id,
             "fields" : "city, photo_100",
             "lang" : "en",
             //"order": "name",
-            //"count": 10,
+            "count": 10,
             "v" : 5.131,
             "access_token" : apiToken
         ]
@@ -30,7 +30,7 @@ class NetworkService {
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
             guard let json = response.data else { return }
-            print(json)
+            //print(json)
             
             
             //
@@ -48,12 +48,13 @@ class NetworkService {
             
             
             do {
-                let users = try JSONDecoder().decode(FriendsResponseModel.self, from: response.data!)
-                print(users)
-                print(users.response.count)
+                let users = try JSONDecoder().decode(Response<Friend>.self, from: response.data!)
+                print(users.response.items)
+                //print(users.response.count)
+               // print(response.value)
                 print("GOOD")
                 // let users2 = users.response.items
-                completion(.success(users))
+                completion(.success(users.response.items))
             } catch {
                 print(error)
             }
@@ -81,58 +82,113 @@ class NetworkService {
         }.resume()
     }
     
-    func groupsGet(user_id: Int, completion: @escaping (Result<GroupsResponseModel, VKServiceError>) -> Void) {
+    func groupsGet(user_id: Int, completion: @escaping (Result<[Group], VKServiceError>) -> Void) {
         let method = "groups.get"
         let params: Parameters = [
             "user_id": user_id,
-            "fields" : "description",
             "lang" : "en",
             "extended" : 1,
-            //"count": 10,
+            //"fields" : "description, members_count",
+            "count": 10,
             "v" : 5.131,
             "access_token" : apiToken
         ]
         
         let url = apiUrl + method
+        let tempToConsole = url
+        print(tempToConsole, params)
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
-            print(response.value as Any)
-            guard response.value != nil else { return }
-            do {
-                let groups = try JSONDecoder().decode(GroupsResponseModel.self, from: response.data!)
-                completion(.success(groups))
-            } catch {
-                print(error)
-            }
-            
-            
-            
-        }.resume()
+        guard let json = response.data else { return }
+    
+        //print(json)
+        
+        
+        //
+        //            if let error = response.error {
+        //                completion(.failure(.serverError))
+        //                print("FAILTURE")
+        //                print(error)
+        //            }
+        //
+        //            guard let data = response.data else {
+        //                completion(.failure(.notData))
+        //                print("NOT DATA")
+        //                return
+        //            }
+        
+        
+        do {
+            let group = try JSONDecoder().decode(Response<Group>.self, from: response.data!)
+            print(group.response.items)
+            //print(users.response.count)
+           // print(response.value)
+            print("GOOD")
+            // let users2 = users.response.items
+            completion(.success(group.response.items))
+            print(type(of: group.response.items))
+        } catch {
+            print(error)
+        }
+        
+        
+        
+        
+        
+    }.resume()
     }
     
-    func photosGetAll(owner_id: Int, completion: @escaping (Result<PhotoResponseModel, VKServiceError>) -> Void) {
+    func photosGetAll(owner_id: Int, completion: @escaping (Result<[Photo], VKServiceError>) -> Void) {
         let method = "photos.getAll"
         let params: Parameters = [
             "owner_id": owner_id,
-            "fields" : "description",
+            //"fields" : "description",
             "photo_sizes" : 1,
             "lang" : "en",
             "extended" : 1,
-            //"count": 10,
+            //"count": 1,
             "v" : 5.131,
             "access_token" : apiToken
         ]
         let url = apiUrl + method
         
         AF.request(url, method: .get, parameters: params).responseJSON { response in
-            print(response.value as Any)
-            guard response.value != nil else { return }
+            guard let json = response.data else { return }
+            //print(json)
+            
+            
+            //
+            //            if let error = response.error {
+            //                completion(.failure(.serverError))
+            //                print("FAILTURE")
+            //                print(error)
+            //            }
+            //
+            //            guard let data = response.data else {
+            //                completion(.failure(.notData))
+            //                print("NOT DATA")
+            //                return
+            //            }
+            
+            
             do {
-                let photos = try JSONDecoder().decode(PhotoResponseModel.self, from: response.data!)
-                completion(.success(photos))
+                print(response.value)
+                let photos = try JSONDecoder().decode(Response<Photo>.self, from: response.data!)
+                print(photos.response.items)
+                //print(users.response.count)
+               // print(response.value)
+                print("GOOD")
+                // let users2 = users.response.items
+                completion(.success(photos.response.items))
+                print(type(of: photos.response.items))
             } catch {
                 print(error)
             }
+            
+            
+            
+            
+            
         }.resume()
     }
     

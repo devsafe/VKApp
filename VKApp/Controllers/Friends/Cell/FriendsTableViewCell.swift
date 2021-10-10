@@ -23,9 +23,9 @@ class FriendsTableViewCell: UITableViewCell {
         imageFriendsCell.isUserInteractionEnabled = true
     }
     
-    func configure(friend: FriendsItems) {
+    func configure(friend: Friend) {
         
-        networkService.photoLoad(url: friend.photo_100) { [weak self] result in
+        networkService.photoLoad(url: friend.avatarURL) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):
@@ -36,8 +36,8 @@ class FriendsTableViewCell: UITableViewCell {
         
         //imageFriendsCell.image = UIImage(named: friend.photo_100)
         
-        labelFriendsCell.text = friend.first_name + " " + friend.last_name
-        detailLabelFriendsCell.text = friend.city?.title
+        labelFriendsCell.text = friend.firstName + " " + friend.lastName
+        detailLabelFriendsCell.text = friend.cityName
     }
     
     func configureCellStaticApperance() {
