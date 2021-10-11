@@ -124,7 +124,9 @@ extension FavGroupsViewController {
         print("refresh2")
         
         sender.endRefreshing()
+        //getGroupsAF()
         loadData()
+        getGroupsAF()
         tableView.reloadData()
         myRefreshControl.endRefreshing()
     }
