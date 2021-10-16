@@ -67,7 +67,7 @@ extension WKLoginViewController: WKNavigationDelegate {
         
         if token != nil {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginFormController") as! LoginFormController
+            let loginViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
             loginViewController.modalPresentationStyle = .fullScreen
             self.present(loginViewController, animated: true, completion: nil)
             print("---------------------------------------------------------")

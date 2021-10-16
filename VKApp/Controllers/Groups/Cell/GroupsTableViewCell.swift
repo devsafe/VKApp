@@ -23,8 +23,8 @@ class GroupsTableViewCell: UITableViewCell {
         self.configureCellStaticApperance()
     }
     
-    func configure(group: Group) {
-        networkService.photoLoad(url: group.groupLogo) { [weak self] result in
+    func configure(group: GroupsItems) {
+        networkService.photoLoad(url: group.photo_100) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):
@@ -34,8 +34,8 @@ class GroupsTableViewCell: UITableViewCell {
         }
         ///imageChannelsCell.image = UIImage(named: group.photo_100 ?? "logo-default")
         labelChannelsCell.text = group.name
-        detailLabelChannelsCell.text = group.name + ""
-        extraLabelChannelsCell?.text = group.name 
+        detailLabelChannelsCell.text = "Members: " + String(group.members_count)
+        extraLabelChannelsCell?.text = group.name
         favouritGroupImageCell?.image = UIImage(named: "favouritImage")
         let tintableImage = favouritGroupImageCell?.image?.withRenderingMode(.alwaysTemplate)
         favouritGroupImageCell?.image = tintableImage

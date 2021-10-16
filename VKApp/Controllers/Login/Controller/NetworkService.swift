@@ -86,10 +86,10 @@ class NetworkService {
         let method = "groups.get"
         let params: Parameters = [
             "user_id": user_id,
-            "lang" : "en",
+           //"lang" : "en",
             "extended" : 1,
-            //"fields" : "description, members_count",
-            "count": 10,
+            "fields" : "members_count",
+            "count": 1,
             "v" : 5.131,
             "access_token" : apiToken
         ]
@@ -121,6 +121,7 @@ class NetworkService {
         do {
             let group = try JSONDecoder().decode(Response<Group>.self, from: response.data!)
             print(group.response.items)
+            print(response.data)
             //print(users.response.count)
            // print(response.value)
             print("GOOD")
@@ -129,6 +130,7 @@ class NetworkService {
             print(type(of: group.response.items))
         } catch {
             print(error)
+            print(response.value)
         }
         
         
