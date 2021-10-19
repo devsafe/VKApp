@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1148B08C26FFC39B00EA3803 /* NewFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */; };
-		1148B08E2700B52600EA3803 /* NewGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08D2700B52600EA3803 /* NewGroupsModel.swift */; };
 		1149ADCF26E34D200003FFB6 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1149ADCE26E34D200003FFB6 /* Cube.swift */; };
 		114C358926C5B50C00D9C17B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358826C5B50C00D9C17B /* UserModel.swift */; };
 		114C358B26C5B52B00D9C17B /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114C358A26C5B52B00D9C17B /* GroupModel.swift */; };
@@ -39,6 +38,7 @@
 		115A971F2704AA87006B358A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 115A971E2704AA87006B358A /* Realm */; };
 		115A97212704AA87006B358A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 115A97202704AA87006B358A /* RealmSwift */; };
 		115A97232704AEB8006B358A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115A97222704AEB8006B358A /* Response.swift */; };
+		1160BB10271EE3D000432B6E /* NewGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160BB0F271EE3D000432B6E /* NewGroupsModel.swift */; };
 		1193D88C26D1787E000509CA /* GroupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88B26D1787E000509CA /* GroupProfileViewController.swift */; };
 		1193D88F26D654F1000509CA /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D88E26D654F1000509CA /* UserProfileView.swift */; };
 		1193D89126D79410000509CA /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1193D89026D79410000509CA /* NewsModel.swift */; };
@@ -77,7 +77,6 @@
 
 /* Begin PBXFileReference section */
 		1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendsModel.swift; sourceTree = "<group>"; };
-		1148B08D2700B52600EA3803 /* NewGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsModel.swift; sourceTree = "<group>"; };
 		1149ADCE26E34D200003FFB6 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		114C358826C5B50C00D9C17B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		114C358A26C5B52B00D9C17B /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		114E234126C41982003456EF /* OldProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldProfileViewController.swift; sourceTree = "<group>"; };
 		114E234726C4F3B4003456EF /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		115A97222704AEB8006B358A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		1160BB0F271EE3D000432B6E /* NewGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsModel.swift; sourceTree = "<group>"; };
 		1193D88B26D1787E000509CA /* GroupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfileViewController.swift; sourceTree = "<group>"; };
 		1193D88E26D654F1000509CA /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		1193D89026D79410000509CA /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */,
-				1148B08D2700B52600EA3803 /* NewGroupsModel.swift */,
+				1160BB0F271EE3D000432B6E /* NewGroupsModel.swift */,
 				119757F12700DF5B00329371 /* NewPhotoModel.swift */,
 				114C358826C5B50C00D9C17B /* UserModel.swift */,
 				114C358C26C5B6D500D9C17B /* PhotoModel.swift */,
@@ -617,6 +617,7 @@
 				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */,
+				1160BB10271EE3D000432B6E /* NewGroupsModel.swift in Sources */,
 				114E234226C41983003456EF /* OldProfileViewController.swift in Sources */,
 				11F6D1C626E4BD4200D17B60 /* FullScreenView.swift in Sources */,
 				1193D88F26D654F1000509CA /* UserProfileView.swift in Sources */,
@@ -636,7 +637,6 @@
 				114E087226CD72E4008F519A /* ButtonView.swift in Sources */,
 				1148B08C26FFC39B00EA3803 /* NewFriendsModel.swift in Sources */,
 				114C359526C5C3D100D9C17B /* SettingsStorage.swift in Sources */,
-				1148B08E2700B52600EA3803 /* NewGroupsModel.swift in Sources */,
 				114E087426CE7064008F519A /* PostModel.swift in Sources */,
 				114C359126C5BB8800D9C17B /* GroupsStorage.swift in Sources */,
 				114E087A26CE7AA8008F519A /* FeedTableViewCell.swift in Sources */,
