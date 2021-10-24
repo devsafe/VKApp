@@ -58,6 +58,7 @@
 		11CCD82526BC6405009A5865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CCD82326BC6405009A5865 /* LaunchScreen.storyboard */; };
 		11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD82E26BD75A2009A5865 /* LoginFormController.swift */; };
 		11CCD84326BF13F3009A5865 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CCD84226BF13F3009A5865 /* TabBarController.swift */; };
+		11CFB9D327255986001DCCC1 /* FriendsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CFB9D227255986001DCCC1 /* FriendsGetService.swift */; };
 		11E28B6126FA38D700D7917D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E28B6026FA38D700D7917D /* NetworkService.swift */; };
 		11F4A0FC26C5768300990634 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F4A0FB26C5768300990634 /* SettingsViewController.swift */; };
 		11F6D1C426E4BD0700D17B60 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */; };
@@ -127,6 +128,7 @@
 		11CCD82626BC6405009A5865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11CCD82E26BD75A2009A5865 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		11CCD84226BF13F3009A5865 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		11CFB9D227255986001DCCC1 /* FriendsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsGetService.swift; sourceTree = "<group>"; };
 		11E28B6026FA38D700D7917D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		11F4A0FB26C5768300990634 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		11F6D1C326E4BD0700D17B60 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				11422C522712DE82004C160E /* GroupsGetService.swift */,
+				11CFB9D227255986001DCCC1 /* FriendsGetService.swift */,
 			);
 			path = NewNetworkService;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				114C358926C5B50C00D9C17B /* UserModel.swift in Sources */,
 				11AB517D26FA12800057804A /* WKLoginViewController.swift in Sources */,
 				1193D89126D79410000509CA /* NewsModel.swift in Sources */,
+				11CFB9D327255986001DCCC1 /* FriendsGetService.swift in Sources */,
 				114E087026CD6905008F519A /* AvatarView.swift in Sources */,
 				11F6D1C926E7964F00D17B60 /* NavigationControllerAnimations.swift in Sources */,
 				114E234226C41983003456EF /* OldProfileViewController.swift in Sources */,

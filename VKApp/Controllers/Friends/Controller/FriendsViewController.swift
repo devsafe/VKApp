@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsViewController: UIViewController {
     
@@ -18,24 +19,27 @@ class FriendsViewController: UIViewController {
     var friendsAF: [Friend] = []
     private var firstLetters: [String] = []
     let networkService = NetworkService()
+    var afFriends = FriendsGet()
     //var friendsAloma: FriendsResponseModel = FriendsResponseModel(response: <#Response#>)
     //var ererr =
+    private var friendsRealm: Results<Friend>?
+    var tokenRealm: NotificationToken?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.friendsGet(user_id: UserSession.shared.userId) { [weak self] result in
-            guard let self = self else { return }
-                        switch result {
-                        case .success(let friends):
-                            self.friendsAF = friends
-                           // self.friends2 = self.friendsAF
-                            print("debug loadWeatherData weatherService: ", self.friendsAF.count)
-                            self.tableView.reloadData()
-                        case .failure: print("ERROR")
-                        }
-        }
-        
+//        networkService.friendsGet(user_id: UserSession.shared.userId) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let friends):
+//                self.friendsAF = friends
+//                // self.friends2 = self.friendsAF
+//                print("debug loadWeatherData weatherService: ", self.friendsAF.count)
+//                self.tableView.reloadData()
+//            case .failure: print("ERROR")
+//            }
+//        }
+        getFriendsAF()
         
         let friends = friendsAF
         print(friends.count)
@@ -44,7 +48,7 @@ class FriendsViewController: UIViewController {
         wordControl.setLetters(firstLetters)
         wordControl.backgroundColor = .clear
         wordControl.addTarget(self, action: #selector(scrollToLetter), for: .valueChanged)
-        friendsSection = sortedForSection(friends, firstLetters: firstLetters)
+        //friendsSection = sortedForSection(friends, firstLetters: firstLetters)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
@@ -78,6 +82,66 @@ class FriendsViewController: UIViewController {
             destination.userFromOtherView = friendsAF[userIndex.row]
         }
     }
+    
+    
+    func getFriendsAF() {afFriends.getMyFriends() {[weak self] result in
+        guard let self = self else { return }
+        switch result {
+        case .success(let friends):
+            //self.groupsAF = groups
+            // self.groups2 = self.groupsAF
+            self.loadData()
+            self.tableView.reloadData()
+        case .failure:
+            print("getFriends FAIL")
+            print()
+        }
+    }
+    }
+
+    func loadData() {
+        do {
+            let realm = try Realm()
+            
+            let friendsFromRealm = realm.objects(Friend.self)
+            print("33333333")
+            self.friendsAF = Array(friendsFromRealm)
+            print(self.friendsAF)
+            
+        } catch {
+            print(error)
+        }
+    }
+
+
+    private func pairTableAndRealm() {
+        guard let realm = try? Realm() else { return }
+        friendsRealm = realm.objects(Friend.self)
+        guard let friendsRealmNotification = friendsRealm else {return}
+        tokenRealm = friendsRealmNotification.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+                print("initial")
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .none)
+                print("insert")
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .none)
+                print("delete")
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .none)
+                print("reload")
+                tableView.endUpdates()
+            case .error(let error):
+                print("observe.error")
+                fatalError("\(error)")
+            }
+        }
+    }
 }
 
 private func getFirstLetters(_ friends: [Friend]) -> [String] {
@@ -95,6 +159,10 @@ private func sortedForSection(_ friends: [Friend], firstLetters: [String]) -> [[
     return friendsSorted
 }
 
+
+
+
+
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,7 +171,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // friendsSection[section].count
+        // friendsSection[section].count
         friendsAF.count
     }
     
@@ -115,7 +183,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-       // let friend = friendsSection[indexPath.section][indexPath.row]
+        // let friend = friendsSection[indexPath.section][indexPath.row]
         let friend = friendsAF[indexPath.row]
         cell.configure(friend: friend)
         return cell

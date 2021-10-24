@@ -86,33 +86,33 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     private func pairTableAndRealm() {
-         guard let realm = try? Realm() else { return }
-         groupsRealm = realm.objects(Group.self)
-         guard let friendsRealmNotification = groupsRealm else {return}
-         tokenRealm = friendsRealmNotification.observe { [weak self] (changes: RealmCollectionChange) in
-             guard let tableView = self?.tableView else { return }
-             switch changes {
-             case .initial:
-                 tableView.reloadData()
-                 print("initial")
-             case .update(_, let deletions, let insertions, let modifications):
-                 tableView.beginUpdates()
-                 tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
-                                      with: .none)
-                 print("insert")
-                 tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
-                                      with: .none)
-                 print("delete")
-                 tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
-                                      with: .none)
-                 print("reload")
-                 tableView.endUpdates()
-             case .error(let error):
-                 print("observe.error")
-                 fatalError("\(error)")
-             }
-         }
-     }
+        guard let realm = try? Realm() else { return }
+        groupsRealm = realm.objects(Group.self)
+        guard let friendsRealmNotification = groupsRealm else {return}
+        tokenRealm = friendsRealmNotification.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+                print("initial")
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .none)
+                print("insert")
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .none)
+                print("delete")
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .none)
+                print("reload")
+                tableView.endUpdates()
+            case .error(let error):
+                print("observe.error")
+                fatalError("\(error)")
+            }
+        }
+    }
 }
 
 extension FavGroupsViewController {
