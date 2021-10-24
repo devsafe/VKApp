@@ -34,7 +34,7 @@ class GroupsTableViewCell: UITableViewCell {
         }
         ///imageChannelsCell.image = UIImage(named: group.photo_100 ?? "logo-default")
         labelChannelsCell.text = group.name
-        detailLabelChannelsCell.text = "Members: " + String(group.name)
+        detailLabelChannelsCell.text = "Members: " + String(group.members_count)
         extraLabelChannelsCell?.text = group.name
         favouritGroupImageCell?.image = UIImage(named: "favouritImage")
         let tintableImage = favouritGroupImageCell?.image?.withRenderingMode(.alwaysTemplate)

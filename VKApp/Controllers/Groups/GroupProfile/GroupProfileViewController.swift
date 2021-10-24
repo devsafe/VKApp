@@ -68,7 +68,7 @@ class GroupProfileViewController: UIViewController, UITableViewDelegate, UITable
             case .failure: print("ERROR")
             }
         }
-        groupSubscribersCountLabelOutlet.text = "Members: \(groupFromOtherView.id)"
+        groupSubscribersCountLabelOutlet.text = "Members: \(groupFromOtherView.members_count)"
         logoGroupProfileOutlet.image = UIImage(named: groupFromOtherView.groupLogo)
         title = groupFromOtherView.name
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
