@@ -39,6 +39,7 @@ class FriendsViewController: UIViewController {
 //            case .failure: print("ERROR")
 //            }
 //        }
+        pairTableAndRealm()
         getFriendsAF()
         
         let friends = friendsAF
