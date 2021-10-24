@@ -28,17 +28,6 @@ class FriendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        networkService.friendsGet(user_id: UserSession.shared.userId) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let friends):
-//                self.friendsAF = friends
-//                // self.friends2 = self.friendsAF
-//                print("debug loadWeatherData weatherService: ", self.friendsAF.count)
-//                self.tableView.reloadData()
-//            case .failure: print("ERROR")
-//            }
-//        }
         pairTableAndRealm()
         getFriendsAF()
         
@@ -49,7 +38,6 @@ class FriendsViewController: UIViewController {
         wordControl.setLetters(firstLetters)
         wordControl.backgroundColor = .clear
         wordControl.addTarget(self, action: #selector(scrollToLetter), for: .valueChanged)
-        //friendsSection = sortedForSection(friends, firstLetters: firstLetters)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = .clear
