@@ -14,12 +14,12 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     let networkService = NetworkService()
     //private let networkService = NetworkService()
     // let groups = [[GroupsItems]]()
-    var groups2 = [GroupsItems]()
-    var groupsAF: [GroupsItems] = []
+    var groups2 = [Group]()
+    var groupsAF: [Group] = []
     
     private var afGroups = GroupsGet()
     
-    private var groupsRealm: Results<GroupsItems>?
+    private var groupsRealm: Results<Group>?
     var tokenRealm: NotificationToken?
     
     let myRefreshControl: UIRefreshControl = {
@@ -74,7 +74,7 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
         do {
             let realm = try Realm()
             
-            let groupsFromRealm = realm.objects(GroupsItems.self)
+            let groupsFromRealm = realm.objects(Group.self)
             print("33333333")
             self.groupsAF = Array(groupsFromRealm)
             print(self.groupsAF)
@@ -87,7 +87,7 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     private func pairTableAndRealm() {
          guard let realm = try? Realm() else { return }
-         groupsRealm = realm.objects(GroupsItems.self)
+         groupsRealm = realm.objects(Group.self)
          guard let friendsRealmNotification = groupsRealm else {return}
          tokenRealm = friendsRealmNotification.observe { [weak self] (changes: RealmCollectionChange) in
              guard let tableView = self?.tableView else { return }

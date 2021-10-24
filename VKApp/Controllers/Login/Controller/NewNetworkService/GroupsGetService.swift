@@ -18,12 +18,12 @@ enum GroupsServiceError: Error {
 class GroupsGet {
     private let urlPath = "https://api.vk.com/method/groups.get"
     
-    func getMyGroups(completion: @escaping (Result<[GroupsItems], GroupsServiceError>) -> Void) {
+    func getMyGroups(completion: @escaping (Result<[Group], GroupsServiceError>) -> Void) {
        
         let params: Parameters = [
             "owner_id": "\(String(UserSession.shared.userId))",
             "extended": "1",
-           "count": "2",
+           "count": "22",
             "fields": "description,members_count",
             "access_token": "\(UserSession.shared.token)",
             "v": "5.81"
@@ -39,7 +39,7 @@ class GroupsGet {
                 return
             }
             do {
-                let responseGroups = try JSONDecoder().decode(Groups.self, from: response.data!)
+                let responseGroups = try JSONDecoder().decode(Response<Group>.self, from: response.data!)
                 let groups = responseGroups.response.items
                self.saveGroupsData(groups)
                 completion(.success(groups))
@@ -51,11 +51,11 @@ class GroupsGet {
         }
     }
 
-        func saveGroupsData(_ groups: [GroupsItems]) {
+        func saveGroupsData(_ groups: [Group]) {
             do {
                 let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
                 let realm = try Realm(configuration: config)
-                let oldGroups = realm.objects(GroupsItems.self)
+                let oldGroups = realm.objects(Group.self)
                 realm.beginWrite()
                 realm.delete(oldGroups)
                 realm.add(groups)

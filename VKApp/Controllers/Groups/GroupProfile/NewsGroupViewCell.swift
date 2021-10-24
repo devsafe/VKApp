@@ -26,7 +26,7 @@ class NewsGroupViewCell: UITableViewCell {
     
     var avatarTapped: (() -> Void)?
     
-    func configure(newsModel: NewsModel, groupModel: GroupsItems) {
+    func configure(newsModel: NewsModel, groupModel: Group) {
         logoGroupNewsImage.image = UIImage(named: "groupModel.logo")
         authorGroupNewsLabel.text = groupModel.name
     }

@@ -13,7 +13,7 @@ class Friend: Object, Codable {
     @objc dynamic var firstName: String = ""
     @objc dynamic var lastName: String = ""
     @objc dynamic var avatarURL: String = ""
-    @objc dynamic var cityName: String = ""
+    @objc dynamic var cityName: String? = nil
     
     
     enum CodingKeys: String, CodingKey {
@@ -25,7 +25,6 @@ class Friend: Object, Codable {
     }
     
     enum CityKeys: String, CodingKey {
-        case id
         case title
     }
     
@@ -45,8 +44,13 @@ class Friend: Object, Codable {
         self.lastName = try values.decode(String.self, forKey: .lastName)
         self.avatarURL = try values.decode(String.self, forKey: .avatarURL)
         
+        do {
         let cityValues = try values.nestedContainer(keyedBy: CityKeys.self, forKey: .cityName)
         self.cityName = try cityValues.decode(String.self, forKey: .title)
+        }
+        catch {
+            self.cityName = nil
+        }
     }
 }
 

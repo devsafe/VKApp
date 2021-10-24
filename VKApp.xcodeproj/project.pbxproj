@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11422C502712DDCA004C160E /* NewGroupsModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11422C4F2712DDCA004C160E /* NewGroupsModel2.swift */; };
 		11422C532712DE82004C160E /* GroupsGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11422C522712DE82004C160E /* GroupsGetService.swift */; };
 		1148B08C26FFC39B00EA3803 /* NewFriendsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */; };
 		1148B08E2700B52600EA3803 /* NewGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1148B08D2700B52600EA3803 /* NewGroupsModel.swift */; };
@@ -78,7 +77,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11422C4F2712DDCA004C160E /* NewGroupsModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsModel2.swift; sourceTree = "<group>"; };
 		11422C522712DE82004C160E /* GroupsGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsGetService.swift; sourceTree = "<group>"; };
 		1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFriendsModel.swift; sourceTree = "<group>"; };
 		1148B08D2700B52600EA3803 /* NewGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupsModel.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			children = (
 				1148B08B26FFC39B00EA3803 /* NewFriendsModel.swift */,
 				1148B08D2700B52600EA3803 /* NewGroupsModel.swift */,
-				11422C4F2712DDCA004C160E /* NewGroupsModel2.swift */,
 				119757F12700DF5B00329371 /* NewPhotoModel.swift */,
 				114C358826C5B50C00D9C17B /* UserModel.swift */,
 				114C358C26C5B6D500D9C17B /* PhotoModel.swift */,
@@ -604,7 +601,6 @@
 				11CCD82F26BD75A2009A5865 /* LoginFormController.swift in Sources */,
 				114C359826C6E29F00D9C17B /* Storage.swift in Sources */,
 				11F6D1DC26EB988800D17B60 /* ZoomAnimator.swift in Sources */,
-				11422C502712DDCA004C160E /* NewGroupsModel2.swift in Sources */,
 				114E234826C4F3B4003456EF /* PhotosViewController.swift in Sources */,
 				115A97232704AEB8006B358A /* Response.swift in Sources */,
 				114E086426CB0979008F519A /* CommentControl.swift in Sources */,
