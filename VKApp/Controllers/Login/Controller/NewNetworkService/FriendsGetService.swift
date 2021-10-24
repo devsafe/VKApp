@@ -39,8 +39,8 @@ class FriendsGet {
                 return
             }
             do {
-                let responseGroups = try JSONDecoder().decode(Response<Friend>.self, from: response.data!)
-                let friends = responseGroups.response.items
+                let responseFriends = try JSONDecoder().decode(Response<Friend>.self, from: response.data!)
+                let friends = responseFriends.response.items
                 self.saveFriendsData(friends)
                 completion(.success(friends))
                 print(response.value)
@@ -51,14 +51,14 @@ class FriendsGet {
         }
     }
     
-    func saveFriendsData(_ groups: [Friend]) {
+    func saveFriendsData(_ friends: [Friend]) {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm(configuration: config)
-            let oldGroups = realm.objects(Friend.self)
+            let oldFriends = realm.objects(Friend.self)
             realm.beginWrite()
-            realm.delete(oldGroups)
-            realm.add(groups)
+            realm.delete(oldFriends)
+            realm.add(friends)
             print(realm.configuration.fileURL)
             try realm.commitWrite()
         } catch {

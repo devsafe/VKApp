@@ -88,8 +88,6 @@ class FriendsViewController: UIViewController {
         guard let self = self else { return }
         switch result {
         case .success(let friends):
-            //self.groupsAF = groups
-            // self.groups2 = self.groupsAF
             self.loadData()
             self.tableView.reloadData()
         case .failure:
