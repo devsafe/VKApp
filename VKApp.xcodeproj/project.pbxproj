@@ -498,10 +498,10 @@
 		11DEB51D27285942003199E1 /* xib */ = {
 			isa = PBXGroup;
 			children = (
-				11DEB51E2728596A003199E1 /* FeedCellFooter.xib */,
 				11DEB52027285992003199E1 /* FeedCellHeader.xib */,
-				11DEB522272859AA003199E1 /* FeedCellText.xib */,
 				11DEB524272859E6003199E1 /* FeedCellPhoto.xib */,
+				11DEB522272859AA003199E1 /* FeedCellText.xib */,
+				11DEB51E2728596A003199E1 /* FeedCellFooter.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
