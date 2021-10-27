@@ -10,6 +10,7 @@ import UIKit
 class FeedCellText: UITableViewCell {
     
     static let reusedIdentifier = "FeedCellText"
+    @IBOutlet weak var postTextLabel: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -19,11 +20,11 @@ class FeedCellText: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
+        postTextLabel.text = nil
     }
     
     func configure(postModel: PostModel, userModel: UserModel) {
-
+        postTextLabel.text = postModel.text
         
     }
     
