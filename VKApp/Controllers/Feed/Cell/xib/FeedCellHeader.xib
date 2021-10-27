@@ -55,6 +55,10 @@
                     <constraint firstItem="OSd-pk-TWd" firstAttribute="leading" secondItem="nVM-Ck-xAd" secondAttribute="trailing" constant="8" id="weK-5h-2JX"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="authorNameLabel" destination="OSd-pk-TWd" id="Mw0-rD-9Ld"/>
+                <outlet property="avatarImage" destination="nVM-Ck-xAd" id="l91-2s-o0u"/>
+            </connections>
             <point key="canvasLocation" x="71.739130434782609" y="51.897321428571423"/>
         </tableViewCell>
     </objects>

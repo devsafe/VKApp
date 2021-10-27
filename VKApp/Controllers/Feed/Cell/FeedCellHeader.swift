@@ -11,6 +11,8 @@ class FeedCellHeader: UITableViewCell {
     
     static let reusedIdentifier = "FeedCellHeader"
     
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var authorNameLabel: UILabel!
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureStatic()
@@ -25,6 +27,9 @@ class FeedCellHeader: UITableViewCell {
     }
     
     func configure(postModel: PostModel, userModel: UserModel) {
+        avatarImage.image = UIImage(named: userModel.avatar)
+        authorNameLabel.text = userModel.fullName
+        
 //        avatarView.image = UIImage(named: friend.avatarName)
 //        nameLabel.text = friend.name
 //        dataLabel.text = newsData.data
@@ -33,6 +38,13 @@ class FeedCellHeader: UITableViewCell {
     
     private func configureStatic() {
 //        avatarView.translatesAutoresizingMaskIntoConstraints = false
-//        avatarView.layer.cornerRadius = 25
+        avatarImage.layer.cornerRadius = 20
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        selectedBackgroundView = bgColorView
+        let customColor : UIColor = UIColor( red: 1, green: 1, blue: 1, alpha: 0.2 )
+        avatarImage.layer.borderColor = customColor.cgColor
+        avatarImage.layer.shadowOffset = .zero
+        avatarImage.layer.borderWidth = 1
     }
 }
