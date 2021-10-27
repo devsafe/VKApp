@@ -22,9 +22,9 @@ class FeedCellHeader: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-       // avatarView.image = nil
-//        nameLabel.text = nil
-//        dataLabel.text = nil
+        avatarImage.image = nil
+        authorNameLabel.text = nil
+        postDateLabel.text = nil
     }
     
     func configure(postModel: PostModel, userModel: UserModel) {
