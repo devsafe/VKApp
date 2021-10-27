@@ -58,6 +58,7 @@
             <connections>
                 <outlet property="authorNameLabel" destination="OSd-pk-TWd" id="Mw0-rD-9Ld"/>
                 <outlet property="avatarImage" destination="nVM-Ck-xAd" id="l91-2s-o0u"/>
+                <outlet property="postDateLabel" destination="SIG-zq-Usi" id="eXa-uQ-r3l"/>
             </connections>
             <point key="canvasLocation" x="71.739130434782609" y="51.897321428571423"/>
         </tableViewCell>

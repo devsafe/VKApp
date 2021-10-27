@@ -13,6 +13,7 @@ class FeedCellHeader: UITableViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var authorNameLabel: UILabel!
+    @IBOutlet weak var postDateLabel: UILabel!
     override func layoutSubviews() {
         super.layoutSubviews()
         self.configureStatic()
@@ -29,6 +30,7 @@ class FeedCellHeader: UITableViewCell {
     func configure(postModel: PostModel, userModel: UserModel) {
         avatarImage.image = UIImage(named: userModel.avatar)
         authorNameLabel.text = userModel.fullName
+        postDateLabel.text = postModel.timeStamp
         
 //        avatarView.image = UIImage(named: friend.avatarName)
 //        nameLabel.text = friend.name
