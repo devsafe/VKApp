@@ -25,7 +25,6 @@ class FeedCellPhoto: UITableViewCell {
     
     func configure(postModel: PostModel, userModel: UserModel) {
         postPhoto.image = UIImage(named: postModel.media)
-        
     }
     
     private func configureStatic() {
