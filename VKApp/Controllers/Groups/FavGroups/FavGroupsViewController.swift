@@ -13,11 +13,14 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var tableView: UITableView!
     let networkService = NetworkService()
     //private let networkService = NetworkService()
-   // let groups = [[GroupsItems]]()
-    var groups2 = [GroupsItems]()
-    var groupsAF: [GroupsItems] = []
+    // let groups = [[GroupsItems]]()
+    var groups2 = [Group]()
+    var groupsAF: [Group] = []
     
     private var afGroups = GroupsGet()
+    
+    private var groupsRealm: Results<Group>?
+    var tokenRealm: NotificationToken?
     
     let myRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -27,18 +30,19 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pairTableAndRealm()
         //networkService.groupsGet(user_id: UserSession.shared.userId)
-//        networkService.groupsGet(user_id: UserSession.shared.userId) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let groups):
-//                self.groupsAF = groups
-//                self.groups2 = self.groupsAF
-//                print("debug loadWeatherData weatherService: ", self.groupsAF.count)
-//                self.tableView.reloadData()
-//            case .failure: print("ERROR")
-//            }
-//        }
+        //        networkService.groupsGet(user_id: UserSession.shared.userId) { [weak self] result in
+        //            guard let self = self else { return }
+        //            switch result {
+        //            case .success(let groups):
+        //                self.groupsAF = groups
+        //                self.groups2 = self.groupsAF
+        //                print("debug loadWeatherData weatherService: ", self.groupsAF.count)
+        //                self.tableView.reloadData()
+        //            case .failure: print("ERROR")
+        //            }
+        //        }
         getGroupsAF()
         tableView.separatorColor = .clear
         tableView.refreshControl = myRefreshControl
@@ -56,7 +60,7 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
             switch result {
             case .success(let groups):
                 //self.groupsAF = groups
-               // self.groups2 = self.groupsAF
+                // self.groups2 = self.groupsAF
                 self.loadData()
                 self.tableView.reloadData()
             case .failure:
@@ -67,26 +71,53 @@ class FavGroupsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func loadData() {
-            do {
-                let realm = try Realm()
-                
-                let groupsFromRealm = realm.objects(GroupsItems.self)
-                print("33333333")
-                self.groupsAF = Array(groupsFromRealm)
-                print(self.groupsAF)
-                
-            } catch {
-    // если произошла ошибка, выводим ее в консоль
-                print(error)
+        do {
+            let realm = try Realm()
+            
+            let groupsFromRealm = realm.objects(Group.self)
+            print("33333333")
+            self.groupsAF = Array(groupsFromRealm)
+            print(self.groupsAF)
+            
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    private func pairTableAndRealm() {
+        guard let realm = try? Realm() else { return }
+        groupsRealm = realm.objects(Group.self)
+        guard let friendsRealmNotification = groupsRealm else {return}
+        tokenRealm = friendsRealmNotification.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+                print("initial")
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .none)
+                print("insert")
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .none)
+                print("delete")
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .none)
+                print("reload")
+                tableView.endUpdates()
+            case .error(let error):
+                print("observe.error")
+                fatalError("\(error)")
             }
-
+        }
+    }
 }
-}
-
 
 extension FavGroupsViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupsAF.count 
+        return groupsAF.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

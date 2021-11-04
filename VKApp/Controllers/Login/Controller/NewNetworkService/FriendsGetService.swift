@@ -1,30 +1,30 @@
 //
-//  GroupsGetService.swift
+//  FriendsGetService.swift
 //  VKApp
 //
-//  Created by Boris Sobolev on 10.10.2021.
+//  Created by Boris Sobolev on 24.10.2021.
 //
 
 import Foundation
 import Alamofire
 import RealmSwift
 
-enum GroupsServiceError: Error {
+enum FriendsServiceError: Error {
     case decodeError
     case notData
     case serverError
 }
 
-class GroupsGet {
-    private let urlPath = "https://api.vk.com/method/groups.get"
+class FriendsGet {
+    private let urlPath = "https://api.vk.com/method/friends.get"
     
-    func getMyGroups(completion: @escaping (Result<[Group], GroupsServiceError>) -> Void) {
+    func getMyFriends(completion: @escaping (Result<[Friend], FriendsServiceError>) -> Void) {
         
         let params: Parameters = [
-            "owner_id": "\(String(UserSession.shared.userId))",
-            "extended": "1",
+            "user_id": "\(String(UserSession.shared.userId))",
+            //"extended": "1",
             "count": "22",
-            "fields": "description,members_count",
+            "fields" : "city, photo_100",
             "access_token": "\(UserSession.shared.token)",
             "v": "5.81"
         ]
@@ -39,10 +39,10 @@ class GroupsGet {
                 return
             }
             do {
-                let responseGroups = try JSONDecoder().decode(Response<Group>.self, from: response.data!)
-                let groups = responseGroups.response.items
-                self.saveGroupsData(groups)
-                completion(.success(groups))
+                let responseFriends = try JSONDecoder().decode(Response<Friend>.self, from: response.data!)
+                let friends = responseFriends.response.items
+                self.saveFriendsData(friends)
+                completion(.success(friends))
                 print(response.value)
             } catch {
                 completion(.failure(.decodeError))
@@ -51,14 +51,14 @@ class GroupsGet {
         }
     }
     
-    func saveGroupsData(_ groups: [Group]) {
+    func saveFriendsData(_ friends: [Friend]) {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm(configuration: config)
-            let oldGroups = realm.objects(Group.self)
+            let oldFriends = realm.objects(Friend.self)
             realm.beginWrite()
-            realm.delete(oldGroups)
-            realm.add(groups)
+            realm.delete(oldFriends)
+            realm.add(friends)
             print(realm.configuration.fileURL)
             try realm.commitWrite()
         } catch {

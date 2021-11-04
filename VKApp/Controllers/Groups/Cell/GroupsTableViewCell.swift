@@ -23,8 +23,8 @@ class GroupsTableViewCell: UITableViewCell {
         self.configureCellStaticApperance()
     }
     
-    func configure(group: GroupsItems) {
-        networkService.photoLoad(url: group.photo_100) { [weak self] result in
+    func configure(group: Group) {
+        networkService.photoLoad(url: group.groupLogo) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photo):

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCellHeader" rowHeight="63" id="zuj-vJ-I2N" customClass="FeedCellHeader" customModule="VKApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="63"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zuj-vJ-I2N" id="roU-Fb-IEk">
+                <rect key="frame" x="0.0" y="0.0" width="331" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Ofauthor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSd-pk-TWd">
+                        <rect key="frame" x="64" y="4" width="259" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVM-Ck-xAd">
+                        <rect key="frame" x="16" y="4" width="40" height="40"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="P3m-WE-V7S"/>
+                            <constraint firstAttribute="height" constant="40" id="tTY-LW-4SJ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIG-zq-Usi">
+                        <rect key="frame" x="64" y="29" width="54.5" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFT-T2-vAZ">
+                        <rect key="frame" x="296" y="13" width="19" height="22"/>
+                        <state key="normal" image="ellipsis" catalog="system"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OSd-pk-TWd" firstAttribute="top" secondItem="nVM-Ck-xAd" secondAttribute="top" id="1m1-Ms-hDh"/>
+                    <constraint firstAttribute="bottom" secondItem="nVM-Ck-xAd" secondAttribute="bottom" constant="4" id="4Yk-OM-D6u"/>
+                    <constraint firstItem="gFT-T2-vAZ" firstAttribute="centerY" secondItem="nVM-Ck-xAd" secondAttribute="centerY" id="WWL-Fh-mHD"/>
+                    <constraint firstItem="nVM-Ck-xAd" firstAttribute="leading" secondItem="roU-Fb-IEk" secondAttribute="leading" constant="16" id="WmQ-rZ-l43"/>
+                    <constraint firstAttribute="trailing" secondItem="gFT-T2-vAZ" secondAttribute="trailing" constant="16" id="Y9g-Tb-eM8"/>
+                    <constraint firstItem="nVM-Ck-xAd" firstAttribute="top" secondItem="roU-Fb-IEk" secondAttribute="top" constant="4" id="i9X-MT-raP"/>
+                    <constraint firstItem="SIG-zq-Usi" firstAttribute="leading" secondItem="OSd-pk-TWd" secondAttribute="leading" id="iYW-h5-gmh"/>
+                    <constraint firstAttribute="trailing" secondItem="OSd-pk-TWd" secondAttribute="trailing" constant="8" id="rW7-rI-UKJ"/>
+                    <constraint firstItem="SIG-zq-Usi" firstAttribute="bottom" secondItem="nVM-Ck-xAd" secondAttribute="bottom" id="ukl-48-XYv"/>
+                    <constraint firstItem="OSd-pk-TWd" firstAttribute="leading" secondItem="nVM-Ck-xAd" secondAttribute="trailing" constant="8" id="weK-5h-2JX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="authorNameLabel" destination="OSd-pk-TWd" id="Mw0-rD-9Ld"/>
+                <outlet property="avatarImage" destination="nVM-Ck-xAd" id="l91-2s-o0u"/>
+                <outlet property="postDateLabel" destination="SIG-zq-Usi" id="eXa-uQ-r3l"/>
+            </connections>
+            <point key="canvasLocation" x="71.739130434782609" y="51.897321428571423"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
