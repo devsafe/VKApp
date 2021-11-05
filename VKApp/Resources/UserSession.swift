@@ -16,4 +16,5 @@ class UserSession {
     
     var token: String = ""
     var userId: Int = 0
+    var v: String = "5.131"
 }
