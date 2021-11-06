@@ -63,6 +63,7 @@ class GroupsGet {
             try realm.commitWrite()
         } catch {
             print(error)
+            //error
         }
     }
 }
